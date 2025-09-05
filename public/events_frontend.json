@@ -88,5 +88,257 @@
     "rating": 4.8,
     "description": "Celebrate the beauty of cherry blossoms with traditional Japanese performances and tea ceremonies.",
     "image": "https://res.cloudinary.com/enchanting/f_auto,q_70,w_900,h_490,c_fill/et-web/2019/03/Himeji-Castle.jpg"
+  },
+  {
+    "id": 107,
+    "name": "Threaded Field",
+    "type": "art",
+    "category": "Sculpture",
+    "address": "157 Wurundjeri Way, DOCKLANDS",
+    "coordinates": {
+      "lat": -37.8152979137773,
+      "lng": 144.947771877035
+    },
+    "ethnicTags": [],
+    "date": "1999",
+    "time": "",
+    "price": "Free",
+    "rating": null,
+    "description": "Art by Simon Perry",
+    "image": ""
+  },
+  {
+    "id": 108,
+    "name": "Cow Up A Tree",
+    "type": "art",
+    "category": "Bronze sculpture",
+    "address": "135 Harbour Esplanade, DOCKLANDS",
+    "coordinates": {
+      "lat": -37.8171223164672,
+      "lng": 144.945279753599
+    },
+    "ethnicTags": [],
+    "date": "2000",
+    "time": "",
+    "price": "Free",
+    "rating": null,
+    "description": "Art by John Kelly",
+    "image": ""
+  },
+  {
+    "id": 109,
+    "name": "Coat of Arms",
+    "type": "art",
+    "category": "Brass pavement inlay",
+    "address": "100 Swanston Street, MELBOURNE",
+    "coordinates": {
+      "lat": -37.8151225543656,
+      "lng": 144.966479473485
+    },
+    "ethnicTags": [],
+    "date": "1992",
+    "time": "",
+    "price": "Free",
+    "rating": null,
+    "description": "Art by City of Melbourne",
+    "image": ""
+  },
+  {
+    "id": 110,
+    "name": "Federation Bells",
+    "type": "art",
+    "category": "Bronze-alloy bells on galvanised-steel poles",
+    "address": "Birrarung Marr, MELBOURNE",
+    "coordinates": {
+      "lat": -37.8187207058813,
+      "lng": 144.974110660022
+    },
+    "ethnicTags": [],
+    "date": "2002",
+    "time": "",
+    "price": "Free",
+    "rating": null,
+    "description": "Art by Designers Neil McLachlan and Anton Hasell",
+    "image": ""
+  },
+  {
+    "id": 111,
+    "name": "Thomas Ferguson Memorial Drinking Fountain",
+    "type": "monument",
+    "category": "Stone drinking fountain",
+    "address": "179 Leicester Street, CARLTON",
+    "coordinates": {
+      "lat": -37.8015394618203,
+      "lng": 144.960227228018
+    },
+    "ethnicTags": [],
+    "date": "1912",
+    "time": "",
+    "price": "Free",
+    "rating": null,
+    "description": "Monument by unknown",
+    "image": ""
+  },
+  {
+    "id": 112,
+    "name": "The Water Nymph",
+    "type": "art",
+    "category": "Bronze sculpture",
+    "address": "Queen Victoria Gardens, St Kilda Road, MELBOURNE",
+    "coordinates": {
+      "lat": -37.8222098236425,
+      "lng": 144.971335339413
+    },
+    "ethnicTags": [],
+    "date": "1925",
+    "time": "",
+    "price": "Free",
+    "rating": null,
+    "description": "Art by Paul Montford",
+    "image": ""
+  },
+  {
+    "id": 113,
+    "name": "Blowhole",
+    "type": "art",
+    "category": "Stainless-steel and aluminium sculpture",
+    "address": "15 Harbour Esplanade, DOCKLANDS",
+    "coordinates": {
+      "lat": -37.8219524131263,
+      "lng": 144.946745954515
+    },
+    "ethnicTags": [],
+    "date": "2005",
+    "time": "",
+    "price": "Free",
+    "rating": null,
+    "description": "Art by Duncan Stemler",
+    "image": ""
+  },
+  {
+    "id": 114,
+    "name": "Federation Bells",
+    "type": "art",
+    "category": "Bronze-alloy bells on galvanised-steel poles",
+    "address": "Birrarung Marr, MELBOURNE",
+    "coordinates": {
+      "lat": -37.8187508719706,
+      "lng": 144.974172398306
+    },
+    "ethnicTags": [],
+    "date": "2002",
+    "time": "",
+    "price": "Free",
+    "rating": null,
+    "description": "Art by Designers Neil McLachlan and Anton Hasell",
+    "image": ""
+  },
+  {
+    "id": 115,
+    "name": "Mockridge Fountain",
+    "type": "fountain",
+    "category": "Concrete fountain",
+    "address": "City Square, Collins St, MELBOURNE",
+    "coordinates": {
+      "lat": -37.8155224156707,
+      "lng": 144.966994359113
+    },
+    "ethnicTags": [],
+    "date": "c. 2000",
+    "time": "",
+    "price": "Free",
+    "rating": null,
+    "description": "Fountain by Ron Jones, Simon Perry and Darryl Cowie",
+    "image": ""
+  },
+  {
+    "id": 116,
+    "name": "Signature Work",
+    "type": "art",
+    "category": "Painted aluminium sculpture",
+    "address": "22 Waterview Walk, DOCKLANDS",
+    "coordinates": {
+      "lat": -37.8192431329106,
+      "lng": 144.947246784778
+    },
+    "ethnicTags": [],
+    "date": "2004",
+    "time": "",
+    "price": "Free",
+    "rating": null,
+    "description": "Art by Emily Floyd",
+    "image": ""
+  },
+  {
+    "id": 117,
+    "name": "Captain Matthew Flinders Statue",
+    "type": "monument",
+    "category": "Bronze statue with granite plinth",
+    "address": "30 Swanston Street, MELBOURNE",
+    "coordinates": {
+      "lat": -37.8169633123315,
+      "lng": 144.967487606224
+    },
+    "ethnicTags": [],
+    "date": "1923",
+    "time": "",
+    "price": "Free",
+    "rating": null,
+    "description": "Monument by Sculptor Charles Web Gilbert; founder F. Barbedienne",
+    "image": ""
+  },
+  {
+    "id": 118,
+    "name": "Art Wall",
+    "type": "art",
+    "category": "3D Installation",
+    "address": "160 Harbour Esplanade, DOCKLANDS",
+    "coordinates": {
+      "lat": -37.8155779391708,
+      "lng": 144.946321235909
+    },
+    "ethnicTags": [],
+    "date": "2000",
+    "time": "",
+    "price": "Free",
+    "rating": null,
+    "description": "Art by Peter D. Cole",
+    "image": ""
+  },
+  {
+    "id": 119,
+    "name": "Scar - A Stolen Vision",
+    "type": "art",
+    "category": "Wooden pier post and metal sculptures",
+    "address": "Enterprize Park, MELBOURNE",
+    "coordinates": {
+      "lat": -37.8202412036118,
+      "lng": 144.959153249799
+    },
+    "ethnicTags": [],
+    "date": "2001",
+    "time": "",
+    "price": "Free",
+    "rating": null,
+    "description": "Art by Karen Casey, Craig Charles, Glenn Romanis, Maree Clarke, Ray Thomas, Ricardo Idagi and Treahna Hamm",
+    "image": ""
+  },
+  {
+    "id": 120,
+    "name": "Passage",
+    "type": "monument",
+    "category": "Bluestone sculpture",
+    "address": "92 Therry Street, MELBOURNE",
+    "coordinates": {
+      "lat": -37.8074524440917,
+      "lng": 144.958306664206
+    },
+    "ethnicTags": [],
+    "date": "1994",
+    "time": "",
+    "price": "Free",
+    "rating": null,
+    "description": "Monument by Mark Stoner",
+    "image": ""
   }
 ]

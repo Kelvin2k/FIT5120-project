@@ -360,7 +360,7 @@
     }
   },
   {
-    "id": 4,
+    "id": 21,
     "name": "O'Brien Icehouse",
     "type": "facility",
     "address": "Ground/105 Pearl River Rd, Docklands VIC 3008",
@@ -378,21 +378,21 @@
     }
   },
   {
-    "id": 5,
+    "id": 22,
     "name": "Carlton Baths",
     "type": "facility",
-    "address": "",
+    "address": "216/248 Rathdowne St, Carlton VIC 3053",
     "coordinates": {
       "lat": -37.7934377042609,
       "lng": 144.971696548624
     },
-    "ethnicTags": [],
-    "phone": "",
-    "rating": null,
-    "image": "",
-    "sourceLayer": "dataset",
+    "ethnicTags": ["Vietnamese"],
+    "phone": "0393473677",
+    "rating": 3.8,
+    "image": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4nrJfjDYuV0MZNcgP3TlnaV_Oovbb8Gjf7WLhyEKN3WGLjdnGnjQbMzi_9HY854iDkIvAUFXbE1OeCUPzexE_11bn4HQ-r_uEKHuBiVn4k0Qs5U-k-1KUwRT1sg58eorXEiD4lOE2A=w408-h272-k-no",
+    "sourceLayer": "Vietnamese",
     "raw": {
       "description": "Indoor Recreation Facility"
     }
-  },
+  }
 ]
