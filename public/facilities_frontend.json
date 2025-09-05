@@ -323,4 +323,76 @@
       "description": "Melbourne's Ultimate Climbing Experience. Established since 1993. Access over 100 indoor rock climbing routes graded from 6 to 30 including top roping."
     }
   }
+  {
+    "id": 19,
+    "name": "Eureka Skydeck",
+    "type": "facility",
+    "address": "7 Riverside Quay, Southbank VIC 3006",
+    "coordinates": {
+      "lat": -37.8216187583314,
+      "lng": 144.964622218598
+    },
+    "ethnicTags": ["Chinese"],
+    "phone": "0396938888",
+    "rating": 4.5,
+    "image": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4npuDlED0fBkmEQYbmC3c-SMvD256na1HBAmZUPofva6oxe1e6Dd6LSx5v-gf1HdissvyLwOhpj3Ebk3IB6qpT5nqVVmjO1QeMo_3Icr_2YuQBhhQeJaKcuUVY1Dg7gCvcUncZ_XLQ=w426-h240-k-no",
+    "sourceLayer": "Chinese",
+    "raw": {
+      "description": "Observation Tower/Wheel"
+    }
+  },
+  {
+    "id": 20,
+    "name": "Shrine of Rembrance Reserve",
+    "type": "facility",
+    "address": "Birdwood Ave, Melbourne VIC 3001",
+    "coordinates": {
+      "lat": -37.8320733992876,
+      "lng": 144.973628364465
+    },
+    "ethnicTags": ["Indonesian"],
+    "phone": "0396618100",
+    "rating": 4.8,
+    "image": "https://lh3.googleusercontent.com/gps-cs-s/AC9h4np9fJ_nAHp3hyLDlynGfb_fx9wQoyxmmMQdZJ-uRYpK0C8Xnnrd1M6ZdaLANLvN1vV9lGYBUwlqMVdYZ5mktfbzLwz5vsrsgvlro7X3PmC25khNZeU7dG2AQmICBkRR5ZjfEZk=w408-h305-k-no",
+    "sourceLayer": "Indonesian",
+    "raw": {
+      "description": "Informal Outdoor Facility (Park/Garden/Reserve)"
+    }
+  },
+  {
+    "id": 4,
+    "name": "O'Brien Icehouse",
+    "type": "facility",
+    "address": "Ground/105 Pearl River Rd, Docklands VIC 3008",
+    "coordinates": {
+      "lat": -37.8121881194053,
+      "lng": 144.935684018873
+    },
+    "ethnicTags": ["Chinese"],
+    "phone": "",
+    "rating": 4.5,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3g06No4_U8g0iYhnqJ1PkymbeAVEjdqLYgqtDWpkshzY&s=4",
+    "sourceLayer": "Chinese",
+    "raw": {
+      "description": "Indoor Recreation Facility"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Carlton Baths",
+    "type": "facility",
+    "address": "",
+    "coordinates": {
+      "lat": -37.7934377042609,
+      "lng": 144.971696548624
+    },
+    "ethnicTags": [],
+    "phone": "",
+    "rating": null,
+    "image": "",
+    "sourceLayer": "dataset",
+    "raw": {
+      "description": "Indoor Recreation Facility"
+    }
+  },
 ]
