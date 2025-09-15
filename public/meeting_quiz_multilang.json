@@ -1,0 +1,1202 @@
+[
+  {
+    "id": "meeting_q1",
+    "type": "mcq",
+    "questionText": {
+      "en": "When meeting someone casually in Melbourne, what is the most common way to greet?",
+      "zh": "在墨尔本，非正式见面时最常见的问候方式是什么？",
+      "vi": "Khi gặp gỡ không chính thức ở Melbourne, cách chào phổ biến nhất là gì?",
+      "id": "Saat bertemu santai di Melbourne, cara menyapa yang paling umum adalah apa?"
+    },
+    "options": {
+      "en": [
+        "Bow deeply",
+        "Say 'Hi' or 'Hello' with a smile",
+        "Kiss on both cheeks",
+        "Stay silent"
+      ],
+      "zh": [
+        "深鞠躬",
+        "微笑着说‘Hi’或‘Hello’",
+        "亲吻双颊",
+        "保持沉默"
+      ],
+      "vi": [
+        "Cúi chào sâu",
+        "Mỉm cười và nói 'Hi' hoặc 'Hello'",
+        "Hôn má hai bên",
+        "Giữ im lặng"
+      ],
+      "id": [
+        "Membungkuk dalam",
+        "Senyum sambil berkata 'Hi' atau 'Hello'",
+        "Cium pipi kanan kiri",
+        "Diam saja"
+      ]
+    },
+    "answer": "Say 'Hi' or 'Hello' with a smile",
+    "explanation": {
+      "en": "In Australia, casual meetings usually involve a simple smile and a friendly 'Hi' or 'Hello'.",
+      "zh": "在澳大利亚，非正式见面通常只需微笑并说‘Hi’或‘Hello’。",
+      "vi": "Ở Úc, các cuộc gặp gỡ bình thường thường chỉ cần mỉm cười và nói 'Hi' hoặc 'Hello'.",
+      "id": "Di Australia, pertemuan santai biasanya hanya melibatkan senyum dan menyapa 'Hi' atau 'Hello'."
+    },
+    "image": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e"
+  },
+  {
+    "id": "meeting_q2",
+    "type": "truefalse",
+    "questionText": {
+      "en": "In formal meetings in Melbourne, it is common to shake hands.",
+      "zh": "在墨尔本的正式场合，握手是常见的礼节。",
+      "vi": "Trong các cuộc họp chính thức ở Melbourne, việc bắt tay là phổ biến.",
+      "id": "Dalam pertemuan resmi di Melbourne, berjabat tangan adalah hal yang umum."
+    },
+    "options": {
+      "en": [
+        "True",
+        "False"
+      ],
+      "zh": [
+        "对",
+        "错"
+      ],
+      "vi": [
+        "Đúng",
+        "Sai"
+      ],
+      "id": [
+        "Benar",
+        "Salah"
+      ]
+    },
+    "answer": "True",
+    "explanation": {
+      "en": "Australians usually shake hands in formal meetings, often using titles and last names.",
+      "zh": "澳大利亚人在正式场合通常会握手，并使用对方的头衔和姓氏。",
+      "vi": "Người Úc thường bắt tay trong các cuộc họp chính thức và dùng chức danh cùng họ của đối phương.",
+      "id": "Orang Australia biasanya berjabat tangan dalam pertemuan resmi dan menggunakan gelar serta nama belakang."
+    },
+    "image": "https://images.unsplash.com/photo-1521790797524-b2497295b8a0"
+  },
+  {
+    "id": "meeting_q3",
+    "type": "mcq",
+    "questionText": {
+      "en": "Sample meeting etiquette question 3 in English?",
+      "zh": "示例见面礼仪问题 3 （中文）？",
+      "vi": "Câu hỏi phép xã giao gặp mặt 3 (Tiếng Việt)?",
+      "id": "Pertanyaan etiket pertemuan 3 (Bahasa Indonesia)?"
+    },
+    "options": {
+      "en": [
+        "Option A",
+        "Option B",
+        "Option C",
+        "Option D"
+      ],
+      "zh": [
+        "选项A",
+        "选项B",
+        "选项C",
+        "选项D"
+      ],
+      "vi": [
+        "Lựa chọn A",
+        "Lựa chọn B",
+        "Lựa chọn C",
+        "Lựa chọn D"
+      ],
+      "id": [
+        "Pilihan A",
+        "Pilihan B",
+        "Pilihan C",
+        "Pilihan D"
+      ]
+    },
+    "answer": "Option B",
+    "explanation": {
+      "en": "This is the explanation for meeting etiquette question 3.",
+      "zh": "这是见面礼仪问题 3 的解释。",
+      "vi": "Đây là lời giải thích cho câu hỏi phép xã giao 3.",
+      "id": "Ini adalah penjelasan untuk pertanyaan etiket pertemuan 3."
+    },
+    "image": "https://images.unsplash.com/photo-1521791055366-0d553872125f"
+  },
+  {
+    "id": "meeting_q4",
+    "type": "truefalse",
+    "questionText": {
+      "en": "Sample meeting etiquette question 4 in English?",
+      "zh": "示例见面礼仪问题 4 （中文）？",
+      "vi": "Câu hỏi phép xã giao gặp mặt 4 (Tiếng Việt)?",
+      "id": "Pertanyaan etiket pertemuan 4 (Bahasa Indonesia)?"
+    },
+    "options": {
+      "en": [
+        "True",
+        "False"
+      ],
+      "zh": [
+        "对",
+        "错"
+      ],
+      "vi": [
+        "Đúng",
+        "Sai"
+      ],
+      "id": [
+        "Benar",
+        "Salah"
+      ]
+    },
+    "answer": "True",
+    "explanation": {
+      "en": "This is the explanation for meeting etiquette question 4.",
+      "zh": "这是见面礼仪问题 4 的解释。",
+      "vi": "Đây là lời giải thích cho câu hỏi phép xã giao 4.",
+      "id": "Ini adalah penjelasan untuk pertanyaan etiket pertemuan 4."
+    },
+    "image": "https://images.unsplash.com/photo-1521791055366-0d553872125f"
+  },
+  {
+    "id": "meeting_q5",
+    "type": "mcq",
+    "questionText": {
+      "en": "Sample meeting etiquette question 5 in English?",
+      "zh": "示例见面礼仪问题 5 （中文）？",
+      "vi": "Câu hỏi phép xã giao gặp mặt 5 (Tiếng Việt)?",
+      "id": "Pertanyaan etiket pertemuan 5 (Bahasa Indonesia)?"
+    },
+    "options": {
+      "en": [
+        "Option A",
+        "Option B",
+        "Option C",
+        "Option D"
+      ],
+      "zh": [
+        "选项A",
+        "选项B",
+        "选项C",
+        "选项D"
+      ],
+      "vi": [
+        "Lựa chọn A",
+        "Lựa chọn B",
+        "Lựa chọn C",
+        "Lựa chọn D"
+      ],
+      "id": [
+        "Pilihan A",
+        "Pilihan B",
+        "Pilihan C",
+        "Pilihan D"
+      ]
+    },
+    "answer": "Option B",
+    "explanation": {
+      "en": "This is the explanation for meeting etiquette question 5.",
+      "zh": "这是见面礼仪问题 5 的解释。",
+      "vi": "Đây là lời giải thích cho câu hỏi phép xã giao 5.",
+      "id": "Ini adalah penjelasan untuk pertanyaan etiket pertemuan 5."
+    },
+    "image": "https://images.unsplash.com/photo-1521791055366-0d553872125f"
+  },
+  {
+    "id": "meeting_q6",
+    "type": "truefalse",
+    "questionText": {
+      "en": "Sample meeting etiquette question 6 in English?",
+      "zh": "示例见面礼仪问题 6 （中文）？",
+      "vi": "Câu hỏi phép xã giao gặp mặt 6 (Tiếng Việt)?",
+      "id": "Pertanyaan etiket pertemuan 6 (Bahasa Indonesia)?"
+    },
+    "options": {
+      "en": [
+        "True",
+        "False"
+      ],
+      "zh": [
+        "对",
+        "错"
+      ],
+      "vi": [
+        "Đúng",
+        "Sai"
+      ],
+      "id": [
+        "Benar",
+        "Salah"
+      ]
+    },
+    "answer": "True",
+    "explanation": {
+      "en": "This is the explanation for meeting etiquette question 6.",
+      "zh": "这是见面礼仪问题 6 的解释。",
+      "vi": "Đây là lời giải thích cho câu hỏi phép xã giao 6.",
+      "id": "Ini adalah penjelasan untuk pertanyaan etiket pertemuan 6."
+    },
+    "image": "https://images.unsplash.com/photo-1521791055366-0d553872125f"
+  },
+  {
+    "id": "meeting_q7",
+    "type": "mcq",
+    "questionText": {
+      "en": "Sample meeting etiquette question 7 in English?",
+      "zh": "示例见面礼仪问题 7 （中文）？",
+      "vi": "Câu hỏi phép xã giao gặp mặt 7 (Tiếng Việt)?",
+      "id": "Pertanyaan etiket pertemuan 7 (Bahasa Indonesia)?"
+    },
+    "options": {
+      "en": [
+        "Option A",
+        "Option B",
+        "Option C",
+        "Option D"
+      ],
+      "zh": [
+        "选项A",
+        "选项B",
+        "选项C",
+        "选项D"
+      ],
+      "vi": [
+        "Lựa chọn A",
+        "Lựa chọn B",
+        "Lựa chọn C",
+        "Lựa chọn D"
+      ],
+      "id": [
+        "Pilihan A",
+        "Pilihan B",
+        "Pilihan C",
+        "Pilihan D"
+      ]
+    },
+    "answer": "Option B",
+    "explanation": {
+      "en": "This is the explanation for meeting etiquette question 7.",
+      "zh": "这是见面礼仪问题 7 的解释。",
+      "vi": "Đây là lời giải thích cho câu hỏi phép xã giao 7.",
+      "id": "Ini adalah penjelasan untuk pertanyaan etiket pertemuan 7."
+    },
+    "image": "https://images.unsplash.com/photo-1521791055366-0d553872125f"
+  },
+  {
+    "id": "meeting_q8",
+    "type": "truefalse",
+    "questionText": {
+      "en": "Sample meeting etiquette question 8 in English?",
+      "zh": "示例见面礼仪问题 8 （中文）？",
+      "vi": "Câu hỏi phép xã giao gặp mặt 8 (Tiếng Việt)?",
+      "id": "Pertanyaan etiket pertemuan 8 (Bahasa Indonesia)?"
+    },
+    "options": {
+      "en": [
+        "True",
+        "False"
+      ],
+      "zh": [
+        "对",
+        "错"
+      ],
+      "vi": [
+        "Đúng",
+        "Sai"
+      ],
+      "id": [
+        "Benar",
+        "Salah"
+      ]
+    },
+    "answer": "True",
+    "explanation": {
+      "en": "This is the explanation for meeting etiquette question 8.",
+      "zh": "这是见面礼仪问题 8 的解释。",
+      "vi": "Đây là lời giải thích cho câu hỏi phép xã giao 8.",
+      "id": "Ini adalah penjelasan untuk pertanyaan etiket pertemuan 8."
+    },
+    "image": "https://images.unsplash.com/photo-1521791055366-0d553872125f"
+  },
+  {
+    "id": "meeting_q9",
+    "type": "mcq",
+    "questionText": {
+      "en": "Sample meeting etiquette question 9 in English?",
+      "zh": "示例见面礼仪问题 9 （中文）？",
+      "vi": "Câu hỏi phép xã giao gặp mặt 9 (Tiếng Việt)?",
+      "id": "Pertanyaan etiket pertemuan 9 (Bahasa Indonesia)?"
+    },
+    "options": {
+      "en": [
+        "Option A",
+        "Option B",
+        "Option C",
+        "Option D"
+      ],
+      "zh": [
+        "选项A",
+        "选项B",
+        "选项C",
+        "选项D"
+      ],
+      "vi": [
+        "Lựa chọn A",
+        "Lựa chọn B",
+        "Lựa chọn C",
+        "Lựa chọn D"
+      ],
+      "id": [
+        "Pilihan A",
+        "Pilihan B",
+        "Pilihan C",
+        "Pilihan D"
+      ]
+    },
+    "answer": "Option B",
+    "explanation": {
+      "en": "This is the explanation for meeting etiquette question 9.",
+      "zh": "这是见面礼仪问题 9 的解释。",
+      "vi": "Đây là lời giải thích cho câu hỏi phép xã giao 9.",
+      "id": "Ini adalah penjelasan untuk pertanyaan etiket pertemuan 9."
+    },
+    "image": "https://images.unsplash.com/photo-1521791055366-0d553872125f"
+  },
+  {
+    "id": "meeting_q10",
+    "type": "truefalse",
+    "questionText": {
+      "en": "Sample meeting etiquette question 10 in English?",
+      "zh": "示例见面礼仪问题 10 （中文）？",
+      "vi": "Câu hỏi phép xã giao gặp mặt 10 (Tiếng Việt)?",
+      "id": "Pertanyaan etiket pertemuan 10 (Bahasa Indonesia)?"
+    },
+    "options": {
+      "en": [
+        "True",
+        "False"
+      ],
+      "zh": [
+        "对",
+        "错"
+      ],
+      "vi": [
+        "Đúng",
+        "Sai"
+      ],
+      "id": [
+        "Benar",
+        "Salah"
+      ]
+    },
+    "answer": "True",
+    "explanation": {
+      "en": "This is the explanation for meeting etiquette question 10.",
+      "zh": "这是见面礼仪问题 10 的解释。",
+      "vi": "Đây là lời giải thích cho câu hỏi phép xã giao 10.",
+      "id": "Ini adalah penjelasan untuk pertanyaan etiket pertemuan 10."
+    },
+    "image": "https://images.unsplash.com/photo-1521791055366-0d553872125f"
+  },
+  {
+    "id": "meeting_q11",
+    "type": "mcq",
+    "questionText": {
+      "en": "Sample meeting etiquette question 11 in English?",
+      "zh": "示例见面礼仪问题 11 （中文）？",
+      "vi": "Câu hỏi phép xã giao gặp mặt 11 (Tiếng Việt)?",
+      "id": "Pertanyaan etiket pertemuan 11 (Bahasa Indonesia)?"
+    },
+    "options": {
+      "en": [
+        "Option A",
+        "Option B",
+        "Option C",
+        "Option D"
+      ],
+      "zh": [
+        "选项A",
+        "选项B",
+        "选项C",
+        "选项D"
+      ],
+      "vi": [
+        "Lựa chọn A",
+        "Lựa chọn B",
+        "Lựa chọn C",
+        "Lựa chọn D"
+      ],
+      "id": [
+        "Pilihan A",
+        "Pilihan B",
+        "Pilihan C",
+        "Pilihan D"
+      ]
+    },
+    "answer": "Option B",
+    "explanation": {
+      "en": "This is the explanation for meeting etiquette question 11.",
+      "zh": "这是见面礼仪问题 11 的解释。",
+      "vi": "Đây là lời giải thích cho câu hỏi phép xã giao 11.",
+      "id": "Ini adalah penjelasan untuk pertanyaan etiket pertemuan 11."
+    },
+    "image": "https://images.unsplash.com/photo-1521791055366-0d553872125f"
+  },
+  {
+    "id": "meeting_q12",
+    "type": "truefalse",
+    "questionText": {
+      "en": "Sample meeting etiquette question 12 in English?",
+      "zh": "示例见面礼仪问题 12 （中文）？",
+      "vi": "Câu hỏi phép xã giao gặp mặt 12 (Tiếng Việt)?",
+      "id": "Pertanyaan etiket pertemuan 12 (Bahasa Indonesia)?"
+    },
+    "options": {
+      "en": [
+        "True",
+        "False"
+      ],
+      "zh": [
+        "对",
+        "错"
+      ],
+      "vi": [
+        "Đúng",
+        "Sai"
+      ],
+      "id": [
+        "Benar",
+        "Salah"
+      ]
+    },
+    "answer": "True",
+    "explanation": {
+      "en": "This is the explanation for meeting etiquette question 12.",
+      "zh": "这是见面礼仪问题 12 的解释。",
+      "vi": "Đây là lời giải thích cho câu hỏi phép xã giao 12.",
+      "id": "Ini adalah penjelasan untuk pertanyaan etiket pertemuan 12."
+    },
+    "image": "https://images.unsplash.com/photo-1521791055366-0d553872125f"
+  },
+  {
+    "id": "meeting_q13",
+    "type": "mcq",
+    "questionText": {
+      "en": "Sample meeting etiquette question 13 in English?",
+      "zh": "示例见面礼仪问题 13 （中文）？",
+      "vi": "Câu hỏi phép xã giao gặp mặt 13 (Tiếng Việt)?",
+      "id": "Pertanyaan etiket pertemuan 13 (Bahasa Indonesia)?"
+    },
+    "options": {
+      "en": [
+        "Option A",
+        "Option B",
+        "Option C",
+        "Option D"
+      ],
+      "zh": [
+        "选项A",
+        "选项B",
+        "选项C",
+        "选项D"
+      ],
+      "vi": [
+        "Lựa chọn A",
+        "Lựa chọn B",
+        "Lựa chọn C",
+        "Lựa chọn D"
+      ],
+      "id": [
+        "Pilihan A",
+        "Pilihan B",
+        "Pilihan C",
+        "Pilihan D"
+      ]
+    },
+    "answer": "Option B",
+    "explanation": {
+      "en": "This is the explanation for meeting etiquette question 13.",
+      "zh": "这是见面礼仪问题 13 的解释。",
+      "vi": "Đây là lời giải thích cho câu hỏi phép xã giao 13.",
+      "id": "Ini adalah penjelasan untuk pertanyaan etiket pertemuan 13."
+    },
+    "image": "https://images.unsplash.com/photo-1521791055366-0d553872125f"
+  },
+  {
+    "id": "meeting_q14",
+    "type": "truefalse",
+    "questionText": {
+      "en": "Sample meeting etiquette question 14 in English?",
+      "zh": "示例见面礼仪问题 14 （中文）？",
+      "vi": "Câu hỏi phép xã giao gặp mặt 14 (Tiếng Việt)?",
+      "id": "Pertanyaan etiket pertemuan 14 (Bahasa Indonesia)?"
+    },
+    "options": {
+      "en": [
+        "True",
+        "False"
+      ],
+      "zh": [
+        "对",
+        "错"
+      ],
+      "vi": [
+        "Đúng",
+        "Sai"
+      ],
+      "id": [
+        "Benar",
+        "Salah"
+      ]
+    },
+    "answer": "True",
+    "explanation": {
+      "en": "This is the explanation for meeting etiquette question 14.",
+      "zh": "这是见面礼仪问题 14 的解释。",
+      "vi": "Đây là lời giải thích cho câu hỏi phép xã giao 14.",
+      "id": "Ini adalah penjelasan untuk pertanyaan etiket pertemuan 14."
+    },
+    "image": "https://images.unsplash.com/photo-1521791055366-0d553872125f"
+  },
+  {
+    "id": "meeting_q15",
+    "type": "mcq",
+    "questionText": {
+      "en": "Sample meeting etiquette question 15 in English?",
+      "zh": "示例见面礼仪问题 15 （中文）？",
+      "vi": "Câu hỏi phép xã giao gặp mặt 15 (Tiếng Việt)?",
+      "id": "Pertanyaan etiket pertemuan 15 (Bahasa Indonesia)?"
+    },
+    "options": {
+      "en": [
+        "Option A",
+        "Option B",
+        "Option C",
+        "Option D"
+      ],
+      "zh": [
+        "选项A",
+        "选项B",
+        "选项C",
+        "选项D"
+      ],
+      "vi": [
+        "Lựa chọn A",
+        "Lựa chọn B",
+        "Lựa chọn C",
+        "Lựa chọn D"
+      ],
+      "id": [
+        "Pilihan A",
+        "Pilihan B",
+        "Pilihan C",
+        "Pilihan D"
+      ]
+    },
+    "answer": "Option B",
+    "explanation": {
+      "en": "This is the explanation for meeting etiquette question 15.",
+      "zh": "这是见面礼仪问题 15 的解释。",
+      "vi": "Đây là lời giải thích cho câu hỏi phép xã giao 15.",
+      "id": "Ini adalah penjelasan untuk pertanyaan etiket pertemuan 15."
+    },
+    "image": "https://images.unsplash.com/photo-1521791055366-0d553872125f"
+  },
+  {
+    "id": "meeting_q16",
+    "type": "truefalse",
+    "questionText": {
+      "en": "Sample meeting etiquette question 16 in English?",
+      "zh": "示例见面礼仪问题 16 （中文）？",
+      "vi": "Câu hỏi phép xã giao gặp mặt 16 (Tiếng Việt)?",
+      "id": "Pertanyaan etiket pertemuan 16 (Bahasa Indonesia)?"
+    },
+    "options": {
+      "en": [
+        "True",
+        "False"
+      ],
+      "zh": [
+        "对",
+        "错"
+      ],
+      "vi": [
+        "Đúng",
+        "Sai"
+      ],
+      "id": [
+        "Benar",
+        "Salah"
+      ]
+    },
+    "answer": "True",
+    "explanation": {
+      "en": "This is the explanation for meeting etiquette question 16.",
+      "zh": "这是见面礼仪问题 16 的解释。",
+      "vi": "Đây là lời giải thích cho câu hỏi phép xã giao 16.",
+      "id": "Ini adalah penjelasan untuk pertanyaan etiket pertemuan 16."
+    },
+    "image": "https://images.unsplash.com/photo-1521791055366-0d553872125f"
+  },
+  {
+    "id": "meeting_q17",
+    "type": "mcq",
+    "questionText": {
+      "en": "Sample meeting etiquette question 17 in English?",
+      "zh": "示例见面礼仪问题 17 （中文）？",
+      "vi": "Câu hỏi phép xã giao gặp mặt 17 (Tiếng Việt)?",
+      "id": "Pertanyaan etiket pertemuan 17 (Bahasa Indonesia)?"
+    },
+    "options": {
+      "en": [
+        "Option A",
+        "Option B",
+        "Option C",
+        "Option D"
+      ],
+      "zh": [
+        "选项A",
+        "选项B",
+        "选项C",
+        "选项D"
+      ],
+      "vi": [
+        "Lựa chọn A",
+        "Lựa chọn B",
+        "Lựa chọn C",
+        "Lựa chọn D"
+      ],
+      "id": [
+        "Pilihan A",
+        "Pilihan B",
+        "Pilihan C",
+        "Pilihan D"
+      ]
+    },
+    "answer": "Option B",
+    "explanation": {
+      "en": "This is the explanation for meeting etiquette question 17.",
+      "zh": "这是见面礼仪问题 17 的解释。",
+      "vi": "Đây là lời giải thích cho câu hỏi phép xã giao 17.",
+      "id": "Ini adalah penjelasan untuk pertanyaan etiket pertemuan 17."
+    },
+    "image": "https://images.unsplash.com/photo-1521791055366-0d553872125f"
+  },
+  {
+    "id": "meeting_q18",
+    "type": "truefalse",
+    "questionText": {
+      "en": "Sample meeting etiquette question 18 in English?",
+      "zh": "示例见面礼仪问题 18 （中文）？",
+      "vi": "Câu hỏi phép xã giao gặp mặt 18 (Tiếng Việt)?",
+      "id": "Pertanyaan etiket pertemuan 18 (Bahasa Indonesia)?"
+    },
+    "options": {
+      "en": [
+        "True",
+        "False"
+      ],
+      "zh": [
+        "对",
+        "错"
+      ],
+      "vi": [
+        "Đúng",
+        "Sai"
+      ],
+      "id": [
+        "Benar",
+        "Salah"
+      ]
+    },
+    "answer": "True",
+    "explanation": {
+      "en": "This is the explanation for meeting etiquette question 18.",
+      "zh": "这是见面礼仪问题 18 的解释。",
+      "vi": "Đây là lời giải thích cho câu hỏi phép xã giao 18.",
+      "id": "Ini adalah penjelasan untuk pertanyaan etiket pertemuan 18."
+    },
+    "image": "https://images.unsplash.com/photo-1521791055366-0d553872125f"
+  },
+  {
+    "id": "meeting_q19",
+    "type": "mcq",
+    "questionText": {
+      "en": "Sample meeting etiquette question 19 in English?",
+      "zh": "示例见面礼仪问题 19 （中文）？",
+      "vi": "Câu hỏi phép xã giao gặp mặt 19 (Tiếng Việt)?",
+      "id": "Pertanyaan etiket pertemuan 19 (Bahasa Indonesia)?"
+    },
+    "options": {
+      "en": [
+        "Option A",
+        "Option B",
+        "Option C",
+        "Option D"
+      ],
+      "zh": [
+        "选项A",
+        "选项B",
+        "选项C",
+        "选项D"
+      ],
+      "vi": [
+        "Lựa chọn A",
+        "Lựa chọn B",
+        "Lựa chọn C",
+        "Lựa chọn D"
+      ],
+      "id": [
+        "Pilihan A",
+        "Pilihan B",
+        "Pilihan C",
+        "Pilihan D"
+      ]
+    },
+    "answer": "Option B",
+    "explanation": {
+      "en": "This is the explanation for meeting etiquette question 19.",
+      "zh": "这是见面礼仪问题 19 的解释。",
+      "vi": "Đây là lời giải thích cho câu hỏi phép xã giao 19.",
+      "id": "Ini adalah penjelasan untuk pertanyaan etiket pertemuan 19."
+    },
+    "image": "https://images.unsplash.com/photo-1521791055366-0d553872125f"
+  },
+  {
+    "id": "meeting_q20",
+    "type": "truefalse",
+    "questionText": {
+      "en": "Sample meeting etiquette question 20 in English?",
+      "zh": "示例见面礼仪问题 20 （中文）？",
+      "vi": "Câu hỏi phép xã giao gặp mặt 20 (Tiếng Việt)?",
+      "id": "Pertanyaan etiket pertemuan 20 (Bahasa Indonesia)?"
+    },
+    "options": {
+      "en": [
+        "True",
+        "False"
+      ],
+      "zh": [
+        "对",
+        "错"
+      ],
+      "vi": [
+        "Đúng",
+        "Sai"
+      ],
+      "id": [
+        "Benar",
+        "Salah"
+      ]
+    },
+    "answer": "True",
+    "explanation": {
+      "en": "This is the explanation for meeting etiquette question 20.",
+      "zh": "这是见面礼仪问题 20 的解释。",
+      "vi": "Đây là lời giải thích cho câu hỏi phép xã giao 20.",
+      "id": "Ini adalah penjelasan untuk pertanyaan etiket pertemuan 20."
+    },
+    "image": "https://images.unsplash.com/photo-1521791055366-0d553872125f"
+  },
+  {
+    "id": "meeting_q21",
+    "type": "mcq",
+    "questionText": {
+      "en": "Sample meeting etiquette question 21 in English?",
+      "zh": "示例见面礼仪问题 21 （中文）？",
+      "vi": "Câu hỏi phép xã giao gặp mặt 21 (Tiếng Việt)?",
+      "id": "Pertanyaan etiket pertemuan 21 (Bahasa Indonesia)?"
+    },
+    "options": {
+      "en": [
+        "Option A",
+        "Option B",
+        "Option C",
+        "Option D"
+      ],
+      "zh": [
+        "选项A",
+        "选项B",
+        "选项C",
+        "选项D"
+      ],
+      "vi": [
+        "Lựa chọn A",
+        "Lựa chọn B",
+        "Lựa chọn C",
+        "Lựa chọn D"
+      ],
+      "id": [
+        "Pilihan A",
+        "Pilihan B",
+        "Pilihan C",
+        "Pilihan D"
+      ]
+    },
+    "answer": "Option B",
+    "explanation": {
+      "en": "This is the explanation for meeting etiquette question 21.",
+      "zh": "这是见面礼仪问题 21 的解释。",
+      "vi": "Đây là lời giải thích cho câu hỏi phép xã giao 21.",
+      "id": "Ini adalah penjelasan untuk pertanyaan etiket pertemuan 21."
+    },
+    "image": "https://images.unsplash.com/photo-1521791055366-0d553872125f"
+  },
+  {
+    "id": "meeting_q22",
+    "type": "truefalse",
+    "questionText": {
+      "en": "Sample meeting etiquette question 22 in English?",
+      "zh": "示例见面礼仪问题 22 （中文）？",
+      "vi": "Câu hỏi phép xã giao gặp mặt 22 (Tiếng Việt)?",
+      "id": "Pertanyaan etiket pertemuan 22 (Bahasa Indonesia)?"
+    },
+    "options": {
+      "en": [
+        "True",
+        "False"
+      ],
+      "zh": [
+        "对",
+        "错"
+      ],
+      "vi": [
+        "Đúng",
+        "Sai"
+      ],
+      "id": [
+        "Benar",
+        "Salah"
+      ]
+    },
+    "answer": "True",
+    "explanation": {
+      "en": "This is the explanation for meeting etiquette question 22.",
+      "zh": "这是见面礼仪问题 22 的解释。",
+      "vi": "Đây là lời giải thích cho câu hỏi phép xã giao 22.",
+      "id": "Ini adalah penjelasan untuk pertanyaan etiket pertemuan 22."
+    },
+    "image": "https://images.unsplash.com/photo-1521791055366-0d553872125f"
+  },
+  {
+    "id": "meeting_q23",
+    "type": "mcq",
+    "questionText": {
+      "en": "Sample meeting etiquette question 23 in English?",
+      "zh": "示例见面礼仪问题 23 （中文）？",
+      "vi": "Câu hỏi phép xã giao gặp mặt 23 (Tiếng Việt)?",
+      "id": "Pertanyaan etiket pertemuan 23 (Bahasa Indonesia)?"
+    },
+    "options": {
+      "en": [
+        "Option A",
+        "Option B",
+        "Option C",
+        "Option D"
+      ],
+      "zh": [
+        "选项A",
+        "选项B",
+        "选项C",
+        "选项D"
+      ],
+      "vi": [
+        "Lựa chọn A",
+        "Lựa chọn B",
+        "Lựa chọn C",
+        "Lựa chọn D"
+      ],
+      "id": [
+        "Pilihan A",
+        "Pilihan B",
+        "Pilihan C",
+        "Pilihan D"
+      ]
+    },
+    "answer": "Option B",
+    "explanation": {
+      "en": "This is the explanation for meeting etiquette question 23.",
+      "zh": "这是见面礼仪问题 23 的解释。",
+      "vi": "Đây là lời giải thích cho câu hỏi phép xã giao 23.",
+      "id": "Ini adalah penjelasan untuk pertanyaan etiket pertemuan 23."
+    },
+    "image": "https://images.unsplash.com/photo-1521791055366-0d553872125f"
+  },
+  {
+    "id": "meeting_q24",
+    "type": "truefalse",
+    "questionText": {
+      "en": "Sample meeting etiquette question 24 in English?",
+      "zh": "示例见面礼仪问题 24 （中文）？",
+      "vi": "Câu hỏi phép xã giao gặp mặt 24 (Tiếng Việt)?",
+      "id": "Pertanyaan etiket pertemuan 24 (Bahasa Indonesia)?"
+    },
+    "options": {
+      "en": [
+        "True",
+        "False"
+      ],
+      "zh": [
+        "对",
+        "错"
+      ],
+      "vi": [
+        "Đúng",
+        "Sai"
+      ],
+      "id": [
+        "Benar",
+        "Salah"
+      ]
+    },
+    "answer": "True",
+    "explanation": {
+      "en": "This is the explanation for meeting etiquette question 24.",
+      "zh": "这是见面礼仪问题 24 的解释。",
+      "vi": "Đây là lời giải thích cho câu hỏi phép xã giao 24.",
+      "id": "Ini adalah penjelasan untuk pertanyaan etiket pertemuan 24."
+    },
+    "image": "https://images.unsplash.com/photo-1521791055366-0d553872125f"
+  },
+  {
+    "id": "meeting_q25",
+    "type": "mcq",
+    "questionText": {
+      "en": "Sample meeting etiquette question 25 in English?",
+      "zh": "示例见面礼仪问题 25 （中文）？",
+      "vi": "Câu hỏi phép xã giao gặp mặt 25 (Tiếng Việt)?",
+      "id": "Pertanyaan etiket pertemuan 25 (Bahasa Indonesia)?"
+    },
+    "options": {
+      "en": [
+        "Option A",
+        "Option B",
+        "Option C",
+        "Option D"
+      ],
+      "zh": [
+        "选项A",
+        "选项B",
+        "选项C",
+        "选项D"
+      ],
+      "vi": [
+        "Lựa chọn A",
+        "Lựa chọn B",
+        "Lựa chọn C",
+        "Lựa chọn D"
+      ],
+      "id": [
+        "Pilihan A",
+        "Pilihan B",
+        "Pilihan C",
+        "Pilihan D"
+      ]
+    },
+    "answer": "Option B",
+    "explanation": {
+      "en": "This is the explanation for meeting etiquette question 25.",
+      "zh": "这是见面礼仪问题 25 的解释。",
+      "vi": "Đây là lời giải thích cho câu hỏi phép xã giao 25.",
+      "id": "Ini adalah penjelasan untuk pertanyaan etiket pertemuan 25."
+    },
+    "image": "https://images.unsplash.com/photo-1521791055366-0d553872125f"
+  },
+  {
+    "id": "meeting_q26",
+    "type": "truefalse",
+    "questionText": {
+      "en": "Sample meeting etiquette question 26 in English?",
+      "zh": "示例见面礼仪问题 26 （中文）？",
+      "vi": "Câu hỏi phép xã giao gặp mặt 26 (Tiếng Việt)?",
+      "id": "Pertanyaan etiket pertemuan 26 (Bahasa Indonesia)?"
+    },
+    "options": {
+      "en": [
+        "True",
+        "False"
+      ],
+      "zh": [
+        "对",
+        "错"
+      ],
+      "vi": [
+        "Đúng",
+        "Sai"
+      ],
+      "id": [
+        "Benar",
+        "Salah"
+      ]
+    },
+    "answer": "True",
+    "explanation": {
+      "en": "This is the explanation for meeting etiquette question 26.",
+      "zh": "这是见面礼仪问题 26 的解释。",
+      "vi": "Đây là lời giải thích cho câu hỏi phép xã giao 26.",
+      "id": "Ini adalah penjelasan untuk pertanyaan etiket pertemuan 26."
+    },
+    "image": "https://images.unsplash.com/photo-1521791055366-0d553872125f"
+  },
+  {
+    "id": "meeting_q27",
+    "type": "mcq",
+    "questionText": {
+      "en": "Sample meeting etiquette question 27 in English?",
+      "zh": "示例见面礼仪问题 27 （中文）？",
+      "vi": "Câu hỏi phép xã giao gặp mặt 27 (Tiếng Việt)?",
+      "id": "Pertanyaan etiket pertemuan 27 (Bahasa Indonesia)?"
+    },
+    "options": {
+      "en": [
+        "Option A",
+        "Option B",
+        "Option C",
+        "Option D"
+      ],
+      "zh": [
+        "选项A",
+        "选项B",
+        "选项C",
+        "选项D"
+      ],
+      "vi": [
+        "Lựa chọn A",
+        "Lựa chọn B",
+        "Lựa chọn C",
+        "Lựa chọn D"
+      ],
+      "id": [
+        "Pilihan A",
+        "Pilihan B",
+        "Pilihan C",
+        "Pilihan D"
+      ]
+    },
+    "answer": "Option B",
+    "explanation": {
+      "en": "This is the explanation for meeting etiquette question 27.",
+      "zh": "这是见面礼仪问题 27 的解释。",
+      "vi": "Đây là lời giải thích cho câu hỏi phép xã giao 27.",
+      "id": "Ini adalah penjelasan untuk pertanyaan etiket pertemuan 27."
+    },
+    "image": "https://images.unsplash.com/photo-1521791055366-0d553872125f"
+  },
+  {
+    "id": "meeting_q28",
+    "type": "truefalse",
+    "questionText": {
+      "en": "Sample meeting etiquette question 28 in English?",
+      "zh": "示例见面礼仪问题 28 （中文）？",
+      "vi": "Câu hỏi phép xã giao gặp mặt 28 (Tiếng Việt)?",
+      "id": "Pertanyaan etiket pertemuan 28 (Bahasa Indonesia)?"
+    },
+    "options": {
+      "en": [
+        "True",
+        "False"
+      ],
+      "zh": [
+        "对",
+        "错"
+      ],
+      "vi": [
+        "Đúng",
+        "Sai"
+      ],
+      "id": [
+        "Benar",
+        "Salah"
+      ]
+    },
+    "answer": "True",
+    "explanation": {
+      "en": "This is the explanation for meeting etiquette question 28.",
+      "zh": "这是见面礼仪问题 28 的解释。",
+      "vi": "Đây là lời giải thích cho câu hỏi phép xã giao 28.",
+      "id": "Ini adalah penjelasan untuk pertanyaan etiket pertemuan 28."
+    },
+    "image": "https://images.unsplash.com/photo-1521791055366-0d553872125f"
+  },
+  {
+    "id": "meeting_q29",
+    "type": "mcq",
+    "questionText": {
+      "en": "Sample meeting etiquette question 29 in English?",
+      "zh": "示例见面礼仪问题 29 （中文）？",
+      "vi": "Câu hỏi phép xã giao gặp mặt 29 (Tiếng Việt)?",
+      "id": "Pertanyaan etiket pertemuan 29 (Bahasa Indonesia)?"
+    },
+    "options": {
+      "en": [
+        "Option A",
+        "Option B",
+        "Option C",
+        "Option D"
+      ],
+      "zh": [
+        "选项A",
+        "选项B",
+        "选项C",
+        "选项D"
+      ],
+      "vi": [
+        "Lựa chọn A",
+        "Lựa chọn B",
+        "Lựa chọn C",
+        "Lựa chọn D"
+      ],
+      "id": [
+        "Pilihan A",
+        "Pilihan B",
+        "Pilihan C",
+        "Pilihan D"
+      ]
+    },
+    "answer": "Option B",
+    "explanation": {
+      "en": "This is the explanation for meeting etiquette question 29.",
+      "zh": "这是见面礼仪问题 29 的解释。",
+      "vi": "Đây là lời giải thích cho câu hỏi phép xã giao 29.",
+      "id": "Ini adalah penjelasan untuk pertanyaan etiket pertemuan 29."
+    },
+    "image": "https://images.unsplash.com/photo-1521791055366-0d553872125f"
+  },
+  {
+    "id": "meeting_q30",
+    "type": "truefalse",
+    "questionText": {
+      "en": "Sample meeting etiquette question 30 in English?",
+      "zh": "示例见面礼仪问题 30 （中文）？",
+      "vi": "Câu hỏi phép xã giao gặp mặt 30 (Tiếng Việt)?",
+      "id": "Pertanyaan etiket pertemuan 30 (Bahasa Indonesia)?"
+    },
+    "options": {
+      "en": [
+        "True",
+        "False"
+      ],
+      "zh": [
+        "对",
+        "错"
+      ],
+      "vi": [
+        "Đúng",
+        "Sai"
+      ],
+      "id": [
+        "Benar",
+        "Salah"
+      ]
+    },
+    "answer": "True",
+    "explanation": {
+      "en": "This is the explanation for meeting etiquette question 30.",
+      "zh": "这是见面礼仪问题 30 的解释。",
+      "vi": "Đây là lời giải thích cho câu hỏi phép xã giao 30.",
+      "id": "Ini adalah penjelasan untuk pertanyaan etiket pertemuan 30."
+    },
+    "image": "https://images.unsplash.com/photo-1521791055366-0d553872125f"
+  }
+]
