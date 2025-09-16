@@ -1,0 +1,198 @@
+[
+  {
+    "id": "epic3_q1",
+    "type": "mcq",
+    "questionText": {
+      "zh": "在墨尔本非正式见面时，常见的礼仪是什么？",
+      "en": "What is the common etiquette in casual meetings in Melbourne?",
+      "vi": "Nghi thức phổ biến khi gặp gỡ không trang trọng ở Melbourne là gì?",
+      "id": "Etiket umum saat pertemuan santai di Melbourne adalah apa?"
+    },
+    "options": {
+      "zh": [
+        "鞠躬",
+        "微笑并说 “Hi/Hello”",
+        "亲吻双颊",
+        "保持沉默"
+      ],
+      "en": [
+        "Bow",
+        "Smile and say 'Hi/Hello'",
+        "Kiss on the cheek",
+        "Stay silent"
+      ],
+      "vi": [
+        "Cúi chào",
+        "Mỉm cười và nói 'Hi/Hello'",
+        "Hôn má",
+        "Giữ im lặng"
+      ],
+      "id": [
+        "Membungkuk",
+        "Tersenyum dan berkata 'Hi/Hello'",
+        "Cium pipi",
+        "Diam saja"
+      ]
+    },
+    "answer": {
+      "zh": "微笑并说 “Hi/Hello”",
+      "en": "Smile and say 'Hi/Hello'",
+      "vi": "Mỉm cười và nói 'Hi/Hello'",
+      "id": "Tersenyum dan berkata 'Hi/Hello'"
+    },
+    "explanation": {
+      "zh": "澳大利亚日常交流中最常见的问候是微笑加简单的“Hi”或“Hello”。",
+      "en": "In everyday Australian interactions, the most common greeting is a smile with a simple 'Hi' or 'Hello'.",
+      "vi": "Trong giao tiếp hàng ngày ở Úc, lời chào phổ biến nhất là mỉm cười kèm theo 'Hi' hoặc 'Hello'.",
+      "id": "Dalam interaksi sehari-hari di Australia, salam yang paling umum adalah senyum dengan 'Hi' atau 'Hello'."
+    },
+    "image": "https://images.unsplash.com/photo-1521791055366-0d553872125f"
+  },
+  {
+    "id": "epic3_q2",
+    "type": "mcq",
+    "questionText": {
+      "zh": "在正式见面时，正确的礼仪是？",
+      "en": "What is the proper etiquette in formal meetings?",
+      "vi": "Nghi thức đúng khi gặp gỡ trang trọng là gì?",
+      "id": "Etiket yang benar saat pertemuan resmi adalah apa?"
+    },
+    "options": {
+      "zh": [
+        "握手并称呼头衔和姓氏",
+        "拥抱",
+        "使用昵称",
+        "保持沉默"
+      ],
+      "en": [
+        "Shake hands and address with title and surname",
+        "Hug",
+        "Use nickname",
+        "Stay silent"
+      ],
+      "vi": [
+        "Bắt tay và gọi theo chức danh và họ",
+        "Ôm",
+        "Dùng biệt danh",
+        "Giữ im lặng"
+      ],
+      "id": [
+        "Jabat tangan dan panggil dengan gelar dan nama keluarga",
+        "Peluk",
+        "Gunakan nama panggilan",
+        "Diam saja"
+      ]
+    },
+    "answer": {
+      "zh": "握手并称呼头衔和姓氏",
+      "en": "Shake hands and address with title and surname",
+      "vi": "Bắt tay và gọi theo chức danh và họ",
+      "id": "Jabat tangan dan panggil dengan gelar dan nama keluarga"
+    },
+    "explanation": {
+      "zh": "正式场合中，握手并称呼对方的头衔和姓氏是尊重的表现。",
+      "en": "In formal settings, shaking hands and addressing others with their title and surname is a sign of respect.",
+      "vi": "Trong các dịp trang trọng, bắt tay và gọi người khác bằng chức danh và họ thể hiện sự tôn trọng.",
+      "id": "Dalam acara resmi, berjabat tangan dan menyebut orang lain dengan gelar dan nama keluarga menunjukkan rasa hormat."
+    },
+    "image": "https://images.unsplash.com/photo-1521791055366-0d553872125f"
+  },
+  {
+    "id": "epic3_q3",
+    "type": "mcq",
+    "questionText": {
+      "zh": "墨尔本人初次见面时通常不会使用哪种问候？",
+      "en": "Which greeting is not usually used by Melburnians when meeting for the first time?",
+      "vi": "Người dân Melbourne thường không sử dụng lời chào nào khi gặp lần đầu?",
+      "id": "Salam apa yang biasanya tidak digunakan oleh orang Melbourne saat pertama kali bertemu?"
+    },
+    "options": {
+      "zh": [
+        "握手",
+        "亲吻双颊",
+        "微笑问候",
+        "说 “Nice to meet you”"
+      ],
+      "en": [
+        "Handshake",
+        "Kiss on the cheek",
+        "Smile greeting",
+        "Say 'Nice to meet you'"
+      ],
+      "vi": [
+        "Bắt tay",
+        "Hôn má",
+        "Mỉm cười chào hỏi",
+        "Nói 'Rất vui được gặp bạn'"
+      ],
+      "id": [
+        "Jabat tangan",
+        "Cium pipi",
+        "Senyum menyapa",
+        "Mengatakan 'Senang bertemu denganmu'"
+      ]
+    },
+    "answer": {
+      "zh": "亲吻双颊",
+      "en": "Kiss on the cheek",
+      "vi": "Hôn má",
+      "id": "Cium pipi"
+    },
+    "explanation": {
+      "zh": "亲吻双颊更常见于家庭或朋友间，而不是初次见面。",
+      "en": "Kissing on the cheek is more common among family or friends, not in first meetings.",
+      "vi": "Hôn má phổ biến hơn trong gia đình hoặc bạn bè, không phải khi gặp lần đầu.",
+      "id": "Cium pipi lebih umum di antara keluarga atau teman, bukan saat pertemuan pertama."
+    },
+    "image": "https://images.unsplash.com/photo-1521791055366-0d553872125f"
+  },
+  {
+    "id": "epic3_q4",
+    "type": "mcq",
+    "questionText": {
+      "zh": "在公共交通上，应如何表现礼貌？",
+      "en": "How should one behave politely on public transport?",
+      "vi": "Nên cư xử lịch sự như thế nào trên phương tiện giao thông công cộng?",
+      "id": "Bagaimana seharusnya bersikap sopan di transportasi umum?"
+    },
+    "options": {
+      "zh": [
+        "保持安静",
+        "主动让座给老人",
+        "使用耳机听音乐",
+        "以上皆是"
+      ],
+      "en": [
+        "Stay quiet",
+        "Offer seat to elderly",
+        "Use earphones for music",
+        "All of the above"
+      ],
+      "vi": [
+        "Giữ yên lặng",
+        "Nhường ghế cho người già",
+        "Dùng tai nghe để nghe nhạc",
+        "Tất cả các điều trên"
+      ],
+      "id": [
+        "Diam",
+        "Memberi kursi kepada lansia",
+        "Gunakan earphone untuk musik",
+        "Semua di atas"
+      ]
+    },
+    "answer": {
+      "zh": "以上皆是",
+      "en": "All of the above",
+      "vi": "Tất cả các điều trên",
+      "id": "Semua di atas"
+    },
+    "explanation": {
+      "zh": "公共交通强调安静、尊重他人和关心弱势群体。",
+      "en": "Public transport emphasizes quietness, respecting others, and caring for vulnerable groups.",
+      "vi": "Giao thông công cộng nhấn mạnh sự yên tĩnh, tôn trọng người khác và quan tâm đến nhóm dễ bị tổn thương.",
+      "id": "Transportasi umum menekankan ketenangan, menghormati orang lain, dan peduli pada kelompok rentan."
+    },
+    "image": "https://images.unsplash.com/photo-1521791055366-0d553872125f"
+  }
+]
