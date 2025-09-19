@@ -1,402 +1,190 @@
 <script setup>
 import Button from '@/components/Button.vue'
-import { useAuth } from '@/composables'
-
-const { logout } = useAuth()
 </script>
 
 <template>
-  <div class="header-controls">
-    <button @click="logout" class="logout-btn">
-      <span class="logout-icon">&#128274;</span>
-      Logout
-    </button>
+  <div class="homeview-bg-wrapper">
+    <div class="homeview-bg-overlay"></div>
+    <div class="homeview-content">
+      <!-- Banner section using Bootstrap grid -->
+      <section class="banner-section container">
+        <div class="row align-items-center">
+          <div class="col-12 col-lg-6 text-center">
+            <h2 class="banner_title">Ankang Life</h2>
+          </div>
+          <div class="col-12 col-lg-6">
+            <div class="banner_content">
+              <p class="banner_desc">
+                The meaning of 安康 (ān kāng) in English is well-being, health, or welfare. It describes
+                a state of being healthy and happy, encompassing both physical and mental health.
+              </p>
+              <div class="banner_button_group">
+                <Button class="home-btn" bg-color="white" :hover="true" :href="'/facilityevent'">Find Facility /
+                  Event</Button>
+                <Button class="home-btn" bg-color="black" :hover="true" :href="'/learnenglish'">Learn English</Button>
+                <Button class="home-btn" bg-color="white" :hover="true" :href="'/navigate'">Navigate your Life</Button>
+                <Button class="home-btn" bg-color="black" :hover="true" :href="'/socialnorms'">Social Norms</Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
   </div>
-  <section class="banner d-flex align-items-center justify-content-center">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="left_content col-12 col-md-6">
-          <h2 class="banner_title">Ankang Life</h2>
-        </div>
-        <div class="right_content col-12 col-md-6">
-          <p class="text-white">
-            The meaning of 安康 (ān kāng) in English is well-being, health, or welfare. It describes
-            a state of being healthy and happy, encompassing both physical and mental health.
-          </p>
-        </div>
-      </div>
-      <div class="banner_button d-flex justify-content-center pt-3 pb-5">
-        <div class="button-wrapper">
-          <Button class="button" bg-color="black" :hover="true" :href="'/facilityevent'">Find Facility / Event</Button>
-          <Button class="button" :hover="true" bg-color="white" :href="'/learnenglish'">Learn English</Button>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="body-section">
-    <div class="image-container">
-      <img
-        src="https://thumbs.dreamstime.com/b/smiling-senior-couple-jogging-park-smiling-senior-couple-jogging-park-smiling-senior-active-couple-walking-jogging-130227194.jpg"
-        alt="Senior couple jogging in park" class="body_image" />
-    </div>
-  </section>
 </template>
 
 <style scoped>
-.banner {
-  background-image: url('https://img.freepik.com/free-photo/vivid-blurred-colorful-wallpaper-background_58702-3803.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 60vh;
+/* Background wrapper with image */
+.homeview-bg-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 75vh;
   display: flex;
   align-items: center;
-  padding: 40px 0;
+  justify-content: center;
+  background-image: url('https://thumbs.dreamstime.com/b/smiling-senior-couple-jogging-park-smiling-senior-couple-jogging-park-smiling-senior-active-couple-walking-jogging-130227194.jpg');
+  background-size: cover;
+  background-position: top center;
 }
 
-h2.banner_title {
+/* Overlay with blurred background and opacity */
+.homeview-bg-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://images.unsplash.com/photo-1557682250-33bd709cbe85?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHVycGxlJTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D');
+  background-size: cover;
+  background-position: left bottom;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+/* Content container */
+.homeview-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+}
+
+/* Banner section styling */
+.banner-section {
+  padding-top: 40px;
+  color: #fff;
+}
+
+/* Banner content with semi-transparent background */
+.banner_content {
+  background-color: rgba(84, 74, 87, 0.3);
+  padding: 5% 10%;
+  border: 2px solid white;
+}
+
+/* Banner title styling */
+.banner_title {
   font-family: 'Inter', sans-serif;
   font-weight: 900;
   font-size: clamp(2.5rem, 8vw, 5rem);
-  color: white;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   margin-bottom: 1rem;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.banner .right_content p {
-  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
-  line-height: 1.6;
+/* Banner description styling */
+.banner_desc {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  color: #fff;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
-.banner_button {
-  margin-top: 2rem;
-  gap: 1rem;
-}
-
-.button-wrapper {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.banner_button .button :deep(.btn) {
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
+/* Button group styling (unchanged as requested) */
+.banner_button_group :deep(.btn) {
+  padding: 20px 40px;
+  color: black;
+  border: 0px solid black;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: white;
   text-decoration: none;
   display: inline-block;
-  text-align: center;
-  padding: 12px 24px;
-  min-width: 200px;
-  font-size: 1rem;
+  transition: all 0.3s ease;
 }
 
-.banner_button .button :deep(.btn):hover {
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+.banner_button_group :deep(.btn):hover {
+  background: #f0f0f0 !important;
+  color: #1a73e8 !important;
+  box-shadow: 0 8px 32px rgba(26, 115, 232, 0.12) !important;
+  transform: translateY(-2px) scale(1.03);
 }
 
-/* Body section with clean image container */
-.body-section {
-  margin: 0;
-  padding: 40px 20px;
-  background: #f8f9fa;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.banner_button_group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
-.image-container {
-  max-width: 1200px;
-  width: 100%;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  background: white;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.image-container:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-}
-
-.body_image {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  object-position: top right;
-  display: block;
-  transition: transform 0.3s ease;
-}
-
-.image-container:hover .body_image {
-  transform: scale(1.02);
-}
-
-/* Mobile responsive improvements */
-@media (max-width: 768px) {
-  .banner {
-    min-height: 50vh;
-    padding: 20px 0;
+/* Responsive adjustments for medium screens */
+@media (max-width: 900px) {
+  .banner_title {
+    font-size: 2.2rem;
   }
 
-  .banner .container {
-    padding: 0 15px;
-  }
-
-  .banner .row {
-    text-align: center;
-  }
-
-  .banner_button {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-  }
-
-  .button-wrapper {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 320px;
-    gap: 1.25rem;
-    margin: 0 auto;
-  }
-
-  .banner_button .button {
-    width: 100%;
-  }
-
-  .banner_button .button :deep(.btn) {
-    width: 100%;
-    margin: 0;
-    padding: 14px 20px;
+  .banner_desc {
     font-size: 1rem;
-    min-height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
-  /* Mobile body section adjustments */
-  .body-section {
-    padding: 20px 15px;
+  .banner_content {
+    padding: 24px 8px;
   }
 
-  .image-container {
-    border-radius: 12px;
-  }
-
-  .body_image {
-    height: 250px;
+  .banner_button_group :deep(.btn) {
+    font-size: 1rem;
+    padding: 14px 5px !important;
   }
 }
 
-/* Extra small devices (less than 576px) - Perfect centering */
-@media (max-width: 575.98px) {
-  .banner {
-    min-height: 50vh;
-    padding: 20px 0;
+/* Responsive adjustments for small screens */
+@media (max-width: 600px) {
+  .banner_content {
+    padding: 12px 2px;
   }
 
-  .banner .container {
-    padding: 0 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .banner_button_group {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 12px;
+    max-width: 350px;
   }
 
-  .banner .row {
-    text-align: center;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .left_content,
-  .right_content {
-    width: 100%;
-    text-align: center;
-  }
-
-  h2.banner_title {
-    margin-bottom: 1rem;
-    text-align: center;
-  }
-
-  .banner .right_content p {
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
-
-  .banner_button {
-    margin-top: 2rem;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 0 20px;
-    display: flex;
-  }
-
-  .button-wrapper {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    max-width: 320px;
-    gap: 1rem;
-    margin: 0 auto;
-    display: flex;
-  }
-
-  .banner_button .button {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-
-  .banner_button .button :deep(.btn) {
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 16px 20px;
+  .banner_button_group :deep(.btn) {
     font-size: 0.95rem;
-    font-weight: 600;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
-    min-height: 60px;
-    line-height: 1.3;
-    white-space: normal;
-    word-wrap: break-word;
-    hyphens: auto;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 
-  .banner_button .button :deep(.btn):hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  .banner_button_group :deep(.btn):nth-child(1) {
+    padding: 10px 15px !important;
+    grid-column: 1;
+    grid-row: 1;
   }
 
-  .body_image {
-    max-height: 250px;
-  }
-}
-
-@media (max-width: 480px) {
-  .banner {
-    min-height: 45vh;
-    padding: 15px 0;
+  .banner_button_group :deep(.btn):nth-child(2) {
+    padding: 10px 15px !important;
+    grid-column: 2;
+    grid-row: 1;
   }
 
-  .banner .container {
-    padding: 0 10px;
+  .banner_button_group :deep(.btn):nth-child(3) {
+    padding: 10px 15px !important;
+    grid-column: 1;
+    grid-row: 2;
   }
 
-  h2.banner_title {
-    margin-bottom: 0.8rem;
-  }
-
-  .banner .right_content p {
-    margin-bottom: 1rem;
-  }
-
-  .banner_button {
-    margin-top: 1.5rem;
-  }
-
-  .button-wrapper {
-    max-width: 280px;
-  }
-
-  .banner_button .button :deep(.btn) {
-    padding: 14px 16px;
-    font-size: 0.9rem;
-    min-height: 64px;
-    line-height: 1.4;
-    white-space: normal;
-    word-wrap: break-word;
-    hyphens: auto;
-  }
-
-  /* Small mobile body section adjustments */
-  .body-section {
-    padding: 15px 10px;
-  }
-
-  .image-container {
-    border-radius: 8px;
-  }
-
-  .body_image {
-    height: 200px;
-  }
-}
-
-/* Better container responsiveness */
-@media (min-width: 1200px) {
-  .banner {
-    min-height: 70vh;
-  }
-}
-
-/* Header controls and logout button */
-.header-controls {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 1000;
-}
-
-.logout-btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  color: #4a5568;
-  font-size: 0.9rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.logout-btn:hover {
-  background: rgba(255, 255, 255, 0.95);
-  border-color: #cbd5e0;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.logout-icon {
-  font-size: 1rem;
-}
-
-@media (max-width: 768px) {
-  .header-controls {
-    top: 15px;
-    right: 15px;
-  }
-
-  .logout-btn {
-    padding: 8px 12px;
-    font-size: 0.85rem;
+  .banner_button_group :deep(.btn):nth-child(4) {
+    padding: 10px 15px !important;
+    grid-column: 2;
+    grid-row: 2;
   }
 }
 </style>

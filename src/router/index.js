@@ -3,6 +3,9 @@ import HomeView from '../views/HomeView.vue'
 import FacilityEvent from '@/views/FacilityEvent.vue'
 import LearnEnglish from '@/views/LearnEnglish.vue'
 import PassCode from '@/views/PassCode.vue'
+import SocialNorms from '@/views/socialNorms.vue'
+import MeetingPeople from '@/views/MeetingPeople.vue'
+import EatingOut from '@/views/EatingOut.vue'
 
 // Check if user is authenticated
 const isAuthenticated = () => {
@@ -33,6 +36,12 @@ const router = createRouter({
       meta: { requiresAuth: true },
     },
     {
+      path: '/facilities',
+      name: 'facilities',
+      component: FacilityEvent,
+      meta: { requiresAuth: true },
+    },
+    {
       path: '/FacilityEvent',
       name: 'facilityevent',
       component: FacilityEvent,
@@ -49,6 +58,30 @@ const router = createRouter({
       name: 'flashcards',
       component: () => import('../views/FlashcardsView.vue'),
       props: true,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/socialnorms',
+      name: 'socialnorms',
+      component: SocialNorms,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/socialnorms/meetingpeople',
+      name: 'meetingpeople',
+      component: MeetingPeople,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/socialnorms/eatingout',
+      name: 'eatingout',
+      component: EatingOut,
+      meta: { requiresAuth: true },
+    },
+    {
+      path: '/navigatelife',
+      name: 'navigatelife',
+      component: () => import('../views/AboutView.vue'),
       meta: { requiresAuth: true },
     },
   ],

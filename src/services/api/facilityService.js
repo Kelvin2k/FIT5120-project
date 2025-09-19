@@ -1,51 +1,45 @@
-import apiClient from '../config/api.js'
+import api from '../api'
 
-class FacilityService {
-  // Get all facilities with pagination
-  async getAllFacilities(page = 1, limit = 20) {
-    try {
-      const response = await apiClient.get('/facilities', {
-        params: { page, limit },
-      })
-      return response.data
-    } catch (error) {
-      throw new Error(`Failed to fetch facilities: ${error.message}`)
-    }
-  }
+const facilityService = {
+  // Get nearby facilities
+  getNearbyFacilities: (latitude, longitude, page = 1, limit = 20) => {
+    console.log('getNearbyFacilities')
+    console.log(latitude, longitude)
+    return api.get('/facilities/nearby', {
+      params: { latitude, longitude, page, limit },
+    })
+  },
 
-  // Filter facilities
-  async filterFacilities(filters) {
-    try {
-      const response = await apiClient.post('/facilities/filter', filters)
-      return response.data
-    } catch (error) {
-      throw new Error(`Failed to filter facilities: ${error.message}`)
-    }
-  }
+  // Get facility details
+  getFacilityDetail: (id) => {
+    return api.get(`/facilities/${id}`)
+  },
 
-  // Search facilities by keyword
-  async searchFacilities(keyword) {
-    try {
-      const response = await apiClient.get('/facilities/search', {
-        params: { q: keyword },
-      })
-      return response.data
-    } catch (error) {
-      throw new Error(`Failed to search facilities: ${error.message}`)
-    }
-  }
+  // Basic search (without filters)
+  searchFacilities: (query, filters = {}) => {
+    return api.get('/facilities/search', {
+      params: { ...query, ...filters },
+    })
+  },
 
-  // Get nearby facilities (supporting API)
-  async getNearbyFacilities(lat, lng, radius = 5) {
-    try {
-      const response = await apiClient.get('/facilities/nearby', {
-        params: { lat, lng, radius },
-      })
-      return response.data
-    } catch (error) {
-      throw new Error(`Failed to get nearby facilities: ${error.message}`)
+  // Search facilities with filters
+  searchFacilitiesWithFilters: (filterParams) => {
+    console.log('facilityService: sending filter request', filterParams)
+
+    // Convert parameters: frontend filters.language -> backend language parameters
+    const params = {
+      latitude: filterParams.latitude,
+      longitude: filterParams.longitude,
+      page: filterParams.page,
+      limit: filterParams.limit,
+      distance: filterParams.distance,
+      minRating: filterParams.minRating,
+      openNow: filterParams.openNow,
+      language: filterParams.language || '', // Send language preference to backend
     }
-  }
+
+    return api.get('/facilities/search', { params })
+  },
 }
 
-export default new FacilityService()
+export default facilityService
