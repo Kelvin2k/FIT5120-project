@@ -1,0 +1,284 @@
+{}
+[
+    {
+      "id": "doctor_001",
+      "scene": "Booking by Phone",
+      "language": "English",
+      "norm": "You can call the clinic to book an appointment with a doctor.",
+      "example": "Hello, I’d like to book an appointment with Dr. Smith.",
+      "note": "Reception staff will confirm date and time.",
+      "translations": {
+        "zh": "你可以打电话给诊所预约医生。",
+        "vi": "Bạn có thể gọi điện đến phòng khám để đặt lịch hẹn với bác sĩ.",
+        "id": "Anda dapat menelepon klinik untuk membuat janji dengan dokter."
+      },
+      "image": ""
+    },
+    {
+      "id": "doctor_002",
+      "scene": "Booking Online",
+      "language": "English",
+      "norm": "Many clinics allow online booking through their website or app.",
+      "example": "Use HotDoc app to select your doctor and time.",
+      "note": "Requires internet access.",
+      "translations": {
+        "zh": "许多诊所可以通过网站或应用程序在线预约。",
+        "vi": "Nhiều phòng khám cho phép đặt lịch trực tuyến qua website hoặc ứng dụng.",
+        "id": "Banyak klinik memungkinkan pemesanan online melalui situs web atau aplikasi."
+      },
+      "image": ""
+    },
+    {
+      "id": "doctor_003",
+      "scene": "Booking at Reception",
+      "language": "English",
+      "norm": "You can also book directly by visiting the reception desk.",
+      "example": "I’d like to book an appointment for tomorrow, please.",
+      "note": "Useful if you live nearby.",
+      "translations": {
+        "zh": "你也可以直接去前台预约。",
+        "vi": "Bạn cũng có thể đặt lịch trực tiếp tại quầy lễ tân.",
+        "id": "Anda juga bisa memesan langsung di meja resepsionis."
+      },
+      "image": ""
+    },
+    {
+      "id": "doctor_004",
+      "scene": "Bulk-Billing with Medicare",
+      "language": "English",
+      "norm": "Some clinics offer bulk-billing, meaning no payment if you have a Medicare card.",
+      "example": "This clinic is bulk-billing for Medicare holders.",
+      "note": "Private clinics may charge fees.",
+      "translations": {
+        "zh": "一些诊所提供全民医保直接结算，持卡人无需支付。",
+        "vi": "Một số phòng khám chấp nhận Medicare bulk-billing, không cần thanh toán.",
+        "id": "Beberapa klinik menawarkan bulk-billing untuk pemegang Medicare."
+      },
+      "image": ""
+    },
+    {
+      "id": "doctor_005",
+      "scene": "Arriving on Time",
+      "language": "English",
+      "norm": "Arrive at least 10 minutes early to check in.",
+      "example": "Please arrive by 9:20 for your 9:30 appointment.",
+      "note": "Late arrival may result in rescheduling.",
+      "translations": {
+        "zh": "请提前10分钟到达办理登记。",
+        "vi": "Đến sớm ít nhất 10 phút để làm thủ tục.",
+        "id": "Datang setidaknya 10 menit lebih awal untuk check-in."
+      },
+      "image": ""
+    },
+    {
+      "id": "doctor_006",
+      "scene": "Talking to Receptionist",
+      "language": "English",
+      "norm": "Tell the receptionist your name and appointment time.",
+      "example": "My name is Lin, I have an appointment at 10am.",
+      "note": "Reception confirms your booking.",
+      "translations": {
+        "zh": "告诉前台你的姓名和预约时间。",
+        "vi": "Nói với lễ tân tên và giờ hẹn của bạn.",
+        "id": "Beri tahu resepsionis nama dan waktu janji Anda."
+      },
+      "image": ""
+    },
+    {
+      "id": "doctor_007",
+      "scene": "Doctor Consultation",
+      "language": "English",
+      "norm": "Explain your symptoms clearly to the doctor.",
+      "example": "I have had a headache for three days.",
+      "note": "Bring notes if needed.",
+      "translations": {
+        "zh": "向医生清楚说明你的症状。",
+        "vi": "Hãy mô tả rõ ràng triệu chứng cho bác sĩ.",
+        "id": "Jelaskan gejala Anda dengan jelas kepada dokter."
+      },
+      "image": ""
+    },
+    {
+      "id": "doctor_008",
+      "scene": "Interpreter Support",
+      "language": "English",
+      "norm": "You can request a free interpreter if you don’t speak English well.",
+      "example": "I would like an interpreter for my appointment.",
+      "note": "Available through TIS National service.",
+      "translations": {
+        "zh": "如果你不懂英语，可以要求免费的口译员。",
+        "vi": "Bạn có thể yêu cầu thông dịch viên miễn phí nếu không nói tốt tiếng Anh.",
+        "id": "Anda dapat meminta juru bahasa gratis jika tidak fasih berbahasa Inggris."
+      },
+      "image": ""
+    },
+    {
+      "id": "doctor_009",
+      "scene": "Prescriptions",
+      "language": "English",
+      "norm": "Doctors may give you a prescription to buy medicine at a pharmacy.",
+      "example": "Here is your prescription for antibiotics.",
+      "note": "Take it to any pharmacy.",
+      "translations": {
+        "zh": "医生可能会给你处方去药房买药。",
+        "vi": "Bác sĩ có thể kê đơn thuốc để bạn mua tại hiệu thuốc.",
+        "id": "Dokter mungkin memberi Anda resep untuk membeli obat di apotek."
+      },
+      "image": ""
+    },
+    {
+      "id": "doctor_010",
+      "scene": "Follow-up Appointments",
+      "language": "English",
+      "norm": "Sometimes you need to book another appointment for follow-up.",
+      "example": "Please come back in two weeks for a review.",
+      "note": "Important for ongoing conditions.",
+      "translations": {
+        "zh": "有时需要预约复诊。",
+        "vi": "Đôi khi bạn cần đặt lịch hẹn tái khám.",
+        "id": "Terkadang Anda perlu membuat janji tindak lanjut."
+      },
+      "image": ""
+    },
+    {
+      "id": "doctor_011",
+      "scene": "Bringing Medicare Card",
+      "language": "English",
+      "norm": "Always bring your Medicare card or ID for registration.",
+      "example": "Please show your Medicare card.",
+      "note": "Helps confirm eligibility.",
+      "translations": {
+        "zh": "看医生时请带上医保卡或身份证。",
+        "vi": "Luôn mang theo thẻ Medicare hoặc giấy tờ tùy thân.",
+        "id": "Selalu bawa kartu Medicare atau ID Anda."
+      },
+      "image": ""
+    },
+    {
+      "id": "doctor_012",
+      "scene": "Private vs Public Clinics",
+      "language": "English",
+      "norm": "Private clinics may charge higher fees than public ones.",
+      "example": "Private consultation fee is $70.",
+      "note": "Check fees before booking.",
+      "translations": {
+        "zh": "私人诊所费用通常高于公立诊所。",
+        "vi": "Phòng khám tư thường có phí cao hơn phòng khám công.",
+        "id": "Klinik swasta biasanya mengenakan biaya lebih tinggi."
+      },
+      "image": ""
+    },
+    {
+      "id": "doctor_013",
+      "scene": "Specialist Referrals",
+      "language": "English",
+      "norm": "GPs may refer you to a specialist if needed.",
+      "example": "You need a referral to see a cardiologist.",
+      "note": "Referral is a letter from your GP.",
+      "translations": {
+        "zh": "全科医生可能会转诊你去看专科医生。",
+        "vi": "Bác sĩ gia đình có thể giới thiệu bạn đến bác sĩ chuyên khoa.",
+        "id": "Dokter umum dapat merujuk Anda ke spesialis."
+      },
+      "image": ""
+    },
+    {
+      "id": "doctor_014",
+      "scene": "Telehealth Consultations",
+      "language": "English",
+      "norm": "Some doctors offer video or phone consultations.",
+      "example": "Your Telehealth appointment is at 3pm.",
+      "note": "Useful if you cannot travel.",
+      "translations": {
+        "zh": "一些医生提供视频或电话问诊。",
+        "vi": "Một số bác sĩ cung cấp tư vấn qua video hoặc điện thoại.",
+        "id": "Beberapa dokter menawarkan konsultasi video atau telepon."
+      },
+      "image": ""
+    },
+    {
+      "id": "doctor_015",
+      "scene": "Emergency vs Non-Emergency",
+      "language": "English",
+      "norm": "For emergencies call 000 or go to hospital, not GP clinic.",
+      "example": "Call 000 if you have chest pain.",
+      "note": "GPs handle non-emergencies only.",
+      "translations": {
+        "zh": "紧急情况请拨打000或去医院，而不是全科诊所。",
+        "vi": "Trong trường hợp khẩn cấp hãy gọi 000 hoặc đến bệnh viện.",
+        "id": "Untuk darurat, hubungi 000 atau pergi ke rumah sakit."
+      },
+      "image": ""
+    },
+    {
+      "id": "doctor_016",
+      "scene": "After-Hours Clinics",
+      "language": "English",
+      "norm": "Some clinics open late or on weekends for after-hours care.",
+      "example": "This clinic is open until 11pm.",
+      "note": "Useful for working people.",
+      "translations": {
+        "zh": "有些诊所在晚上或周末也营业。",
+        "vi": "Một số phòng khám mở cửa muộn hoặc cuối tuần.",
+        "id": "Beberapa klinik buka larut malam atau akhir pekan."
+      },
+      "image": ""
+    },
+    {
+      "id": "doctor_017",
+      "scene": "Medical Certificates",
+      "language": "English",
+      "norm": "Doctors can issue certificates for work or school absence.",
+      "example": "Here is your medical certificate for two days.",
+      "note": "Usually required by employers.",
+      "translations": {
+        "zh": "医生可以开具病假证明。",
+        "vi": "Bác sĩ có thể cấp giấy chứng nhận y tế.",
+        "id": "Dokter dapat mengeluarkan surat keterangan medis."
+      },
+      "image": ""
+    },
+    {
+      "id": "doctor_018",
+      "scene": "Confidentiality and Privacy",
+      "language": "English",
+      "norm": "Doctors must keep your medical information private.",
+      "example": "Your records are confidential.",
+      "note": "Protected by law in Australia.",
+      "translations": {
+        "zh": "医生必须对你的病历保密。",
+        "vi": "Bác sĩ phải giữ bí mật thông tin y tế của bạn.",
+        "id": "Dokter harus menjaga kerahasiaan informasi medis Anda."
+      },
+      "image": ""
+    },
+    {
+      "id": "doctor_019",
+      "scene": "Bringing Medical History",
+      "language": "English",
+      "norm": "Bring past medical records if you have them.",
+      "example": "Please bring your blood test results.",
+      "note": "Helps doctors understand your condition.",
+      "translations": {
+        "zh": "如果有，带上你的既往病历。",
+        "vi": "Mang theo hồ sơ y tế trước đây nếu có.",
+        "id": "Bawa riwayat medis Anda jika ada."
+      },
+      "image": ""
+    },
+    {
+      "id": "doctor_020",
+      "scene": "Printing Information",
+      "language": "English",
+      "norm": "You can click the 'Print' button to download instructions in PDF.",
+      "example": "Click 'Print' to save your doctor visit guide.",
+      "note": "Useful for keeping a copy at home.",
+      "translations": {
+        "zh": "点击“打印”按钮即可下载 PDF 说明。",
+        "vi": "Nhấn nút 'In' để tải hướng dẫn PDF.",
+        "id": "Klik tombol 'Cetak' untuk mengunduh instruksi dalam PDF."
+      },
+      "image": ""
+    }
+  ]
+  

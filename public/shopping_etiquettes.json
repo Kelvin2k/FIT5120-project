@@ -1,0 +1,283 @@
+[
+    {
+      "id": "shopping_001",
+      "scene": "Supermarket Navigation",
+      "language": "English",
+      "norm": "Supermarkets are divided into sections like fruit, vegetables, meat, dairy, and frozen food. Signs above aisles help you find items.",
+      "example": "The dairy section is in aisle 3.",
+      "note": "Most large supermarkets follow this layout.",
+      "translations": {
+        "zh": "超市通常分为水果、蔬菜、肉类、乳制品和冷冻食品区。过道上方的标牌能帮助你找到所需商品。",
+        "vi": "Siêu thị thường được chia thành các khu vực như trái cây, rau, thịt, sữa và thực phẩm đông lạnh. Biển hiệu trên lối đi giúp bạn tìm sản phẩm.",
+        "id": "Supermarket biasanya dibagi menjadi bagian buah, sayur, daging, susu, dan makanan beku. Tanda di atas lorong membantu Anda menemukan barang."
+      },
+      "image": ""
+    },
+    {
+      "id": "shopping_002",
+      "scene": "Reading Aisle Signs",
+      "language": "English",
+      "norm": "Aisle signs list the main items available in each row to help you navigate.",
+      "example": "Aisle 5: bread, rice, pasta.",
+      "note": "Common in large chain supermarkets.",
+      "translations": {
+        "zh": "过道标牌列出了该排主要商品，帮助你导航。",
+        "vi": "Biển báo lối đi liệt kê các mặt hàng chính trong từng dãy để giúp bạn tìm.",
+        "id": "Tanda lorong mencantumkan barang utama di setiap baris untuk membantu Anda."
+      },
+      "image": ""
+    },
+    {
+      "id": "shopping_003",
+      "scene": "Checking Price Labels",
+      "language": "English",
+      "norm": "Price labels are located on the shelf under each product.",
+      "example": "Milk: $2.50 per litre.",
+      "note": "Always check the shelf label, not just the packaging.",
+      "translations": {
+        "zh": "价格标签在商品下方的货架上。",
+        "vi": "Thẻ giá nằm trên kệ dưới mỗi sản phẩm.",
+        "id": "Label harga terletak di rak di bawah setiap produk."
+      },
+      "image": ""
+    },
+    {
+      "id": "shopping_004",
+      "scene": "Understanding Unit Price",
+      "language": "English",
+      "norm": "The unit price shows cost per 100g or per kg, making it easier to compare products.",
+      "example": "Rice: $3.00/kg.",
+      "note": "Unit price helps find the best value.",
+      "translations": {
+        "zh": "单价显示每100克或每公斤的价格，方便比较。",
+        "vi": "Giá đơn vị cho biết chi phí mỗi 100g hoặc mỗi kg.",
+        "id": "Harga per unit menunjukkan biaya per 100g atau per kg."
+      },
+      "image": ""
+    },
+    {
+      "id": "shopping_005",
+      "scene": "Special Offers",
+      "language": "English",
+      "norm": "Discounts and specials are often highlighted with bright tags.",
+      "example": "Buy 2 for $5.",
+      "note": "Check expiry dates when buying specials.",
+      "translations": {
+        "zh": "折扣商品通常用鲜艳的标签标出。",
+        "vi": "Giảm giá thường được đánh dấu bằng thẻ sáng.",
+        "id": "Diskon sering ditandai dengan label berwarna cerah."
+      },
+      "image": ""
+    },
+    {
+      "id": "shopping_006",
+      "scene": "Using Trolleys and Baskets",
+      "language": "English",
+      "norm": "Trolleys and baskets are provided at the entrance for carrying items.",
+      "example": "Take a trolley for a big shop.",
+      "note": "Return trolleys to designated areas.",
+      "translations": {
+        "zh": "入口处有购物车和篮子供使用。",
+        "vi": "Xe đẩy và giỏ được cung cấp ở lối vào.",
+        "id": "Troli dan keranjang tersedia di pintu masuk."
+      },
+      "image": ""
+    },
+    {
+      "id": "shopping_007",
+      "scene": "Queuing at Checkout",
+      "language": "English",
+      "norm": "Always line up and wait for your turn at the cashier.",
+      "example": "Please wait behind the line.",
+      "note": "Queueing is important etiquette in Australia.",
+      "translations": {
+        "zh": "在收银台排队等待轮到自己。",
+        "vi": "Luôn xếp hàng và chờ đến lượt tại quầy thu ngân.",
+        "id": "Selalu antre dan tunggu giliran di kasir."
+      },
+      "image": ""
+    },
+    {
+      "id": "shopping_008",
+      "scene": "Self-Checkout Machines",
+      "language": "English",
+      "norm": "Self-checkout allows you to scan and pay for items yourself.",
+      "example": "Scan the barcode and follow screen instructions.",
+      "note": "Staff can assist if needed.",
+      "translations": {
+        "zh": "自助结账可自行扫描和付款。",
+        "vi": "Máy tự thanh toán cho phép bạn tự quét và trả tiền.",
+        "id": "Self-checkout memungkinkan Anda memindai dan membayar sendiri."
+      },
+      "image": ""
+    },
+    {
+      "id": "shopping_009",
+      "scene": "Payment Methods",
+      "language": "English",
+      "norm": "You can pay by cash, card, or contactless (tap).",
+      "example": "Tap your card to pay.",
+      "note": "Contactless payment is widely used.",
+      "translations": {
+        "zh": "可以用现金、银行卡或非接触式支付。",
+        "vi": "Bạn có thể trả bằng tiền mặt, thẻ hoặc không tiếp xúc.",
+        "id": "Anda bisa membayar dengan tunai, kartu, atau tanpa kontak."
+      },
+      "image": ""
+    },
+    {
+      "id": "shopping_010",
+      "scene": "Bagging Groceries",
+      "language": "English",
+      "norm": "Bring reusable bags or buy bags at checkout.",
+      "example": "Plastic bags cost 15 cents.",
+      "note": "Reusable bags help reduce waste.",
+      "translations": {
+        "zh": "自带环保袋或在收银台购买袋子。",
+        "vi": "Mang túi tái sử dụng hoặc mua tại quầy.",
+        "id": "Bawa tas pakai ulang atau beli di kasir."
+      },
+      "image": ""
+    },
+    {
+      "id": "shopping_011",
+      "scene": "Checking Expiry Dates",
+      "language": "English",
+      "norm": "Always check expiry dates on perishable items before buying.",
+      "example": "Milk expires on 12 March.",
+      "note": "Important for dairy and meat.",
+      "translations": {
+        "zh": "购买前一定要查看易腐商品的保质期。",
+        "vi": "Luôn kiểm tra hạn sử dụng trên thực phẩm dễ hỏng.",
+        "id": "Selalu periksa tanggal kedaluwarsa pada barang mudah rusak."
+      },
+      "image": ""
+    },
+    {
+      "id": "shopping_012",
+      "scene": "Fresh Food Sections",
+      "language": "English",
+      "norm": "Supermarkets often have bakery, deli, and butcher sections.",
+      "example": "Get fresh bread from the bakery section.",
+      "note": "These sections sell fresh, daily-made food.",
+      "translations": {
+        "zh": "超市通常有烘焙、熟食和肉铺区。",
+        "vi": "Siêu thị thường có khu bánh mì, đồ nguội và thịt.",
+        "id": "Supermarket sering memiliki bagian roti, deli, dan daging."
+      },
+      "image": ""
+    },
+    {
+      "id": "shopping_013",
+      "scene": "Asking Staff for Help",
+      "language": "English",
+      "norm": "Staff can help you find items if you cannot locate them.",
+      "example": "Excuse me, where is the rice?",
+      "note": "Staff usually wear uniforms.",
+      "translations": {
+        "zh": "如果找不到商品，可以请店员帮忙。",
+        "vi": "Nhân viên có thể giúp bạn tìm sản phẩm.",
+        "id": "Staf dapat membantu Anda menemukan barang."
+      },
+      "image": ""
+    },
+    {
+      "id": "shopping_014",
+      "scene": "Loyalty Cards",
+      "language": "English",
+      "norm": "Some supermarkets offer loyalty cards to collect points.",
+      "example": "Use Flybuys card for discounts.",
+      "note": "Points can give rewards or vouchers.",
+      "translations": {
+        "zh": "一些超市提供积分卡来积攒积分。",
+        "vi": "Một số siêu thị có thẻ khách hàng thân thiết.",
+        "id": "Beberapa supermarket menawarkan kartu loyalitas."
+      },
+      "image": ""
+    },
+    {
+      "id": "shopping_015",
+      "scene": "Opening Hours",
+      "language": "English",
+      "norm": "Most supermarkets open from 7am to 9pm.",
+      "example": "Coles closes at 9pm.",
+      "note": "Some are open 24 hours.",
+      "translations": {
+        "zh": "大多数超市营业时间为早上7点到晚上9点。",
+        "vi": "Hầu hết siêu thị mở từ 7 giờ sáng đến 9 giờ tối.",
+        "id": "Sebagian besar supermarket buka dari jam 7 pagi sampai jam 9 malam."
+      },
+      "image": ""
+    },
+    {
+      "id": "shopping_016",
+      "scene": "Weighing Produce",
+      "language": "English",
+      "norm": "Some fruits and vegetables need to be weighed before checkout.",
+      "example": "Weigh apples at the scale.",
+      "note": "Not all supermarkets require this.",
+      "translations": {
+        "zh": "一些水果和蔬菜需要在结账前称重。",
+        "vi": "Một số trái cây và rau cần cân trước khi thanh toán.",
+        "id": "Beberapa buah dan sayuran harus ditimbang sebelum pembayaran."
+      },
+      "image": ""
+    },
+    {
+      "id": "shopping_017",
+      "scene": "Storage Advice",
+      "language": "English",
+      "norm": "Labels may include storage advice for fresh food.",
+      "example": "Keep refrigerated at 4°C.",
+      "note": "Follow advice to keep food safe.",
+      "translations": {
+        "zh": "标签可能包含新鲜食品的储存建议。",
+        "vi": "Nhãn có thể bao gồm hướng dẫn bảo quản cho thực phẩm tươi.",
+        "id": "Label dapat mencantumkan saran penyimpanan untuk makanan segar."
+      },
+      "image": ""
+    },
+    {
+      "id": "shopping_018",
+      "scene": "Halal/Kosher/Vegetarian Products",
+      "language": "English",
+      "norm": "Special sections may stock halal, kosher, or vegetarian food.",
+      "example": "This aisle has halal meat.",
+      "note": "Labels help identify dietary needs.",
+      "translations": {
+        "zh": "专门区域可能有清真、犹太或素食食品。",
+        "vi": "Khu vực đặc biệt có thể có thực phẩm halal, kosher hoặc chay.",
+        "id": "Bagian khusus mungkin menjual makanan halal, kosher, atau vegetarian."
+      },
+      "image": ""
+    },
+    {
+      "id": "shopping_019",
+      "scene": "Weekend Crowds",
+      "language": "English",
+      "norm": "Supermarkets are busiest on weekends.",
+      "example": "Saturday morning is very crowded.",
+      "note": "Shop on weekdays to avoid crowds.",
+      "translations": {
+        "zh": "周末超市人最多。",
+        "vi": "Siêu thị đông nhất vào cuối tuần.",
+        "id": "Supermarket paling ramai di akhir pekan."
+      },
+      "image": ""
+    },
+    {
+      "id": "shopping_020",
+      "scene": "Returning Items",
+      "language": "English",
+      "norm": "You can return faulty items with a receipt.",
+      "example": "Return milk that has spoiled before expiry.",
+      "note": "Policies may vary by store.",
+      "translations": {
+        "zh": "凭收据可以退回有问题的商品。",
+        "vi": "Bạn có thể trả lại hàng bị lỗi kèm hóa đơn.",
+        "id": "Anda dapat mengembalikan barang rusak dengan struk."
+      },
+      "image": ""
+    }
+  ]
+  
