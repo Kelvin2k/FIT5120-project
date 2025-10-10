@@ -402,7 +402,8 @@ defineExpose({
 .flashcard-container {
   perspective: 1000px;
   width: 100%;
-  max-width: 560px;
+  max-width: 800px;
+  min-width: 300px;
   height: 340px;
   margin: 0 auto;
 }
