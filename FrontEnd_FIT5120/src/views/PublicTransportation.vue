@@ -4,27 +4,32 @@
       :subtitle="$t('navigate_your_life.cards.publictransportation.subtitle')" :badges="transportBadges"
       :main-icon="mainIcon" />
 
-    <div>
-      <section v-for="(card, idx) in cards" :key="card.route" class="service-section"
-        :class="{ reverse: idx % 2 === 1 }" :data-aos="idx % 2 === 0 ? 'fade-right' : 'fade-left'"
-        :data-aos-delay="`${0 + idx * 100}`" aria-label="Public Transport Card Section">
-        <div class="section-img">
-          <div class="img-hover-wrapper" @click="goTo(card.route)">
-            <img :src="card.img" :alt="card.title()" class="card-img-top" />
-            <div class="portfolio__overlay">
-              <div class="overlay-title">{{ card.title() }}</div>
-              <!-- <div class="overlay-desc">{{ card.desc() }}</div> -->
+    <div class="cards-wrapper mt-5">
+      <div class="row w-100 m-0">
+        <div v-for="(card, idx) in cards" :key="card.route"
+          class="col-lg-4 col-md-6 col-12 d-flex justify-content-center mb-4">
+          <div class="slide-card-with-image w-100" :data-aos="idx % 2 === 0 ? 'fade-right' : 'fade-left'"
+            :data-aos-delay="`${0 + idx * 100}`">
+            <div class="slide-image w-100 mb-3" style="max-height: 250px; height: 200px; min-height: 200px">
+              <div class="img-hover-wrapper" @click="goTo(card.route)">
+                <img :src="card.img" :alt="card.title()" class="slide-img-top w-100 h-100" />
+                <div class="portfolio__overlay">
+                  <div class="overlay-title">{{ card.title() }}</div>
+                </div>
+              </div>
+            </div>
+            <div class="slide-card text-center">
+              <h2 class="slide-title">{{ card.title() }}</h2>
+              <p class="slide-desc">{{ card.desc() }}</p>
+            </div>
+            <div class="d-flex justify-content-center mt-3">
+              <button class="learn-more-btn" @click="goTo(card.route)">
+                {{ $t('button_learnmore.label') }}
+              </button>
             </div>
           </div>
         </div>
-        <div class="section-content">
-          <h2 class="section-title">{{ card.title() }}</h2>
-          <p class="section-subtitle">{{ card.desc() }}</p>
-          <button class="learn-more-btn" @click="goTo(card.route)">
-            {{ $t('button_learnmore.label') }}
-          </button>
-        </div>
-      </section>
+      </div>
     </div>
   </div>
 </template>
@@ -55,25 +60,25 @@ const transportBadges = [
     icon: () => h('svg', { xmlns: 'http://www.w3.org/2000/svg', viewBox: '0 0 24 24', fill: 'currentColor' }, [
       h('path', { d: 'M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6H6V6h12v5z' })
     ]),
-    text: 'Bus'
+    text: t('badges.bus')
   },
   {
     icon: () => h('svg', { xmlns: 'http://www.w3.org/2000/svg', viewBox: '0 0 24 24', fill: 'currentColor' }, [
       h('path', { d: 'M4 15.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h12v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V5c0-3.5-3.58-4-8-4s-8 .5-8 4v10.5zm8 1.5c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm6-7H6V5h12v5z' })
     ]),
-    text: 'Train'
+    text: t('badges.train')
   },
   {
     icon: () => h('svg', { xmlns: 'http://www.w3.org/2000/svg', viewBox: '0 0 24 24', fill: 'currentColor' }, [
       h('path', { d: 'M19 16.94V8.5c0-2.79-2.61-3.4-6.01-3.49l.76-1.51H17V2H7v1.5h4.75l-.76 1.52C7.86 5.11 5 5.73 5 8.5v8.44c0 1.45 1.19 2.66 2.59 2.97L6 21.5v.5h2.23l2-2H14l2 2h2v-.5L16.5 20h-.08c1.69 0 2.58-1.37 2.58-3.06zm-7 1.56c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm5-4.5H7V9h10v5z' })
     ]),
-    text: 'Tram'
+    text: t('badges.tram')
   },
   {
     icon: () => h('svg', { xmlns: 'http://www.w3.org/2000/svg', viewBox: '0 0 24 24', fill: 'currentColor' }, [
       h('path', { d: 'M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z' })
     ]),
-    text: 'Myki'
+    text: t('badges.myki')
   }
 ]
 
@@ -116,50 +121,82 @@ function goTo(route) {
   min-height: 100vh;
   padding: 0 0 40px 0;
   font-family: 'Roboto', 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.service-section {
-  display: flex;
-  align-items: center;
-  min-height: 350px;
-  margin: 40px auto;
-  max-width: 1100px;
+.cards-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.slide-card-with-image {
   background: #fff;
-  border-radius: 16px;
-  border: 2px solid #e0d4f7;
-  box-shadow: 0 4px 16px rgba(107, 70, 193, 0.12);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(102, 26, 255, 0.10);
+  padding: 32px 36px;
+  gap: 32px;
+  width: 100%;
+  margin: 0;
+  transition: box-shadow 0.25s, transform 0.22s, border 0.18s;
+  border: 2.5px solid transparent;
+  z-index: 1;
+  box-sizing: border-box;
+  position: relative;
   overflow: hidden;
-  position: relative;
-  /* Remove custom animation, use AOS for entrance */
-  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
-}
-
-.service-section:hover {
-  border-color: #a259e6;
-  box-shadow: 0 8px 24px rgba(162, 89, 230, 0.2);
-  transform: translateY(-20px) scale(1.04);
-}
-
-.service-section.reverse {
-  flex-direction: row-reverse;
-}
-
-.section-img {
-  flex: 0 0 60%;
-  position: relative;
-  min-height: 300px;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+}
+
+.slide-card-with-image:hover {
+  box-shadow: 0 12px 36px 0 rgba(102, 26, 255, 0.22), 0 2px 16px 0 rgba(102, 26, 255, 0.10);
+  transform: translateY(-15px) !important;
+  border: 2.5px solid #a259e6;
+  z-index: 2;
+}
+
+.slide-card {
+  background: transparent;
+  border-radius: 12px;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  background: #D6BCFA;
+  align-items: center;
+}
+
+.slide-title {
+  color: #661aff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.slide-desc {
+  color: #222;
+  font-size: 1.08rem;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.slide-image {
+  position: relative;
 }
 
 .img-hover-wrapper {
   width: 100%;
   height: 100%;
   position: relative;
-  cursor: pointer;
-  border-radius: 10px;
+  border-radius: 15px;
   overflow: hidden;
   transition: all 0.3s;
 }
@@ -182,18 +219,17 @@ function goTo(route) {
   left: 125%;
 }
 
-.card-img-top {
+.slide-img-top {
   width: 100%;
   height: 100%;
-  min-height: 300px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 15px;
   opacity: 1;
   z-index: 1;
   transition: filter 0.5s, transform 0.5s;
 }
 
-.img-hover-wrapper:hover .card-img-top {
+.img-hover-wrapper:hover .slide-img-top {
   filter: brightness(0.7);
   transform: scale(1.08);
 }
@@ -226,33 +262,6 @@ function goTo(route) {
   margin-bottom: 6px;
 }
 
-/* .overlay-desc {
-  color: #fff;
-  font-size: 1rem;
-} */
-
-.section-content {
-  flex: 0 0 40%;
-  padding: 40px 32px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-}
-
-.section-title {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #6B46C1;
-  margin-bottom: 16px;
-}
-
-.section-subtitle {
-  font-size: 1.1rem;
-  color: #555;
-  margin-bottom: 28px;
-}
-
 .learn-more-btn {
   background: #6B46C1;
   color: #fff;
@@ -264,6 +273,7 @@ function goTo(route) {
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.10);
   transition: all 0.3s cubic-bezier(.4, 2, .6, 1), transform 0.3s cubic-bezier(.4, 2, .6, 1);
+  text-decoration: none;
 }
 
 .learn-more-btn:hover {
@@ -272,41 +282,27 @@ function goTo(route) {
 }
 
 @media (max-width: 900px) {
-
-  .service-section,
-  .service-section.reverse {
-    flex-direction: column !important;
-    min-height: 0;
-    margin: 32px 0;
-    max-width: 98vw;
+  .slide-card-with-image {
+    padding: 16px 10px;
+    gap: 12px;
+    margin: 0;
   }
 
-  .section-img,
-  .section-content {
-    flex: 1 1 100%;
-    width: 100%;
-    min-height: 180px;
-    padding: 0;
-  }
-
-  .section-content {
+  .slide-card {
+    font-size: 1rem;
     align-items: center;
+  }
+
+  .slide-title {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
     text-align: center;
-    padding: 24px 12px 32px 12px;
   }
 
-  .section-title {
-    font-size: 1.4rem;
-  }
-
-  .section-subtitle {
-    font-size: 1rem;
-  }
-
-  .main-description {
-    font-size: 1rem;
-
-    margin-bottom: 18px;
+  .slide-desc {
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+    text-align: center;
   }
 }
 </style>

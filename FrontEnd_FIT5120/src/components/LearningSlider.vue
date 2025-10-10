@@ -1,47 +1,24 @@
 <template>
   <div class="learning-slider-container justify-content-center container">
     <div class="slider-content">
-      <div class="display-toggle">
-        <button :class="{ active: displayMode === 'grid' }" @click="displayMode = 'grid'">{{ gridBtnText }}</button>
-        <button :class="{ active: displayMode === 'column' }" @click="displayMode = 'column'">{{ columnBtnText
-        }}</button>
-      </div>
-      <div :class="['cards-wrapper', displayMode]">
+      <div :class="['cards-wrapper', 'grid']">
         <div class="row w-100 m-0">
           <div v-for="(card, idx) in translatedCards" :key="card.key"
-            :class="displayMode === 'grid' ? 'col-lg-4 col-md-6 col-12 d-flex justify-content-center mb-4 ' : 'col-12 d-flex justify-content-center mb-4 '">
-            <div :class="['slide-card-with-image', 'w-100', displayMode]" data-aos="fade-up"
+            :class="'col-lg-4 col-md-6 col-12 d-flex justify-content-center mb-4'">
+            <div :class="['slide-card-with-image', 'w-100', 'grid']" data-aos="fade-up"
               :data-aos-delay="Math.min(idx * 50, 150)">
-              <template v-if="displayMode === 'grid'">
-                <div class="slide-image w-100 mb-3" style="max-height: 250px; height: 200px; min-height: 200px">
-                  <img :src="card.image" alt="Slide Image" class="w-100 h-100" />
+              <div class="slide-image w-100 mb-3" style="max-height: 250px; height: 200px; min-height: 200px">
+                <div class="img-hover-wrapper">
+                  <img :src="card.image" alt="Slide Image" class="slide-img-top w-100 h-100" />
                 </div>
-                <div class="slide-card text-center">
-                  <h2 class="slide-title">{{ card.translatedTitle }}</h2>
-                  <p class="slide-desc">{{ card.translatedDesc }}</p>
-                </div>
-                <div class="d-flex justify-content-center mt-3">
-                  <a class="learn-more-btn" :href="card.link">{{ clickMoreText }}</a>
-                </div>
-              </template>
-              <template v-else>
-                <div class="d-flex flex-column w-100" style="min-height: 200px;">
-                  <div class="d-flex flex-row align-items-center w-100">
-                    <div class="flex-grow-1 d-flex flex-column justify-content-center" style="height: 100%;">
-                      <h2 class="slide-title">{{ card.translatedTitle }}</h2>
-                      <p class="slide-desc">{{ card.translatedDesc }}</p>
-                    </div>
-                    <div class="slide-image me-4"
-                      style="width: 180px; min-width: 140px; max-width: 220px; height: 180px; display: flex; align-items: center; justify-content: center;">
-                      <img :src="card.image" alt="Slide Image"
-                        style="object-fit: cover; width: 100%; height: 100%; border-radius: 15px;" />
-                    </div>
-                  </div>
-                  <div class="d-flex justify-content-center mt-3">
-                    <a class="learn-more-btn" :href="card.link">{{ clickMoreText }}</a>
-                  </div>
-                </div>
-              </template>
+              </div>
+              <div class="slide-card text-center">
+                <h2 class="slide-title">{{ card.translatedTitle }}</h2>
+                <p class="slide-desc">{{ card.translatedDesc }}</p>
+              </div>
+              <div class="d-flex justify-content-center mt-3">
+                <a class="learn-more-btn" :href="card.link">{{ clickMoreText }}</a>
+              </div>
             </div>
           </div>
         </div>
@@ -58,7 +35,7 @@
 
 <script setup>
 
-import { ref, onMounted, watch, nextTick } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import AOS from 'aos'
 import Papa from 'papaparse'
 import { translateBatch } from '@/services/translationService.js'
@@ -79,21 +56,12 @@ const props = defineProps({
 
 const originalCards = ref([])
 const translatedCards = ref([])
-const displayMode = ref('grid')
 const quizBtnText = ref('Take Quiz')
-const gridBtnText = ref('Grid')
-const columnBtnText = ref('Column')
 const clickMoreText = ref('Click more to see')
-
-function getRandomImage(idx) {
-  return `https://picsum.photos/seed/${props.imageSeedPrefix}${idx + 1}/180/180`
-}
 
 function buildTranslationTexts(cards) {
   const texts = []
   // Add button labels first so order is fixed
-  texts.push('Grid')
-  texts.push('Column')
   texts.push('Take Quiz')
   texts.push('Click more to see')
 
@@ -105,14 +73,14 @@ function buildTranslationTexts(cards) {
 }
 
 function mapTranslationsToCards(cards, translations) {
-  // translations: [grid, column, ...card titles/descs..., take quiz]
+  // translations: [take quiz, click more, ...card titles/descs...]
   const newCards = []
   for (let i = 0; i < cards.length; i++) {
-    // offset by 2 for grid/column
+    // offset by 2 for take quiz/click more
     newCards.push({
       ...cards[i],
-      translatedTitle: translations[4 + i * 2],
-      translatedDesc: translations[4 + i * 2 + 1],
+      translatedTitle: translations[2 + i * 2],
+      translatedDesc: translations[2 + i * 2 + 1],
     })
   }
   return newCards
@@ -130,10 +98,8 @@ async function translateAll() {
   try {
     const translations = await translateBatch(texts, props.lang, 'en')
     // Assign translated values to buttons and cards
-    gridBtnText.value = translations[0]
-    columnBtnText.value = translations[1]
-    quizBtnText.value = translations[2]
-    clickMoreText.value = translations[3]
+    quizBtnText.value = translations[0]
+    clickMoreText.value = translations[1]
     translatedCards.value = mapTranslationsToCards(originalCards.value, translations)
   } catch {
     // If error, fallback to English
@@ -149,8 +115,6 @@ function setEnglishTexts() {
     translatedDesc: card.en,
   }))
   quizBtnText.value = 'Take Quiz'
-  gridBtnText.value = 'Grid'
-  columnBtnText.value = 'Column'
   clickMoreText.value = 'Click more to see'
 }
 
@@ -165,11 +129,6 @@ async function loadOriginalCards() {
 onMounted(loadOriginalCards)
 watch(() => props.lang, () => { translateAll() }, AOS.refresh())
 
-// Watch displayMode to refresh AOS after DOM updates
-watch(displayMode, async () => {
-  await nextTick()
-  AOS.refresh()
-})
 // Ensure AOS is initialized on mount
 onMounted(() => {
   AOS.init()
@@ -187,30 +146,6 @@ onMounted(() => {
   font-family: 'Quicksand', 'Arial', sans-serif;
 }
 
-.display-toggle {
-  display: flex;
-  gap: 12px;
-  margin: 24px 0 24px 0;
-  justify-content: center;
-}
-
-.display-toggle button {
-  background: #e9e4ff;
-  border: none;
-  border-radius: 8px;
-  padding: 8px 20px;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #661aff;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.display-toggle button.active {
-  background: #661aff;
-  color: #fff;
-}
-
 .cards-wrapper {
   width: 100%;
 }
@@ -226,6 +161,7 @@ onMounted(() => {
   font-size: 2rem;
   color: #222;
   padding-bottom: 24px;
+  padding-top: 24px;
 }
 
 .slide-card-with-image {
@@ -240,6 +176,8 @@ onMounted(() => {
   border: 2.5px solid transparent;
   z-index: 1;
   box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
 }
 
 .slide-card-with-image.grid {
@@ -247,13 +185,6 @@ onMounted(() => {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-}
-
-.slide-card-with-image.column {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
 }
 
 .slide-card-with-image:hover {
@@ -300,6 +231,48 @@ onMounted(() => {
   border: none;
   transition: transform 0.5s;
   display: block;
+}
+
+.img-hover-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.img-hover-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 20%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 60%, rgba(255, 255, 255, 0) 100%);
+  transform: skewX(-25deg);
+  transition: left 0.75s cubic-bezier(.4, 2, .6, 1);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.img-hover-wrapper:hover::before {
+  left: 125%;
+}
+
+.slide-img-top {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  opacity: 1;
+  z-index: 1;
+  transition: filter 0.5s, transform 0.5s;
+}
+
+.img-hover-wrapper:hover .slide-img-top {
+  filter: brightness(0.7);
+  transform: scale(1.08);
 }
 
 .learn-more-btn {
@@ -364,8 +337,7 @@ onMounted(() => {
     margin: 0;
   }
 
-  .slide-card-with-image.grid,
-  .slide-card-with-image.column {
+  .slide-card-with-image.grid {
     flex-direction: column !important;
     align-items: center !important;
     justify-content: flex-start !important;
