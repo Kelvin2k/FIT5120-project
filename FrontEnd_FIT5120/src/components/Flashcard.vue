@@ -52,12 +52,60 @@
 
           <!-- Recording Instructions -->
           <div v-if="isRecording" class="recording-instructions">
-            🎤 Speak clearly: "{{ phrase.english }}"
+            Speak clearly: "{{ phrase.english }}"
           </div>
 
-          <!-- Pronunciation Result (Simple Feedback Only) -->
-          <div v-if="pronunciationResult" class="pronunciation-result">
+          <!-- Pronunciation Result (Enhanced Feedback) -->
+          <div v-if="pronunciationResult" class="pronunciation-result" :class="getResultClass()">
             <div class="result-feedback">{{ pronunciationResult.feedback }}</div>
+
+            <!-- Score Display -->
+            <div v-if="pronunciationResult.score !== undefined" class="result-score">
+              <span class="score-value">{{ pronunciationResult.score }}</span>
+              <span class="score-label">/100</span>
+            </div>
+
+            <!-- Word Analysis for Partial/Poor Results -->
+            <div
+              v-if="pronunciationResult.wordAnalysis && (pronunciationResult.level === 'partial' || pronunciationResult.level === 'poor')"
+              class="word-analysis">
+              <!-- Incorrect Words -->
+              <div v-if="pronunciationResult.wordAnalysis.incorrect.length > 0" class="incorrect-words">
+                <div class="analysis-label">Words to improve:</div>
+                <div class="word-list">
+                  <span v-for="word in pronunciationResult.wordAnalysis.incorrect" :key="word.expected"
+                    class="incorrect-word">
+                    "{{ word.expected }}" (you said "{{ word.actual }}")
+                  </span>
+                </div>
+              </div>
+
+              <!-- Missing Words -->
+              <div v-if="pronunciationResult.wordAnalysis.missing.length > 0" class="missing-words">
+                <div class="analysis-label">Missing words:</div>
+                <div class="word-list">
+                  <span v-for="word in pronunciationResult.wordAnalysis.missing" :key="word" class="missing-word">
+                    "{{ word }}"
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pronunciation Tips -->
+            <div v-if="pronunciationResult.tips && pronunciationResult.tips.length > 0" class="pronunciation-tips">
+              <div class="tips-label">Tips to improve:</div>
+              <ul class="tips-list">
+                <li v-for="tip in pronunciationResult.tips" :key="tip" class="tip-item">{{ tip }}</li>
+              </ul>
+            </div>
+
+            <!-- Transcription Comparison -->
+            <div v-if="pronunciationResult.transcribed && pronunciationResult.level !== 'excellent'"
+              class="transcription-comparison">
+              <div class="comparison-label">What you said:</div>
+              <div class="transcribed-text">"{{ pronunciationResult.transcribed }}"</div>
+              <div class="expected-text">Expected: "{{ pronunciationResult.reference }}"</div>
+            </div>
           </div>
         </div>
       </div>
@@ -123,6 +171,22 @@ const getTalkButtonTitle = () => {
   return 'Click and speak clearly: "' + props.phrase.english + '"'
 }
 
+// Get result class based on pronunciation result
+const getResultClass = () => {
+  if (!pronunciationResult.value) return ''
+
+  const level = pronunciationResult.value.level
+  const color = pronunciationResult.value.color
+
+  if (color === 'green') return 'result-excellent'
+  if (color === 'light-green') return 'result-great'
+  if (color === 'yellow') return 'result-partial'
+  if (color === 'red') return 'result-poor'
+
+  // Fallback to level-based classes
+  return `result-${level}`
+}
+
 // Methods
 const flip = () => {
   isFlipped.value = !isFlipped.value
@@ -178,7 +242,7 @@ const handleTalk = async () => {
   pronunciationResult.value = null
 
   try {
-    console.log('🎤 Using Web Speech API for pronunciation assessment')
+    console.log('Using Web Speech API for pronunciation assessment')
     await handleWebSpeechPronunciation()
   } catch (error) {
     console.error('Talk handler error:', error)
@@ -495,6 +559,51 @@ defineExpose({
   }
 }
 
+/* Animation for word analysis elements */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.word-analysis {
+  animation: fadeInUp 0.4s ease-out 0.1s both;
+}
+
+.pronunciation-tips {
+  animation: fadeInUp 0.4s ease-out 0.2s both;
+}
+
+.transcription-comparison {
+  animation: fadeInUp 0.4s ease-out 0.3s both;
+}
+
+/* Pulse animation for scores */
+@keyframes scorePulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.result-excellent .score-value,
+.result-great .score-value {
+  animation: scorePulse 0.6s ease-out;
+}
+
 .result-score {
   display: flex;
   align-items: baseline;
@@ -615,7 +724,7 @@ defineExpose({
   color: #7f1d1d;
 }
 
-/* Responsive Design */
+/* Responsive Design for new elements */
 @media (max-width: 768px) {
   .flashcard-container {
     max-width: 90vw;
@@ -629,6 +738,30 @@ defineExpose({
 
   .text-content {
     font-size: clamp(1.125rem, 4vw, 1.5rem);
+  }
+
+  .pronunciation-result {
+    padding: 0.75rem;
+  }
+
+  .word-analysis,
+  .pronunciation-tips,
+  .transcription-comparison {
+    padding: 0.5rem;
+  }
+
+  .word-list {
+    gap: 0.25rem;
+  }
+
+  .incorrect-word,
+  .missing-word {
+    font-size: 0.75rem;
+    padding: 0.125rem 0.375rem;
+  }
+
+  .tip-item {
+    font-size: 0.75rem;
   }
 }
 
@@ -750,25 +883,197 @@ defineExpose({
 }
 
 /* Pronunciation result enhancements */
-.result-confidence {
-  font-size: 0.875rem;
-  color: #6b7280;
-  margin-top: 4px;
+.pronunciation-result {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  animation: slideIn 0.3s ease-out;
+  width: 100%;
 }
 
-.result-method {
-  font-size: 0.75rem;
-  color: #9ca3af;
-  margin-top: 4px;
-  font-style: italic;
+/* Color-coded feedback styles */
+.result-excellent {
+  border-color: #22c55e;
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
 }
 
-.result-transcribed {
-  background: #f3f4f6;
-  padding: 8px;
+.result-excellent .result-feedback {
+  color: #15803d;
+  font-weight: 600;
+}
+
+.result-great {
+  border-color: #10b981;
+  background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+}
+
+.result-great .result-feedback {
+  color: #047857;
+  font-weight: 600;
+}
+
+.result-partial {
+  border-color: #f59e0b;
+  background: linear-gradient(135deg, #fffbeb, #fef3c7);
+}
+
+.result-partial .result-feedback {
+  color: #d97706;
+  font-weight: 600;
+}
+
+.result-poor {
+  border-color: #ef4444;
+  background: linear-gradient(135deg, #fef2f2, #fecaca);
+}
+
+.result-poor .result-feedback {
+  color: #dc2626;
+  font-weight: 600;
+}
+
+/* Word Analysis Styles */
+.word-analysis {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.7);
   border-radius: 6px;
-  margin-top: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.analysis-label {
   font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.word-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.incorrect-word,
+.missing-word {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+}
+
+.incorrect-word {
+  background: #fde2e8;
+  color: #be185d;
+  border: 1px solid #f9a8d4;
+}
+
+.missing-word {
+  background: #fef3c7;
+  color: #d97706;
+  border: 1px solid #fcd34d;
+}
+
+/* Pronunciation Tips */
+.pronunciation-tips {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.tips-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.5rem;
+}
+
+.tips-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  list-style-type: disc;
+}
+
+.tip-item {
+  font-size: 0.8125rem;
+  color: #4b5563;
+  margin-bottom: 0.25rem;
+  line-height: 1.4;
+}
+
+/* Transcription Comparison */
+.transcription-comparison {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.comparison-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+}
+
+.transcribed-text {
+  font-size: 0.875rem;
+  color: #374151;
+  padding: 0.5rem;
+  background: #f3f4f6;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  border-left: 3px solid #9ca3af;
+}
+
+.expected-text {
+  font-size: 0.875rem;
+  color: #059669;
+  padding: 0.5rem;
+  background: #ecfdf5;
+  border-radius: 4px;
+  border-left: 3px solid #10b981;
+}
+
+/* Enhanced result score display */
+.result-score {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.25rem;
+  margin: 0.75rem 0;
+}
+
+.score-value {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.result-excellent .score-value {
+  color: #16a34a;
+}
+
+.result-great .score-value {
+  color: #059669;
+}
+
+.result-partial .score-value {
+  color: #d97706;
+}
+
+.result-poor .score-value {
+  color: #dc2626;
+}
+
+.score-label {
+  font-size: 1rem;
+  color: #64748b;
+  font-weight: 500;
 }
 
 /* Recording animation */
