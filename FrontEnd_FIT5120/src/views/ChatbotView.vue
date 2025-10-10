@@ -1,8 +1,9 @@
 <template>
   <div class="chatbotview-w">
     <!-- BannerBubble Component -->
-    <BannerBubble title="Emma - Your English Buddy" subtitle="Practice English conversation in a friendly, relaxed way"
-      :showAvatar="true" :showTypingIndicator="true" :showFeatureTags="true" />
+    <BannerBubble :title="$t('banner.practiceEnglish.title')" :subtitle="$t('banner.practiceEnglish.subtitle')"
+      :showAvatar="true" :showTypingIndicator="true" :showFeatureTags="true"
+      :featureTags="$t('banner.practiceEnglish.features')" />
 
 
     <div class="container chat-section">
@@ -11,8 +12,8 @@
         <div class="header">
           <div class="avatar">E</div>
           <div class="bot-info">
-            <h2>Emma - Your English Buddy</h2>
-            <p class="subtitle">Practice English conversation in a friendly, relaxed way</p>
+            <h2>{{ $t('banner.practiceEnglish.title') }}</h2>
+            <p class="subtitle">{{ $t('banner.practiceEnglish.subtitle') }}</p>
           </div>
           <div class="status" :class="{ active: !loading }">
             <div class="status-dot"></div>

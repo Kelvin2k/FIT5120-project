@@ -1,5 +1,34 @@
 export default {
   en: {
+    header: {
+      multilingual: 'Multilingual Support',
+      safeSecure: 'Safe & Secure Platform',
+    },
+    banner: {
+      practiceEnglish: {
+        title: 'Emma - Your English Buddy',
+        subtitle: 'Practice English conversation in a friendly, relaxed way',
+        features: ['Voice Chat', 'Real-time', 'AI Powered', 'Friendly'],
+      },
+      socialNorms: {
+        title: 'Social Norms & Etiquette',
+        subtitle: 'Learn Australian social customs and dining etiquette',
+        bubbles: [
+          'Hello!',
+          'Nice to meet you',
+          'Please',
+          'Thank you',
+          'Excuse me',
+          'How are you?',
+          'Great!',
+          'Cheers!',
+          "G'day!",
+          'Lovely!',
+          'Mate',
+          'Ta!',
+        ],
+      },
+    },
     quiz: {
       title: 'Quiz',
       subtitle: 'Test your knowledge with our interactive quizzes',
@@ -231,12 +260,19 @@ export default {
     facility: {
       title: 'Find Facility',
       subtitle: 'Locate essential services and community resources near you',
-      badges: {
-        location: 'Location',
-        restaurants: 'Restaurants',
-        shopping: 'Shopping Malls',
-        schools: 'Schools',
-      },
+    },
+    badges: {
+      location: 'Location',
+      restaurants: 'Restaurants',
+      shopping_malls: 'Shopping Malls',
+      schools: 'Schools',
+      transport: 'Transport',
+      healthcare: 'Healthcare',
+      shopping_: 'Shopping',
+      bus: 'Bus',
+      train: 'Train',
+      tram: 'Tram',
+      myki: 'Myki',
     },
     learnenglish: {
       title: 'Learn English',
@@ -384,6 +420,35 @@ export default {
     },
   },
   zh: {
+    header: {
+      multilingual: '多语言支持',
+      safeSecure: '安全可靠的平台',
+    },
+    banner: {
+      practiceEnglish: {
+        title: 'Emma - 你的英语伙伴',
+        subtitle: '以友好轻松的方式练习英语对话',
+        features: ['语音聊天', '实时互动', 'AI助力', '友好氛围'],
+      },
+      socialNorms: {
+        title: '社交规范与礼仪',
+        subtitle: '学习澳大利亚社交习俗和用餐礼仪',
+        bubbles: [
+          '你好！',
+          '很高兴认识你',
+          '请',
+          '谢谢',
+          '打扰一下',
+          '你好吗？',
+          '太好了！',
+          '干杯！',
+          '嘿！',
+          '真不错！',
+          '朋友',
+          '谢啦！',
+        ],
+      },
+    },
     quiz: {
       title: '测验',
       subtitle: '通过我们的互动测验测试您的知识',
@@ -606,12 +671,19 @@ export default {
     facility: {
       title: '查找设施',
       subtitle: '定位您附近的重要服务和社区资源',
-      badges: {
-        location: '位置',
-        restaurants: '餐厅',
-        shopping: '购物中心',
-        schools: '学校',
-      },
+    },
+    badges: {
+      location: '位置',
+      restaurants: '餐厅',
+      shopping_malls: '购物中心',
+      schools: '学校',
+      transport: '交通',
+      healthcare: '医疗保健',
+      shopping_: '购物',
+      bus: '公交',
+      train: '火车',
+      tram: '电车',
+      myki: 'Myki',
     },
     learnenglish: {
       title: '学英语',
@@ -739,6 +811,35 @@ export default {
     },
   },
   vi: {
+    header: {
+      multilingual: 'Hỗ trợ đa ngôn ngữ',
+      safeSecure: 'Nền tảng an toàn & bảo mật',
+    },
+    banner: {
+      practiceEnglish: {
+        title: 'Emma - Bạn học tiếng Anh của bạn',
+        subtitle: 'Luyện tập hội thoại tiếng Anh một cách thân thiện và thoải mái',
+        features: ['Trò chuyện bằng giọng nói', 'Thời gian thực', 'AI hỗ trợ', 'Thân thiện'],
+      },
+      socialNorms: {
+        title: 'Chuẩn mực xã hội & Phép lịch sự',
+        subtitle: 'Học phong tục xã hội và phép lịch sự ăn uống ở Úc',
+        bubbles: [
+          'Xin chào!',
+          'Rất vui được gặp bạn',
+          'Làm ơn',
+          'Cảm ơn',
+          'Xin lỗi',
+          'Bạn khỏe không?',
+          'Tuyệt vời!',
+          'Chúc mừng!',
+          'Chào bạn!',
+          'Tuyệt!',
+          'Bạn',
+          'Cảm ơn nhé!',
+        ],
+      },
+    },
     quiz: {
       title: 'Quiz',
       subtitle: 'Kiểm tra kiến thức của bạn với các bài kiểm tra tương tác của chúng tôi',
@@ -972,12 +1073,19 @@ export default {
     facility: {
       title: 'Tìm Cơ sở',
       subtitle: 'Định vị các dịch vụ và tài nguyên cộng đồng thiết yếu gần bạn',
-      badges: {
-        location: 'Vị trí',
-        restaurants: 'Nhà hàng',
-        shopping: 'Trung tâm mua sắm',
-        schools: 'Trường học',
-      },
+    },
+    badges: {
+      location: 'Vị trí',
+      restaurants: 'Nhà hàng',
+      shopping_malls: 'Trung tâm mua sắm',
+      schools: 'Trường học',
+      transport: 'Giao thông',
+      healthcare: 'Chăm sóc sức khỏe',
+      shopping_: 'Mua sắm',
+      bus: 'Xe buýt',
+      train: 'Tàu hỏa',
+      tram: 'Tàu điện',
+      myki: 'Myki',
     },
     learnenglish: {
       title: 'Học Tiếng Anh',
@@ -1122,6 +1230,35 @@ export default {
     },
   },
   id: {
+    header: {
+      multilingual: 'Dukungan Multibahasa',
+      safeSecure: 'Platform Aman & Terpercaya',
+    },
+    banner: {
+      practiceEnglish: {
+        title: 'Emma - Teman Belajar Bahasa Inggris Anda',
+        subtitle: 'Berlatih percakapan bahasa Inggris dengan cara yang ramah dan santai',
+        features: ['Obrolan Suara', 'Real-time', 'Bertenaga AI', 'Ramah'],
+      },
+      socialNorms: {
+        title: 'Norma Sosial & Etiket',
+        subtitle: 'Pelajari kebiasaan sosial dan etiket makan di Australia',
+        bubbles: [
+          'Halo!',
+          'Senang bertemu Anda',
+          'Tolong',
+          'Terima kasih',
+          'Permisi',
+          'Apa kabar?',
+          'Bagus!',
+          'Bersulang!',
+          'Hai!',
+          'Indah!',
+          'Teman',
+          'Terima kasih!',
+        ],
+      },
+    },
     quiz: {
       title: 'Kuis',
       subtitle: 'Uji pengetahuan Anda dengan kuis interaktif kami',
@@ -1358,12 +1495,19 @@ export default {
     facility: {
       title: 'Cari Fasilitas',
       subtitle: 'Temukan layanan penting dan sumber daya komunitas di dekat Anda',
-      badges: {
-        location: 'Lokasi',
-        restaurants: 'Restoran',
-        shopping: 'Pusat Perbelanjaan',
-        schools: 'Sekolah',
-      },
+    },
+    badges: {
+      location: 'Lokasi',
+      restaurants: 'Restoran',
+      shopping_malls: 'Pusat Perbelanjaan',
+      schools: 'Sekolah',
+      transport: 'Transportasi',
+      healthcare: 'Perawatan Kesehatan',
+      shopping: 'Belanja',
+      bus: 'Bus',
+      train: 'Kereta',
+      tram: 'Trem',
+      myki: 'Myki',
     },
     learnenglish: {
       title: 'Belajar Bahasa Inggris',
