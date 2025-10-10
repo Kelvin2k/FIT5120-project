@@ -384,7 +384,7 @@ const onAudioEnd = () => {
 
 /* Controls Section */
 .controls-section {
-  margin: 2rem 0;
+  margin: 2.5rem 0;
   background: #ffffff;
   padding: 1.5rem;
   border-radius: 12px;

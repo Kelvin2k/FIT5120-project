@@ -55,47 +55,23 @@
             Speak clearly: "{{ phrase.english }}"
           </div>
 
-          <!-- Pronunciation Result (Enhanced Feedback) -->
-          <div v-if="pronunciationResult" class="pronunciation-result">
-            <div :class="[
-              'result-feedback',
-              {
-                'feedback-excellent': pronunciationResult.level === 'excellent',
-                'feedback-good': pronunciationResult.level === 'good',
-                'feedback-neutral': pronunciationResult.level === 'neutral',
-                'feedback-bad': pronunciationResult.level === 'bad'
-              }
-            ]">
-              <!-- Celebration animation for excellent pronunciation -->
-              <div v-if="pronunciationResult.level === 'excellent'" class="celebration-stars">
-                <div class="star">*</div>
-                <div class="star">*</div>
-                <div class="star">*</div>
-                <div class="star">*</div>
+          <!-- Pronunciation Result (Simple Feedback) -->
+          <div v-if="pronunciationResult" class="pronunciation-result" :class="`result-${pronunciationResult.color}`">
+            <div class="result-feedback">{{ pronunciationResult.feedback }}</div>
+
+            <!-- Word-level feedback for partial or poor results -->
+            <div v-if="pronunciationResult.differences && pronunciationResult.differences.length > 0"
+              class="word-differences">
+              <div class="word-comparison">
+                <div class="expected-words">
+                  <span class="label">Expected:</span>
+                  <span class="text">{{ pronunciationResult.reference }}</span>
+                </div>
+                <div class="recognized-words">
+                  <span class="label">You said:</span>
+                  <span class="text">{{ pronunciationResult.transcribed }}</span>
+                </div>
               </div>
-
-              <!-- Main feedback message -->
-              <div class="feedback-message">
-                {{ pronunciationResult.feedback }}
-              </div>
-
-              <!-- Celebration message for perfect pronunciation -->
-              <div v-if="pronunciationResult.celebrationMessage" class="celebration-message">
-                *** {{ pronunciationResult.celebrationMessage }} ***
-              </div>
-
-              <!-- Detailed feedback for wrong/missing words -->
-              <template v-if="pronunciationResult.wrongWords && pronunciationResult.wrongWords.length">
-                <br>
-                <span class="feedback-detail">Wrong words: <span class="wrong-word"
-                    v-for="w in pronunciationResult.wrongWords" :key="w">{{ w }}</span></span>
-              </template>
-              <template v-if="pronunciationResult.missingWords && pronunciationResult.missingWords.length">
-                <br>
-                <span class="feedback-detail">Missing words: <span class="missing-word"
-                    v-for="w in pronunciationResult.missingWords" :key="w">{{ w }}</span></span>
-              </template>
-
             </div>
           </div>
         </div>
@@ -222,15 +198,12 @@ const handleTalk = async () => {
   } catch (error) {
     console.error('Talk handler error:', error)
     pronunciationResult.value = {
+      success: false,
+      score: 0,
       feedback: `Error: ${error.message || 'Please try again.'}`,
-      level: 'bad'
+      level: 'error',
+      color: 'red'
     }
-
-    // Auto-clear result after 5 seconds
-    setTimeout(() => {
-      pronunciationResult.value = null
-    }, 5000)
-
     isRecording.value = false
     isAssessing.value = false
   }
@@ -285,24 +258,24 @@ const handleWebSpeechPronunciation = async () => {
 
       pronunciationResult.value = {
         feedback: result.feedback,
-        level: result.level,
-        celebrationMessage: result.celebrationMessage,
-        score: result.score,
-        wrongWords: result.wrongWords,
-        missingWords: result.missingWords
+        color: result.color,
+        differences: result.differences,
+        reference: result.reference,
+        transcribed: result.transcribed,
+        method: 'web-speech-api'
       }
 
-      // Auto-clear result after longer time for excellent pronunciation
-      const clearDelay = result.level === 'excellent' ? 8000 : 5000
+      // Auto-clear result after 5 seconds
       setTimeout(() => {
         pronunciationResult.value = null
-      }, clearDelay)
+      }, 5000)
     } else {
       // No speech detected
       console.warn('No speech detected by Web Speech API')
       pronunciationResult.value = {
         feedback: 'No speech detected. Please speak clearly and try again.',
-        level: 'bad'
+        color: 'red',
+        method: 'web-speech-api'
       }
 
       // Auto-clear result after 5 seconds
@@ -319,7 +292,8 @@ const handleWebSpeechPronunciation = async () => {
 
     pronunciationResult.value = {
       feedback: `Speech recognition error: ${error.message}. Please try again.`,
-      level: 'bad'
+      color: 'red',
+      method: 'web-speech-api'
     }
 
     // Auto-clear result after 5 seconds
@@ -327,7 +301,9 @@ const handleWebSpeechPronunciation = async () => {
       pronunciationResult.value = null
     }, 5000)
   }
-}// Auto-flip functionality
+}
+
+// Auto-flip functionality
 if (props.autoFlip) {
   setTimeout(() => flip(), 2000)
 }
@@ -520,7 +496,7 @@ defineExpose({
 
 /* Pronunciation Result */
 .pronunciation-result {
-  margin-top: 1rem;
+  margin-top: 0.3rem;
   padding: 1rem;
   border-radius: 8px;
   background: #f8fafc;
@@ -561,186 +537,16 @@ defineExpose({
   font-weight: 500;
 }
 
-/* Dynamic feedback color */
 .result-feedback {
   font-size: 1rem;
   font-weight: 600;
   text-align: center;
   margin-bottom: 0.5rem;
+  color: #22c55e;
+  background: #e6fbe6;
   border-radius: 6px;
   padding: 0.5rem 1rem;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Excellent pronunciation - bright green with animation */
-.feedback-excellent {
-  color: #16a34a !important;
-  background: linear-gradient(135deg, #dcfce7, #bbf7d0) !important;
-  border: 2px solid #22c55e !important;
-  box-shadow: 0 4px 16px rgba(34, 197, 94, 0.2);
-  animation: excellentGlow 2s ease-in-out infinite alternate;
-}
-
-@keyframes excellentGlow {
-  0% {
-    box-shadow: 0 4px 16px rgba(34, 197, 94, 0.2);
-    transform: scale(1);
-  }
-
-  100% {
-    box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4);
-    transform: scale(1.02);
-  }
-}
-
-/* Good pronunciation - green */
-.feedback-good {
-  color: #22c55e !important;
-  background: #e6fbe6 !important;
-  border: 2px solid #22c55e !important;
   box-shadow: 0 2px 8px rgba(34, 197, 94, 0.08);
-}
-
-/* Neutral pronunciation - yellow/orange */
-.feedback-neutral {
-  color: #d97706 !important;
-  background: #fef3c7 !important;
-  border: 2px solid #f59e0b !important;
-  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.08);
-}
-
-/* Bad pronunciation - red */
-.feedback-bad {
-  color: #ef4444 !important;
-  background: #fee2e2 !important;
-  border: 2px solid #ef4444 !important;
-  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.08);
-}
-
-/* Celebration stars animation */
-.celebration-stars {
-  position: absolute;
-  top: -10px;
-  left: 0;
-  right: 0;
-  height: 20px;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.celebration-stars .star {
-  position: absolute;
-  color: #fbbf24;
-  font-size: 18px;
-  font-weight: bold;
-  animation: starFall 3s ease-in-out infinite;
-}
-
-.celebration-stars .star:nth-child(1) {
-  left: 10%;
-  animation-delay: 0s;
-}
-
-.celebration-stars .star:nth-child(2) {
-  left: 30%;
-  animation-delay: 0.5s;
-}
-
-.celebration-stars .star:nth-child(3) {
-  left: 60%;
-  animation-delay: 1s;
-}
-
-.celebration-stars .star:nth-child(4) {
-  left: 80%;
-  animation-delay: 1.5s;
-}
-
-@keyframes starFall {
-  0% {
-    transform: translateY(-20px) rotate(0deg);
-    opacity: 0;
-  }
-
-  20% {
-    opacity: 1;
-  }
-
-  80% {
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateY(50px) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-/* Celebration message styling */
-.celebration-message {
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: #16a34a;
-  text-align: center;
-  margin: 0.5rem 0;
-  padding: 0.5rem;
-  background: linear-gradient(135deg, #fef9c3, #fef3c7);
-  border-radius: 8px;
-  border: 2px solid #fbbf24;
-  animation: celebrationPulse 1.5s ease-in-out infinite;
-}
-
-@keyframes celebrationPulse {
-
-  0%,
-  100% {
-    transform: scale(1);
-    background: linear-gradient(135deg, #fef9c3, #fef3c7);
-  }
-
-  50% {
-    transform: scale(1.05);
-    background: linear-gradient(135deg, #fef3c7, #fde68a);
-  }
-}
-
-/* Score display styling */
-.score-display {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #16a34a;
-  text-align: center;
-  margin-top: 0.5rem;
-  padding: 0.25rem 0.5rem;
-  background: rgba(34, 197, 94, 0.1);
-  border-radius: 6px;
-  border: 1px solid rgba(34, 197, 94, 0.3);
-}
-
-/* Feedback message styling */
-.feedback-message {
-  font-size: 1.1rem;
-  line-height: 1.4;
-  margin: 0.5rem 0;
-}
-
-.feedback-detail {
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: #64748b;
-}
-
-.wrong-word {
-  color: #ef4444;
-  font-weight: 700;
-  margin: 0 2px;
-}
-
-.missing-word {
-  color: #f59e0b;
-  font-weight: 700;
-  margin: 0 2px;
 }
 
 .result-transcribed {
@@ -752,83 +558,95 @@ defineExpose({
   border-top: 1px solid #e2e8f0;
 }
 
-/* Result Level Colors */
-.result-excellent {
+/* Result Level Colors - Enhanced */
+.result-green {
   border-color: #22c55e;
-  background: #f0fdf4;
+  background: linear-gradient(135deg, #f0fdf4, #e6fbe6);
 }
 
-.result-excellent .score-value {
-  color: #16a34a;
-}
-
-.result-excellent .result-feedback {
+.result-green .result-feedback {
   color: #15803d;
+  background: #dcfce7;
+  border-left: 4px solid #22c55e;
 }
 
-.result-great {
-  border-color: #3b82f6;
-  background: #eff6ff;
-}
-
-.result-great .score-value {
-  color: #2563eb;
-}
-
-.result-great .result-feedback {
-  color: #1d4ed8;
-}
-
-.result-good {
+.result-yellow {
   border-color: #eab308;
-  background: #fefce8;
+  background: linear-gradient(135deg, #fefce8, #fef3c7);
 }
 
-.result-good .score-value {
-  color: #ca8a04;
-}
-
-.result-good .result-feedback {
+.result-yellow .result-feedback {
   color: #a16207;
+  background: #fef08a;
+  border-left: 4px solid #eab308;
 }
 
-.result-fair {
-  border-color: #f59e0b;
-  background: #fff7ed;
-}
-
-.result-fair .score-value {
-  color: #d97706;
-}
-
-.result-fair .result-feedback {
-  color: #b45309;
-}
-
-.result-needs-improvement {
+.result-red {
   border-color: #ef4444;
-  background: #fef2f2;
+  background: linear-gradient(135deg, #fef2f2, #fee2e2);
 }
 
-.result-needs-improvement .score-value {
-  color: #dc2626;
-}
-
-.result-needs-improvement .result-feedback {
+.result-red .result-feedback {
   color: #b91c1c;
+  background: #fecaca;
+  border-left: 4px solid #ef4444;
 }
 
-.result-error {
-  border-color: #dc2626;
-  background: #fef2f2;
+/* Word Differences Styling */
+.word-differences {
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
 }
 
-.result-error .score-value {
-  color: #991b1b;
+.word-comparison {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.result-error .result-feedback {
-  color: #7f1d1d;
+.expected-words,
+.recognized-words {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.expected-words .label,
+.recognized-words .label {
+  font-weight: 600;
+  color: #64748b;
+  min-width: 80px;
+}
+
+.expected-words .text {
+  color: #16a34a;
+  font-weight: 500;
+  background: #dcfce7;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.recognized-words .text {
+  color: #dc2626;
+  font-weight: 500;
+  background: #fecaca;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Enhanced result feedback styling */
+.result-feedback {
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 /* Responsive Design */
