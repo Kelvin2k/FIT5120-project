@@ -241,6 +241,7 @@ export function useSpeechRecognition() {
   }
 
   /**
+<<<<<<< HEAD
    * Analyze word-by-word pronunciation differences
    */
   const analyzeWordDifferences = (referenceText, transcribedText) => {
@@ -309,16 +310,52 @@ export function useSpeechRecognition() {
 
   /**
    * Evaluate pronunciation based on reference text with detailed analysis
+=======
+   * Analyze word-level differences between reference and transcribed text
+   */
+  const analyzeWordDifferences = (reference, transcribed) => {
+    const refWords = reference.toLowerCase().trim().split(/\s+/)
+    const transWords = transcribed.toLowerCase().trim().split(/\s+/)
+
+    const differences = []
+    const maxLength = Math.max(refWords.length, transWords.length)
+
+    for (let i = 0; i < maxLength; i++) {
+      const refWord = refWords[i] || ''
+      const transWord = transWords[i] || ''
+
+      if (refWord !== transWord) {
+        differences.push({
+          position: i,
+          expected: refWord,
+          actual: transWord,
+          type: !refWord ? 'extra' : !transWord ? 'missing' : 'incorrect',
+        })
+      }
+    }
+
+    return differences
+  }
+
+  /**
+   * Evaluate pronunciation based on reference text
+>>>>>>> main
    */
   const evaluatePronunciation = (referenceText, transcribedText, confidence = 1) => {
     const similarity = calculateSimilarity(referenceText, transcribedText)
     const finalScore = Math.round(similarity * confidence)
     const wordAnalysis = analyzeWordDifferences(referenceText, transcribedText)
 
+    // Analyze word-level differences
+    const differences = analyzeWordDifferences(referenceText, transcribedText)
+
     let feedback = ''
     let level = ''
     let color = ''
+<<<<<<< HEAD
     let tips = []
+=======
+>>>>>>> main
 
     // Determine feedback level and color based on score and word analysis
     if (finalScore >= 85 && wordAnalysis.incorrect.length === 0) {
@@ -326,6 +363,7 @@ export function useSpeechRecognition() {
       feedback = 'Excellent! Your pronunciation is perfect!'
       level = 'excellent'
       color = 'green'
+<<<<<<< HEAD
     } else if (finalScore >= 70 && wordAnalysis.incorrect.length <= 2) {
       // Good - Light Green
       feedback = 'Great job! Your pronunciation is very good.'
@@ -348,19 +386,50 @@ export function useSpeechRecognition() {
       // Add general tips for poor pronunciation
       tips.push('Listen to the audio again and repeat slowly.')
       tips.push('Focus on clear articulation of each word.')
+=======
+    } else if (finalScore >= 75) {
+      feedback = 'Good job! Your pronunciation is clear.'
+      level = 'good'
+      color = 'green'
+    } else if (finalScore >= 60) {
+      const incorrectWords = differences
+        .filter((d) => d.type === 'incorrect')
+        .map((d) => d.expected)
+
+      if (incorrectWords.length > 0) {
+        feedback = `Partially correct. Check pronunciation of: ${incorrectWords.join(', ')}`
+      } else {
+        feedback = 'Not bad, but try to practice more.'
+      }
+      level = 'fair'
+      color = 'yellow'
+    } else {
+      const incorrectWords = differences
+        .filter((d) => d.type === 'incorrect')
+        .map((d) => d.expected)
+
+      if (incorrectWords.length > 0) {
+        feedback = `Need improvement. Focus on: ${incorrectWords.join(', ')}`
+      } else {
+        feedback = 'Keep practicing. Listen carefully and try again.'
+      }
+      level = 'needs-improvement'
+      color = 'red'
+>>>>>>> main
     }
 
     pronunciationScore.value = {
-      score: finalScore,
-      similarity,
-      confidence: Math.round(confidence * 100),
       feedback,
       level,
       color,
       reference: referenceText,
       transcribed: transcribedText,
+<<<<<<< HEAD
       wordAnalysis,
       tips,
+=======
+      differences,
+>>>>>>> main
     }
 
     return pronunciationScore.value
@@ -393,6 +462,10 @@ export function useSpeechRecognition() {
     getAudioBlob,
     evaluatePronunciation,
     calculateSimilarity,
+<<<<<<< HEAD
+=======
+    analyzeWordDifferences,
+>>>>>>> main
     reset,
   }
 }

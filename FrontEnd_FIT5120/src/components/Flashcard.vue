@@ -55,6 +55,7 @@
             Speak clearly: "{{ phrase.english }}"
           </div>
 
+<<<<<<< HEAD
           <!-- Pronunciation Result (Enhanced Feedback) -->
           <div v-if="pronunciationResult" class="pronunciation-result" :class="getResultClass()">
             <div class="result-feedback">{{ pronunciationResult.feedback }}</div>
@@ -105,6 +106,25 @@
               <div class="comparison-label">What you said:</div>
               <div class="transcribed-text">"{{ pronunciationResult.transcribed }}"</div>
               <div class="expected-text">Expected: "{{ pronunciationResult.reference }}"</div>
+=======
+          <!-- Pronunciation Result (Simple Feedback) -->
+          <div v-if="pronunciationResult" class="pronunciation-result" :class="`result-${pronunciationResult.color}`">
+            <div class="result-feedback">{{ pronunciationResult.feedback }}</div>
+
+            <!-- Word-level feedback for partial or poor results -->
+            <div v-if="pronunciationResult.differences && pronunciationResult.differences.length > 0"
+              class="word-differences">
+              <div class="word-comparison">
+                <div class="expected-words">
+                  <span class="label">Expected:</span>
+                  <span class="text">{{ pronunciationResult.reference }}</span>
+                </div>
+                <div class="recognized-words">
+                  <span class="label">You said:</span>
+                  <span class="text">{{ pronunciationResult.transcribed }}</span>
+                </div>
+              </div>
+>>>>>>> main
             </div>
           </div>
         </div>
@@ -152,8 +172,8 @@ const {
 // Computed properties
 const getLanguageName = computed(() => {
   const languageMap = {
-    zh: '中文',
-    vi: 'Tiếng Việt',
+    zh: 'Chinese',
+    vi: 'Vietnamese',
     id: 'Bahasa Indonesia',
   }
   return (langCode) => languageMap[langCode] || langCode
@@ -171,6 +191,7 @@ const getTalkButtonTitle = () => {
   return 'Click and speak clearly: "' + props.phrase.english + '"'
 }
 
+<<<<<<< HEAD
 // Get result class based on pronunciation result
 const getResultClass = () => {
   if (!pronunciationResult.value) return ''
@@ -187,6 +208,8 @@ const getResultClass = () => {
   return `result-${level}`
 }
 
+=======
+>>>>>>> main
 // Methods
 const flip = () => {
   isFlipped.value = !isFlipped.value
@@ -250,7 +273,8 @@ const handleTalk = async () => {
       success: false,
       score: 0,
       feedback: `Error: ${error.message || 'Please try again.'}`,
-      level: 'error'
+      level: 'error',
+      color: 'red'
     }
     isRecording.value = false
     isAssessing.value = false
@@ -306,6 +330,13 @@ const handleWebSpeechPronunciation = async () => {
 
       pronunciationResult.value = {
         feedback: result.feedback,
+<<<<<<< HEAD
+=======
+        color: result.color,
+        differences: result.differences,
+        reference: result.reference,
+        transcribed: result.transcribed,
+>>>>>>> main
         method: 'web-speech-api'
       }
 
@@ -318,6 +349,10 @@ const handleWebSpeechPronunciation = async () => {
       console.warn('No speech detected by Web Speech API')
       pronunciationResult.value = {
         feedback: 'No speech detected. Please speak clearly and try again.',
+<<<<<<< HEAD
+=======
+        color: 'red',
+>>>>>>> main
         method: 'web-speech-api'
       }
 
@@ -335,6 +370,10 @@ const handleWebSpeechPronunciation = async () => {
 
     pronunciationResult.value = {
       feedback: `Speech recognition error: ${error.message}. Please try again.`,
+<<<<<<< HEAD
+=======
+      color: 'red',
+>>>>>>> main
       method: 'web-speech-api'
     }
 
@@ -538,7 +577,7 @@ defineExpose({
 
 /* Pronunciation Result */
 .pronunciation-result {
-  margin-top: 1rem;
+  margin-top: 0.3rem;
   padding: 1rem;
   border-radius: 8px;
   background: #f8fafc;
@@ -645,83 +684,95 @@ defineExpose({
   border-top: 1px solid #e2e8f0;
 }
 
-/* Result Level Colors */
-.result-excellent {
+/* Result Level Colors - Enhanced */
+.result-green {
   border-color: #22c55e;
-  background: #f0fdf4;
+  background: linear-gradient(135deg, #f0fdf4, #e6fbe6);
 }
 
-.result-excellent .score-value {
-  color: #16a34a;
-}
-
-.result-excellent .result-feedback {
+.result-green .result-feedback {
   color: #15803d;
+  background: #dcfce7;
+  border-left: 4px solid #22c55e;
 }
 
-.result-great {
-  border-color: #3b82f6;
-  background: #eff6ff;
-}
-
-.result-great .score-value {
-  color: #2563eb;
-}
-
-.result-great .result-feedback {
-  color: #1d4ed8;
-}
-
-.result-good {
+.result-yellow {
   border-color: #eab308;
-  background: #fefce8;
+  background: linear-gradient(135deg, #fefce8, #fef3c7);
 }
 
-.result-good .score-value {
-  color: #ca8a04;
-}
-
-.result-good .result-feedback {
+.result-yellow .result-feedback {
   color: #a16207;
+  background: #fef08a;
+  border-left: 4px solid #eab308;
 }
 
-.result-fair {
-  border-color: #f59e0b;
-  background: #fff7ed;
-}
-
-.result-fair .score-value {
-  color: #d97706;
-}
-
-.result-fair .result-feedback {
-  color: #b45309;
-}
-
-.result-needs-improvement {
+.result-red {
   border-color: #ef4444;
-  background: #fef2f2;
+  background: linear-gradient(135deg, #fef2f2, #fee2e2);
 }
 
-.result-needs-improvement .score-value {
-  color: #dc2626;
-}
-
-.result-needs-improvement .result-feedback {
+.result-red .result-feedback {
   color: #b91c1c;
+  background: #fecaca;
+  border-left: 4px solid #ef4444;
 }
 
-.result-error {
-  border-color: #dc2626;
-  background: #fef2f2;
+/* Word Differences Styling */
+.word-differences {
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
 }
 
-.result-error .score-value {
-  color: #991b1b;
+.word-comparison {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.result-error .result-feedback {
-  color: #7f1d1d;
+.expected-words,
+.recognized-words {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.expected-words .label,
+.recognized-words .label {
+  font-weight: 600;
+  color: #64748b;
+  min-width: 80px;
+}
+
+.expected-words .text {
+  color: #16a34a;
+  font-weight: 500;
+  background: #dcfce7;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.recognized-words .text {
+  color: #dc2626;
+  font-weight: 500;
+  background: #fecaca;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Enhanced result feedback styling */
+.result-feedback {
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 /* Responsive Design for new elements */
@@ -883,6 +934,7 @@ defineExpose({
 }
 
 /* Pronunciation result enhancements */
+<<<<<<< HEAD
 .pronunciation-result {
   margin-top: 1rem;
   padding: 1rem;
@@ -1074,6 +1126,27 @@ defineExpose({
   font-size: 1rem;
   color: #64748b;
   font-weight: 500;
+=======
+.result-confidence {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+.result-method {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  margin-top: 4px;
+  font-style: italic;
+}
+
+.result-transcribed {
+  background: #f3f4f6;
+  padding: 8px;
+  border-radius: 6px;
+  margin-top: 8px;
+  font-size: 0.875rem;
+>>>>>>> main
 }
 
 /* Recording animation */
