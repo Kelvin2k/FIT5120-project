@@ -254,6 +254,17 @@
     width: 14px;
     height: 14px;
   }
+
+  .footer .row {
+    justify-content: center !important;
+    text-align: center;
+  }
+
+  .footer-section {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 /* Tablet Responsive */
@@ -261,6 +272,17 @@
   .footer-features {
     justify-content: center;
     margin-top: 1rem;
+  }
+
+  .footer .row {
+    justify-content: center !important;
+    text-align: center;
+  }
+
+  .footer-section {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
   }
 }
 

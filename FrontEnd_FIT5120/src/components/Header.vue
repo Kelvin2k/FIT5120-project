@@ -1,7 +1,7 @@
 <template>
   <div class="header-w">
     <!-- Top info bar -->
-    <div class="top-info-bar">
+    <div class="top-info-bar d-none d-md-block">
       <div class="container-fluid">
         <div class="row align-items-center">
           <div class="col-md-8">

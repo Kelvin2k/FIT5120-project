@@ -5,7 +5,7 @@
       :bubbleTexts="['Card', 'Flip', 'Learn', 'Quiz', 'Study', 'Memory', 'Word', 'Review', 'Practice', 'Test', 'Know', 'Remember']"
       :customIcon="flashcardIcon" />
 
-    <div class="container d-flex justify-content-center align-items-center flex-column">
+    <div class="container d-flex justify-content-center align-items-center flex-column mb-2">
       <!-- Loading State -->
       <div v-if="isLoading" class="loading-section" data-aos="fade-in" data-aos-delay="200">
         <div class="loading-spinner"></div>
