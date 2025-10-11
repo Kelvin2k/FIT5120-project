@@ -110,7 +110,7 @@ const pronunciationResult = ref(null)
 
 // Speech recognition composable
 const {
-  startRecordingWebAPI,
+  startRecording,
   stopRecording,
   evaluatePronunciation,
   recognitionResult
@@ -221,7 +221,7 @@ const handleWebSpeechPronunciation = async () => {
     recognitionResult.value = null
 
     // Start Web Speech Recognition with better settings
-    await startRecordingWebAPI('en-US')
+    await startRecording('en-US')
 
     // Wait for recognition result or timeout (longer timeout for better accuracy)
     await new Promise((resolve) => {
