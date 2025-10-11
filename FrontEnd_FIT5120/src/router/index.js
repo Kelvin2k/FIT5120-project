@@ -156,6 +156,13 @@ const router = createRouter({
       component: () => import('../views/interactive/ChatbotView.vue'),
       meta: { requiresAuth: true },
     },
+    // 404 Not Found route - must be last
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'notfound',
+      component: () => import('../views/NotFound.vue'),
+      meta: { requiresAuth: true },
+    },
   ],
 })
 

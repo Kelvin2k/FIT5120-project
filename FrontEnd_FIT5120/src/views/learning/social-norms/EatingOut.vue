@@ -28,7 +28,7 @@ const { locale } = useI18n()
 <style scoped>
 .eating-out-container {
   font-family: 'Open Sans', Arial, sans-serif;
-  background: #E6E6FA;
+  background: #E6E6FA !important;
   min-height: 100vh;
   color: #222;
 }

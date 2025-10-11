@@ -20,9 +20,8 @@
                 </div>
               </div>
               <div class="slide-card text-center">
-                <h2 class="slide-title">Meeting People</h2>
-                <p class="slide-desc">Learn proper etiquette for meeting new people in Australia, including greetings,
-                  introductions, and social customs.</p>
+                <h2 class="slide-title">{{ $t('socialnorms.meetingpeople.title') }}</h2>
+                <p class="slide-desc">{{ $t('socialnorms.meetingpeople.subtitle') }}</p>
               </div>
               <div class="d-flex justify-content-center mt-3">
                 <button class="learn-more-btn" @click="goTo('meetingpeople')">Learn More</button>
@@ -41,9 +40,8 @@
                 </div>
               </div>
               <div class="slide-card text-center">
-                <h2 class="slide-title">Eating Out</h2>
-                <p class="slide-desc">Discover dining etiquette, restaurant customs, tipping culture, and proper table
-                  manners in Australian dining settings.</p>
+                <h2 class="slide-title">{{ $t('socialnorms.eatingout.title') }}</h2>
+                <p class="slide-desc">{{ $t('socialnorms.eatingout.subtitle') }}</p>
               </div>
               <div class="d-flex justify-content-center mt-3">
                 <button class="learn-more-btn" @click="goTo('eatingout')">Learn More</button>
@@ -79,9 +77,8 @@ function goTo(key) {
 
 <style scoped>
 .modern-sections {
-  background: #ffffff;
+  background-color: #E6E6FA !important;
   width: 100%;
-  min-height: 100vh;
   padding: 0 0 40px 0;
   font-family: 'Roboto', 'Arial', sans-serif;
   display: flex;

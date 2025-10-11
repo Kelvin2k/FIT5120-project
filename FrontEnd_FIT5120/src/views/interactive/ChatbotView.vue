@@ -2,8 +2,7 @@
   <div class="chatbotview-w">
     <!-- BannerBubble Component -->
     <BannerBubble :title="$t('banner.practiceEnglish.title')" :subtitle="$t('banner.practiceEnglish.subtitle')"
-      :showAvatar="true" :showTypingIndicator="true" :showFeatureTags="true"
-      :featureTags="$t('banner.practiceEnglish.features')" />
+      :showAvatar="true" :showTypingIndicator="true" :showFeatureTags="true" :featureTags="featureTagsList" />
 
 
     <div class="container chat-section">
@@ -106,8 +105,21 @@
 <script setup>
 import ModelClient from "@azure-rest/ai-inference";
 import { AzureKeyCredential } from "@azure/core-auth";
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 import BannerBubble from '@/components/BannerBubble.vue'
+
+const { t } = useI18n();
+
+// Computed property to ensure featureTags is always an array
+const featureTagsList = computed(() => {
+  const features = t('banner.practiceEnglish.features');
+  if (Array.isArray(features)) {
+    return features;
+  }
+  // Fallback if translation fails
+  return ['Voice Chat', 'Real-time', 'AI Powered', 'Friendly'];
+});
 
 const userMessage = ref('')
 const messages = ref([])

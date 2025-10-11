@@ -84,12 +84,6 @@
         <!-- Navigation Links -->
         <TransitionGroup tag="div" class="collapse navbar-collapse" id="navbarNav" name="nav-slide">
           <ul class="navbar-nav ms-auto navigation-menu" key="nav-list">
-            <!-- Regular Navigation Items -->
-            <li class="nav-item" v-for="(link, index) in navLinks" :key="index">
-              <router-link class="nav-link" :to="link.to">
-                <span class="nav-text">{{ $t(link.text) }}</span>
-              </router-link>
-            </li>
             <li class="nav-item dropdown" v-for="(link, index) in navLinks_dropdown" :key="index">
               <div class="nav-link dropdown-hover" :class="{ 'router-link-active': isActiveDropdown(link) }">
                 <span @click="navigateDropdown(link.to)">{{ $t(link.text) }}</span>
@@ -104,6 +98,12 @@
                   </li>
                 </ul>
               </div>
+            </li>
+            <!-- Regular Navigation Items -->
+            <li class="nav-item" v-for="(link, index) in navLinks" :key="index">
+              <router-link class="nav-link" :to="link.to">
+                <span class="nav-text">{{ $t(link.text) }}</span>
+              </router-link>
             </li>
           </ul>
         </TransitionGroup>

@@ -241,76 +241,6 @@ export function useSpeechRecognition() {
   }
 
   /**
-<<<<<<< HEAD
-   * Analyze word-by-word pronunciation differences
-   */
-  const analyzeWordDifferences = (referenceText, transcribedText) => {
-    const refWords = referenceText.toLowerCase().trim().split(/\s+/)
-    const transWords = transcribedText.toLowerCase().trim().split(/\s+/)
-
-    const analysis = {
-      correct: [],
-      incorrect: [],
-      missing: [],
-      extra: [],
-    }
-
-    // Simple word matching (can be enhanced with better algorithms)
-    const maxLength = Math.max(refWords.length, transWords.length)
-
-    for (let i = 0; i < maxLength; i++) {
-      const refWord = refWords[i]
-      const transWord = transWords[i]
-
-      if (refWord && transWord) {
-        // Calculate similarity for this word pair
-        const wordSimilarity = calculateSimilarity(refWord, transWord)
-
-        if (wordSimilarity >= 80) {
-          analysis.correct.push({
-            word: refWord,
-            transcribed: transWord,
-            similarity: wordSimilarity,
-          })
-        } else {
-          analysis.incorrect.push({
-            expected: refWord,
-            actual: transWord,
-            similarity: wordSimilarity,
-          })
-        }
-      } else if (refWord && !transWord) {
-        analysis.missing.push(refWord)
-      } else if (!refWord && transWord) {
-        analysis.extra.push(transWord)
-      }
-    }
-
-    return analysis
-  }
-
-  /**
-   * Generate pronunciation tips based on incorrect words
-   */
-  const generatePronunciationTips = (incorrectWords, missingWords) => {
-    const tips = []
-
-    if (incorrectWords.length > 0) {
-      incorrectWords.forEach((word) => {
-        tips.push(`Try pronouncing "${word.expected}" more clearly. You said "${word.actual}".`)
-      })
-    }
-
-    if (missingWords.length > 0) {
-      tips.push(`Don't forget to say: ${missingWords.join(', ')}`)
-    }
-
-    return tips
-  }
-
-  /**
-   * Evaluate pronunciation based on reference text with detailed analysis
-=======
    * Analyze word-level differences between reference and transcribed text
    */
   const analyzeWordDifferences = (reference, transcribed) => {
@@ -339,7 +269,6 @@ export function useSpeechRecognition() {
 
   /**
    * Evaluate pronunciation based on reference text
->>>>>>> main
    */
   const evaluatePronunciation = (referenceText, transcribedText, confidence = 1) => {
     const similarity = calculateSimilarity(referenceText, transcribedText)
@@ -352,10 +281,6 @@ export function useSpeechRecognition() {
     let feedback = ''
     let level = ''
     let color = ''
-<<<<<<< HEAD
-    let tips = []
-=======
->>>>>>> main
 
     // Determine feedback level and color based on score and word analysis
     if (finalScore >= 85 && wordAnalysis.incorrect.length === 0) {
@@ -363,30 +288,6 @@ export function useSpeechRecognition() {
       feedback = 'Excellent! Your pronunciation is perfect!'
       level = 'excellent'
       color = 'green'
-<<<<<<< HEAD
-    } else if (finalScore >= 70 && wordAnalysis.incorrect.length <= 2) {
-      // Good - Light Green
-      feedback = 'Great job! Your pronunciation is very good.'
-      level = 'great'
-      color = 'light-green'
-    } else if (finalScore >= 50 && wordAnalysis.incorrect.length <= 4) {
-      // Partial - Yellow (show incorrect words)
-      const incorrectWordsText = wordAnalysis.incorrect.map((w) => w.expected).join(', ')
-      feedback = `Good attempt! Check these words: ${incorrectWordsText}`
-      level = 'partial'
-      color = 'yellow'
-      tips = generatePronunciationTips(wordAnalysis.incorrect, wordAnalysis.missing)
-    } else {
-      // Poor - Red (show detailed feedback)
-      feedback = "Keep practicing! Let's work on your pronunciation."
-      level = 'poor'
-      color = 'red'
-      tips = generatePronunciationTips(wordAnalysis.incorrect, wordAnalysis.missing)
-
-      // Add general tips for poor pronunciation
-      tips.push('Listen to the audio again and repeat slowly.')
-      tips.push('Focus on clear articulation of each word.')
-=======
     } else if (finalScore >= 75) {
       feedback = 'Good job! Your pronunciation is clear.'
       level = 'good'
@@ -415,7 +316,6 @@ export function useSpeechRecognition() {
       }
       level = 'needs-improvement'
       color = 'red'
->>>>>>> main
     }
 
     pronunciationScore.value = {
@@ -424,12 +324,7 @@ export function useSpeechRecognition() {
       color,
       reference: referenceText,
       transcribed: transcribedText,
-<<<<<<< HEAD
-      wordAnalysis,
-      tips,
-=======
       differences,
->>>>>>> main
     }
 
     return pronunciationScore.value
@@ -462,10 +357,7 @@ export function useSpeechRecognition() {
     getAudioBlob,
     evaluatePronunciation,
     calculateSimilarity,
-<<<<<<< HEAD
-=======
     analyzeWordDifferences,
->>>>>>> main
     reset,
   }
 }
