@@ -31,5 +31,5 @@ coverage
 *.sw?
 
 *.tsbuildinfo
-
+ 
 *.md
