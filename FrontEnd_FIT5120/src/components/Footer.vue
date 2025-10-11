@@ -7,12 +7,11 @@
         <div class="col-lg-3 col-md-6">
           <div class="footer-section">
             <div class="footer-logo">
-              <h4 class="footer-title">Ankang Life</h4>
-              <p class="footer-subtitle">Supporting Older Adults in Australia</p>
+              <h4 class="footer-title">{{ 'Ankang Life' }}</h4>
+              <p class="footer-subtitle">{{ $t('footer.support') }}</p>
             </div>
             <p class="footer-desc">
-              Empowering older adults with essential knowledge and skills for a confident, independent life in
-              Australia.
+              {{ $t('footer.subtitle') }}
             </p>
           </div>
         </div>
@@ -20,12 +19,11 @@
         <!-- Learning Features -->
         <div class="col-lg-3 col-md-6">
           <div class="footer-section">
-            <h5 class="section-title">Learning Features</h5>
+            <h5 class="section-title">{{ $t('footer.learningfeatures') }}</h5>
             <ul class="footer-links">
-              <li><router-link to="/LearnEnglish">English Learning</router-link></li>
-              <li><router-link to="/flashcards">Interactive Flashcards</router-link></li>
-              <li><router-link to="/socialNorms">Social Etiquette</router-link></li>
-              <li><router-link to="/quiztaking">Knowledge Quizzes</router-link></li>
+              <li><router-link to="/LearnEnglish">{{ $t('footer.englishlearning') }}</router-link></li>
+              <li><router-link to="/chatbot">{{ $t('footer.aiassistant') }}</router-link></li>
+              <li><router-link to="/quiztaking">{{ $t('footer.knowledgequizzes') }}</router-link></li>
             </ul>
           </div>
         </div>
@@ -33,12 +31,12 @@
         <!-- Life Navigation -->
         <div class="col-lg-3 col-md-6">
           <div class="footer-section">
-            <h5 class="section-title">Life Navigation</h5>
+            <h5 class="section-title">{{ $t('footer.lifenavigation') }}</h5>
             <ul class="footer-links">
-              <li><router-link to="/NavigateYourLife">Daily Life Guide</router-link></li>
-              <li><router-link to="/PublicTransportation">Transport Guide</router-link></li>
-              <li><router-link to="/FacilityEvent">Local Facilities</router-link></li>
-              <li><router-link to="/chatbot">AI Assistant</router-link></li>
+              <li><router-link to="/navigatelife">{{ $t('footer.dailyLifeGuide') }}</router-link></li>
+              <li><router-link to="/PublicTransportation">{{ $t('footer.transportGuide') }}</router-link></li>
+              <li><router-link to="/FacilityEvent">{{ $t('footer.localFacilities') }}</router-link></li>
+              <li><router-link to="/socialNorms">{{ $t('footer.socialEtiquette') }}</router-link></li>
             </ul>
           </div>
         </div>
@@ -46,12 +44,12 @@
         <!-- Safety & Support -->
         <div class="col-lg-3 col-md-6">
           <div class="footer-section">
-            <h5 class="section-title">Safety & Support</h5>
+            <h5 class="section-title">{{ $t('footer.safetyandsupport') }}</h5>
             <ul class="footer-links">
-              <li><router-link to="/safety">Safety Information</router-link></li>
-              <li><router-link to="/emergency">Emergency Resources</router-link></li>
-              <li><router-link to="/health">Health Services</router-link></li>
-              <li><router-link to="/about">About Our Mission</router-link></li>
+              <li><router-link to="/safety">{{ $t('footer.safetyInformation') }}</router-link></li>
+              <li><router-link to="/safety">{{ $t('footer.emergencyResources') }}</router-link></li>
+              <li><router-link to="/safety">{{ $t('footer.healthServices') }}</router-link></li>
+              <!-- <li><router-link to="/">About Our Mission</router-link></li> -->
             </ul>
           </div>
         </div>
@@ -72,21 +70,21 @@
                   <path
                     d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z" />
                 </svg>
-                <span>24/7 Available</span>
+                <span>{{ $t('footer.available') }}</span>
               </div>
               <div class="feature-item">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                   <path
                     d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                 </svg>
-                <span>Free Resources</span>
+                <span>{{ $t('footer.freeResources') }}</span>
               </div>
               <div class="feature-item">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                   <path
                     d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5.5 6L12 10.5 6.5 8 12 5.5 17.5 8zM12 19c-3.31 0-6-2.69-6-6v-2.5l6 2.5 6-2.5V13c0 3.31-2.69 6-6 6z" />
                 </svg>
-                <span>Safe & Secure</span>
+                <span>{{ $t('footer.safeSecure') }}</span>
               </div>
             </div>
           </div>
