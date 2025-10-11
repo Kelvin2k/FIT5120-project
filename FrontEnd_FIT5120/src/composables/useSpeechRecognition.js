@@ -2,7 +2,7 @@ import { ref } from 'vue'
 
 /**
  * Composable for speech recognition and pronunciation assessment
- * Supports both Web Speech API (fallback) and Azure Speech Service
+ * Uses Web Speech API only
  */
 export function useSpeechRecognition() {
   const isRecording = ref(false)
@@ -12,11 +12,9 @@ export function useSpeechRecognition() {
   const pronunciationScore = ref(null)
 
   let recognition = null
-  let mediaRecorder = null
-  let audioChunks = []
 
   /**
-   * Initialize Web Speech API (fallback method)
+   * Initialize Web Speech API
    */
   const initWebSpeechAPI = (language = 'en-US') => {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
@@ -33,9 +31,6 @@ export function useSpeechRecognition() {
     recognition.interimResults = false
     recognition.maxAlternatives = 1
 
-    // Note: grammars property is deprecated and can cause errors in some browsers
-    // We'll skip setting grammars to avoid compatibility issues
-
     console.log('Initialized Web Speech Recognition with settings:', {
       language: recognition.lang,
       continuous: recognition.continuous,
@@ -49,7 +44,7 @@ export function useSpeechRecognition() {
   /**
    * Start recording with Web Speech API
    */
-  const startRecordingWebAPI = async (language = 'en-US') => {
+  const startRecording = async (language = 'en-US') => {
     try {
       error.value = null
       transcript.value = ''
@@ -100,104 +95,7 @@ export function useSpeechRecognition() {
     if (recognition) {
       recognition.stop()
     }
-    if (mediaRecorder && mediaRecorder.state !== 'inactive') {
-      mediaRecorder.stop()
-    }
     isRecording.value = false
-  }
-
-  /**
-   * Record audio for Azure Speech Service
-   */
-  const startRecordingForAzure = async () => {
-    try {
-      error.value = null
-      audioChunks = []
-      isRecording.value = true
-
-      // Request audio with specific constraints for Azure compatibility
-      const stream = await navigator.mediaDevices.getUserMedia({
-        audio: {
-          sampleRate: 16000,
-          channelCount: 1,
-          sampleSize: 16,
-          echoCancellation: true,
-          noiseSuppression: true,
-          autoGainControl: true,
-        },
-      })
-
-      // Try to use WAV format first, fallback to WebM
-      const preferredTypes = [
-        'audio/wav',
-        'audio/webm;codecs=pcm',
-        'audio/webm;codecs=opus',
-        'audio/webm',
-      ]
-
-      let mimeType = 'audio/webm'
-      for (const type of preferredTypes) {
-        if (MediaRecorder.isTypeSupported(type)) {
-          mimeType = type
-          break
-        }
-      }
-
-      console.log('Using MediaRecorder with MIME type:', mimeType)
-
-      mediaRecorder = new MediaRecorder(stream, { mimeType })
-
-      mediaRecorder.ondataavailable = (event) => {
-        if (event.data.size > 0) {
-          audioChunks.push(event.data)
-        }
-      }
-
-      mediaRecorder.onstop = async () => {
-        stream.getTracks().forEach((track) => track.stop())
-      }
-
-      mediaRecorder.start()
-      return mediaRecorder
-    } catch (err) {
-      error.value = `Microphone access error: ${err.message}`
-      isRecording.value = false
-      throw err
-    }
-  }
-
-  /**
-   * Get recorded audio blob
-   */
-  const getAudioBlob = () => {
-    return new Promise((resolve) => {
-      if (audioChunks.length > 0) {
-        // Try to keep original MIME type
-        const mimeType = mediaRecorder ? mediaRecorder.mimeType : 'audio/webm'
-        const audioBlob = new Blob(audioChunks, { type: mimeType })
-        console.log('Created audio blob:', {
-          size: audioBlob.size,
-          type: audioBlob.type,
-          chunks: audioChunks.length,
-        })
-        resolve(audioBlob)
-      } else if (mediaRecorder) {
-        mediaRecorder.onstop = () => {
-          const mimeType = mediaRecorder.mimeType || 'audio/webm'
-          const audioBlob = new Blob(audioChunks, { type: mimeType })
-          console.log('Created audio blob on stop:', {
-            size: audioBlob.size,
-            type: audioBlob.type,
-            chunks: audioChunks.length,
-          })
-          resolve(audioBlob)
-        }
-      } else {
-        // Create empty blob if no data
-        console.warn('No audio data available, creating empty blob')
-        resolve(new Blob([], { type: 'audio/webm' }))
-      }
-    })
   }
 
   /**
@@ -205,8 +103,18 @@ export function useSpeechRecognition() {
    * Returns similarity score (0-100)
    */
   const calculateSimilarity = (reference, transcribed) => {
-    const ref = reference.toLowerCase().trim()
-    const trans = transcribed.toLowerCase().trim()
+    // Normalize text by removing punctuation and converting to lowercase
+    const normalizeText = (text) => {
+      return text
+        .toLowerCase()
+        .trim()
+        .replace(/[.,/#!$%^&*;:{}=\-_`~()?]/g, '')
+    }
+
+    const ref = normalizeText(reference)
+    const trans = normalizeText(transcribed)
+
+    console.log('calculateSimilarity normalized:', { ref, trans })
 
     if (ref === trans) return 100
 
@@ -237,6 +145,7 @@ export function useSpeechRecognition() {
     const maxLength = Math.max(ref.length, trans.length)
     const similarity = ((maxLength - distance) / maxLength) * 100
 
+    console.log('calculateSimilarity result:', similarity)
     return Math.round(similarity)
   }
 
@@ -244,8 +153,16 @@ export function useSpeechRecognition() {
    * Analyze word-level differences between reference and transcribed text
    */
   const analyzeWordDifferences = (reference, transcribed) => {
-    const refWords = reference.toLowerCase().trim().split(/\s+/)
-    const transWords = transcribed.toLowerCase().trim().split(/\s+/)
+    // Normalize text by removing punctuation and converting to lowercase
+    const normalizeText = (text) => {
+      return text
+        .toLowerCase()
+        .trim()
+        .replace(/[.,/#!$%^&*;:{}=\-_`~()?]/g, '')
+    }
+
+    const refWords = normalizeText(reference).split(/\s+/)
+    const transWords = normalizeText(transcribed).split(/\s+/)
 
     const differences = []
     const maxLength = Math.max(refWords.length, transWords.length)
@@ -264,6 +181,7 @@ export function useSpeechRecognition() {
       }
     }
 
+    console.log('analyzeWordDifferences result:', differences)
     return differences
   }
 
@@ -273,17 +191,27 @@ export function useSpeechRecognition() {
   const evaluatePronunciation = (referenceText, transcribedText, confidence = 1) => {
     const similarity = calculateSimilarity(referenceText, transcribedText)
     const finalScore = Math.round(similarity * confidence)
-    const wordAnalysis = analyzeWordDifferences(referenceText, transcribedText)
-
-    // Analyze word-level differences
     const differences = analyzeWordDifferences(referenceText, transcribedText)
+
+    console.log('evaluatePronunciation debug:', {
+      referenceText,
+      transcribedText,
+      similarity,
+      finalScore,
+      differences,
+      confidence,
+    })
 
     let feedback = ''
     let level = ''
     let color = ''
 
     // Determine feedback level and color based on score and word analysis
-    if (finalScore >= 85 && wordAnalysis.incorrect.length === 0) {
+    const incorrectDifferences = differences.filter((d) => d.type === 'incorrect')
+
+    console.log('incorrectDifferences:', incorrectDifferences)
+
+    if (finalScore >= 85 && incorrectDifferences.length === 0) {
       // Excellent - Green
       feedback = 'Excellent! Your pronunciation is perfect!'
       level = 'excellent'
@@ -339,7 +267,6 @@ export function useSpeechRecognition() {
     error.value = null
     recognitionResult.value = null
     pronunciationScore.value = null
-    audioChunks = []
   }
 
   return {
@@ -351,10 +278,8 @@ export function useSpeechRecognition() {
     pronunciationScore,
 
     // Methods
-    startRecordingWebAPI,
-    startRecordingForAzure,
+    startRecording,
     stopRecording,
-    getAudioBlob,
     evaluatePronunciation,
     calculateSimilarity,
     analyzeWordDifferences,
