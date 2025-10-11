@@ -50,6 +50,12 @@ export default {
         ],
       },
     },
+    practiceEnglish: {
+      voicechat: 'Voice Chat',
+      realtime: 'Real-time Interaction',
+      aipowered: 'AI Powered',
+      friendly: 'Friendly',
+    },
     quiz: {
       title: 'Quiz',
       subtitle: 'Test your knowledge with our interactive quizzes',
@@ -93,6 +99,15 @@ export default {
         vi: 'Vietnamese',
         id: 'Indonesian',
       },
+    },
+    404: {
+      subtitle: 'Page Not Found',
+      main_message: "Oops! We can't find that page",
+      sub_message:
+        "The page you're looking for might have been moved, deleted, or doesn't exist. Don't worry, we'll help you find what you need.",
+      go_home: 'Go Home',
+      go_back: 'Go Back',
+      quick_nav_title: 'Quick Navigation',
     },
     facility_finder: {
       title: 'Find Facilities',
@@ -355,11 +370,12 @@ export default {
       meetingpeople: {
         title: 'Meeting New People',
         subtitle:
-          "G'day! Discover how to meet new people in Australia with a smile, a handshake, and a friendly greeting.",
+          'Learn proper etiquette for meeting new people in Australia, including greetings, introductions, and social customs.',
       },
       eatingout: {
         title: 'Eating Out',
-        subtitle: 'From menu to manners -- Learn what to expect when eating out in Australia.',
+        subtitle:
+          'Discover dining etiquette, restaurant customs, tipping culture, and proper table manners in Australian dining settings.',
       },
     },
     navigate_your_life: {
@@ -490,6 +506,12 @@ export default {
         ],
       },
     },
+    practiceEnglish: {
+      voicechat: '语音聊天',
+      realtime: '实时互动',
+      aipowered: 'AI助力',
+      friendly: '友好氛围',
+    },
     quiz: {
       title: '测验',
       subtitle: '通过我们的互动测验测试您的知识',
@@ -528,6 +550,14 @@ export default {
         vi: '越南语',
         id: '印尼语',
       },
+    },
+    404: {
+      subtitle: '页面未找到',
+      main_message: '哎呀！我们找不到那个页面',
+      sub_message: '您要查找的页面可能已被移动、删除或不存在。别担心，我们会帮您找到所需的内容。',
+      go_home: '回主页',
+      go_back: '返回',
+      quick_nav_title: '快速导航',
     },
     facility_finder: {
       title: '查找设施',
@@ -779,11 +809,11 @@ export default {
       subtitle: '了解澳大利亚的习俗、日常礼仪和社交礼节，让你在任何情况下都能充满自信',
       meetingpeople: {
         title: '结识新朋友',
-        subtitle: '你好！了解如何在澳大利亚通过微笑、握手和友好的问候结识新朋友。',
+        subtitle: '学习在澳大利亚结识新朋友的正确礼仪，包括问候、介绍和社交习俗。',
       },
       eatingout: {
         title: '外出就餐',
-        subtitle: '从菜单到礼仪——了解在澳大利亚外出就餐时可以期待什么。',
+        subtitle: '了解在澳大利亚外出就餐时的用餐礼仪、餐厅习俗、小费文化和正确的餐桌礼仪。',
       },
     },
     navigate_your_life: {
@@ -902,6 +932,12 @@ export default {
         ],
       },
     },
+    practiceEnglish: {
+      voicechat: 'Trò chuyện bằng giọng nói',
+      realtime: 'Tương tác thời gian thực',
+      aipowered: 'AI hỗ trợ',
+      friendly: 'Thân thiện',
+    },
     quiz: {
       title: 'Quiz',
       subtitle: 'Kiểm tra kiến thức của bạn với các bài kiểm tra tương tác của chúng tôi',
@@ -944,6 +980,15 @@ export default {
         vi: 'Tiếng Việt',
         id: 'Tiếng Indonesia',
       },
+    },
+    404: {
+      subtitle: 'Không tìm thấy trang',
+      main_message: 'Rất tiếc! Chúng tôi không thể tìm thấy trang đó',
+      sub_message:
+        'Trang bạn đang tìm kiếm có thể đã được di chuyển, xóa hoặc không tồn tại. Đừng lo lắng, chúng tôi sẽ giúp bạn tìm những gì bạn cần.',
+      go_home: 'Về trang chủ',
+      go_back: 'Quay lại',
+      quick_nav_title: 'Điều hướng nhanh',
     },
     facility_finder: {
       title: 'Tìm Cơ sở',
@@ -1210,11 +1255,12 @@ export default {
       meetingpeople: {
         title: 'Gặp gỡ người mới',
         subtitle:
-          'Xin chào! Khám phá cách gặp gỡ người mới ở Úc với nụ cười, cái bắt tay và lời chào thân thiện.',
+          'Học phép lịch sự khi gặp gỡ người mới ở Úc, bao gồm cách chào hỏi, giới thiệu và phong tục xã hội.',
       },
       eatingout: {
         title: 'Ăn ngoài',
-        subtitle: 'Từ thực đơn đến phép lịch sự -- Tìm hiểu những điều cần biết khi ăn ngoài ở Úc.',
+        subtitle:
+          'Tìm hiểu phép lịch sự khi ăn ngoài ở Úc, bao gồm nghi thức nhà hàng, phong tục tiền boa và cách cư xử đúng mực trên bàn ăn.',
       },
     },
     navigate_your_life: {
@@ -1342,6 +1388,12 @@ export default {
         ],
       },
     },
+    practiceEnglish: {
+      voicechat: 'Obrolan Suara',
+      realtime: 'Interaksi Waktu Nyata',
+      aipowered: 'Didukung AI',
+      friendly: 'Ramah',
+    },
     quiz: {
       title: 'Kuis',
       subtitle: 'Uji pengetahuan Anda dengan kuis interaktif kami',
@@ -1385,6 +1437,15 @@ export default {
         vi: 'Vietnam',
         id: 'Indonesia',
       },
+    },
+    404: {
+      subtitle: 'Halaman Tidak Ditemukan',
+      main_message: 'Ups! Kami tidak dapat menemukan halaman itu',
+      sub_message:
+        'Halaman yang Anda cari mungkin telah dipindahkan, dihapus, atau tidak ada. Jangan khawatir, kami akan membantu Anda menemukan apa yang Anda butuhkan.',
+      go_home: 'Ke Beranda',
+      go_back: 'Kembali',
+      quick_nav_title: 'Navigasi Cepat',
     },
     facility_finder: {
       title: 'Cari Fasilitas',
@@ -1653,12 +1714,12 @@ export default {
       meetingpeople: {
         title: 'Bertemu Orang Baru',
         subtitle:
-          'Halo! Temukan cara bertemu orang baru di Australia dengan senyuman, jabat tangan, dan sapaan ramah.',
+          'Pelajari sopan santun saat bertemu orang baru di Australia, termasuk cara menyapa, memperkenalkan diri, dan kebiasaan sosial.',
       },
       eatingout: {
         title: 'Makan di Luar',
         subtitle:
-          'Dari menu hingga etika -- Pelajari apa yang diharapkan saat makan di luar di Australia.',
+          'Pelajari etika makan, kebiasaan restoran, budaya memberi tip, dan cara bersikap di meja makan di Australia.',
       },
     },
     navigate_your_life: {

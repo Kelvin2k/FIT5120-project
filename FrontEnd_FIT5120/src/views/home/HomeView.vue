@@ -6,7 +6,7 @@ const { t } = useI18n()
 const router = useRouter()
 
 function goToFacility() {
-  router.push('/FacilityEvent')
+  router.push('/facilities')
 }
 function goToEnglish() {
   router.push('/learnenglish')
@@ -16,6 +16,12 @@ function goToSocialNorms() {
 }
 function goToNavigate() {
   router.push('/navigatelife')
+}
+function goToChatbot() {
+  router.push('/chatbot')
+}
+function goToSafety() {
+  router.push('/safety')
 }
 
 function scrollToMission() {
@@ -94,9 +100,10 @@ function scrollToMission() {
               }}</span>
           </div>
           <div class="features-container">
+            <!-- First Row -->
             <div class="feature-card" data-aos="fade-up" data-aos-delay="50" @click="goToFacility"
               style="cursor: pointer">
-              <div class="feature-icon"><i class="fa-solid fa-map"></i></div>
+              <div class="feature-icon"><i class="fa-solid fa-map-marker-alt"></i></div>
               <h3 class="feature-title">
                 {{ t('home.our_features.our_features_cards.facility.facility_title') }}
               </h3>
@@ -109,7 +116,7 @@ function scrollToMission() {
             </div>
             <div class="feature-card" data-aos="fade-up" data-aos-delay="100" @click="goToEnglish"
               style="cursor: pointer">
-              <div class="feature-icon"><i class="fa-brands fa-leanpub"></i></div>
+              <div class="feature-icon"><i class="fa-solid fa-language"></i></div>
               <h3 class="feature-title">
                 {{ t('home.our_features.our_features_cards.learning.learning_title') }}
               </h3>
@@ -122,7 +129,7 @@ function scrollToMission() {
             </div>
             <div class="feature-card" data-aos="fade-up" data-aos-delay="150" @click="goToSocialNorms"
               style="cursor: pointer">
-              <div class="feature-icon"><i class="fa-solid fa-user-group"></i></div>
+              <div class="feature-icon"><i class="fa-solid fa-users"></i></div>
               <h3 class="feature-title">
                 {{ t('home.our_features.our_features_cards.social.social_title') }}
               </h3>
@@ -133,9 +140,11 @@ function scrollToMission() {
                 {{ t('button_learnmore.label') }}
               </button>
             </div>
-            <div class="feature-card" data-aos="fade-up" data-aos-delay="200" @click="goToNavigate"
+
+            <!-- Second Row -->
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="50" @click="goToNavigate"
               style="cursor: pointer">
-              <div class="feature-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+              <div class="feature-icon"><i class="fa-solid fa-compass"></i></div>
               <h3 class="feature-title">
                 {{ t('home.our_features.our_features_cards.navigate.navigate_title') }}
               </h3>
@@ -143,6 +152,32 @@ function scrollToMission() {
                 {{ t('home.our_features.our_features_cards.navigate.description') }}
               </p>
               <button class="learn-more-btn" @click.stop="goToNavigate">
+                {{ t('button_learnmore.label') }}
+              </button>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="100" @click="goToChatbot"
+              style="cursor: pointer">
+              <div class="feature-icon"><i class="fa-solid fa-robot"></i></div>
+              <h3 class="feature-title">
+                {{ t('nav.chatbot') }}
+              </h3>
+              <p class="feature-desc">
+                Chat with our AI assistant for personalized help and guidance
+              </p>
+              <button class="learn-more-btn" @click.stop="goToChatbot">
+                {{ t('button_learnmore.label') }}
+              </button>
+            </div>
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="150" @click="goToSafety"
+              style="cursor: pointer">
+              <div class="feature-icon"><i class="fa-solid fa-shield-alt"></i></div>
+              <h3 class="feature-title">
+                {{ t('nav.safety') }}
+              </h3>
+              <p class="feature-desc">
+                Learn about safety tips, crime statistics and emergency information
+              </p>
+              <button class="learn-more-btn" @click.stop="goToSafety">
                 {{ t('button_learnmore.label') }}
               </button>
             </div>
@@ -576,7 +611,8 @@ h2 {
 
 .features-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   gap: 32px;
   max-width: 1400px;
   width: 90vw;
@@ -631,18 +667,19 @@ h2 {
 
 .features-container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
-  max-width: 1400px;
-  width: 90vw;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 1200px;
+  width: 85vw;
 }
 
 .feature-card {
   background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.12);
   border: 2px solid transparent;
-  padding: 40px 24px 32px 24px;
+  padding: 48px 32px 40px 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -651,7 +688,7 @@ h2 {
     box-shadow 0.12s,
     border-color 0.12s,
     transform 0.12s;
-  min-height: 370px;
+  min-height: 420px;
   cursor: pointer;
 }
 
@@ -660,26 +697,34 @@ h2 {
     0 12px 36px 0 rgba(106, 68, 255, 0.18),
     0 2px 8px rgba(190, 54, 236, 0.12);
   border-color: #be36ec;
-  transform: translateY(-8px) scale(1.04) !important;
+  transform: translateY(-8px) !important;
+}
+
+.feature-card:hover .feature-icon {
+  color: #fbbf24;
+  transform: scale(1.1);
 }
 
 .feature-icon {
-  font-size: 3.2rem;
+  font-size: 3.8rem;
   color: #6b46c1;
-  margin-bottom: 18px;
+  margin-bottom: 24px;
+  transition: all 0.3s ease;
 }
 
 .feature-title {
-  font-size: 1.35rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   letter-spacing: 0.5px;
+  color: #1f2937;
 }
 
 .feature-desc {
-  font-size: 1.05rem;
-  color: #444;
-  margin-bottom: 28px;
+  font-size: 1.1rem;
+  color: #6b7280;
+  margin-bottom: 32px;
+  line-height: 1.6;
 }
 
 /* Header features section layout */
@@ -707,7 +752,7 @@ h2 {
 .our-features-header-yellow-col {
   width: 90px;
   min-width: 70px;
-  background: #D796FF;
+  background: #FABE46;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -747,6 +792,7 @@ h2 {
 @media (max-width: 1200px) {
   .features-container {
     grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     gap: 28px;
   }
 }
@@ -754,6 +800,7 @@ h2 {
 @media (max-width: 700px) {
   .features-container {
     grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr);
     gap: 22px;
   }
 

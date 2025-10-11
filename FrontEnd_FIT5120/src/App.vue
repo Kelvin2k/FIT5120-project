@@ -1,12 +1,18 @@
 <template>
   <div id="app">
     <Header v-if="$route.name !== 'passcode'" />
-    <router-view v-slot="{ Component, route }">
+    <router-view v-slot="{ Component, route }" class="background_content">
       <component :is="Component" :class="route.name === 'passcode' ? '' : ''" />
     </router-view>
     <Footer v-if="$route.name !== 'passcode'" />
   </div>
 </template>
+
+<style scoped>
+.background_content {
+  background-color: #E6E6FA !important;
+}
+</style>
 
 <script setup>
 import { onMounted } from 'vue'
