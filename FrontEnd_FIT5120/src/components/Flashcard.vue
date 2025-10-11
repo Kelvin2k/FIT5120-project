@@ -500,7 +500,7 @@ defineExpose({
   margin-top: 0.3rem;
   padding: 1rem;
   border-radius: 8px;
-  background: #f8fafc;
+  background: red;
   border: 2px solid #e2e8f0;
   animation: slideIn 0.3s ease-out;
   width: 100%;
@@ -518,36 +518,13 @@ defineExpose({
   }
 }
 
-.result-score {
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: 0.25rem;
-  margin-bottom: 0.5rem;
-}
-
-.score-value {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #1e293b;
-}
-
-.score-label {
-  font-size: 1rem;
-  color: #64748b;
-  font-weight: 500;
-}
-
 .result-feedback {
   font-size: 1rem;
   font-weight: 600;
   text-align: center;
   margin-bottom: 0.5rem;
   color: #22c55e;
-  background: #e6fbe6;
-  border-radius: 6px;
-  padding: 0.5rem 1rem;
-  box-shadow: 0 2px 8px rgba(34, 197, 94, 0.08);
+  background-color: rgba(255, 255, 255, 0);
 }
 
 .result-transcribed {
@@ -563,12 +540,7 @@ defineExpose({
 .result-green {
   border-color: #22c55e;
   background: linear-gradient(135deg, #f0fdf4, #e6fbe6);
-}
-
-.result-green .result-feedback {
-  color: #15803d;
-  background: #dcfce7;
-  border-left: 4px solid #22c55e;
+  background-color: transparent;
 }
 
 .result-yellow {
@@ -589,8 +561,7 @@ defineExpose({
 
 .result-red .result-feedback {
   color: #b91c1c;
-  background: #fecaca;
-  border-left: 4px solid #ef4444;
+  background: transparent;
 }
 
 /* Word Differences Styling */
@@ -644,10 +615,21 @@ defineExpose({
   font-size: 1rem;
   font-weight: 600;
   text-align: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
   border-radius: 6px;
-  padding: 0.75rem 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  padding: 0.25rem 0.5rem;
+  box-shadow: none;
+  background: transparent;
+  border: none;
+}
+
+/* Ensure color variant rules do not add a left-border or other visible border */
+.result-green .result-feedback,
+.result-yellow .result-feedback,
+.result-red .result-feedback {
+  border-left: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
 }
 
 /* Responsive Design */

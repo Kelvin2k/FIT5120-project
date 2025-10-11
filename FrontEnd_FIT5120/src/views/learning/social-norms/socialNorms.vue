@@ -59,7 +59,7 @@
 <script setup>
 import { h } from 'vue';
 import { useRouter } from 'vue-router';
-import BannerBubble from '../components/BannerBubble.vue';
+import BannerBubble from '@/components/BannerBubble.vue';
 
 const router = useRouter();
 const socialIcon = () => h('svg', { xmlns: 'http://www.w3.org/2000/svg', viewBox: '0 0 24 24', fill: 'currentColor' }, [

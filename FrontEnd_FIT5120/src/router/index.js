@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import FacilityEvent from '@/views/FacilityEvent.vue'
-import LearnEnglish from '@/views/LearnEnglish.vue'
-import PassCode from '@/views/PassCode.vue'
-import SocialNorms from '@/views/socialNorms.vue'
-import MeetingPeople from '@/views/MeetingPeople.vue'
-import EatingOut from '@/views/EatingOut.vue'
-import SafetyPage from '@/views/SafetyPage.vue'
+import HomeView from '../views/home/HomeView.vue'
+import FacilityEvent from '@/views/facilities/FacilityEvent.vue'
+import LearnEnglish from '@/views/learning/english/LearnEnglish.vue'
+import PassCode from '@/views/auth/PassCode.vue'
+import SocialNorms from '@/views/learning/social-norms/socialNorms.vue'
+import MeetingPeople from '@/views/learning/social-norms/MeetingPeople.vue'
+import EatingOut from '@/views/learning/social-norms/EatingOut.vue'
+import SafetyPage from '@/views/navigate-life/safety/SafetyPage.vue'
 
 // Check if user is authenticated
 const isAuthenticated = () => {
@@ -30,7 +30,7 @@ const router = createRouter({
     {
       path: '/about',
       name: 'about',
-      component: () => import('../views/AboutView.vue'),
+      component: () => import('../views/home/AboutView.vue'),
       meta: { requiresAuth: true },
     },
     {
@@ -54,7 +54,7 @@ const router = createRouter({
     {
       path: '/flashcards/:category/:language',
       name: 'flashcards',
-      component: () => import('../views/FlashcardsView.vue'),
+      component: () => import('../views/learning/english/FlashcardsView.vue'),
       props: true,
       meta: { requiresAuth: true },
     },
@@ -79,56 +79,56 @@ const router = createRouter({
     {
       path: '/navigatelife',
       name: 'navigatelife',
-      component: () => import('../views/NavigateYourLife.vue'),
+      component: () => import('../views/navigate-life/NavigateYourLife.vue'),
       meta: { requiresAuth: true },
     },
     {
       path: '/publicTransportation',
       name: 'publictransportation',
-      component: () => import('../views/PublicTransportation.vue'),
+      component: () => import('../views/navigate-life/transportation/PublicTransportation.vue'),
       meta: { requiresAuth: true },
     },
     {
       path: '/grocceriesShopping',
       name: 'grocceriesshopping',
-      component: () => import('../views/Grocceries Shopping.vue'),
+      component: () => import('../views/navigate-life/daily-life/Grocceries Shopping.vue'),
       meta: { requiresAuth: true },
     },
     {
       path: '/medicalAttention',
       name: 'medicalattention',
-      component: () => import('../views/MedicalAttention.vue'),
+      component: () => import('../views/navigate-life/daily-life/MedicalAttention.vue'),
       meta: { requiresAuth: true },
     },
     {
       path: '/mykicardlearning',
       name: 'mykicardlearning',
-      component: () => import('../views/MykiCardLearning.vue'),
+      component: () => import('../views/navigate-life/transportation/MykiCardLearning.vue'),
       meta: { requiresAuth: true },
     },
     {
       path: '/buslearning',
       name: 'buslearning',
-      component: () => import('../views/BusLearning.vue'),
+      component: () => import('../views/navigate-life/transportation/BusLearning.vue'),
       meta: { requiresAuth: true },
     },
     // hello world
     {
       path: '/trainlearning',
       name: 'trainlearning',
-      component: () => import('../views/TrainLearning.vue'),
+      component: () => import('../views/navigate-life/transportation/TrainLearning.vue'),
       meta: { requiresAuth: true },
     },
     {
       path: '/tramlearning',
       name: 'tramlearning',
-      component: () => import('../views/TramLearning.vue'),
+      component: () => import('../views/navigate-life/transportation/TramLearning.vue'),
       meta: { requiresAuth: true },
     },
     {
       path: '/facility/:id',
       name: 'FacilityDetail',
-      component: () => import('../views/FacilityDetailPage.vue'),
+      component: () => import('../views/facilities/FacilityDetailPage.vue'),
       props: true,
       meta: { requiresAuth: true },
     },
@@ -141,19 +141,19 @@ const router = createRouter({
     {
       path: '/quiztaking',
       name: 'quiztaking',
-      component: () => import('../views/QuizTaking.vue'),
+      component: () => import('../views/interactive/QuizTaking.vue'),
       meta: { requiresAuth: true },
     },
     {
       path: '/testchatbot',
       name: 'testchatbot',
-      component: () => import('../views/testView.vue'),
+      component: () => import('../views/dev/testView.vue'),
       meta: { requiresAuth: true },
     },
     {
       path: '/chatbot',
       name: 'chatbot',
-      component: () => import('../views/ChatbotView.vue'),
+      component: () => import('../views/interactive/ChatbotView.vue'),
       meta: { requiresAuth: true },
     },
   ],

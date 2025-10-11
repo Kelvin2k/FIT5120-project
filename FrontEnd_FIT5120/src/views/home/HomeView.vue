@@ -28,7 +28,7 @@ function scrollToMission() {
   <div>
     <div class="homeview-bg-wrapper w-100">
       <video autoplay loop muted playsinline class="bg-video w-100">
-        <source src="./../../public/Home_video.mp4" type="video/mp4" />
+        <source src="/Home_video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <div class="homeview-content d-flex align-items-center">
@@ -83,11 +83,7 @@ function scrollToMission() {
     <!-- Our Features Cards Section -->
     <section class="our_features_section w-100">
       <div class="our-features-section-flex">
-        <div
-          class="our-features-header-yellow-col col-md-1 d-none d-md-flex"
-          data-aos="fade-down"
-          data-aos-delay="200"
-        >
+        <div class="our-features-header-yellow-col col-md-1 d-none d-md-flex" data-aos="fade-down" data-aos-delay="200">
           <span class="vertical-text">{{ t('home.our_features.our_features_title') }}</span>
         </div>
         <div class="our-features-main-content col-md-11">
@@ -95,7 +91,7 @@ function scrollToMission() {
             data-aos-delay="400">
             <span class="our-features-header-title">{{
               t('home.our_features.our_features_title')
-            }}</span>
+              }}</span>
           </div>
           <div class="features-container">
             <div class="feature-card" data-aos="fade-up" data-aos-delay="50" @click="goToFacility"
