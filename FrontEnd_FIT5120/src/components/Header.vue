@@ -87,12 +87,13 @@
             <li class="nav-item dropdown" v-for="(link, index) in navLinks_dropdown" :key="index">
               <div class="nav-link dropdown-hover" :class="{ 'router-link-active': isActiveDropdown(link) }">
                 <span @click="navigateDropdown(link.to)">{{ $t(link.text) }}</span>
-                <ul v-if="link.children === 'socialNorms'" class="dropdown-menu">
+                <ul v-if="link.children === 'socialNorms' && isDesktop" class="dropdown-menu">
                   <li v-for="(item, idx) in socialNorms" :key="idx">
                     <router-link class="dropdown-item" :to="item.to">{{ $t(item.text) }}</router-link>
                   </li>
                 </ul>
-                <ul v-if="link.children === 'navigateYourLife'" class="dropdown-menu">
+                <ul v-if="link.children === 'navigateYourLife' && isDesktop" class="dropdown-menu"
+                  data-bs-toggle="dropdown" aria-expanded="false">
                   <li v-for="(item, idx) in navigateYourLife" :key="idx">
                     <router-link class="dropdown-item" :to="item.to">{{ $t(item.text) }}</router-link>
                   </li>
@@ -115,7 +116,7 @@
 <script setup>
 import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
-import { computed } from 'vue'
+import { computed, ref, onMounted, onUnmounted } from 'vue'
 import { useRoute } from 'vue-router'
 
 const router = useRouter()
@@ -150,6 +151,18 @@ function isActiveDropdown(link) {
 
   return false
 }
+
+// Detect desktop (>=992px)
+const isDesktop = ref(window.innerWidth >= 992)
+function handleResize() {
+  isDesktop.value = window.innerWidth >= 992
+}
+onMounted(() => {
+  window.addEventListener('resize', handleResize)
+})
+onUnmounted(() => {
+  window.removeEventListener('resize', handleResize)
+})
 
 const currentLangText = computed(() => {
   const found = languages.find(l => l.code === locale.value)
@@ -450,11 +463,6 @@ function setLang(lang) {
 }
 
 /* Navigation Menu */
-.navigation-menu {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
 
 .nav-item {
   position: relative;
@@ -618,7 +626,6 @@ function setLang(lang) {
   }
 
   .nav-link {
-    text-align: center;
     padding: 15px 20px !important;
   }
 
