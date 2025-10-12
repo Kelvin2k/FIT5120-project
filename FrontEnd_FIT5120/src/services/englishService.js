@@ -4,7 +4,7 @@ import axios from 'axios';
 // Create basic API configuration
 const apiClient = axios.create({
   // baseURL: 'http://localhost:5566/api',
-  baseURL: 'http://54.252.184.10:5566/api',
+  baseURL: 'https://ankanglife.social/api',
   headers: {
     'Content-Type': 'application/json'
   },
