@@ -10,9 +10,39 @@
 
       <!-- Crime Hotspots Map -->
       <div class="crime-map-section">
-        <h3 class="map-title">
-          🗺️ {{ t('safety.crime_hotspots_map', 'Crime Hotspots Map') }}
-        </h3>
+        <div class="map-header">
+          <h3 class="map-title">
+            🗺️ {{ t('safety.crime_hotspots_map', 'Crime Hotspots Map') }}
+          </h3>
+          
+          <!-- 筛选器容器 -->
+          <div class="filters-container">
+
+            <!-- 犯罪等级筛选器 -->
+            <div class="level-filter">
+              <label for="level-select" class="filter-label">
+                📊 {{ t('safety.filter_by_level', 'Crime Level') }}:
+              </label>
+              <select 
+                id="level-select"
+                v-model="selectedCrimeLevel" 
+                class="filter-select"
+              >
+                <option value="all">{{ t('safety.all_levels', 'All Levels') }}</option>
+                <option value="very-low">{{ t('safety.very_low_crime', 'Very Low') }}</option>
+                <option value="low">{{ t('safety.low_crime', 'Low') }}</option>
+                <option value="medium">{{ t('safety.medium_crime', 'Medium') }}</option>
+                <option value="high">{{ t('safety.high_crime', 'High') }}</option>
+                <option value="very-high">{{ t('safety.very_high_crime', 'Very High') }}</option>
+              </select>
+            </div>
+
+            <!-- 结果计数 -->
+            <span class="filter-count">
+              ({{ crimeAreas.length }} {{ t('safety.lgas', 'LGAs') }})
+            </span>
+          </div>
+        </div>
 
         <div class="map-container">
           <div id="crime-map" class="crime-map"></div>
@@ -101,7 +131,7 @@
 
 
         <!-- Selected Region Info -->
-        <div v-if="selectedArea" class="selected-area-info">
+        <!-- <div v-if="selectedArea" class="selected-area-info">
           <h4 class="area-info-title">🚨 {{ selectedArea.name }}</h4>
           <div class="area-stats-grid">
             <div class="area-stat">
@@ -120,7 +150,6 @@
             </div>
           </div>
 
-          <!-- Areas breakdown for police regions -->
           <div v-if="selectedArea.areas && selectedArea.areas.length > 1" class="region-areas-breakdown">
             <h5 class="breakdown-title">{{ t('safety.area_breakdown', 'Area Breakdown') }}:</h5>
             <div class="breakdown-list">
@@ -130,7 +159,7 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
 
     </div>
@@ -138,7 +167,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
@@ -238,12 +267,56 @@ const loading = ref(false)
 const error = ref(null)
 const availableYears = ref([])
 const availablePoliceRegions = ref([])
+const selectedPoliceRegion = ref('all') // 筛选警区：'all' 表示全部
+const selectedCrimeLevel = ref('all') // 筛选犯罪等级：'all' 表示全部
+
+// 获取所有唯一的警区（用于筛选器选项）
+const uniquePoliceRegions = computed(() => {
+  const regions = new Set()
+  rawCrimeData.value.forEach(item => {
+    if (item && item.policeRegion) {
+      regions.add(item.policeRegion)
+    }
+  })
+  return Array.from(regions).sort()
+})
+
+// 计算全局归一化基准（使用所有原始数据）
+const globalNormalizationBase = computed(() => {
+  const allProcessedData = []
+  
+  rawCrimeData.value.forEach(item => {
+    const coordinates = getLGACoordinates(item.lga)
+    if (coordinates) {
+      allProcessedData.push({
+        offenceCount: item.offenceCount
+      })
+    }
+  })
+  
+  if (allProcessedData.length === 0) {
+    return { max: 0, min: 0 }
+  }
+  
+  const offenceCounts = allProcessedData.map(area => area.offenceCount)
+  return {
+    max: Math.max(...offenceCounts),
+    min: Math.min(...offenceCounts)
+  }
+})
 
 // Process API data to include coordinates using LGA mapping
 const crimeAreas = computed(() => {
+  let data = rawCrimeData.value
+  
+  // 根据选中的警区筛选
+  if (selectedPoliceRegion.value !== 'all') {
+    data = data.filter(item => item && item.policeRegion === selectedPoliceRegion.value)
+  }
+  
   const processedData = []
 
-  rawCrimeData.value.forEach(item => {
+  data.forEach(item => {
     const coordinates = getLGACoordinates(item.lga)
 
     if (coordinates) {
@@ -259,8 +332,31 @@ const crimeAreas = computed(() => {
     }
   })
 
+  // 根据选中的犯罪等级筛选（使用全局归一化基准）
+  if (selectedCrimeLevel.value !== 'all') {
+    const { max: maxOffences, min: minOffences } = globalNormalizationBase.value
+    
+    return processedData.filter(area => {
+      const normalizedIntensity = maxOffences > minOffences 
+        ? (area.offenceCount - minOffences) / (maxOffences - minOffences)
+        : 0
+      
+      const level = getCrimeLevelClass(normalizedIntensity)
+      return level === selectedCrimeLevel.value
+    })
+  }
+
   return processedData
 })
+
+// 获取犯罪等级的类名（用于筛选）
+const getCrimeLevelClass = (normalizedIntensity) => {
+  if (normalizedIntensity >= 0.8) return 'very-high'
+  if (normalizedIntensity >= 0.6) return 'high'
+  if (normalizedIntensity >= 0.4) return 'medium'
+  if (normalizedIntensity >= 0.2) return 'low'
+  return 'very-low'
+}
 
 // Fetch crime data from API
 const fetchCrimeData = async () => {
@@ -380,14 +476,16 @@ const policeRegionData = computed(() => {
 
 // Create simple point-based crime visualization
 const createHeatmapEffect = (map) => {
-  // Find max crime count for normalization
-  const maxCrimeCount = Math.max(...crimeAreas.value.map(area => area.offenceCount))
+  // 使用全局归一化基准，确保颜色和等级一致
+  const { max: maxCrimeCount, min: minCrimeCount } = globalNormalizationBase.value
 
   crimeAreas.value.forEach(area => {
     const intensity = area.offenceCount
 
-    // Normalize intensity based on crime count (0-1)
-    const normalizedIntensity = intensity / maxCrimeCount
+    // Normalize intensity based on crime count (0-1)，使用全局基准
+    const normalizedIntensity = maxCrimeCount > minCrimeCount
+      ? (intensity - minCrimeCount) / (maxCrimeCount - minCrimeCount)
+      : 0
 
     // Calculate point size based on crime count (larger for more crimes)
     const pointRadius = Math.max(5, Math.min(20, 5 + (normalizedIntensity * 15)))
@@ -536,6 +634,24 @@ const cleanupMap = () => {
   }
 }
 
+
+// 监听筛选条件变化，重新渲染地图
+watch([selectedPoliceRegion, selectedCrimeLevel], () => {
+  if (map) {
+    // 清除现有的热力图层
+    if (map.heatmapLayers) {
+      map.heatmapLayers.forEach(layer => {
+        map.removeLayer(layer)
+      })
+      map.heatmapLayers = []
+    }
+    
+    // 重新创建热力图
+    createHeatmapEffect(map)
+    
+    console.log(`Map updated: ${crimeAreas.value.length} LGAs displayed`)
+  }
+})
 
 // Lifecycle hooks
 onMounted(async () => {
@@ -875,11 +991,116 @@ defineExpose({
   margin-bottom: 2rem;
 }
 
+/* Map header with filter */
+.map-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
 .map-title {
   font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: 1rem;
+  margin: 0;
   color: #333;
+}
+
+/* 筛选器容器 */
+.filters-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.region-filter,
+.level-filter {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  border: 2px solid #e9ecef;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.region-filter:hover,
+.level-filter:hover {
+  border-color: #8e24aa;
+  box-shadow: 0 4px 12px rgba(142, 36, 170, 0.15);
+}
+
+.filter-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #495057;
+  white-space: nowrap;
+}
+
+.filter-select {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #495057;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 180px;
+}
+
+.filter-select:hover {
+  border-color: #8e24aa;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #8e24aa;
+  box-shadow: 0 0 0 3px rgba(142, 36, 170, 0.1);
+}
+
+.filter-count {
+  font-size: 0.9rem;
+  color: #6c757d;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* 响应式：小屏幕时筛选器独占一行 */
+@media (max-width: 768px) {
+  .map-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .filters-container {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .region-filter,
+  .level-filter {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .filter-select {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .filter-count {
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+  }
 }
 
 .map-container {
@@ -925,7 +1146,7 @@ defineExpose({
 
 .legend-points {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   gap: 0.5rem;
 }
 
