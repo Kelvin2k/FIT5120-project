@@ -97,7 +97,7 @@ function scrollToMission() {
             data-aos-delay="400">
             <span class="our-features-header-title">{{
               t('home.our_features.our_features_title')
-              }}</span>
+            }}</span>
           </div>
           <div class="features-container">
             <!-- First Row -->
@@ -752,7 +752,7 @@ h2 {
 .our-features-header-yellow-col {
   width: 90px;
   min-width: 70px;
-  background: #FABE46;
+  background: #FAC83C;
   display: flex;
   align-items: center;
   justify-content: center;
