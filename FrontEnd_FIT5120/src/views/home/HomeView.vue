@@ -45,7 +45,7 @@ function scrollToMission() {
               <h2 class="banner_title" data-aos="fade-up">{{ t('nav.brand') }}</h2>
             </div>
             <div class="col-12 col-lg-6">
-              <div class="banner_content" data-aos="fade-left">
+              <div class="banner_content" data-aos="fade-up">
                 <p class="banner_desc">
                   {{ t('home.desc') }}
                 </p>
@@ -69,7 +69,7 @@ function scrollToMission() {
       <div class="our_mission_main d-flex align-items-stretch" style="min-height: 600px">
         <div class="our_mission_left" style="flex: 6 1 0" data-aos="fade-right" data-aos-delay="200"></div>
         <div class="our_mission_right d-flex align-items-center position-relative p-0" style="flex: 5 1 0"
-          data-aos="fade-left" data-aos-delay="400">
+          data-aos="fade-up" data-aos-delay="400">
           <div class="ourmission_content w-100 text-start">
             <h2 class="fw-semibold mb-3" data-aos="fade-up">
               {{ t('home.our_mission.our_mission_title') }}

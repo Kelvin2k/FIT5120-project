@@ -8,12 +8,12 @@
     <!-- Language Selection -->
     <div class="language-selection-wrapper" data-aos="fade-up" data-aos-delay="300">
       <div class="language-selection" data-aos="zoom-in" data-aos-delay="500">
-        <label for="native-language" data-aos="fade-right" data-aos-delay="700">{{
+        <label for="native-language" data-aos="fade-down" data-aos-delay="700">{{
           $t('learnenglish.select_language_label') }}</label>
-        <select id="native-language" v-model="selectedLanguage" class="language-select" data-aos="fade-left"
+        <select id="native-language" v-model="selectedLanguage" class="language-select" data-aos="fade-up"
           data-aos-delay="900">
           <option value="" data-aos="fade-up" data-aos-delay="1000">{{ $t('learnenglish.select_language_placeholder')
-            }}</option>
+          }}</option>
           <option v-for="(lang, idx) in availableLanguages" :key="lang.code" :value="lang.code" :data-aos="'fade-up'"
             :data-aos-delay="1000 + (idx + 1) * 100">
             {{ lang.flag }} {{ lang.name }}
