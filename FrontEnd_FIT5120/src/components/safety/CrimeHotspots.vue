@@ -46,8 +46,19 @@
                 </div>
               </div>
               <p class="legend-description">
-                {{ t('safety.points_explanation', 'Each point represents a Local Government Area. Point size and color intensity indicate crime levels - larger and redder points show higher crime counts.') }}
+                {{ t('safety.points_explanation', 'Each point represents a Local Government Area. Point size and color intensity indicate crime levels - larger and deeper red points show higher crime counts.') }}
               </p>
+              <!-- 数据时间说明 -->
+              <div class="metadata-info">
+                <p class="metadata-item">
+                  <strong>{{ t('safety.data_timeframe', 'Data timeframe') }}:</strong>
+                  {{ timeframeText }}
+                </p>
+                <p class="metadata-item">
+                  <strong>{{ t('safety.updated', 'Updated') }}:</strong>
+                  {{ lastUpdatedText }}
+                </p>
+              </div>
             </div>
 
             <div class="legend-section">
@@ -58,7 +69,11 @@
                   <span class="stat-label">{{ t('safety.total_lgas', 'LGAs Covered') }}</span>
                 </div>
                 <div class="stat-item">
-                  <span class="stat-number">{{ Math.round(crimeAreas.reduce((sum, area) => sum + area.offenceCount, 0) / 1000) }}k</span>
+                  <span class="stat-number">
+                    {{
+                      formatNumberSI(crimeAreas.reduce((sum, area) => sum + area.offenceCount, 0))
+                    }}
+                  </span>
                   <span class="stat-label">{{ t('safety.total_offences', 'Total Offences') }}</span>
                 </div>
 
@@ -87,24 +102,23 @@
 
         <!-- Selected Region Info -->
         <div v-if="selectedArea" class="selected-area-info">
-          <h4 class="area-info-title">
-            🚨 {{ selectedArea.name }}
-            </h4>
+          <h4 class="area-info-title">🚨 {{ selectedArea.name }}</h4>
           <div class="area-stats-grid">
             <div class="area-stat">
               <span class="stat-label">{{ t('safety.total_offences', 'Total Offences') }}:</span>
               <span class="stat-value">{{ selectedArea.offenceCount.toLocaleString() }}</span>
-              </div>
+            </div>
 
             <div class="area-stat" v-if="selectedArea.areas">
               <span class="stat-label">{{ t('safety.areas_included', 'Areas Included') }}:</span>
               <span class="stat-value">{{ selectedArea.areas.length }}</span>
-          </div>
+            </div>
+
             <div class="area-stat">
               <span class="stat-label">{{ t('safety.safety_level', 'Safety Level') }}:</span>
               <span class="stat-value" :class="selectedArea.safetyLevel.class">{{ selectedArea.safetyLevel.text }}</span>
-        </div>
-      </div>
+            </div>
+          </div>
 
           <!-- Areas breakdown for police regions -->
           <div v-if="selectedArea.areas && selectedArea.areas.length > 1" class="region-areas-breakdown">
@@ -113,9 +127,9 @@
               <div v-for="area in selectedArea.areas" :key="area.name" class="breakdown-item">
                 <span class="breakdown-name">{{ area.name }}</span>
                 <span class="breakdown-count">{{ area.offenceCount.toLocaleString() }}</span>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
         </div>
       </div>
 
@@ -132,6 +146,32 @@ import { getLGACoordinates, isValidLGA } from '@/data/lgaCoordinates'
 import crimeStatisticsService from '@/services/crimeStatisticsService'
 
 const { t } = useI18n()
+
+// 数值格式化：将 12345 -> 12.3k, 1234567 -> 1.23M
+function formatNumberSI(value) {
+  const n = Number(value || 0)
+  if (!isFinite(n)) return '0'
+  const abs = Math.abs(n)
+  if (abs >= 1e9) return `${(n / 1e9).toFixed(n % 1e9 === 0 ? 0 : 2).replace(/\.0+$/, '')}B`
+  if (abs >= 1e6) return `${(n / 1e6).toFixed(n % 1e6 === 0 ? 0 : 2).replace(/\.0+$/, '')}M`
+  if (abs >= 1e3) return `${(n / 1e3).toFixed(n % 1e3 === 0 ? 0 : 1).replace(/\.0+$/, '')}k`
+  return n.toLocaleString('en-AU')
+}
+
+// 数据时间说明（可根据 API 元数据更新）
+const timeframeText = computed(() => {
+  if (availableYears.value && availableYears.value.length) {
+    const minY = Math.min(...availableYears.value)
+    const maxY = Math.max(...availableYears.value)
+    return `${minY} - ${maxY}`
+  }
+  return 'Last 12 months'
+})
+
+const lastUpdatedText = computed(() => {
+  const d = new Date()
+  return d.toLocaleDateString('en-AU', { year: 'numeric', month: 'short', day: '2-digit' })
+})
 
 // Map and selection state
 let map = null
@@ -352,16 +392,11 @@ const createHeatmapEffect = (map) => {
     // Calculate point size based on crime count (larger for more crimes)
     const pointRadius = Math.max(5, Math.min(20, 5 + (normalizedIntensity * 15)))
 
-    // Calculate color based on crime count (blue to red gradient)
-    // 数量越多，颜色越红
-    const red = Math.floor(255 * normalizedIntensity)
-    const blue = Math.floor(255 * (1 - normalizedIntensity))
-    const green = Math.floor(50 * (1 - normalizedIntensity))
-
-    // High opacity for better visibility
-    const opacity = Math.max(0.7, Math.min(1.0, 0.7 + (normalizedIntensity * 0.3)))
-    const fillColor = `rgba(${red}, ${green}, ${blue}, ${opacity})`
-    const borderColor = `rgba(${red}, ${green}, ${blue}, 1.0)`
+    // 使用单一色系（红色）渐变表示强度：越深越高
+    const lightness = 90 - (normalizedIntensity * 55) // 90% -> 35%
+    const opacity = 0.6 + (normalizedIntensity * 0.4)  // 0.6 -> 1.0
+    const fillColor = `hsla(0, 85%, ${lightness}%, ${opacity})`
+    const borderColor = `hsl(0, 85%, ${Math.max(30, lightness - 10)}%)`
 
     // Create single point marker for each LGA
     const pointMarker = L.circleMarker(area.coordinates, {
@@ -911,30 +946,28 @@ defineExpose({
 
 /* Point sample colors matching the map */
 .very-low-point {
-  background-color: rgba(0, 0, 255, 0.8);
-  border-color: rgba(0, 0, 255, 1.0);
+  background-color: hsla(0, 85%, 90%, 0.8);
+  border-color: hsl(0, 85%, 80%);
 }
 
 .low-point {
-  background-color: rgba(0, 100, 200, 0.8);
-  border-color: rgba(0, 100, 200, 1.0);
+  background-color: hsla(0, 85%, 80%, 0.85);
+  border-color: hsl(0, 85%, 70%);
 }
 
 .medium-point {
-  background-color: rgba(100, 150, 100, 0.8);
-  border-color: rgba(100, 150, 100, 1.0);
+  background-color: hsla(0, 85%, 65%, 0.9);
+  border-color: hsl(0, 85%, 55%);
 }
 
 .high-point {
-  background-color: rgba(255, 165, 0, 0.8);
-  border-color: rgba(255, 165, 0, 1.0);
+  background-color: hsla(0, 85%, 50%, 0.95);
+  border-color: hsl(0, 85%, 40%);
 }
 
 .very-high-point {
-  background-color: rgba(255, 0, 0, 0.9);
-  border-color: rgba(255, 0, 0, 1.0);
-  width: 20px;
-  height: 20px;
+  background-color: hsla(0, 85%, 35%, 1);
+  border-color: hsl(0, 85%, 25%);
 }
 
 /* Legend Description */

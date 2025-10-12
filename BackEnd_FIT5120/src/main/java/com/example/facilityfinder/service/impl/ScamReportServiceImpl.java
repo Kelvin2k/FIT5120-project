@@ -52,8 +52,40 @@ public class ScamReportServiceImpl implements ScamReportService {
                    .orderByDesc(ScamReport::getStartOfMonth)
                    .orderByDesc(ScamReport::getNumberOfReports);
         
-        // 执行分页查询
-        return scamReportMapper.selectPage(pageObj, queryWrapper);
+        // 执行分页查询（先查出原始数据）
+        IPage<ScamReport> rawPage = scamReportMapper.selectPage(pageObj, queryWrapper);
+
+        // 对结果按关键字段去重（避免数据源重复行）：
+        // 以 startOfMonth + addressState + categoryLevel2 + categoryLevel3 + scamContactMode 作为去重键
+        List<ScamReport> distinctRecords = rawPage.getRecords().stream()
+                .collect(Collectors.collectingAndThen(
+                        Collectors.toMap(
+                                r -> String.join("|",
+                                        String.valueOf(r.getStartOfMonth()),
+                                        String.valueOf(r.getAddressState()),
+                                        String.valueOf(r.getCategoryLevel2()),
+                                        String.valueOf(r.getCategoryLevel3()),
+                                        String.valueOf(r.getScamContactMode())
+                                ),
+                                r -> r,
+                                // 合并策略：报告数累加、金额保留非空（可按需调整）
+                                (a, b) -> {
+                                    Integer na = a.getNumberOfReports() == null ? 0 : a.getNumberOfReports();
+                                    Integer nb = b.getNumberOfReports() == null ? 0 : b.getNumberOfReports();
+                                    a.setNumberOfReports(na + nb);
+                                    if ((a.getAmountLost() == null || a.getAmountLost().isBlank()) && b.getAmountLost() != null) {
+                                        a.setAmountLost(b.getAmountLost());
+                                    }
+                                    return a;
+                                }
+                        ),
+                        m -> new ArrayList<>(m.values())
+                ));
+
+        // 构造新的分页对象返回（总数按照去重后列表计算）
+        Page<ScamReport> distinctPage = new Page<>(rawPage.getCurrent(), rawPage.getSize(), distinctRecords.size());
+        distinctPage.setRecords(distinctRecords);
+        return distinctPage;
     }
 
     @Override

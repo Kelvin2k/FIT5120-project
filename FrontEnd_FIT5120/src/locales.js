@@ -185,7 +185,8 @@ export default {
       high_crime: 'High Crime',
       very_high_crime: 'Very High Crime',
       points_explanation:
-        'Each point represents a Local Government Area. Point size and color intensity indicate crime levels - larger and redder points show higher crime counts.',
+        'Each point represents a Local Government Area. Point size and color intensity indicate crime levels - larger and deeper red points show higher crime counts.',
+      data_timeframe: 'Data timeframe',
       coverage_stats: 'Coverage Statistics',
       total_lgas: 'LGAs Covered',
       total_offences: 'Total Offences',

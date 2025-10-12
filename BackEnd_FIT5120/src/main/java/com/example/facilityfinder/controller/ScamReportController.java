@@ -53,8 +53,11 @@ public class ScamReportController {
             @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate startDate,
             @RequestParam(required = false) @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate endDate) {
         try {
+            // 默认仅展示 Victoria 州数据；如果前端显式传入 state 则按传参查询
+            String normalizedState = (state == null || state.trim().isEmpty()) ? "Victoria" : state.trim();
+
             IPage<ScamReport> result = scamReportService.getScamReportsWithConditions(
-                    page, size, state, contactMode, age, gender,
+                    page, size, normalizedState, contactMode, age, gender,
                     categoryLevel2, categoryLevel3, startDate, endDate
             );
             
