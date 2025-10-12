@@ -33,10 +33,38 @@
 
       <!-- 最新诈骗警报 -->
       <div class="latest-alerts">
-        <h3 class="section-title">
-          🚨 {{ t('safety.latest_scam_alerts', 'Latest Scam Alerts') }}
-        </h3>
-        <p class="section-note">{{ t('safety.victoria_only', 'Note: Victoria only') }}</p>
+        <div class="alerts-header">
+          <div>
+            <h3 class="section-title">
+              🚨 {{ t('safety.latest_scam_alerts', 'Latest Scam Alerts') }}
+            </h3>
+            <p class="section-note">{{ t('safety.victoria_only', 'Note: Victoria only') }}</p>
+          </div>
+          
+          <!-- 类型筛选器 -->
+          <div class="category-filter">
+            <label for="category-select" class="filter-label">
+              🔍 {{ t('safety.filter_by_type', 'Filter by Type') }}:
+            </label>
+            <select 
+              id="category-select"
+              v-model="selectedCategory" 
+              class="filter-select"
+            >
+              <option value="all">{{ t('safety.all_types', 'All Types') }}</option>
+              <option 
+                v-for="category in uniqueCategories" 
+                :key="category" 
+                :value="category"
+              >
+                {{ category }}
+              </option>
+            </select>
+            <span class="filter-count">
+              ({{ formattedScamData.length }} {{ t('safety.results', 'results') }})
+            </span>
+          </div>
+        </div>
 
         <!-- 加载状态 -->
         <div v-if="loading" class="loading-state">
@@ -82,7 +110,7 @@
         </div>
 
             <!-- Statistics section -->
-            <div class="scam-stats">
+            <!-- <div class="scam-stats">
               <div class="stat-item" v-if="scam && scam.numberOfReports != null">
                 <span class="stat-label">{{ t('safety.reports', 'Reports') }}:</span>
                 <span class="stat-value danger">{{ scam.numberOfReports }}</span>
@@ -91,7 +119,7 @@
                 <span class="stat-label">{{ t('safety.amount_lost', 'Amount Lost') }}:</span>
                 <span class="stat-value danger">{{ scam.formattedAmount }}</span>
               </div>
-            </div>
+            </div> -->
 
           </div>
         </div>
@@ -141,10 +169,10 @@
         </div>
 
         <!-- 无数据状态 -->
-        <div v-else class="no-data-state">
+        <!-- <div v-else class="no-data-state">
           <div class="no-data-icon">📄</div>
           <p class="no-data-text">{{ t('safety.no_scam_reports', 'No scam reports available') }}</p>
-        </div>
+        </div> -->
       </div>
 
 
@@ -163,6 +191,7 @@ const { t } = useI18n()
 const scamData = ref([])
 const loading = ref(false)
 const error = ref(null)
+const selectedCategory = ref('all') // 筛选类型：'all' 表示全部
 
 // 分页相关数据
 const pagination = ref({
@@ -174,9 +203,27 @@ const pagination = ref({
   hasPrevious: false
 })
 
+// 获取所有唯一的诈骗类型（用于筛选器选项）
+const uniqueCategories = computed(() => {
+  const categories = new Set()
+  scamData.value.forEach(scam => {
+    if (scam && scam.categoryLevel2) {
+      categories.add(scam.categoryLevel2)
+    }
+  })
+  return Array.from(categories).sort()
+})
+
 // Computed property: Format scam data with localization and icons
 const formattedScamData = computed(() => {
-  return (Array.isArray(scamData.value) ? scamData.value : []).map((scam, index) => {
+  let data = Array.isArray(scamData.value) ? scamData.value : []
+  
+  // 根据选中的类型筛选
+  if (selectedCategory.value !== 'all') {
+    data = data.filter(scam => scam && scam.categoryLevel2 === selectedCategory.value)
+  }
+  
+  return data.map((scam, index) => {
     // Assign icons and priority based on scam type
     let icon = '⚠️'
     let priority = 'medium'
@@ -349,6 +396,87 @@ function closeModal() { showModal.value = false }
 }
 
 /* 移除滚动条，改为直接平铺 */
+
+/* Alerts header with filter */
+.alerts-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.category-filter {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  border: 2px solid #e9ecef;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.category-filter:hover {
+  border-color: #8e24aa;
+  box-shadow: 0 4px 12px rgba(142, 36, 170, 0.15);
+}
+
+.filter-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #495057;
+  white-space: nowrap;
+}
+
+.filter-select {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #495057;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 200px;
+}
+
+.filter-select:hover {
+  border-color: #8e24aa;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #8e24aa;
+  box-shadow: 0 0 0 3px rgba(142, 36, 170, 0.1);
+}
+
+.filter-count {
+  font-size: 0.9rem;
+  color: #6c757d;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* 响应式：小屏幕时筛选器独占一行 */
+@media (max-width: 768px) {
+  .alerts-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .category-filter {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .filter-select {
+    flex: 1;
+    min-width: 0;
+  }
+}
 
 /* Warning banner */
 .warning-banner {
