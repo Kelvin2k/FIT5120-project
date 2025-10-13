@@ -25,7 +25,8 @@
                   <p class="slide-desc">{{ $t('socialnorms.meetingpeople.subtitle') }}</p>
                 </div>
                 <div class="d-flex justify-content-center mt-3">
-                  <button class="learn-more-btn" @click="goTo('meetingpeople')">Learn More</button>
+                  <button class="learn-more-btn" @click="goTo('meetingpeople')">{{ $t('button_learnmore.label')
+                    }}</button>
                 </div>
               </div>
             </div>
@@ -45,7 +46,7 @@
                   <p class="slide-desc">{{ $t('socialnorms.eatingout.subtitle') }}</p>
                 </div>
                 <div class="d-flex justify-content-center mt-3">
-                  <button class="learn-more-btn" @click="goTo('eatingout')">Learn More</button>
+                  <button class="learn-more-btn" @click="goTo('eatingout')">{{ $t('button_learnmore.label') }}</button>
                 </div>
               </div>
             </div>
