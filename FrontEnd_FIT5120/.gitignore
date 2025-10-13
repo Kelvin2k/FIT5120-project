@@ -33,3 +33,4 @@ coverage
 *.tsbuildinfo
  
 *.md
+.DS_Store
