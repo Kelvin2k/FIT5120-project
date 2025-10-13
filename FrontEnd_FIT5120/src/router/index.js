@@ -28,12 +28,6 @@ const router = createRouter({
       meta: { requiresAuth: true },
     },
     {
-      path: '/about',
-      name: 'about',
-      component: () => import('../views/home/AboutView.vue'),
-      meta: { requiresAuth: true },
-    },
-    {
       path: '/facilities',
       name: 'facilities',
       component: FacilityEvent,
@@ -142,12 +136,6 @@ const router = createRouter({
       path: '/quiztaking',
       name: 'quiztaking',
       component: () => import('../views/interactive/QuizTaking.vue'),
-      meta: { requiresAuth: true },
-    },
-    {
-      path: '/testchatbot',
-      name: 'testchatbot',
-      component: () => import('../views/dev/testView.vue'),
       meta: { requiresAuth: true },
     },
     {

@@ -29,7 +29,7 @@
         {{ title }}
       </h1>
 
-      <p v-if="subtitle" class="subtitle" data-aos="fade" data-aos-delay="500">
+      <p v-if="subtitle" class="subtitle" data-aos="fade-down" data-aos-delay="500">
         {{ subtitle }}
       </p>
 

@@ -8,7 +8,8 @@
       <div class="row w-100 m-0">
         <div v-for="(card, idx) in cards" :key="card.route"
           class="col-lg-4 col-md-6 col-12 d-flex justify-content-center mb-4">
-          <div class="slide-card-with-image w-100" :data-aos="'fade-up'" :data-aos-delay="`${0 + idx * 100}`">
+          <div class="slide-card-with-image w-100" :data-aos="idx % 2 === 0 ? 'fade-down' : 'fade-up'"
+            :data-aos-delay="`${0 + idx * 100}`">
             <div class="slide-image w-100 mb-3" style="max-height: 250px; height: 200px; min-height: 200px">
               <div class="img-hover-wrapper" @click="goTo(card.route)">
                 <img :src="card.img" :alt="card.title()" class="slide-img-top w-100 h-100" />
