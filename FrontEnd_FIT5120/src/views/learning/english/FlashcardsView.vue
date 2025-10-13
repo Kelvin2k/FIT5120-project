@@ -36,11 +36,7 @@
         <Flashcard :phrase="currentPhrase" :native-language="language" @flip="onCardFlip" @audio-start="onAudioStart"
           @audio-end="onAudioEnd" data-aos="zoom-in" data-aos-delay="400" />
         <!-- Navigation Controls -->
-<<<<<<< HEAD
-        <div class="controls-section" data-aos="fade-down" data-aos-delay="500">
-=======
         <div class="controls-section" data-aos="fade-up" data-aos-delay="500">
->>>>>>> Kelvin
           <div class="nav-controls">
             <button class="control-btn" :disabled="!hasPrevious" @click="previousCard">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="height: 16px; width: 16px">
