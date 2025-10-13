@@ -1,7 +1,12 @@
 {
   "quiz_version": "2.1",
   "topic": "australia_dining_etiquette",
-  "languages": ["en","zh","vi","id"],
+  "languages": [
+    "en",
+    "zh",
+    "vi",
+    "id"
+  ],
   "items": [
     {
       "key": "quiz.q1",
@@ -14,17 +19,49 @@
       },
       "image": "https://images.unsplash.com/photo-1529042410759-befb1204b468",
       "options": [
-        {"id":"A","label":{"en":"On your lap","zh":"放在腿上","vi":"Trên đùi","id":"Di pangkuan"}},
-        {"id":"B","label":{"en":"On the table","zh":"放在桌上","vi":"Trên bàn","id":"Di meja"}},
-        {"id":"C","label":{"en":"On the plate","zh":"放在盘子上","vi":"Trên đĩa","id":"Di piring"}},
-        {"id":"D","label":{"en":"In your pocket","zh":"放在口袋里","vi":"Trong túi","id":"Di saku"}}
+        {
+          "id": "A",
+          "label": {
+            "en": "On your lap",
+            "zh": "放在腿上",
+            "vi": "Trên đùi",
+            "id": "Di pangkuan"
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "On the table",
+            "zh": "放在桌上",
+            "vi": "Trên bàn",
+            "id": "Di meja"
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "On the plate",
+            "zh": "放在盘子上",
+            "vi": "Trên đĩa",
+            "id": "Di piring"
+          }
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "In your pocket",
+            "zh": "放在口袋里",
+            "vi": "Trong túi",
+            "id": "Di saku"
+          }
+        }
       ],
-      "answer":"A",
-      "explanation":{
-        "en":"The napkin should go on your lap as soon as you sit down.",
-        "zh":"餐巾应该在入座后放在腿上。",
-        "vi":"Khăn ăn nên đặt trên đùi khi vừa ngồi.",
-        "id":"Serbet diletakkan di pangkuan saat duduk."
+      "answer": "A",
+      "explanation": {
+        "en": "The napkin should go on your lap as soon as you sit down.",
+        "zh": "餐巾应该在入座后放在腿上。",
+        "vi": "Khăn ăn nên đặt trên đùi khi vừa ngồi.",
+        "id": "Serbet diletakkan di pangkuan saat duduk."
       }
     },
     {
@@ -38,15 +75,31 @@
       },
       "image": "https://upload.wikimedia.org/wikipedia/commons/1/15/Australian_currency.jpg",
       "options": [
-        {"id":"A","label":{"en":"True","zh":"对","vi":"Đúng","id":"Benar"}},
-        {"id":"B","label":{"en":"False","zh":"错","vi":"Sai","id":"Salah"}}
+        {
+          "id": "A",
+          "label": {
+            "en": "True",
+            "zh": "对",
+            "vi": "Đúng",
+            "id": "Benar"
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "False",
+            "zh": "错",
+            "vi": "Sai",
+            "id": "Salah"
+          }
+        }
       ],
-      "answer":"B",
-      "explanation":{
-        "en":"Tipping is not mandatory in Australia; it’s optional, more common in high-end dining.",
-        "zh":"在澳洲小费并非强制，主要在高档餐厅可选给付。",
-        "vi":"Tip không bắt buộc ở Úc; chủ yếu tùy chọn tại nhà hàng cao cấp.",
-        "id":"Tip tidak wajib di Australia; biasanya opsional di restoran mewah."
+      "answer": "B",
+      "explanation": {
+        "en": "Tipping is not mandatory in Australia; it’s optional, more common in high-end dining.",
+        "zh": "在澳洲小费并非强制，主要在高档餐厅可选给付。",
+        "vi": "Tip không bắt buộc ở Úc; chủ yếu tùy chọn tại nhà hàng cao cấp.",
+        "id": "Tip tidak wajib di Australia; biasanya opsional di restoran mewah."
       }
     },
     {
@@ -60,400 +113,894 @@
       },
       "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4",
       "options": [
-        {"id":"A","label":{"en":"The guest","zh":"客人","vi":"Khách","id":"Tamu"}},
-        {"id":"B","label":{"en":"The inviter","zh":"主人","vi":"Người mời","id":"Pengundang"}},
-        {"id":"C","label":{"en":"Split evenly","zh":"平分","vi":"Chia đều","id":"Membagi rata"}},
-        {"id":"D","label":{"en":"The waiter","zh":"服务员","vi":"Nhân viên phục vụ","id":"Pelayan"}}
+        {
+          "id": "A",
+          "label": {
+            "en": "The guest",
+            "zh": "客人",
+            "vi": "Khách",
+            "id": "Tamu"
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "The inviter",
+            "zh": "主人",
+            "vi": "Người mời",
+            "id": "Pengundang"
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Split evenly",
+            "zh": "平分",
+            "vi": "Chia đều",
+            "id": "Membagi rata"
+          }
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "The waiter",
+            "zh": "服务员",
+            "vi": "Nhân viên phục vụ",
+            "id": "Pelayan"
+          }
+        }
       ],
-      "answer":"B",
-      "explanation":{
-        "en":"Usually the inviter pays, though the guest may offer politely.",
-        "zh":"通常由主人买单，客人可以礼貌性表示愿意付。",
-        "vi":"Thường người mời trả; khách có thể đề nghị lịch sự.",
-        "id":"Biasanya pengundang membayar; tamu bisa menawarkan secara sopan."
-      }
-    },
-
-    // ---------- Revised non-scenario questions ----------
-    {
-      "key":"quiz.q4",
-      "type":"mcq",
-      "prompt":{
-        "en":"Where should phones be during a meal at a sit-down restaurant?",
-        "zh":"在正餐餐厅用餐时，手机应放在哪里？",
-        "vi":"Trong bữa ăn ở nhà hàng phục vụ tại bàn, nên để điện thoại ở đâu?",
-        "id":"Saat makan di restoran duduk, ponsel sebaiknya diletakkan di mana?"
-      },
-      "options":[
-        {"id":"A","label":{"en":"On the table for quick access","zh":"放在桌上以便拿取","vi":"Để trên bàn cho tiện","id":"Di meja agar cepat"}},
-        {"id":"B","label":{"en":"Face down next to the plate","zh":"反扣在盘子旁边","vi":"Úp cạnh đĩa","id":"Dihadapkan ke bawah di samping piring"}},
-        {"id":"C","label":{"en":"In your hand to check messages","zh":"拿在手里随时看消息","vi":"Cầm trên tay để xem tin nhắn","id":"Di tangan untuk cek pesan"}},
-        {"id":"D","label":{"en":"Away from the table (bag/pocket on silent)","zh":"远离桌面（包里/口袋并静音）","vi":"Để xa bàn (trong túi/túi xách, để im lặng)","id":"Jauh dari meja (tas/saku, mode senyap)"}}
-      ],
-      "answer":"D",
-      "explanation":{
-        "en":"Keep phones off the table and on silent to avoid disturbing others.",
-        "zh":"手机不应放在桌上；静音并收好以免打扰他人。",
-        "vi":"Không đặt điện thoại trên bàn; để im lặng và cất gọn.",
-        "id":"Jangan meletakkan ponsel di meja; setel senyap dan simpan."
-      }
-    },
-    {
-      "key":"quiz.q5",
-      "type":"mcq",
-      "prompt":{
-        "en":"Bread and butter: which piece should you use to butter?",
-        "zh":"面包和黄油：应该涂哪块？",
-        "vi":"Bánh mì và bơ: bạn nên phết bơ phần nào?",
-        "id":"Roti dan mentega: bagian mana yang sebaiknya dioles?"
-      },
-      "options":[
-        {"id":"A","label":{"en":"Tear a small piece and butter that piece","zh":"撕下小块再抹黄油","vi":"Xé miếng nhỏ rồi phết bơ","id":"Sobek sedikit lalu olesi"}},
-        {"id":"B","label":{"en":"Butter the whole roll at once","zh":"一次性把整块面包抹满","vi":"Phết cả ổ một lần","id":"Oles seluruh roti sekaligus"}},
-        {"id":"C","label":{"en":"Butter directly while holding in the air","zh":"拿在空中直接抹","vi":"Cầm trên không và phết","id":"Oles sambil diangkat"}},
-        {"id":"D","label":{"en":"Ask the server to butter it","zh":"请服务员代劳","vi":"Nhờ phục vụ phết bơ","id":"Minta pelayan mengoles"}}
-      ],
-      "answer":"A",
-      "explanation":{
-        "en":"Break bread into bite-sized pieces and butter each piece on your bread plate.",
-        "zh":"应撕成入口小块，在面包碟上逐块涂抹黄油。",
-        "vi":"Bẻ bánh thành miếng nhỏ và phết bơ từng miếng trên đĩa bánh.",
-        "id":"Roti dipecah kecil dan dioles per potong di piring roti."
+      "answer": "B",
+      "explanation": {
+        "en": "Usually the inviter pays, though the guest may offer politely.",
+        "zh": "通常由主人买单，客人可以礼貌性表示愿意付。",
+        "vi": "Thường người mời trả; khách có thể đề nghị lịch sự.",
+        "id": "Biasanya pengundang membayar; tamu bisa menawarkan secara sopan."
       }
     },
     {
-      "key":"quiz.q6",
-      "type":"truefalse",
-      "prompt":{
-        "en":"You should start eating as soon as your own dish arrives, even if others are waiting.",
-        "zh":"只要自己的菜上了就可以立刻开吃，即使别人还没上菜。",
-        "vi":"Bạn nên ăn ngay khi món của mình đến, dù người khác chưa có.",
-        "id":"Anda boleh langsung makan saat hidangan Anda datang meski yang lain belum."
+      "key": "quiz.q4",
+      "type": "mcq",
+      "prompt": {
+        "en": "Where should phones be during a meal at a sit-down restaurant?",
+        "zh": "在正餐餐厅用餐时，手机应放在哪里？",
+        "vi": "Trong bữa ăn ở nhà hàng phục vụ tại bàn, nên để điện thoại ở đâu?",
+        "id": "Saat makan di restoran duduk, ponsel sebaiknya diletakkan di mana?"
       },
-      "options":[
-        {"id":"A","label":{"en":"True","zh":"对","vi":"Đúng","id":"Benar"}},
-        {"id":"B","label":{"en":"False","zh":"错","vi":"Sai","id":"Salah"}}
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "On the table for quick access",
+            "zh": "放在桌上以便拿取",
+            "vi": "Để trên bàn cho tiện",
+            "id": "Di meja agar cepat"
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Face down next to the plate",
+            "zh": "反扣在盘子旁边",
+            "vi": "Úp cạnh đĩa",
+            "id": "Dihadapkan ke bawah di samping piring"
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "In your hand to check messages",
+            "zh": "拿在手里随时看消息",
+            "vi": "Cầm trên tay để xem tin nhắn",
+            "id": "Di tangan untuk cek pesan"
+          }
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Away from the table (bag/pocket on silent)",
+            "zh": "远离桌面（包里/口袋并静音）",
+            "vi": "Để xa bàn (trong túi/túi xách, để im lặng)",
+            "id": "Jauh dari meja (tas/saku, mode senyap)"
+          }
+        }
       ],
-      "answer":"B",
-      "explanation":{
-        "en":"Wait until everyone is served (or the host invites you to start).",
-        "zh":"应等所有人都上菜，或主人示意开始再动筷。",
-        "vi":"Hãy đợi mọi người đều có món, hoặc khi chủ tiệc mời bắt đầu.",
-        "id":"Tunggu semua hidangan datang atau tuan rumah mempersilakan."
+      "answer": "D",
+      "explanation": {
+        "en": "Keep phones off the table and on silent to avoid disturbing others.",
+        "zh": "手机不应放在桌上；静音并收好以免打扰他人。",
+        "vi": "Không đặt điện thoại trên bàn; để im lặng và cất gọn.",
+        "id": "Jangan meletakkan ponsel di meja; setel senyap dan simpan."
       }
     },
     {
-      "key":"quiz.q7",
-      "type":"mcq",
-      "prompt":{
-        "en":"Where do used cutlery rest between bites?",
-        "zh":"进食间隙刀叉应放在哪里？",
-        "vi":"Giữa các lần cắn, để dao nĩa ở đâu?",
-        "id":"Saat jeda makan, alat makan diletakkan di mana?"
+      "key": "quiz.q5",
+      "type": "mcq",
+      "prompt": {
+        "en": "Bread and butter: which piece should you use to butter?",
+        "zh": "面包和黄油：应该涂哪块？",
+        "vi": "Bánh mì và bơ: bạn nên phết bơ phần nào?",
+        "id": "Roti dan mentega: bagian mana yang sebaiknya dioles?"
       },
-      "options":[
-        {"id":"A","label":{"en":"On the tablecloth","zh":"桌布上","vi":"Trên khăn trải bàn","id":"Di taplak meja"}},
-        {"id":"B","label":{"en":"Partly on the plate, tips on the table","zh":"一半在盘子上，一半伸到桌上","vi":"Nửa trên đĩa, mũi chạm bàn","id":"Sebagian di piring, ujung di meja"}},
-        {"id":"C","label":{"en":"Resting on the plate/bowl, not touching the table","zh":"放回盘/碗中，不接触桌面","vi":"Đặt trên đĩa/bát, không chạm bàn","id":"Diletakkan di piring/mangkuk, tidak menyentuh meja"}},
-        {"id":"D","label":{"en":"In the water glass","zh":"插在水杯里","vi":"Cắm vào ly nước","id":"Di gelas air"}}
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Tear a small piece and butter that piece",
+            "zh": "撕下小块再抹黄油",
+            "vi": "Xé miếng nhỏ rồi phết bơ",
+            "id": "Sobek sedikit lalu olesi"
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Butter the whole roll at once",
+            "zh": "一次性把整块面包抹满",
+            "vi": "Phết cả ổ một lần",
+            "id": "Oles seluruh roti sekaligus"
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Butter directly while holding in the air",
+            "zh": "拿在空中直接抹",
+            "vi": "Cầm trên không và phết",
+            "id": "Oles sambil diangkat"
+          }
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Ask the server to butter it",
+            "zh": "请服务员代劳",
+            "vi": "Nhờ phục vụ phết bơ",
+            "id": "Minta pelayan mengoles"
+          }
+        }
       ],
-      "answer":"C",
-      "explanation":{
-        "en":"Place cutlery on the plate/bowl between bites; don’t let tips touch the table.",
-        "zh":"间隙将刀叉放在餐具中，不要伸到桌面。",
-        "vi":"Đặt dao nĩa trên đĩa/bát; không để chạm bàn.",
-        "id":"Letakkan alat makan di piring/mangkuk; jangan menyentuh meja."
+      "answer": "A",
+      "explanation": {
+        "en": "Break bread into bite-sized pieces and butter each piece on your bread plate.",
+        "zh": "应撕成入口小块，在面包碟上逐块涂抹黄油。",
+        "vi": "Bẻ bánh thành miếng nhỏ và phết bơ từng miếng trên đĩa bánh.",
+        "id": "Roti dipecah kecil dan dioles per potong di piring roti."
       }
     },
     {
-      "key":"quiz.q8",
-      "type":"mcq",
-      "prompt":{
-        "en":"When finished, how should your knife and fork be placed?",
-        "zh":"用餐完毕时刀叉应如何摆放？",
-        "vi":"Khi ăn xong, nên đặt dao nĩa như thế nào?",
-        "id":"Saat selesai makan, bagaimana posisi pisau dan garpu?"
+      "key": "quiz.q6",
+      "type": "truefalse",
+      "prompt": {
+        "en": "You should start eating as soon as your own dish arrives, even if others are waiting.",
+        "zh": "只要自己的菜上了就可以立刻开吃，即使别人还没上菜。",
+        "vi": "Bạn nên ăn ngay khi món của mình đến, dù người khác chưa có.",
+        "id": "Anda boleh langsung makan saat hidangan Anda datang meski yang lain belum."
       },
-      "options":[
-        {"id":"A","label":{"en":"Fork at 8 o’clock, knife at 4 o’clock, crossed","zh":"叉在8点、刀在4点，交叉摆放","vi":"Nĩa 8 giờ, dao 4 giờ, bắt chéo","id":"Garpu 8, pisau 4, menyilang"}},
-        {"id":"B","label":{"en":"Both together at 4–5 o’clock positions","zh":"并排放在4–5点方向","vi":"Đặt song song ở vị trí 4–5 giờ","id":"Keduanya sejajar di posisi 4–5"}},
-        {"id":"C","label":{"en":"Knife in the glass, fork on napkin","zh":"刀插杯中、叉放餐巾上","vi":"Dao trong ly, nĩa trên khăn","id":"Pisau di gelas, garpu di serbet"}},
-        {"id":"D","label":{"en":"Anywhere on the table","zh":"随意放桌上","vi":"Để bất cứ đâu trên bàn","id":"Di mana saja di meja"}}
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "True",
+            "zh": "对",
+            "vi": "Đúng",
+            "id": "Benar"
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "False",
+            "zh": "错",
+            "vi": "Sai",
+            "id": "Salah"
+          }
+        }
       ],
-      "answer":"B",
-      "explanation":{
-        "en":"Place knife and fork together on the plate at 4–5 o’clock to signal you’re finished.",
-        "zh":"刀叉并排放在盘中4–5点方向表示已用完。",
-        "vi":"Đặt dao nĩa song song ở vị trí 4–5 giờ để báo đã xong.",
-        "id":"Letakkan pisau dan garpu sejajar di posisi 4–5 untuk menandakan selesai."
+      "answer": "B",
+      "explanation": {
+        "en": "Wait until everyone is served (or the host invites you to start).",
+        "zh": "应等所有人都上菜，或主人示意开始再动筷。",
+        "vi": "Hãy đợi mọi người đều có món, hoặc khi chủ tiệc mời bắt đầu.",
+        "id": "Tunggu semua hidangan datang atau tuan rumah mempersilakan."
       }
     },
     {
-      "key":"quiz.q9",
-      "type":"truefalse",
-      "prompt":{
-        "en":"It’s okay to bring your own alcohol to any restaurant without asking.",
-        "zh":"无需询问就能把自带酒带进任何餐厅。",
-        "vi":"Có thể mang rượu riêng vào bất kỳ nhà hàng nào mà không hỏi.",
-        "id":"Boleh membawa alkohol sendiri ke restoran mana pun tanpa bertanya."
+      "key": "quiz.q7",
+      "type": "mcq",
+      "prompt": {
+        "en": "Where do used cutlery rest between bites?",
+        "zh": "进食间隙刀叉应放在哪里？",
+        "vi": "Giữa các lần cắn, để dao nĩa ở đâu?",
+        "id": "Saat jeda makan, alat makan diletakkan di mana?"
       },
-      "options":[
-        {"id":"A","label":{"en":"True","zh":"对","vi":"Đúng","id":"Benar"}},
-        {"id":"B","label":{"en":"False","zh":"错","vi":"Sai","id":"Salah"}}
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "On the tablecloth",
+            "zh": "桌布上",
+            "vi": "Trên khăn trải bàn",
+            "id": "Di taplak meja"
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Partly on the plate, tips on the table",
+            "zh": "一半在盘子上，一半伸到桌上",
+            "vi": "Nửa trên đĩa, mũi chạm bàn",
+            "id": "Sebagian di piring, ujung di meja"
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Resting on the plate/bowl, not touching the table",
+            "zh": "放回盘/碗中，不接触桌面",
+            "vi": "Đặt trên đĩa/bát, không chạm bàn",
+            "id": "Diletakkan di piring/mangkuk, tidak menyentuh meja"
+          }
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "In the water glass",
+            "zh": "插在水杯里",
+            "vi": "Cắm vào ly nước",
+            "id": "Di gelas air"
+          }
+        }
       ],
-      "answer":"B",
-      "explanation":{
-        "en":"Only BYO venues allow it and usually charge corkage; always check first.",
-        "zh":"仅限标明 BYO 的餐厅且常收开瓶费，需提前确认。",
-        "vi":"Chỉ nhà hàng BYO mới cho phép và thường tính phí mở chai; hãy hỏi trước.",
-        "id":"Hanya tempat BYO yang mengizinkan dan biasanya ada biaya corkage; selalu cek dulu."
+      "answer": "C",
+      "explanation": {
+        "en": "Place cutlery on the plate/bowl between bites; don’t let tips touch the table.",
+        "zh": "间隙将刀叉放在餐具中，不要伸到桌面。",
+        "vi": "Đặt dao nĩa trên đĩa/bát; không để chạm bàn.",
+        "id": "Letakkan alat makan di piring/mangkuk; jangan menyentuh meja."
       }
     },
     {
-      "key":"quiz.q10",
-      "type":"mcq",
-      "prompt":{
-        "en":"Which bread plate and drink are yours in a formal setting?",
-        "zh":"正式餐位中，哪个是你的面包碟与饮品？",
-        "vi":"Trong bày biện chuẩn, đĩa bánh và đồ uống của bạn ở đâu?",
-        "id":"Dalam tata meja formal, piring roti dan minuman milik Anda yang mana?"
+      "key": "quiz.q8",
+      "type": "mcq",
+      "prompt": {
+        "en": "When finished, how should your knife and fork be placed?",
+        "zh": "用餐完毕时刀叉应如何摆放？",
+        "vi": "Khi ăn xong, nên đặt dao nĩa như thế nào?",
+        "id": "Saat selesai makan, bagaimana posisi pisau dan garpu?"
       },
-      "options":[
-        {"id":"A","label":{"en":"Bread on right, drink on left","zh":"面包在右、饮品在左","vi":"Bánh bên phải, đồ uống bên trái","id":"Roti kanan, minuman kiri"}},
-        {"id":"B","label":{"en":"Bread on left, drink on right","zh":"面包在左、饮品在右","vi":"Bánh bên trái, đồ uống bên phải","id":"Roti kiri, minuman kanan"}},
-        {"id":"C","label":{"en":"Both on the right","zh":"都在右边","vi":"Cả hai bên phải","id":"Keduanya di kanan"}},
-        {"id":"D","label":{"en":"Both on the left","zh":"都在左边","vi":"Cả hai bên trái","id":"Keduanya di kiri"}}
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Fork at 8 o’clock, knife at 4 o’clock, crossed",
+            "zh": "叉在8点、刀在4点，交叉摆放",
+            "vi": "Nĩa 8 giờ, dao 4 giờ, bắt chéo",
+            "id": "Garpu 8, pisau 4, menyilang"
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Both together at 4–5 o’clock positions",
+            "zh": "并排放在4–5点方向",
+            "vi": "Đặt song song ở vị trí 4–5 giờ",
+            "id": "Keduanya sejajar di posisi 4–5"
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Knife in the glass, fork on napkin",
+            "zh": "刀插杯中、叉放餐巾上",
+            "vi": "Dao trong ly, nĩa trên khăn",
+            "id": "Pisau di gelas, garpu di serbet"
+          }
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Anywhere on the table",
+            "zh": "随意放桌上",
+            "vi": "Để bất cứ đâu trên bàn",
+            "id": "Di mana saja di meja"
+          }
+        }
       ],
-      "answer":"B",
-      "explanation":{
-        "en":"Remember “b-d”: bread (left), drink (right).",
-        "zh":"口诀“b-d”：bread 左、drink 右。",
-        "vi":"Mẹo “b-d”: bánh bên trái, đồ uống bên phải.",
-        "id":"Ingat “b-d”: roti kiri, minuman kanan."
+      "answer": "B",
+      "explanation": {
+        "en": "Place knife and fork together on the plate at 4–5 o’clock to signal you’re finished.",
+        "zh": "刀叉并排放在盘中4–5点方向表示已用完。",
+        "vi": "Đặt dao nĩa song song ở vị trí 4–5 giờ để báo đã xong.",
+        "id": "Letakkan pisau dan garpu sejajar di posisi 4–5 untuk menandakan selesai."
       }
     },
     {
-      "key":"quiz.q11",
-      "type":"mcq",
-      "prompt":{
-        "en":"If you have dietary restrictions, when should you inform the restaurant?",
-        "zh":"如有饮食禁忌，应在何时告知餐厅？",
-        "vi":"Nếu có kiêng khem, bạn nên báo nhà hàng khi nào?",
-        "id":"Jika ada pantangan makanan, kapan memberi tahu restoran?"
+      "key": "quiz.q9",
+      "type": "truefalse",
+      "prompt": {
+        "en": "It’s okay to bring your own alcohol to any restaurant without asking.",
+        "zh": "无需询问就能把自带酒带进任何餐厅。",
+        "vi": "Có thể mang rượu riêng vào bất kỳ nhà hàng nào mà không hỏi.",
+        "id": "Boleh membawa alkohol sendiri ke restoran mana pun tanpa bertanya."
       },
-      "options":[
-        {"id":"A","label":{"en":"After the meal","zh":"吃完后","vi":"Sau bữa ăn","id":"Setelah makan"}},
-        {"id":"B","label":{"en":"When ordering or in advance","zh":"点菜时或提前告知","vi":"Khi gọi món hoặc báo trước","id":"Saat memesan atau sebelumnya"}},
-        {"id":"C","label":{"en":"Never mention it","zh":"不必告知","vi":"Không cần nói","id":"Tidak perlu memberi tahu"}},
-        {"id":"D","label":{"en":"Only if the server asks","zh":"仅服务员询问时","vi":"Chỉ khi nhân viên hỏi","id":"Hanya jika pelayan bertanya"}}
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "True",
+            "zh": "对",
+            "vi": "Đúng",
+            "id": "Benar"
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "False",
+            "zh": "错",
+            "vi": "Sai",
+            "id": "Salah"
+          }
+        }
       ],
-      "answer":"B",
-      "explanation":{
-        "en":"Notify in advance or when ordering so the kitchen can accommodate safely.",
-        "zh":"提前或点菜时告知，方便厨房安全处理。",
-        "vi":"Báo trước hoặc khi gọi món để bếp chuẩn bị an toàn.",
-        "id":"Beri tahu sebelumnya atau saat memesan agar dapur menyesuaikan dengan aman."
+      "answer": "B",
+      "explanation": {
+        "en": "Only BYO venues allow it and usually charge corkage; always check first.",
+        "zh": "仅限标明 BYO 的餐厅且常收开瓶费，需提前确认。",
+        "vi": "Chỉ nhà hàng BYO mới cho phép và thường tính phí mở chai; hãy hỏi trước.",
+        "id": "Hanya tempat BYO yang mengizinkan dan biasanya ada biaya corkage; selalu cek dulu."
       }
     },
     {
-      "key":"quiz.q12",
-      "type":"truefalse",
-      "prompt":{
-        "en":"In Australia, slurping soup loudly is considered polite.",
-        "zh":"在澳洲，大声吸溜喝汤被认为是礼貌的。",
-        "vi":"Ở Úc, húp súp to là lịch sự.",
-        "id":"Di Australia, menyeruput sup dengan keras itu sopan."
+      "key": "quiz.q10",
+      "type": "mcq",
+      "prompt": {
+        "en": "Which bread plate and drink are yours in a formal setting?",
+        "zh": "正式餐位中，哪个是你的面包碟与饮品？",
+        "vi": "Trong bày biện chuẩn, đĩa bánh và đồ uống của bạn ở đâu?",
+        "id": "Dalam tata meja formal, piring roti dan minuman milik Anda yang mana?"
       },
-      "options":[
-        {"id":"A","label":{"en":"True","zh":"对","vi":"Đúng","id":"Benar"}},
-        {"id":"B","label":{"en":"False","zh":"错","vi":"Sai","id":"Salah"}}
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Bread on right, drink on left",
+            "zh": "面包在右、饮品在左",
+            "vi": "Bánh bên phải, đồ uống bên trái",
+            "id": "Roti kanan, minuman kiri"
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Bread on left, drink on right",
+            "zh": "面包在左、饮品在右",
+            "vi": "Bánh bên trái, đồ uống bên phải",
+            "id": "Roti kiri, minuman kanan"
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Both on the right",
+            "zh": "都在右边",
+            "vi": "Cả hai bên phải",
+            "id": "Keduanya di kanan"
+          }
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Both on the left",
+            "zh": "都在左边",
+            "vi": "Cả hai bên trái",
+            "id": "Keduanya di kiri"
+          }
+        }
       ],
-      "answer":"B",
-      "explanation":{
-        "en":"Keep noise to a minimum; loud slurping is impolite in Australian dining.",
-        "zh":"就餐应尽量安静；大声吸溜在澳式礼仪中被视为不礼貌。",
-        "vi":"Hãy ăn uống nhẹ nhàng; húp to bị xem là bất lịch sự ở Úc.",
-        "id":"Jaga ketenangan; menyeruput keras dianggap tidak sopan di Australia."
+      "answer": "B",
+      "explanation": {
+        "en": "Remember “b-d”: bread (left), drink (right).",
+        "zh": "口诀“b-d”：bread 左、drink 右。",
+        "vi": "Mẹo “b-d”: bánh bên trái, đồ uống bên phải.",
+        "id": "Ingat “b-d”: roti kiri, minuman kanan."
       }
     },
     {
-      "key":"quiz.q13",
-      "type":"mcq",
-      "prompt":{
-        "en":"Which statement about tipping is most accurate?",
-        "zh":"以下哪条关于小费的说法最准确？",
-        "vi":"Phát biểu nào về tiền tip là đúng nhất?",
-        "id":"Pernyataan mana tentang tip yang paling tepat?"
+      "key": "quiz.q11",
+      "type": "mcq",
+      "prompt": {
+        "en": "If you have dietary restrictions, when should you inform the restaurant?",
+        "zh": "如有饮食禁忌，应在何时告知餐厅？",
+        "vi": "Nếu có kiêng khem, bạn nên báo nhà hàng khi nào?",
+        "id": "Jika ada pantangan makanan, kapan memberi tahu restoran?"
       },
-      "options":[
-        {"id":"A","label":{"en":"Always included in the bill by law","zh":"法律规定必须含在账单里","vi":"Luật bắt buộc luôn tính trong hóa đơn","id":"Selalu termasuk di tagihan menurut hukum"}},
-        {"id":"B","label":{"en":"Optional; round-up or 5–10% in special cases","zh":"可选；特殊情况下可凑整或给5–10%","vi":"Tùy chọn; làm tròn hoặc 5–10% trong trường hợp đặc biệt","id":"Opsional; pembulatan atau 5–10% pada kasus khusus"}},
-        {"id":"C","label":{"en":"Mandatory 15% everywhere","zh":"任何地方都强制15%","vi":"Bắt buộc 15% ở mọi nơi","id":"Wajib 15% di mana saja"}},
-        {"id":"D","label":{"en":"Never appropriate","zh":"任何时候都不应给","vi":"Không bao giờ nên tip","id":"Tidak pernah pantas"}}
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "After the meal",
+            "zh": "吃完后",
+            "vi": "Sau bữa ăn",
+            "id": "Setelah makan"
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "When ordering or in advance",
+            "zh": "点菜时或提前告知",
+            "vi": "Khi gọi món hoặc báo trước",
+            "id": "Saat memesan atau sebelumnya"
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Never mention it",
+            "zh": "不必告知",
+            "vi": "Không cần nói",
+            "id": "Tidak perlu memberi tahu"
+          }
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Only if the server asks",
+            "zh": "仅服务员询问时",
+            "vi": "Chỉ khi nhân viên hỏi",
+            "id": "Hanya jika pelayan bertanya"
+          }
+        }
       ],
-      "answer":"B",
-      "explanation":{
-        "en":"Tipping is optional in Australia; small tips appear in exceptional or high-end service.",
-        "zh":"澳洲小费为自愿；通常仅在高端或服务极佳时给少量。",
-        "vi":"Tip ở Úc là tùy chọn; thường chỉ khi dịch vụ xuất sắc hoặc nhà hàng cao cấp.",
-        "id":"Tip di Australia bersifat opsional; kecil dan biasanya untuk layanan sangat baik."
+      "answer": "B",
+      "explanation": {
+        "en": "Notify in advance or when ordering so the kitchen can accommodate safely.",
+        "zh": "提前或点菜时告知，方便厨房安全处理。",
+        "vi": "Báo trước hoặc khi gọi món để bếp chuẩn bị an toàn.",
+        "id": "Beri tahu sebelumnya atau saat memesan agar dapur menyesuaikan dengan aman."
       }
     },
     {
-      "key":"quiz.q14",
-      "type":"mcq",
-      "prompt":{
-        "en":"How should you call a server’s attention?",
-        "zh":"正确招呼服务员的方式是？",
-        "vi":"Gọi nhân viên phục vụ như thế nào là đúng?",
-        "id":"Bagaimana cara yang sopan memanggil pelayan?"
+      "key": "quiz.q12",
+      "type": "truefalse",
+      "prompt": {
+        "en": "In Australia, slurping soup loudly is considered polite.",
+        "zh": "在澳洲，大声吸溜喝汤被认为是礼貌的。",
+        "vi": "Ở Úc, húp súp to là lịch sự.",
+        "id": "Di Australia, menyeruput sup dengan keras itu sopan."
       },
-      "options":[
-        {"id":"A","label":{"en":"Wave your hands and shout","zh":"挥手大喊","vi":"Vẫy tay và la lớn","id":"Melambaikan tangan sambil berteriak"}},
-        {"id":"B","label":{"en":"Snap fingers repeatedly","zh":"不停打响指","vi":"Búng tay liên tục","id":"Menjentikkan jari terus-menerus"}},
-        {"id":"C","label":{"en":"Make eye contact and raise your hand slightly","zh":"目光示意并轻举手","vi":"Nhìn và giơ tay nhẹ","id":"Kontak mata dan angkat tangan sedikit"}},
-        {"id":"D","label":{"en":"Touch the server’s shoulder","zh":"拍对方肩膀","vi":"Chạm vào vai nhân viên","id":"Menyentuh bahu pelayan"}}
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "True",
+            "zh": "对",
+            "vi": "Đúng",
+            "id": "Benar"
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "False",
+            "zh": "错",
+            "vi": "Sai",
+            "id": "Salah"
+          }
+        }
       ],
-      "answer":"C",
-      "explanation":{
-        "en":"Use eye contact and a small hand raise; avoid shouting or snapping.",
-        "zh":"以目光配合轻举手示意即可，避免喊叫或打响指。",
-        "vi":"Dùng ánh mắt và giơ tay nhẹ; tránh la hét hay búng tay.",
-        "id":"Gunakan kontak mata dan angkat tangan pelan; jangan berteriak atau menjentik."
+      "answer": "B",
+      "explanation": {
+        "en": "Keep noise to a minimum; loud slurping is impolite in Australian dining.",
+        "zh": "就餐应尽量安静；大声吸溜在澳式礼仪中被视为不礼貌。",
+        "vi": "Hãy ăn uống nhẹ nhàng; húp to bị xem là bất lịch sự ở Úc.",
+        "id": "Jaga ketenangan; menyeruput keras dianggap tidak sopan di Australia."
       }
     },
     {
-      "key":"quiz.q15",
-      "type":"truefalse",
-      "prompt":{
-        "en":"Sharing plates is always expected in Australian restaurants.",
-        "zh":"在澳洲餐厅总是默认分享拼盘。",
-        "vi":"Chia sẻ món luôn được mong đợi ở nhà hàng Úc.",
-        "id":"Berbagi piring selalu diharapkan di restoran Australia."
+      "key": "quiz.q13",
+      "type": "mcq",
+      "prompt": {
+        "en": "Which statement about tipping is most accurate?",
+        "zh": "以下哪条关于小费的说法最准确？",
+        "vi": "Phát biểu nào về tiền tip là đúng nhất?",
+        "id": "Pernyataan mana tentang tip yang paling tepat?"
       },
-      "options":[
-        {"id":"A","label":{"en":"True","zh":"对","vi":"Đúng","id":"Benar"}},
-        {"id":"B","label":{"en":"False","zh":"错","vi":"Sai","id":"Salah"}}
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Always included in the bill by law",
+            "zh": "法律规定必须含在账单里",
+            "vi": "Luật bắt buộc luôn tính trong hóa đơn",
+            "id": "Selalu termasuk di tagihan menurut hukum"
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Optional; round-up or 5–10% in special cases",
+            "zh": "可选；特殊情况下可凑整或给5–10%",
+            "vi": "Tùy chọn; làm tròn hoặc 5–10% trong trường hợp đặc biệt",
+            "id": "Opsional; pembulatan atau 5–10% pada kasus khusus"
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Mandatory 15% everywhere",
+            "zh": "任何地方都强制15%",
+            "vi": "Bắt buộc 15% ở mọi nơi",
+            "id": "Wajib 15% di mana saja"
+          }
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Never appropriate",
+            "zh": "任何时候都不应给",
+            "vi": "Không bao giờ nên tip",
+            "id": "Tidak pernah pantas"
+          }
+        }
       ],
-      "answer":"B",
-      "explanation":{
-        "en":"Ask first; many venues plate individually unless it’s a sharing-style menu.",
-        "zh":"需先征询同桌；多数餐厅为个人分盘，除非是共享菜式。",
-        "vi":"Hãy hỏi trước; nhiều nơi phục vụ theo phần riêng trừ khi là thực đơn chia sẻ.",
-        "id":"Tanyakan dulu; banyak restoran menyajikan per porsi kecuali menu berbagi."
+      "answer": "B",
+      "explanation": {
+        "en": "Tipping is optional in Australia; small tips appear in exceptional or high-end service.",
+        "zh": "澳洲小费为自愿；通常仅在高端或服务极佳时给少量。",
+        "vi": "Tip ở Úc là tùy chọn; thường chỉ khi dịch vụ xuất sắc hoặc nhà hàng cao cấp.",
+        "id": "Tip di Australia bersifat opsional; kecil dan biasanya untuk layanan sangat baik."
       }
     },
     {
-      "key":"quiz.q16",
-      "type":"mcq",
-      "prompt":{
-        "en":"Which behaviour is polite when tasting wine offered by the server?",
-        "zh":"试酒时哪种做法更为礼貌？",
-        "vi":"Hành vi nào lịch sự khi nếm rượu do nhân viên rót?",
-        "id":"Perilaku mana yang sopan saat mencicipi wine dari pelayan?"
+      "key": "quiz.q14",
+      "type": "mcq",
+      "prompt": {
+        "en": "How should you call a server’s attention?",
+        "zh": "正确招呼服务员的方式是？",
+        "vi": "Gọi nhân viên phục vụ như thế nào là đúng?",
+        "id": "Bagaimana cara yang sopan memanggil pelayan?"
       },
-      "options":[
-        {"id":"A","label":{"en":"Assess if it’s corked/ok, not whether you like the style","zh":"判断是否有问题而非口味喜好","vi":"Kiểm tra rượu có lỗi hay không, không phải gu cá nhân","id":"Menilai apakah cacat/kork, bukan soal selera pribadi"}},
-        {"id":"B","label":{"en":"Drink it all quickly","zh":"一口闷","vi":"Uống cạn nhanh","id":"Langsung habiskan"}},
-        {"id":"C","label":{"en":"Ask for a different wine if not sweet enough","zh":"不够甜就换一瓶","vi":"Xin loại khác nếu chưa đủ ngọt","id":"Minta wine lain jika kurang manis"}},
-        {"id":"D","label":{"en":"Add ice cubes without asking","zh":"不询问直接加冰块","vi":"Thêm đá mà không hỏi","id":"Menambah es tanpa bertanya"}}
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Wave your hands and shout",
+            "zh": "挥手大喊",
+            "vi": "Vẫy tay và la lớn",
+            "id": "Melambaikan tangan sambil berteriak"
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Snap fingers repeatedly",
+            "zh": "不停打响指",
+            "vi": "Búng tay liên tục",
+            "id": "Menjentikkan jari terus-menerus"
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Make eye contact and raise your hand slightly",
+            "zh": "目光示意并轻举手",
+            "vi": "Nhìn và giơ tay nhẹ",
+            "id": "Kontak mata dan angkat tangan sedikit"
+          }
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Touch the server’s shoulder",
+            "zh": "拍对方肩膀",
+            "vi": "Chạm vào vai nhân viên",
+            "id": "Menyentuh bahu pelayan"
+          }
+        }
       ],
-      "answer":"A",
-      "explanation":{
-        "en":"A taste is to check faults (e.g., cork taint), not personal preference.",
-        "zh":"试酒是检查是否有瑕疵（如木塞味），而非是否合你口味。",
-        "vi":"Nếm để kiểm tra lỗi (như mùi nút bần), không phải gu cá nhân.",
-        "id":"Mencicip untuk cek cacat (mis. cork taint), bukan preferensi pribadi."
+      "answer": "C",
+      "explanation": {
+        "en": "Use eye contact and a small hand raise; avoid shouting or snapping.",
+        "zh": "以目光配合轻举手示意即可，避免喊叫或打响指。",
+        "vi": "Dùng ánh mắt và giơ tay nhẹ; tránh la hét hay búng tay.",
+        "id": "Gunakan kontak mata dan angkat tangan pelan; jangan berteriak atau menjentik."
       }
     },
     {
-      "key":"quiz.q17",
-      "type":"mcq",
-      "prompt":{
-        "en":"What should you do with your napkin when leaving the table temporarily?",
-        "zh":"临时离席时餐巾应如何放置？",
-        "vi":"Khi rời bàn tạm thời, nên đặt khăn ăn ở đâu?",
-        "id":"Saat meninggalkan meja sementara, taruh serbet di mana?"
+      "key": "quiz.q15",
+      "type": "truefalse",
+      "prompt": {
+        "en": "Sharing plates is always expected in Australian restaurants.",
+        "zh": "在澳洲餐厅总是默认分享拼盘。",
+        "vi": "Chia sẻ món luôn được mong đợi ở nhà hàng Úc.",
+        "id": "Berbagi piring selalu diharapkan di restoran Australia."
       },
-      "options":[
-        {"id":"A","label":{"en":"On the chair seat","zh":"放在椅子座面上","vi":"Đặt trên ghế","id":"Di kursi"}},
-        {"id":"B","label":{"en":"Fold neatly on the table","zh":"整齐叠好放桌上","vi":"Gấp gọn trên bàn","id":"Dilipat rapi di meja"}},
-        {"id":"C","label":{"en":"Into the water glass","zh":"放进水杯里","vi":"Bỏ vào ly nước","id":"Di gelas air"}},
-        {"id":"D","label":{"en":"Hand it to the server","zh":"交给服务员","vi":"Đưa cho nhân viên","id":"Berikan ke pelayan"}}
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "True",
+            "zh": "对",
+            "vi": "Đúng",
+            "id": "Benar"
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "False",
+            "zh": "错",
+            "vi": "Sai",
+            "id": "Salah"
+          }
+        }
       ],
-      "answer":"A",
-      "explanation":{
-        "en":"Place it on your chair when you leave briefly; on the table signals you’ve finished.",
-        "zh":"短暂离席将餐巾放在椅子上；放桌上更多表示用餐结束。",
-        "vi":"Đặt khăn trên ghế khi rời tạm; đặt lên bàn thường báo hiệu đã xong bữa.",
-        "id":"Letakkan di kursi saat pergi sebentar; di meja menandakan selesai makan."
+      "answer": "B",
+      "explanation": {
+        "en": "Ask first; many venues plate individually unless it’s a sharing-style menu.",
+        "zh": "需先征询同桌；多数餐厅为个人分盘，除非是共享菜式。",
+        "vi": "Hãy hỏi trước; nhiều nơi phục vụ theo phần riêng trừ khi là thực đơn chia sẻ.",
+        "id": "Tanyakan dulu; banyak restoran menyajikan per porsi kecuali menu berbagi."
       }
     },
     {
-      "key":"quiz.q18",
-      "type":"truefalse",
-      "prompt":{
-        "en":"It’s polite to chew with your mouth closed and avoid talking with food in your mouth.",
-        "zh":"闭口咀嚼且不要含着食物说话更礼貌。",
-        "vi":"Lịch sự là nhai ngậm miệng và tránh nói khi đang nhai.",
-        "id":"Sopan untuk mengunyah dengan mulut tertutup dan tidak berbicara saat mengunyah."
+      "key": "quiz.q16",
+      "type": "mcq",
+      "prompt": {
+        "en": "Which behaviour is polite when tasting wine offered by the server?",
+        "zh": "试酒时哪种做法更为礼貌？",
+        "vi": "Hành vi nào lịch sự khi nếm rượu do nhân viên rót?",
+        "id": "Perilaku mana yang sopan saat mencicipi wine dari pelayan?"
       },
-      "options":[
-        {"id":"A","label":{"en":"True","zh":"对","vi":"Đúng","id":"Benar"}},
-        {"id":"B","label":{"en":"False","zh":"错","vi":"Sai","id":"Salah"}}
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Assess if it’s corked/ok, not whether you like the style",
+            "zh": "判断是否有问题而非口味喜好",
+            "vi": "Kiểm tra rượu có lỗi hay không, không phải gu cá nhân",
+            "id": "Menilai apakah cacat/kork, bukan soal selera pribadi"
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Drink it all quickly",
+            "zh": "一口闷",
+            "vi": "Uống cạn nhanh",
+            "id": "Langsung habiskan"
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Ask for a different wine if not sweet enough",
+            "zh": "不够甜就换一瓶",
+            "vi": "Xin loại khác nếu chưa đủ ngọt",
+            "id": "Minta wine lain jika kurang manis"
+          }
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Add ice cubes without asking",
+            "zh": "不询问直接加冰块",
+            "vi": "Thêm đá mà không hỏi",
+            "id": "Menambah es tanpa bertanya"
+          }
+        }
       ],
-      "answer":"A",
-      "explanation":{
-        "en":"Basic table manners apply in Australia as well.",
-        "zh":"基本餐桌礼仪同样适用澳洲就餐场景。",
-        "vi":"Những phép lịch sự cơ bản cũng áp dụng tại Úc.",
-        "id":"Etika makan dasar juga berlaku di Australia."
+      "answer": "A",
+      "explanation": {
+        "en": "A taste is to check faults (e.g., cork taint), not personal preference.",
+        "zh": "试酒是检查是否有瑕疵（如木塞味），而非是否合你口味。",
+        "vi": "Nếm để kiểm tra lỗi (như mùi nút bần), không phải gu cá nhân.",
+        "id": "Mencicip untuk cek cacat (mis. cork taint), bukan preferensi pribadi."
       }
     },
     {
-      "key":"quiz.q19",
-      "type":"mcq",
-      "prompt":{
-        "en":"If a shared dish is in the center, how should you serve yourself?",
-        "zh":"桌中央有共享菜时，如何取用更合适？",
-        "vi":"Nếu có món dùng chung ở giữa bàn, bạn nên gắp như thế nào?",
-        "id":"Jika ada hidangan bersama di tengah meja, bagaimana cara mengambilnya?"
+      "key": "quiz.q17",
+      "type": "mcq",
+      "prompt": {
+        "en": "What should you do with your napkin when leaving the table temporarily?",
+        "zh": "临时离席时餐巾应如何放置？",
+        "vi": "Khi rời bàn tạm thời, nên đặt khăn ăn ở đâu?",
+        "id": "Saat meninggalkan meja sementara, taruh serbet di mana?"
       },
-      "options":[
-        {"id":"A","label":{"en":"Use your own fork to take from the platter","zh":"用自己的叉直接取菜","vi":"Dùng nĩa của mình gắp từ đĩa chung","id":"Gunakan garpu sendiri untuk mengambil"}},
-        {"id":"B","label":{"en":"Use serving utensils provided","zh":"使用公筷公勺","vi":"Dùng dụng cụ gắp chung","id":"Gunakan sendok/garpu saji yang disediakan"}},
-        {"id":"C","label":{"en":"Use fingers","zh":"用手直接抓","vi":"Dùng tay","id":"Menggunakan tangan"}},
-        {"id":"D","label":{"en":"Tilt the platter towards you","zh":"将大盘倾向自己","vi":"Nghiêng đĩa về phía mình","id":"Miringkan piring saji ke arah Anda"}}
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "On the chair seat",
+            "zh": "放在椅子座面上",
+            "vi": "Đặt trên ghế",
+            "id": "Di kursi"
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Fold neatly on the table",
+            "zh": "整齐叠好放桌上",
+            "vi": "Gấp gọn trên bàn",
+            "id": "Dilipat rapi di meja"
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Into the water glass",
+            "zh": "放进水杯里",
+            "vi": "Bỏ vào ly nước",
+            "id": "Di gelas air"
+          }
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Hand it to the server",
+            "zh": "交给服务员",
+            "vi": "Đưa cho nhân viên",
+            "id": "Berikan ke pelayan"
+          }
+        }
       ],
-      "answer":"B",
-      "explanation":{
-        "en":"Use serving utensils for shared dishes; don’t use personal cutlery.",
-        "zh":"共享菜应使用公勺公叉，不用个人餐具直接取。",
-        "vi":"Dùng dụng cụ gắp chung; không dùng dao nĩa cá nhân.",
-        "id":"Gunakan alat saji untuk hidangan bersama; jangan pakai alat makan pribadi."
+      "answer": "A",
+      "explanation": {
+        "en": "Place it on your chair when you leave briefly; on the table signals you’ve finished.",
+        "zh": "短暂离席将餐巾放在椅子上；放桌上更多表示用餐结束。",
+        "vi": "Đặt khăn trên ghế khi rời tạm; đặt lên bàn thường báo hiệu đã xong bữa.",
+        "id": "Letakkan di kursi saat pergi sebentar; di meja menandakan selesai makan."
       }
     },
     {
-      "key":"quiz.q20",
-      "type":"mcq",
-      "prompt":{
-        "en":"If you need to cancel or change a booking, what is best practice?",
-        "zh":"需要取消或更改订位时，最佳做法是？",
-        "vi":"Khi cần hủy/đổi đặt bàn, cách làm tốt nhất là gì?",
-        "id":"Jika perlu membatalkan/mengubah reservasi, praktik terbaiknya apa?"
+      "key": "quiz.q18",
+      "type": "truefalse",
+      "prompt": {
+        "en": "It’s polite to chew with your mouth closed and avoid talking with food in your mouth.",
+        "zh": "闭口咀嚼且不要含着食物说话更礼貌。",
+        "vi": "Lịch sự là nhai ngậm miệng và tránh nói khi đang nhai.",
+        "id": "Sopan untuk mengunyah dengan mulut tertutup dan tidak berbicara saat mengunyah."
       },
-      "options":[
-        {"id":"A","label":{"en":"Don’t show up; no need to inform","zh":"不去也无需通知","vi":"Không đến và không cần báo","id":"Tidak datang tanpa memberi tahu"}},
-        {"id":"B","label":{"en":"Call or update online as early as possible","zh":"尽早电话或在线更新","vi":"Gọi điện hoặc cập nhật trực tuyến sớm nhất có thể","id":"Telepon atau ubah secara online secepatnya"}},
-        {"id":"C","label":{"en":"Ask a friend to take your spot without telling the venue","zh":"不通知餐厅让朋友替位","vi":"Nhờ bạn đến thay mà không báo nhà hàng","id":"Minta teman menggantikan tanpa mengabari"}},
-        {"id":"D","label":{"en":"Arrive late to see if the table is still available","zh":"晚点到再看是否有位","vi":"Đến trễ xem còn bàn không","id":"Datang terlambat untuk cek meja"}}
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "True",
+            "zh": "对",
+            "vi": "Đúng",
+            "id": "Benar"
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "False",
+            "zh": "错",
+            "vi": "Sai",
+            "id": "Salah"
+          }
+        }
       ],
-      "answer":"B",
-      "explanation":{
-        "en":"Early notice helps restaurants manage staffing and reduces waste.",
-        "zh":"尽早告知便于餐厅安排人手并减少浪费。",
-        "vi":"Báo sớm giúp nhà hàng sắp xếp nhân sự và giảm lãng phí.",
-        "id":"Pemberitahuan dini membantu pengaturan staf dan mengurangi pemborosan."
+      "answer": "A",
+      "explanation": {
+        "en": "Basic table manners apply in Australia as well.",
+        "zh": "基本餐桌礼仪同样适用澳洲就餐场景。",
+        "vi": "Những phép lịch sự cơ bản cũng áp dụng tại Úc.",
+        "id": "Etika makan dasar juga berlaku di Australia."
+      }
+    },
+    {
+      "key": "quiz.q19",
+      "type": "mcq",
+      "prompt": {
+        "en": "If a shared dish is in the center, how should you serve yourself?",
+        "zh": "桌中央有共享菜时，如何取用更合适？",
+        "vi": "Nếu có món dùng chung ở giữa bàn, bạn nên gắp như thế nào?",
+        "id": "Jika ada hidangan bersama di tengah meja, bagaimana cara mengambilnya?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Use your own fork to take from the platter",
+            "zh": "用自己的叉直接取菜",
+            "vi": "Dùng nĩa của mình gắp từ đĩa chung",
+            "id": "Gunakan garpu sendiri untuk mengambil"
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Use serving utensils provided",
+            "zh": "使用公筷公勺",
+            "vi": "Dùng dụng cụ gắp chung",
+            "id": "Gunakan sendok/garpu saji yang disediakan"
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Use fingers",
+            "zh": "用手直接抓",
+            "vi": "Dùng tay",
+            "id": "Menggunakan tangan"
+          }
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Tilt the platter towards you",
+            "zh": "将大盘倾向自己",
+            "vi": "Nghiêng đĩa về phía mình",
+            "id": "Miringkan piring saji ke arah Anda"
+          }
+        }
+      ],
+      "answer": "B",
+      "explanation": {
+        "en": "Use serving utensils for shared dishes; don’t use personal cutlery.",
+        "zh": "共享菜应使用公勺公叉，不用个人餐具直接取。",
+        "vi": "Dùng dụng cụ gắp chung; không dùng dao nĩa cá nhân.",
+        "id": "Gunakan alat saji untuk hidangan bersama; jangan pakai alat makan pribadi."
+      }
+    },
+    {
+      "key": "quiz.q20",
+      "type": "mcq",
+      "prompt": {
+        "en": "If you need to cancel or change a booking, what is best practice?",
+        "zh": "需要取消或更改订位时，最佳做法是？",
+        "vi": "Khi cần hủy/đổi đặt bàn, cách làm tốt nhất là gì?",
+        "id": "Jika perlu membatalkan/mengubah reservasi, praktik terbaiknya apa?"
+      },
+      "options": [
+        {
+          "id": "A",
+          "label": {
+            "en": "Don’t show up; no need to inform",
+            "zh": "不去也无需通知",
+            "vi": "Không đến và không cần báo",
+            "id": "Tidak datang tanpa memberi tahu"
+          }
+        },
+        {
+          "id": "B",
+          "label": {
+            "en": "Call or update online as early as possible",
+            "zh": "尽早电话或在线更新",
+            "vi": "Gọi điện hoặc cập nhật trực tuyến sớm nhất có thể",
+            "id": "Telepon atau ubah secara online secepatnya"
+          }
+        },
+        {
+          "id": "C",
+          "label": {
+            "en": "Ask a friend to take your spot without telling the venue",
+            "zh": "不通知餐厅让朋友替位",
+            "vi": "Nhờ bạn đến thay mà không báo nhà hàng",
+            "id": "Minta teman menggantikan tanpa mengabari"
+          }
+        },
+        {
+          "id": "D",
+          "label": {
+            "en": "Arrive late to see if the table is still available",
+            "zh": "晚点到再看是否有位",
+            "vi": "Đến trễ xem còn bàn không",
+            "id": "Datang terlambat untuk cek meja"
+          }
+        }
+      ],
+      "answer": "B",
+      "explanation": {
+        "en": "Early notice helps restaurants manage staffing and reduces waste.",
+        "zh": "尽早告知便于餐厅安排人手并减少浪费。",
+        "vi": "Báo sớm giúp nhà hàng sắp xếp nhân sự và giảm lãng phí.",
+        "id": "Pemberitahuan dini membantu pengaturan staf dan mengurangi pemborosan."
       }
     }
   ]
