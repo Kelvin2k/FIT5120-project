@@ -1,12 +1,7 @@
 {
   "quiz_version": "2.1",
   "topic": "australia_dining_etiquette",
-  "languages": [
-    "en",
-    "zh",
-    "vi",
-    "id"
-  ],
+  "languages": ["en", "zh", "vi", "id"],
   "items": [
     {
       "key": "quiz.q1",

@@ -11,6 +11,7 @@
 <style scoped>
 .background_content {
   background-color: #E6E6FA !important;
+  padding-bottom: 30px;
 }
 </style>
 

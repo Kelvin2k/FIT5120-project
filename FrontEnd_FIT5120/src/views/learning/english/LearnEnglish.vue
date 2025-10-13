@@ -147,6 +147,7 @@ onMounted(async () => {
 <style scoped>
 /* Quizlet-style Learn English Page */
 .learn-english-page {
+  padding: 0;
   min-height: 100vh;
   background: #f8fafc;
   font-family:
