@@ -1,0 +1,457 @@
+{
+  "quiz_version": "2.0",
+  "topic": "australia_meeting_etiquette",
+  "languages": ["en", "zh", "vi", "id"],
+  "items": [
+    {
+      "key": "quiz.q1",
+      "type": "mcq",
+      "prompt": {
+        "en": "In casual meetings, what is a common way to greet others?",
+        "zh": "在非正式会议中，常见的问候方式是什么？",
+        "vi": "Trong các cuộc họp thân mật, cách chào hỏi phổ biến là gì?",
+        "id": "Dalam pertemuan santai, cara umum untuk menyapa orang lain adalah apa?"
+      },
+      "options": [
+        { "id": "A", "label": { "en": "Smile and say 'Hi' or 'Hello'", "zh": "微笑并说‘你好’", "vi": "Mỉm cười và nói 'Xin chào'", "id": "Tersenyum dan berkata 'Halo'" } },
+        { "id": "B", "label": { "en": "Stay silent", "zh": "保持沉默", "vi": "Giữ im lặng", "id": "Diam saja" } },
+        { "id": "C", "label": { "en": "Avoid eye contact", "zh": "避免目光接触", "vi": "Tránh giao tiếp bằng mắt", "id": "Hindari kontak mata" } },
+        { "id": "D", "label": { "en": "Wave from afar", "zh": "从远处挥手", "vi": "Vẫy tay từ xa", "id": "Melambaikan tangan dari jauh" } }
+      ],
+      "answer": "A",
+      "explanation": {
+        "en": "A smile and simple greeting like 'Hi' or 'Hello' is friendly and appropriate in casual meetings.",
+        "zh": "在非正式会议中，微笑并简单问候‘你好’是友好且合适的。",
+        "vi": "Trong các cuộc họp thân mật ở Úc, mỉm cười và chào hỏi đơn giản là thân thiện và phù hợp.",
+        "id": "Dalam pertemuan santai di Australia, tersenyum dan menyapa sederhana adalah ramah dan sopan."
+      }
+    },
+    {
+      "key": "quiz.q2",
+      "type": "mcq",
+      "prompt": {
+        "en": "In formal business meetings, how should you greet others?",
+        "zh": "在正式商务会议中应如何问候他人？",
+        "vi": "Trong các cuộc họp kinh doanh trang trọng, bạn nên chào hỏi thế nào?",
+        "id": "Dalam rapat bisnis formal, bagaimana Anda harus menyapa orang lain?"
+      },
+      "options": [
+        { "id": "A", "label": { "en": "Shake hands and use titles", "zh": "握手并使用称谓", "vi": "Bắt tay và dùng chức danh", "id": "Jabat tangan dan gunakan gelar" } },
+        { "id": "B", "label": { "en": "Just nod silently", "zh": "只是点头", "vi": "Chỉ gật đầu", "id": "Hanya mengangguk" } },
+        { "id": "C", "label": { "en": "Wave casually", "zh": "随意挥手", "vi": "Vẫy tay tùy tiện", "id": "Melambaikan tangan santai" } },
+        { "id": "D", "label": { "en": "Ignore everyone", "zh": "无视他人", "vi": "Phớt lờ mọi người", "id": "Abaikan semua orang" } }
+      ],
+      "answer": "A",
+      "explanation": {
+        "en": "In formal meetings, shaking hands and addressing people by title shows professionalism.",
+        "zh": "在正式会议中，握手并称呼对方的头衔体现职业素养。",
+        "vi": "Trong các cuộc họp trang trọng, bắt tay và dùng chức danh thể hiện sự chuyên nghiệp.",
+        "id": "Dalam rapat formal, berjabat tangan dan menggunakan gelar menunjukkan profesionalisme."
+      }
+    },
+    {
+      "key": "quiz.q3",
+      "type": "mcq",
+      "prompt": {
+        "en": "How should you choose your seat in a formal meeting?",
+        "zh": "在正式会议中你应如何选择座位？",
+        "vi": "Trong cuộc họp trang trọng, bạn nên chọn chỗ ngồi như thế nào?",
+        "id": "Dalam rapat formal, bagaimana Anda memilih tempat duduk?"
+      },
+      "options": [
+        { "id": "A", "label": { "en": "Wait to be shown your seat", "zh": "等待被安排座位", "vi": "Chờ được chỉ chỗ ngồi", "id": "Tunggu diarahkan tempat duduk" } },
+        { "id": "B", "label": { "en": "Sit anywhere immediately", "zh": "随便坐", "vi": "Ngồi bất kỳ chỗ nào", "id": "Langsung duduk di mana saja" } },
+        { "id": "C", "label": { "en": "Take the center seat", "zh": "坐中间的位置", "vi": "Ngồi giữa bàn", "id": "Ambil kursi tengah" } },
+        { "id": "D", "label": { "en": "Stand during the meeting", "zh": "会议中站着", "vi": "Đứng suốt cuộc họp", "id": "Berdiri sepanjang rapat" } }
+      ],
+      "answer": "A",
+      "explanation": {
+        "en": "In formal meetings, it’s polite to wait until you’re shown your seat.",
+        "zh": "在正式会议中，应等待被安排座位，这样更礼貌。",
+        "vi": "Trong cuộc họp trang trọng, nên chờ được chỉ chỗ ngồi.",
+        "id": "Dalam rapat formal, sopan untuk menunggu tempat duduk diarahkan."
+      }
+    },
+    {
+      "key": "quiz.q4",
+      "type": "truefalse",
+      "prompt": {
+        "en": "It is polite to answer your phone during a meeting.",
+        "zh": "在会议期间接电话是礼貌的行为。",
+        "vi": "Trả lời điện thoại trong cuộc họp là hành động lịch sự.",
+        "id": "Menjawab telepon selama rapat adalah sopan."
+      },
+      "options": [
+        { "id": "A", "label": { "en": "True", "zh": "对", "vi": "Đúng", "id": "Benar" } },
+        { "id": "B", "label": { "en": "False", "zh": "错", "vi": "Sai", "id": "Salah" } }
+      ],
+      "answer": "B",
+      "explanation": {
+        "en": "Phones should be on silent during meetings to avoid distraction.",
+        "zh": "会议期间应将手机调为静音，避免干扰。",
+        "vi": "Điện thoại nên để chế độ im lặng trong cuộc họp để tránh làm phiền.",
+        "id": "Ponsel harus disenyapkan selama rapat untuk menghindari gangguan."
+      }
+    },
+    {
+      "key": "quiz.q5",
+      "type": "mcq",
+      "prompt": {
+        "en": "How should you take turns to speak in a meeting?",
+        "zh": "会议中应如何轮流发言？",
+        "vi": "Trong cuộc họp, bạn nên lần lượt phát biểu như thế nào?",
+        "id": "Dalam rapat, bagaimana sebaiknya Anda bergiliran berbicara?"
+      },
+      "options": [
+        { "id": "A", "label": { "en": "Wait for your turn", "zh": "等待轮到自己", "vi": "Chờ đến lượt mình", "id": "Tunggu giliran Anda" } },
+        { "id": "B", "label": { "en": "Interrupt others", "zh": "打断别人", "vi": "Ngắt lời người khác", "id": "Memotong orang lain" } },
+        { "id": "C", "label": { "en": "Speak over others", "zh": "抢着说话", "vi": "Nói chen vào", "id": "Berbicara menimpa orang lain" } },
+        { "id": "D", "label": { "en": "Talk continuously", "zh": "不停地说话", "vi": "Nói không ngừng", "id": "Berbicara terus-menerus" } }
+      ],
+      "answer": "A",
+      "explanation": {
+        "en": "Waiting your turn to speak shows respect and professionalism.",
+        "zh": "等待轮到自己发言体现尊重和专业。",
+        "vi": "Chờ đến lượt phát biểu thể hiện sự tôn trọng và chuyên nghiệp.",
+        "id": "Menunggu giliran berbicara menunjukkan rasa hormat dan profesionalisme."
+      }
+    },
+    {
+      "key": "quiz.q6",
+      "type": "mcq",
+      "prompt": {
+        "en": "What is a polite way to express disagreement in a meeting?",
+        "zh": "会议中礼貌表达不同意见的方式是什么？",
+        "vi": "Cách lịch sự để bày tỏ sự bất đồng trong cuộc họp là gì?",
+        "id": "Bagaimana cara sopan untuk menyampaikan ketidaksetujuan dalam rapat?"
+      },
+      "options": [
+        { "id": "A", "label": { "en": "Say 'I see it differently'", "zh": "说‘我有不同看法’", "vi": "Nói 'Tôi thấy khác'", "id": "Katakan 'Saya melihatnya berbeda'" } },
+        { "id": "B", "label": { "en": "Say 'You’re wrong!'", "zh": "说‘你错了！’", "vi": "Nói 'Bạn sai rồi!'", "id": "Katakan 'Kamu salah!'" } },
+        { "id": "C", "label": { "en": "Ignore the discussion", "zh": "忽视讨论", "vi": "Phớt lờ cuộc thảo luận", "id": "Abaikan diskusi" } },
+        { "id": "D", "label": { "en": "Leave the room", "zh": "离开会议室", "vi": "Rời khỏi phòng họp", "id": "Keluar dari ruangan" } }
+      ],
+      "answer": "A",
+      "explanation": {
+        "en": "Using polite phrases to disagree helps maintain respect.",
+        "zh": "使用礼貌的语言表达不同意见可以保持尊重。",
+        "vi": "Dùng từ ngữ lịch sự khi bất đồng giúp giữ sự tôn trọng.",
+        "id": "Gunakan frasa sopan untuk menyampaikan ketidaksetujuan dengan hormat."
+      }
+    },
+    {
+      "key": "quiz.q7",
+      "type": "mcq",
+      "prompt": {
+        "en": "How should you address colleagues at the start of a relationship?",
+        "zh": "在刚认识同事时应如何称呼他们？",
+        "vi": "Khi mới quen đồng nghiệp, bạn nên xưng hô thế nào?",
+        "id": "Bagaimana cara menyapa rekan kerja di awal hubungan profesional?"
+      },
+      "options": [
+        { "id": "A", "label": { "en": "Use their title and surname", "zh": "使用头衔和姓氏", "vi": "Dùng chức danh và họ của họ", "id": "Gunakan gelar dan nama belakang mereka" } },
+        { "id": "B", "label": { "en": "Use first name immediately", "zh": "直接用名字", "vi": "Dùng tên riêng ngay", "id": "Langsung gunakan nama depan" } },
+        { "id": "C", "label": { "en": "Use nicknames", "zh": "使用昵称", "vi": "Dùng biệt danh", "id": "Gunakan nama panggilan" } },
+        { "id": "D", "label": { "en": "Avoid greetings", "zh": "避免称呼", "vi": "Tránh chào hỏi", "id": "Hindari sapaan" } }
+      ],
+      "answer": "A",
+      "explanation": {
+        "en": "Start formally with titles until invited to use first names.",
+        "zh": "应先使用正式称谓，直到被邀请改用名字。",
+        "vi": "Bắt đầu bằng chức danh và họ cho đến khi được mời gọi tên riêng.",
+        "id": "Mulailah dengan gelar sampai diundang menggunakan nama depan."
+      }
+    },
+    {
+      "key": "quiz.q8",
+      "type": "truefalse",
+      "prompt": {
+        "en": "It’s acceptable to arrive late to meetings in Australia.",
+        "zh": "在澳大利亚开会迟到是可以接受的。",
+        "vi": "Đến muộn trong cuộc họp ở Úc là có thể chấp nhận được.",
+        "id": "Terlambat ke rapat di Australia dapat diterima."
+      },
+      "options": [
+        { "id": "A", "label": { "en": "True", "zh": "对", "vi": "Đúng", "id": "Benar" } },
+        { "id": "B", "label": { "en": "False", "zh": "错", "vi": "Sai", "id": "Salah" } }
+      ],
+      "answer": "B",
+      "explanation": {
+        "en": "Australians value punctuality; being on time shows respect.",
+        "zh": "澳大利亚人重视守时，准时体现尊重。",
+        "vi": "Người Úc coi trọng đúng giờ; đến đúng giờ thể hiện sự tôn trọng.",
+        "id": "Orang Australia menghargai ketepatan waktu; tepat waktu menunjukkan rasa hormat."
+      }
+    },
+    {
+      "key": "quiz.q9",
+      "type": "mcq",
+      "prompt": {
+        "en": "If you arrive late to a meeting, what should you do?",
+        "zh": "如果你迟到开会，应当怎么做？",
+        "vi": "Nếu bạn đến muộn cuộc họp, bạn nên làm gì?",
+        "id": "Jika Anda terlambat ke rapat, apa yang harus Anda lakukan?"
+      },
+      "options": [
+        { "id": "A", "label": { "en": "Enter quietly and apologize briefly", "zh": "轻声入场并简短道歉", "vi": "Vào nhẹ nhàng và xin lỗi ngắn gọn", "id": "Masuk diam-diam dan minta maaf singkat" } },
+        { "id": "B", "label": { "en": "Make excuses loudly", "zh": "大声解释原因", "vi": "Giải thích to tiếng", "id": "Berteriak memberi alasan" } },
+        { "id": "C", "label": { "en": "Interrupt the speaker", "zh": "打断发言者", "vi": "Ngắt lời người nói", "id": "Memotong pembicara" } },
+        { "id": "D", "label": { "en": "Pretend nothing happened", "zh": "装作没事", "vi": "Giả vờ không có gì", "id": "Berpura-pura tidak terjadi apa-apa" } }
+      ],
+      "answer": "A",
+      "explanation": {
+        "en": "If late, enter quietly and apologize briefly to avoid disrupting.",
+        "zh": "迟到时应轻声入场并简短道歉，避免打扰会议。",
+        "vi": "Nếu đến muộn, hãy vào nhẹ nhàng và xin lỗi ngắn gọn để không làm gián đoạn.",
+        "id": "Jika terlambat, masuk dengan tenang dan minta maaf singkat agar tidak mengganggu."
+      }
+    },
+    {
+      "key": "quiz.q10",
+      "type": "mcq",
+      "prompt": {
+        "en": "What should you do after a meeting?",
+        "zh": "会议结束后你应该做什么？",
+        "vi": "Sau cuộc họp, bạn nên làm gì?",
+        "id": "Apa yang harus Anda lakukan setelah rapat?"
+      },
+      "options": [
+        { "id": "A", "label": { "en": "Send follow-up emails or notes", "zh": "发送跟进邮件或笔记", "vi": "Gửi email hoặc ghi chú theo dõi", "id": "Kirim email atau catatan tindak lanjut" } },
+        { "id": "B", "label": { "en": "Forget about it", "zh": "什么都不做", "vi": "Không làm gì cả", "id": "Tidak melakukan apa-apa" } },
+        { "id": "C", "label": { "en": "Complain to colleagues", "zh": "抱怨同事", "vi": "Phàn nàn về đồng nghiệp", "id": "Mengeluh kepada rekan kerja" } },
+        { "id": "D", "label": { "en": "Delete all notes", "zh": "删除所有笔记", "vi": "Xóa tất cả ghi chú", "id": "Hapus semua catatan" } }
+      ],
+      "answer": "A",
+      "explanation": {
+        "en": "Sending a follow-up confirms agreements and responsibilities.",
+        "zh": "发送跟进信息可以确认会议中的共识与责任。",
+        "vi": "Gửi email theo dõi giúp xác nhận các thỏa thuận và trách nhiệm.",
+        "id": "Mengirim tindak lanjut mengonfirmasi kesepakatan dan tanggung jawab dari rapat."
+      }
+    },
+    {
+      "key": "quiz.q11",
+      "type": "mcq",
+      "prompt": {
+        "en": "How do most meetings in Australia end?",
+        "zh": "澳大利亚的会议通常如何结束？",
+        "vi": "Các cuộc họp ở Úc thường kết thúc như thế nào?",
+        "id": "Bagaimana sebagian besar rapat di Australia berakhir?"
+      },
+      "options": [
+        { "id": "A", "label": { "en": "With a summary and clear action steps", "zh": "总结和明确的后续行动", "vi": "Bằng bản tóm tắt và các bước hành động rõ ràng", "id": "Dengan ringkasan dan langkah tindakan yang jelas" } },
+        { "id": "B", "label": { "en": "Without any closure", "zh": "没有结束语", "vi": "Không có kết thúc chính thức", "id": "Tanpa penutupan" } },
+        { "id": "C", "label": { "en": "With applause", "zh": "以鼓掌结束", "vi": "Bằng tiếng vỗ tay", "id": "Dengan tepuk tangan" } },
+        { "id": "D", "label": { "en": "Everyone leaves silently", "zh": "所有人默默离开", "vi": "Mọi người rời đi trong im lặng", "id": "Semua orang pergi diam-diam" } }
+      ],
+      "answer": "A",
+      "explanation": {
+        "en": "Meetings typically end with a summary and next steps to ensure clarity.",
+        "zh": "会议通常以总结和后续计划结束，以确保清晰。",
+        "vi": "Cuộc họp thường kết thúc bằng bản tóm tắt và bước tiếp theo để đảm bảo rõ ràng.",
+        "id": "Rapat biasanya diakhiri dengan ringkasan dan langkah selanjutnya untuk kejelasan."
+      }
+    },
+    {
+      "key": "quiz.q12",
+      "type": "mcq",
+      "prompt": {
+        "en": "How should you show engagement during a meeting?",
+        "zh": "在会议中如何表现出你的投入？",
+        "vi": "Bạn nên thể hiện sự tham gia tích cực trong cuộc họp như thế nào?",
+        "id": "Bagaimana menunjukkan keterlibatan dalam rapat?"
+      },
+      "options": [
+        { "id": "A", "label": { "en": "Sit upright and nod while listening", "zh": "坐姿端正并点头倾听", "vi": "Ngồi thẳng và gật đầu khi lắng nghe", "id": "Duduk tegak dan mengangguk saat mendengarkan" } },
+        { "id": "B", "label": { "en": "Check your phone frequently", "zh": "频繁看手机", "vi": "Thường xuyên kiểm tra điện thoại", "id": "Sering memeriksa ponsel" } },
+        { "id": "C", "label": { "en": "Look away often", "zh": "经常移开目光", "vi": "Thường xuyên nhìn đi nơi khác", "id": "Sering mengalihkan pandangan" } },
+        { "id": "D", "label": { "en": "Cross your arms and stay silent", "zh": "双臂交叉沉默", "vi": "Khoanh tay và im lặng", "id": "Silangkan tangan dan diam" } }
+      ],
+      "answer": "A",
+      "explanation": {
+        "en": "Good body language shows attentiveness and respect during meetings.",
+        "zh": "良好的肢体语言体现专注与尊重。",
+        "vi": "Ngôn ngữ cơ thể tốt thể hiện sự chú ý và tôn trọng trong cuộc họp.",
+        "id": "Bahasa tubuh yang baik menunjukkan perhatian dan rasa hormat selama rapat."
+      }
+    },
+    {
+      "key": "quiz.q13",
+      "type": "truefalse",
+      "prompt": {
+        "en": "Interrupting others is acceptable when you have an urgent point.",
+        "zh": "如果你有紧急观点，可以打断别人发言。",
+        "vi": "Có thể ngắt lời người khác nếu bạn có ý kiến khẩn cấp.",
+        "id": "Boleh memotong pembicaraan orang lain jika Anda memiliki poin penting."
+      },
+      "options": [
+        { "id": "A", "label": { "en": "True", "zh": "对", "vi": "Đúng", "id": "Benar" } },
+        { "id": "B", "label": { "en": "False", "zh": "错", "vi": "Sai", "id": "Salah" } }
+      ],
+      "answer": "B",
+      "explanation": {
+        "en": "Interrupting others is considered rude; wait for your turn.",
+        "zh": "打断别人是不礼貌的，应等待轮到自己发言。",
+        "vi": "Ngắt lời người khác bị xem là bất lịch sự; hãy chờ đến lượt mình.",
+        "id": "Memotong pembicaraan orang lain dianggap tidak sopan; tunggu giliran Anda."
+      }
+    },
+    {
+      "key": "quiz.q14",
+      "type": "mcq",
+      "prompt": {
+        "en": "How should you handle cultural differences in meetings?",
+        "zh": "会议中应如何应对文化差异？",
+        "vi": "Bạn nên xử lý sự khác biệt văn hóa trong cuộc họp như thế nào?",
+        "id": "Bagaimana menangani perbedaan budaya dalam rapat?"
+      },
+      "options": [
+        { "id": "A", "label": { "en": "Show respect and openness", "zh": "表现尊重和开放", "vi": "Thể hiện sự tôn trọng và cởi mở", "id": "Tunjukkan rasa hormat dan keterbukaan" } },
+        { "id": "B", "label": { "en": "Ignore them", "zh": "忽视差异", "vi": "Phớt lờ sự khác biệt", "id": "Abaikan perbedaan" } },
+        { "id": "C", "label": { "en": "Enforce your own culture", "zh": "强迫别人接受你的文化", "vi": "Ép người khác theo văn hóa của bạn", "id": "Paksakan budaya Anda" } },
+        { "id": "D", "label": { "en": "Avoid talking to others", "zh": "避免与他人交谈", "vi": "Tránh nói chuyện với người khác", "id": "Hindari berbicara dengan orang lain" } }
+      ],
+      "answer": "A",
+      "explanation": {
+        "en": "Respecting cultural diversity builds stronger professional relationships.",
+        "zh": "尊重文化差异有助于建立更牢固的职业关系。",
+        "vi": "Tôn trọng sự đa dạng văn hóa giúp xây dựng mối quan hệ nghề nghiệp bền vững.",
+        "id": "Menghormati keragaman budaya memperkuat hubungan profesional."
+      }
+    },
+    {
+      "key": "quiz.q15",
+      "type": "truefalse",
+      "prompt": {
+        "en": "It’s polite to thank the host or organizer after a meeting.",
+        "zh": "会议结束后感谢主持人或组织者是礼貌的。",
+        "vi": "Cảm ơn người chủ trì hoặc tổ chức sau cuộc họp là hành động lịch sự.",
+        "id": "Sopan untuk berterima kasih kepada tuan rumah atau penyelenggara setelah rapat."
+      },
+      "options": [
+        { "id": "A", "label": { "en": "True", "zh": "对", "vi": "Đúng", "id": "Benar" } },
+        { "id": "B", "label": { "en": "False", "zh": "错", "vi": "Sai", "id": "Salah" } }
+      ],
+      "answer": "A",
+      "explanation": {
+        "en": "Thanking the host shows appreciation and professionalism.",
+        "zh": "感谢主持人体现感激与职业礼仪。",
+        "vi": "Cảm ơn người chủ trì thể hiện sự trân trọng và chuyên nghiệp.",
+        "id": "Mengucapkan terima kasih kepada tuan rumah menunjukkan apresiasi dan profesionalisme."
+      }
+    },
+    {
+      "key": "quiz.q16",
+      "type": "mcq",
+      "prompt": {
+        "en": "What behavior best represents professionalism in meetings?",
+        "zh": "哪种行为最能体现会议中的专业素养？",
+        "vi": "Hành vi nào thể hiện tính chuyên nghiệp nhất trong cuộc họp?",
+        "id": "Perilaku apa yang paling mencerminkan profesionalisme dalam rapat?"
+      },
+      "options": [
+        { "id": "A", "label": { "en": "Punctuality, respect, and active listening", "zh": "守时、尊重和积极倾听", "vi": "Đúng giờ, tôn trọng và lắng nghe tích cực", "id": "Tepat waktu, hormat, dan mendengarkan aktif" } },
+        { "id": "B", "label": { "en": "Dominating the conversation", "zh": "主导谈话", "vi": "Chiếm lĩnh cuộc trò chuyện", "id": "Mendominasi percakapan" } },
+        { "id": "C", "label": { "en": "Using your phone often", "zh": "频繁使用手机", "vi": "Thường xuyên dùng điện thoại", "id": "Sering menggunakan ponsel" } },
+        { "id": "D", "label": { "en": "Interrupting others", "zh": "打断别人", "vi": "Ngắt lời người khác", "id": "Memotong orang lain" } }
+      ],
+      "answer": "A",
+      "explanation": {
+        "en": "Professional behavior includes being on time, respectful, and attentive.",
+        "zh": "专业的行为包括守时、尊重和专注。",
+        "vi": "Hành vi chuyên nghiệp bao gồm đúng giờ, tôn trọng và chú ý lắng nghe.",
+        "id": "Perilaku profesional mencakup ketepatan waktu, rasa hormat, dan perhatian."
+      }
+    },
+    {
+      "key": "quiz.q17",
+      "type": "mcq",
+      "prompt": {
+        "en": "What should you do if food or drinks are served during a meeting?",
+        "zh": "如果会议中提供食物或饮料，你应怎么做？",
+        "vi": "Nếu được phục vụ đồ ăn hoặc đồ uống trong cuộc họp, bạn nên làm gì?",
+        "id": "Apa yang harus Anda lakukan jika makanan atau minuman disajikan selama rapat?"
+      },
+      "options": [
+        { "id": "A", "label": { "en": "Wait until everyone is served", "zh": "等待所有人都拿到", "vi": "Chờ đến khi mọi người đều có", "id": "Tunggu sampai semua orang mendapat" } },
+        { "id": "B", "label": { "en": "Eat immediately", "zh": "立刻开始吃", "vi": "Ăn ngay", "id": "Langsung makan" } },
+        { "id": "C", "label": { "en": "Take someone else's food", "zh": "拿别人的食物", "vi": "Lấy đồ ăn của người khác", "id": "Ambil makanan orang lain" } },
+        { "id": "D", "label": { "en": "Ignore the food", "zh": "忽视食物", "vi": "Phớt lờ đồ ăn", "id": "Abaikan makanan" } }
+      ],
+      "answer": "A",
+      "explanation": {
+        "en": "If food is served, wait until everyone has theirs before starting.",
+        "zh": "若提供食物，应等待所有人都拿到再开始吃。",
+        "vi": "Nếu có phục vụ đồ ăn, hãy đợi mọi người đều có trước khi bắt đầu.",
+        "id": "Jika makanan disajikan, tunggu semua orang mendapat sebelum mulai makan."
+      }
+    },
+    {
+      "key": "quiz.q18",
+      "type": "truefalse",
+      "prompt": {
+        "en": "Using open body language helps you appear more engaged.",
+        "zh": "开放的肢体语言有助于让你看起来更投入。",
+        "vi": "Ngôn ngữ cơ thể cởi mở giúp bạn trông tích cực hơn.",
+        "id": "Bahasa tubuh terbuka membuat Anda tampak lebih terlibat."
+      },
+      "options": [
+        { "id": "A", "label": { "en": "True", "zh": "对", "vi": "Đúng", "id": "Benar" } },
+        { "id": "B", "label": { "en": "False", "zh": "错", "vi": "Sai", "id": "Salah" } }
+      ],
+      "answer": "A",
+      "explanation": {
+        "en": "Open gestures and posture show interest and confidence.",
+        "zh": "开放的姿势和动作能表现兴趣与自信。",
+        "vi": "Cử chỉ và tư thế mở thể hiện sự quan tâm và tự tin.",
+        "id": "Gerakan dan postur terbuka menunjukkan minat dan kepercayaan diri."
+      }
+    },
+    {
+      "key": "quiz.q19",
+      "type": "mcq",
+      "prompt": {
+        "en": "If you disagree, what should you avoid doing?",
+        "zh": "如果你不同意，应避免做什么？",
+        "vi": "Nếu bạn không đồng ý, bạn nên tránh điều gì?",
+        "id": "Jika Anda tidak setuju, apa yang harus dihindari?"
+      },
+      "options": [
+        { "id": "A", "label": { "en": "Raising your voice or being aggressive", "zh": "提高音量或表现激烈", "vi": "Nói to hoặc cư xử thô lỗ", "id": "Meninggikan suara atau bersikap agresif" } },
+        { "id": "B", "label": { "en": "Listening respectfully", "zh": "尊重倾听", "vi": "Lắng nghe tôn trọng", "id": "Mendengarkan dengan hormat" } },
+        { "id": "C", "label": { "en": "Explaining calmly", "zh": "平静地解释", "vi": "Giải thích bình tĩnh", "id": "Menjelaskan dengan tenang" } },
+        { "id": "D", "label": { "en": "Using polite words", "zh": "使用礼貌语言", "vi": "Dùng lời lịch sự", "id": "Gunakan kata sopan" } }
+      ],
+      "answer": "A",
+      "explanation": {
+        "en": "Being calm and respectful helps maintain a positive tone in disagreement.",
+        "zh": "保持冷静和尊重有助于维持积极的讨论氛围。",
+        "vi": "Bình tĩnh và tôn trọng giúp giữ không khí tích cực khi bất đồng.",
+        "id": "Bersikap tenang dan hormat membantu menjaga suasana positif saat berbeda pendapat."
+      }
+    },
+    {
+      "key": "quiz.q20",
+      "type": "mcq",
+      "prompt": {
+        "en": "What is one key part of Australian meeting culture?",
+        "zh": "澳大利亚会议文化的一个关键特点是什么？",
+        "vi": "Một đặc điểm quan trọng trong văn hóa họp của Úc là gì?",
+        "id": "Apa salah satu bagian penting dari budaya rapat Australia?"
+      },
+      "options": [
+        { "id": "A", "label": { "en": "Equality and open discussion", "zh": "平等和开放讨论", "vi": "Bình đẳng và thảo luận cởi mở", "id": "Kesetaraan dan diskusi terbuka" } },
+        { "id": "B", "label": { "en": "Strict hierarchy", "zh": "严格的等级制度", "vi": "Hệ thống phân cấp nghiêm ngặt", "id": "Hirarki yang ketat" } },
+        { "id": "C", "label": { "en": "Avoiding all debate", "zh": "避免任何争论", "vi": "Tránh mọi tranh luận", "id": "Menghindari semua perdebatan" } },
+        { "id": "D", "label": { "en": "Only the manager speaks", "zh": "只有经理可以发言", "vi": "Chỉ quản lý mới được phát biểu", "id": "Hanya manajer yang berbicara" } }
+      ],
+      "answer": "A",
+      "explanation": {
+        "en": "Australian meetings value equality and encourage open exchange of ideas.",
+        "zh": "澳大利亚会议强调平等并鼓励开放的思想交流。",
+        "vi": "Các cuộc họp ở Úc đề cao sự bình đẳng và khuyến khích trao đổi cởi mở.",
+        "id": "Rapat di Australia menghargai kesetaraan dan mendorong pertukaran ide terbuka."
+      }
+    }
+  ]
+}
