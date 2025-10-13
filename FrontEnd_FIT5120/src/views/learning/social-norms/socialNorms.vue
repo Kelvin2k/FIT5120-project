@@ -13,7 +13,7 @@
           <div class="col-lg-4 col-md-6 col-12 d-flex justify-content-center mb-4">
             <div class="slide-card-with-image w-100" data-aos="fade-up" data-aos-delay="0">
               <div class="slide-image w-100 mb-3" style="max-height: 250px; height: 200px; min-height: 200px">
-                <div class="img-hover-wrapper" @click="goTo('/meetingpeople')">
+                <div class="img-hover-wrapper" @click="goTo('meetingpeople')">
                   <img
                     src="https://australianautismalliance.org.au/wp-content/uploads/2025/07/hero-_0000_AdobeStock_429987593.jpg"
                     alt="Meeting People" class="slide-img-top w-100 h-100" />
