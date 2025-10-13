@@ -33,7 +33,8 @@ class ScamReportService {
           categoryLevel3: params.categoryLevel3,
           startDate: params.startDate,
           endDate: params.endDate
-        }
+        },
+        timeout: 10000
       })
       return response.data
     } catch (error) {

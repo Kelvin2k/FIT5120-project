@@ -10,9 +10,39 @@
 
       <!-- Crime Hotspots Map -->
       <div class="crime-map-section">
-        <h3 class="map-title">
-          🗺️ {{ t('safety.crime_hotspots_map', 'Crime Hotspots Map') }}
-        </h3>
+        <div class="map-header">
+          <h3 class="map-title">
+            🗺️ {{ t('safety.crime_hotspots_map', 'Crime Hotspots Map') }}
+          </h3>
+          
+          <!-- 筛选器容器 -->
+          <div class="filters-container">
+
+            <!-- 犯罪等级筛选器 -->
+            <div class="level-filter">
+              <label for="level-select" class="filter-label">
+                📊 {{ t('safety.filter_by_level', 'Crime Level') }}:
+              </label>
+              <select 
+                id="level-select"
+                v-model="selectedCrimeLevel" 
+                class="filter-select"
+              >
+                <option value="all">{{ t('safety.all_levels', 'All Levels') }}</option>
+                <option value="very-low">{{ t('safety.very_low_crime', 'Very Low') }}</option>
+                <option value="low">{{ t('safety.low_crime', 'Low') }}</option>
+                <option value="medium">{{ t('safety.medium_crime', 'Medium') }}</option>
+                <option value="high">{{ t('safety.high_crime', 'High') }}</option>
+                <option value="very-high">{{ t('safety.very_high_crime', 'Very High') }}</option>
+              </select>
+            </div>
+
+            <!-- 结果计数 -->
+            <span class="filter-count">
+              ({{ crimeAreas.length }} {{ t('safety.lgas', 'LGAs') }})
+            </span>
+          </div>
+        </div>
 
         <div class="map-container">
           <div id="crime-map" class="crime-map"></div>
@@ -46,8 +76,19 @@
                 </div>
               </div>
               <p class="legend-description">
-                {{ t('safety.points_explanation', 'Each point represents a Local Government Area. Point size and color intensity indicate crime levels - larger and redder points show higher crime counts.') }}
+                {{ t('safety.points_explanation', 'Each point represents a Local Government Area. Point size and color intensity indicate crime levels - larger and deeper red points show higher crime counts.') }}
               </p>
+              <!-- 数据时间说明 -->
+              <div class="metadata-info">
+                <p class="metadata-item">
+                  <strong>{{ t('safety.data_timeframe', 'Data timeframe') }}:</strong>
+                  {{ timeframeText }}
+                </p>
+                <p class="metadata-item">
+                  <strong>{{ t('safety.updated', 'Updated') }}:</strong>
+                  {{ lastUpdatedText }}
+                </p>
+              </div>
             </div>
 
             <div class="legend-section">
@@ -58,7 +99,11 @@
                   <span class="stat-label">{{ t('safety.total_lgas', 'LGAs Covered') }}</span>
                 </div>
                 <div class="stat-item">
-                  <span class="stat-number">{{ Math.round(crimeAreas.reduce((sum, area) => sum + area.offenceCount, 0) / 1000) }}k</span>
+                  <span class="stat-number">
+                    {{
+                      formatNumberSI(crimeAreas.reduce((sum, area) => sum + area.offenceCount, 0))
+                    }}
+                  </span>
                   <span class="stat-label">{{ t('safety.total_offences', 'Total Offences') }}</span>
                 </div>
 
@@ -86,37 +131,35 @@
 
 
         <!-- Selected Region Info -->
-        <div v-if="selectedArea" class="selected-area-info">
-          <h4 class="area-info-title">
-            🚨 {{ selectedArea.name }}
-            </h4>
+        <!-- <div v-if="selectedArea" class="selected-area-info">
+          <h4 class="area-info-title">🚨 {{ selectedArea.name }}</h4>
           <div class="area-stats-grid">
             <div class="area-stat">
               <span class="stat-label">{{ t('safety.total_offences', 'Total Offences') }}:</span>
               <span class="stat-value">{{ selectedArea.offenceCount.toLocaleString() }}</span>
-              </div>
+            </div>
 
             <div class="area-stat" v-if="selectedArea.areas">
               <span class="stat-label">{{ t('safety.areas_included', 'Areas Included') }}:</span>
               <span class="stat-value">{{ selectedArea.areas.length }}</span>
-          </div>
+            </div>
+
             <div class="area-stat">
               <span class="stat-label">{{ t('safety.safety_level', 'Safety Level') }}:</span>
               <span class="stat-value" :class="selectedArea.safetyLevel.class">{{ selectedArea.safetyLevel.text }}</span>
-        </div>
-      </div>
+            </div>
+          </div>
 
-          <!-- Areas breakdown for police regions -->
           <div v-if="selectedArea.areas && selectedArea.areas.length > 1" class="region-areas-breakdown">
             <h5 class="breakdown-title">{{ t('safety.area_breakdown', 'Area Breakdown') }}:</h5>
             <div class="breakdown-list">
               <div v-for="area in selectedArea.areas" :key="area.name" class="breakdown-item">
                 <span class="breakdown-name">{{ area.name }}</span>
                 <span class="breakdown-count">{{ area.offenceCount.toLocaleString() }}</span>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-        </div>
+        </div> -->
       </div>
 
     </div>
@@ -124,7 +167,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
@@ -132,6 +175,32 @@ import { getLGACoordinates, isValidLGA } from '@/data/lgaCoordinates'
 import crimeStatisticsService from '@/services/crimeStatisticsService'
 
 const { t } = useI18n()
+
+// 数值格式化：将 12345 -> 12.3k, 1234567 -> 1.23M
+function formatNumberSI(value) {
+  const n = Number(value || 0)
+  if (!isFinite(n)) return '0'
+  const abs = Math.abs(n)
+  if (abs >= 1e9) return `${(n / 1e9).toFixed(n % 1e9 === 0 ? 0 : 2).replace(/\.0+$/, '')}B`
+  if (abs >= 1e6) return `${(n / 1e6).toFixed(n % 1e6 === 0 ? 0 : 2).replace(/\.0+$/, '')}M`
+  if (abs >= 1e3) return `${(n / 1e3).toFixed(n % 1e3 === 0 ? 0 : 1).replace(/\.0+$/, '')}k`
+  return n.toLocaleString('en-AU')
+}
+
+// 数据时间说明（可根据 API 元数据更新）
+const timeframeText = computed(() => {
+  if (availableYears.value && availableYears.value.length) {
+    const minY = Math.min(...availableYears.value)
+    const maxY = Math.max(...availableYears.value)
+    return `${minY} - ${maxY}`
+  }
+  return 'Last 12 months'
+})
+
+const lastUpdatedText = computed(() => {
+  const d = new Date()
+  return d.toLocaleDateString('en-AU', { year: 'numeric', month: 'short', day: '2-digit' })
+})
 
 // Map and selection state
 let map = null
@@ -198,12 +267,56 @@ const loading = ref(false)
 const error = ref(null)
 const availableYears = ref([])
 const availablePoliceRegions = ref([])
+const selectedPoliceRegion = ref('all') // 筛选警区：'all' 表示全部
+const selectedCrimeLevel = ref('all') // 筛选犯罪等级：'all' 表示全部
+
+// 获取所有唯一的警区（用于筛选器选项）
+const uniquePoliceRegions = computed(() => {
+  const regions = new Set()
+  rawCrimeData.value.forEach(item => {
+    if (item && item.policeRegion) {
+      regions.add(item.policeRegion)
+    }
+  })
+  return Array.from(regions).sort()
+})
+
+// 计算全局归一化基准（使用所有原始数据）
+const globalNormalizationBase = computed(() => {
+  const allProcessedData = []
+  
+  rawCrimeData.value.forEach(item => {
+    const coordinates = getLGACoordinates(item.lga)
+    if (coordinates) {
+      allProcessedData.push({
+        offenceCount: item.offenceCount
+      })
+    }
+  })
+  
+  if (allProcessedData.length === 0) {
+    return { max: 0, min: 0 }
+  }
+  
+  const offenceCounts = allProcessedData.map(area => area.offenceCount)
+  return {
+    max: Math.max(...offenceCounts),
+    min: Math.min(...offenceCounts)
+  }
+})
 
 // Process API data to include coordinates using LGA mapping
 const crimeAreas = computed(() => {
+  let data = rawCrimeData.value
+  
+  // 根据选中的警区筛选
+  if (selectedPoliceRegion.value !== 'all') {
+    data = data.filter(item => item && item.policeRegion === selectedPoliceRegion.value)
+  }
+  
   const processedData = []
 
-  rawCrimeData.value.forEach(item => {
+  data.forEach(item => {
     const coordinates = getLGACoordinates(item.lga)
 
     if (coordinates) {
@@ -219,8 +332,31 @@ const crimeAreas = computed(() => {
     }
   })
 
+  // 根据选中的犯罪等级筛选（使用全局归一化基准）
+  if (selectedCrimeLevel.value !== 'all') {
+    const { max: maxOffences, min: minOffences } = globalNormalizationBase.value
+    
+    return processedData.filter(area => {
+      const normalizedIntensity = maxOffences > minOffences 
+        ? (area.offenceCount - minOffences) / (maxOffences - minOffences)
+        : 0
+      
+      const level = getCrimeLevelClass(normalizedIntensity)
+      return level === selectedCrimeLevel.value
+    })
+  }
+
   return processedData
 })
+
+// 获取犯罪等级的类名（用于筛选）
+const getCrimeLevelClass = (normalizedIntensity) => {
+  if (normalizedIntensity >= 0.8) return 'very-high'
+  if (normalizedIntensity >= 0.6) return 'high'
+  if (normalizedIntensity >= 0.4) return 'medium'
+  if (normalizedIntensity >= 0.2) return 'low'
+  return 'very-low'
+}
 
 // Fetch crime data from API
 const fetchCrimeData = async () => {
@@ -340,28 +476,25 @@ const policeRegionData = computed(() => {
 
 // Create simple point-based crime visualization
 const createHeatmapEffect = (map) => {
-  // Find max crime count for normalization
-  const maxCrimeCount = Math.max(...crimeAreas.value.map(area => area.offenceCount))
+  // 使用全局归一化基准，确保颜色和等级一致
+  const { max: maxCrimeCount, min: minCrimeCount } = globalNormalizationBase.value
 
   crimeAreas.value.forEach(area => {
     const intensity = area.offenceCount
 
-    // Normalize intensity based on crime count (0-1)
-    const normalizedIntensity = intensity / maxCrimeCount
+    // Normalize intensity based on crime count (0-1)，使用全局基准
+    const normalizedIntensity = maxCrimeCount > minCrimeCount
+      ? (intensity - minCrimeCount) / (maxCrimeCount - minCrimeCount)
+      : 0
 
     // Calculate point size based on crime count (larger for more crimes)
     const pointRadius = Math.max(5, Math.min(20, 5 + (normalizedIntensity * 15)))
 
-    // Calculate color based on crime count (blue to red gradient)
-    // 数量越多，颜色越红
-    const red = Math.floor(255 * normalizedIntensity)
-    const blue = Math.floor(255 * (1 - normalizedIntensity))
-    const green = Math.floor(50 * (1 - normalizedIntensity))
-
-    // High opacity for better visibility
-    const opacity = Math.max(0.7, Math.min(1.0, 0.7 + (normalizedIntensity * 0.3)))
-    const fillColor = `rgba(${red}, ${green}, ${blue}, ${opacity})`
-    const borderColor = `rgba(${red}, ${green}, ${blue}, 1.0)`
+    // 使用单一色系（红色）渐变表示强度：越深越高
+    const lightness = 90 - (normalizedIntensity * 55) // 90% -> 35%
+    const opacity = 0.6 + (normalizedIntensity * 0.4)  // 0.6 -> 1.0
+    const fillColor = `hsla(0, 85%, ${lightness}%, ${opacity})`
+    const borderColor = `hsl(0, 85%, ${Math.max(30, lightness - 10)}%)`
 
     // Create single point marker for each LGA
     const pointMarker = L.circleMarker(area.coordinates, {
@@ -501,6 +634,24 @@ const cleanupMap = () => {
   }
 }
 
+
+// 监听筛选条件变化，重新渲染地图
+watch([selectedPoliceRegion, selectedCrimeLevel], () => {
+  if (map) {
+    // 清除现有的热力图层
+    if (map.heatmapLayers) {
+      map.heatmapLayers.forEach(layer => {
+        map.removeLayer(layer)
+      })
+      map.heatmapLayers = []
+    }
+    
+    // 重新创建热力图
+    createHeatmapEffect(map)
+    
+    console.log(`Map updated: ${crimeAreas.value.length} LGAs displayed`)
+  }
+})
 
 // Lifecycle hooks
 onMounted(async () => {
@@ -840,11 +991,116 @@ defineExpose({
   margin-bottom: 2rem;
 }
 
+/* Map header with filter */
+.map-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
 .map-title {
   font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: 1rem;
+  margin: 0;
   color: #333;
+}
+
+/* 筛选器容器 */
+.filters-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.region-filter,
+.level-filter {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  border: 2px solid #e9ecef;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.region-filter:hover,
+.level-filter:hover {
+  border-color: #8e24aa;
+  box-shadow: 0 4px 12px rgba(142, 36, 170, 0.15);
+}
+
+.filter-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #495057;
+  white-space: nowrap;
+}
+
+.filter-select {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #495057;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 180px;
+}
+
+.filter-select:hover {
+  border-color: #8e24aa;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #8e24aa;
+  box-shadow: 0 0 0 3px rgba(142, 36, 170, 0.1);
+}
+
+.filter-count {
+  font-size: 0.9rem;
+  color: #6c757d;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* 响应式：小屏幕时筛选器独占一行 */
+@media (max-width: 768px) {
+  .map-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .filters-container {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .region-filter,
+  .level-filter {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .filter-select {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .filter-count {
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+  }
 }
 
 .map-container {
@@ -890,7 +1146,7 @@ defineExpose({
 
 .legend-points {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   gap: 0.5rem;
 }
 
@@ -911,30 +1167,28 @@ defineExpose({
 
 /* Point sample colors matching the map */
 .very-low-point {
-  background-color: rgba(0, 0, 255, 0.8);
-  border-color: rgba(0, 0, 255, 1.0);
+  background-color: hsla(0, 85%, 90%, 0.8);
+  border-color: hsl(0, 85%, 80%);
 }
 
 .low-point {
-  background-color: rgba(0, 100, 200, 0.8);
-  border-color: rgba(0, 100, 200, 1.0);
+  background-color: hsla(0, 85%, 80%, 0.85);
+  border-color: hsl(0, 85%, 70%);
 }
 
 .medium-point {
-  background-color: rgba(100, 150, 100, 0.8);
-  border-color: rgba(100, 150, 100, 1.0);
+  background-color: hsla(0, 85%, 65%, 0.9);
+  border-color: hsl(0, 85%, 55%);
 }
 
 .high-point {
-  background-color: rgba(255, 165, 0, 0.8);
-  border-color: rgba(255, 165, 0, 1.0);
+  background-color: hsla(0, 85%, 50%, 0.95);
+  border-color: hsl(0, 85%, 40%);
 }
 
 .very-high-point {
-  background-color: rgba(255, 0, 0, 0.9);
-  border-color: rgba(255, 0, 0, 1.0);
-  width: 20px;
-  height: 20px;
+  background-color: hsla(0, 85%, 35%, 1);
+  border-color: hsl(0, 85%, 25%);
 }
 
 /* Legend Description */

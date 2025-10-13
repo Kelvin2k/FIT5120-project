@@ -33,9 +33,38 @@
 
       <!-- 最新诈骗警报 -->
       <div class="latest-alerts">
-        <h3 class="section-title">
-          🚨 {{ t('safety.latest_scam_alerts', 'Latest Scam Alerts') }}
-        </h3>
+        <div class="alerts-header">
+          <div>
+            <h3 class="section-title">
+              🚨 {{ t('safety.latest_scam_alerts', 'Latest Scam Alerts') }}
+            </h3>
+            <p class="section-note">{{ t('safety.victoria_only', 'Note: Victoria only') }}</p>
+          </div>
+          
+          <!-- 类型筛选器 -->
+          <div class="category-filter">
+            <label for="category-select" class="filter-label">
+              🔍 {{ t('safety.filter_by_type', 'Filter by Type') }}:
+            </label>
+            <select 
+              id="category-select"
+              v-model="selectedCategory" 
+              class="filter-select"
+            >
+              <option value="all">{{ t('safety.all_types', 'All Types') }}</option>
+              <option 
+                v-for="category in uniqueCategories" 
+                :key="category" 
+                :value="category"
+              >
+                {{ category }}
+              </option>
+            </select>
+            <span class="filter-count">
+              ({{ formattedScamData.length }} {{ t('safety.results', 'results') }})
+            </span>
+          </div>
+        </div>
 
         <!-- 加载状态 -->
         <div v-if="loading" class="loading-state">
@@ -52,17 +81,18 @@
           </button>
         </div>
 
-        <!-- Data list -->
-        <div v-else-if="formattedScamData.length > 0" class="alerts-list">
+        <!-- Data list (外层滚动容器包裹，避免影响父级宽度/高度) -->
+        <div v-else-if="formattedScamData.length > 0" class="alerts-scroll">
+          <div class="alerts-list horizontal">
           <div
-            v-for="(scam, index) in formattedScamData"
-            :key="scam.id"
+            v-for="(scam, idx) in formattedScamData"
+            :key="scam?.id ?? (scam?.categoryLevel2 + '-' + scam?.categoryLevel3 + '-' + idx)"
             class="scam-card"
+            @click="openScam(scam)"
             :class="scam.priority"
           >
             <!-- Scam header with icon and title -->
             <div class="scam-header">
-              <span class="scam-rank">{{ (pagination.currentPage - 1) * pagination.pageSize + index + 1 }}️⃣</span>
               <span class="scam-icon">{{ scam.icon }}</span>
               <h4 class="scam-title">{{ scam.categoryLevel2 || t('safety.unknown_scam_type', 'Unknown Scam Type') }}</h4>
             </div>
@@ -76,76 +106,73 @@
               </div>
 
               <!-- Additional scam information -->
-              <div class="scam-info">
-                <div class="info-row" v-if="scam.addressState">
-                  <span class="info-label">📍 {{ t('safety.location', 'Location') }}:</span>
-                  <span class="info-value">{{ scam.addressState }}</span>
-                </div>
-                <div class="info-row" v-if="scam.scamContactMode">
-                  <span class="info-label">📞 {{ t('safety.contact_method', 'Contact Method') }}:</span>
-                  <span class="info-value">{{ scam.scamContactMode }}</span>
-                </div>
-                <div class="info-row" v-if="scam.complainantAge">
-                  <span class="info-label">👤 {{ t('safety.victim_age', 'Victim Age') }}:</span>
-                  <span class="info-value">{{ scam.complainantAge }}</span>
-                </div>
-                <div class="info-row" v-if="scam.formattedDate">
-                  <span class="info-label">📅 {{ t('safety.reported_month', 'Reported') }}:</span>
-                  <span class="info-value">{{ scam.formattedDate }}</span>
-                </div>
-              </div>
-            </div>
+          </div>
+        </div>
 
             <!-- Statistics section -->
-            <div class="scam-stats">
-              <div class="stat-item" v-if="scam.numberOfReports">
+            <!-- <div class="scam-stats">
+              <div class="stat-item" v-if="scam && scam.numberOfReports != null">
                 <span class="stat-label">{{ t('safety.reports', 'Reports') }}:</span>
                 <span class="stat-value danger">{{ scam.numberOfReports }}</span>
               </div>
-              <div class="stat-item" v-if="scam.formattedAmount">
+              <div class="stat-item" v-if="scam && scam.formattedAmount">
                 <span class="stat-label">{{ t('safety.amount_lost', 'Amount Lost') }}:</span>
                 <span class="stat-value danger">{{ scam.formattedAmount }}</span>
               </div>
-            </div>
+            </div> -->
 
           </div>
+        </div>
 
-          <!-- 分页控件 -->
-          <div class="pagination" v-if="pagination.totalPages > 1">
-            <button
-              @click="changePage(pagination.currentPage - 1)"
-              :disabled="!pagination.hasPrevious"
-              class="pagination-btn"
-              :class="{ disabled: !pagination.hasPrevious }"
-            >
-              ← {{ t('safety.previous', 'Previous') }}
-            </button>
-
-            <div class="pagination-info">
-              <span class="page-numbers">
-                {{ pagination.currentPage }} / {{ pagination.totalPages }}
-              </span>
-              <span class="total-records">
-                {{ t('safety.total_records', 'Total') }}: {{ pagination.total }}
-              </span>
+        <!-- 详情弹窗：不改动数据，仅展示当前卡片更多信息（放在列表外，避免撑宽横向容器） -->
+        <div v-if="showModal" class="modal-backdrop" @click.self="closeModal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <div class="modal-icon">{{ activeScam?.icon }}</div>
+              <h4 class="modal-title">{{ activeScam?.categoryLevel2 || t('safety.unknown_scam_type', 'Unknown Scam Type') }}</h4>
+              <button class="modal-close" @click="closeModal">✕</button>
             </div>
-
-            <button
-              @click="changePage(pagination.currentPage + 1)"
-              :disabled="!pagination.hasNext"
-              class="pagination-btn"
-              :class="{ disabled: !pagination.hasNext }"
-            >
-              {{ t('safety.next', 'Next') }} →
-            </button>
+            <div class="modal-body">
+              <p class="modal-desc">
+                {{ activeScam?.categoryLevel3 || t('safety.no_description', 'No description available') }}
+              </p>
+              <div class="scam-info">
+                <div class="info-row" v-if="activeScam?.addressState">
+                  <span class="info-label">📍 {{ t('safety.location', 'Location') }}:</span>
+                  <span class="info-value">{{ activeScam.addressState }}</span>
+                </div>
+                <div class="info-row" v-if="activeScam?.scamContactMode">
+                  <span class="info-label">📞 {{ t('safety.contact_method', 'Contact Method') }}:</span>
+                  <span class="info-value">{{ activeScam.scamContactMode }}</span>
+                </div>
+                <div class="info-row" v-if="activeScam?.complainantAge">
+                  <span class="info-label">👤 {{ t('safety.victim_age', 'Victim Age') }}:</span>
+                  <span class="info-value">{{ activeScam.complainantAge }}</span>
+                </div>
+                <div class="info-row" v-if="activeScam?.formattedDate">
+                  <span class="info-label">📅 {{ t('safety.reported_month', 'Reported') }}:</span>
+                  <span class="info-value">{{ activeScam.formattedDate }}</span>
+                </div>
+              </div>
+              <div class="modal-stats">
+                <div class="stat-item" v-if="activeScam?.numberOfReports">
+                  <span class="stat-label">{{ t('safety.reports', 'Reports') }}</span>
+                  <span class="stat-value">{{ activeScam.numberOfReports }}</span>
+                </div>
+                <div class="stat-item" v-if="activeScam?.formattedAmount">
+                  <span class="stat-label">{{ t('safety.amount_lost', 'Amount Lost') }}</span>
+                  <span class="stat-value danger">{{ activeScam.formattedAmount }}</span>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
 
         <!-- 无数据状态 -->
-        <div v-else class="no-data-state">
+        <!-- <div v-else class="no-data-state">
           <div class="no-data-icon">📄</div>
           <p class="no-data-text">{{ t('safety.no_scam_reports', 'No scam reports available') }}</p>
-        </div>
+        </div> -->
       </div>
 
 
@@ -164,6 +191,7 @@ const { t } = useI18n()
 const scamData = ref([])
 const loading = ref(false)
 const error = ref(null)
+const selectedCategory = ref('all') // 筛选类型：'all' 表示全部
 
 // 分页相关数据
 const pagination = ref({
@@ -175,15 +203,33 @@ const pagination = ref({
   hasPrevious: false
 })
 
+// 获取所有唯一的诈骗类型（用于筛选器选项）
+const uniqueCategories = computed(() => {
+  const categories = new Set()
+  scamData.value.forEach(scam => {
+    if (scam && scam.categoryLevel2) {
+      categories.add(scam.categoryLevel2)
+    }
+  })
+  return Array.from(categories).sort()
+})
+
 // Computed property: Format scam data with localization and icons
 const formattedScamData = computed(() => {
-  return scamData.value.map((scam, index) => {
+  let data = Array.isArray(scamData.value) ? scamData.value : []
+  
+  // 根据选中的类型筛选
+  if (selectedCategory.value !== 'all') {
+    data = data.filter(scam => scam && scam.categoryLevel2 === selectedCategory.value)
+  }
+  
+  return data.map((scam, index) => {
     // Assign icons and priority based on scam type
     let icon = '⚠️'
     let priority = 'medium'
  
-    if (scam.categoryLevel2) {
-      const category = scam.categoryLevel2.toLowerCase()
+    if (scam && scam.categoryLevel2) {
+      const category = String(scam.categoryLevel2 || '').toLowerCase()
       if (category.includes('romance') || category.includes('dating') || category.includes('relationship')) {
         icon = '💔'
         priority = 'high'
@@ -206,17 +252,25 @@ const formattedScamData = computed(() => {
     }
 
     return {
-      ...scam,
+      ...(scam || {}),
       icon,
       priority,
       // Format amount for display (remove extra spaces and ensure proper formatting)
-      formattedAmount: scam.amountLost ? scam.amountLost.trim() : null,
+      formattedAmount: scam && scam.amountLost ? String(scam.amountLost).trim() : null,
       // Format date for display
-      formattedDate: scam.startOfMonth ? new Date(scam.startOfMonth).toLocaleDateString('en-AU', { 
+      formattedDate: (scam && scam.startOfMonth) ? new Date(scam.startOfMonth).toLocaleDateString('en-AU', { 
         year: 'numeric', 
         month: 'short' 
       }) : null
     }
+  })
+})
+
+// 只展示 Victoria 州
+const filteredScamData = computed(() => {
+  return formattedScamData.value.filter(r => {
+    const s = (r.addressState || '').toLowerCase()
+    return s.includes('victoria') || s === 'vic' || s === 'vIC'
   })
 })
 
@@ -227,22 +281,26 @@ const fetchScamReports = async (page = 1) => {
  
   try {
     const response = await scamReportService.getScamReports({
-      page,
-      size: pagination.value.pageSize
+      page: 1,
+      size: 100,
+      state: 'Victoria'
     })
  
-    if (response.success) {
-      scamData.value = response.data
+    console.log('[ScamAlerts] response:', response)
+    const respOk = (response && (response.success === true || Array.isArray(response.data)))
+    if (respOk) {
+      scamData.value = Array.isArray(response.data) ? response.data : []
       pagination.value = {
-        currentPage: response.currentPage,
-        pageSize: response.pageSize,
-        total: response.total,
-        totalPages: response.totalPages,
-        hasNext: response.hasNext,
-        hasPrevious: response.hasPrevious
+        currentPage: 1,
+        pageSize: (Array.isArray(response.data) ? response.data.length : 0),
+        total: (Array.isArray(response.data) ? response.data.length : 0),
+        totalPages: 1,
+        hasNext: false,
+        hasPrevious: false
       }
     } else {
-      throw new Error(response.message || 'Failed to fetch data')
+      console.error('[ScamAlerts] bad response shape:', response)
+      throw new Error(response?.message || 'Failed to fetch data')
     }
   } catch (err) {
     error.value = err.message || 'Failed to fetch scam reports. Please try again later.'
@@ -267,6 +325,13 @@ const retryLoad = () => {
 // Fetch data when component is mounted
 onMounted(() => {
   fetchScamReports()
+  // 兜底：12秒仍在loading则停止并提示
+  setTimeout(() => {
+    if (loading.value) {
+      error.value = t('safety.loading_scam_data', 'Loading scam reports...')
+      loading.value = false
+    }
+  }, 12000)
 })
 
 // Protection guidelines (can be used in future features)
@@ -297,14 +362,18 @@ const protectionTips = ref([
   }
 ])
 
+// 仅用于展示弹窗的本地状态，不修改任何数据源
+const showModal = ref(false)
+const activeScam = ref(null)
+function openScam(scam) { activeScam.value = scam; showModal.value = true }
+function closeModal() { showModal.value = false }
+
 
 </script>
 
 <style scoped>
 .scam-alerts {
-  height: 600px;
-  display: flex;
-  flex-direction: column;
+  display: block;
 }
 
 .module-header {
@@ -324,30 +393,89 @@ const protectionTips = ref([
 
 .module-content {
   padding: 1.5rem;
-  flex-grow: 1;
-  overflow-y: auto;
-  max-height: calc(600px - 90px); /* 减去header高度 */
-  scrollbar-width: thin;
-  scrollbar-color: #6f42c1 #f1f1f1;
 }
 
-/* Webkit scrollbar styles */
-.module-content::-webkit-scrollbar {
-  width: 6px;
+/* 移除滚动条，改为直接平铺 */
+
+/* Alerts header with filter */
+.alerts-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
-.module-content::-webkit-scrollbar-track {
-  background: #f8f9fa;
-  border-radius: 10px;
+.category-filter {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 12px;
+  border: 2px solid #e9ecef;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
 }
 
-.module-content::-webkit-scrollbar-thumb {
-  background: #ba68c8;
-  border-radius: 10px;
+.category-filter:hover {
+  border-color: #8e24aa;
+  box-shadow: 0 4px 12px rgba(142, 36, 170, 0.15);
 }
 
-.module-content::-webkit-scrollbar-thumb:hover {
-  background: #8e24aa;
+.filter-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #495057;
+  white-space: nowrap;
+}
+
+.filter-select {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #495057;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 200px;
+}
+
+.filter-select:hover {
+  border-color: #8e24aa;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #8e24aa;
+  box-shadow: 0 0 0 3px rgba(142, 36, 170, 0.1);
+}
+
+.filter-count {
+  font-size: 0.9rem;
+  color: #6c757d;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* 响应式：小屏幕时筛选器独占一行 */
+@media (max-width: 768px) {
+  .alerts-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .category-filter {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .filter-select {
+    flex: 1;
+    min-width: 0;
+  }
 }
 
 /* Warning banner */
@@ -420,11 +548,50 @@ const protectionTips = ref([
   margin-bottom: 1rem;
   color: #333;
 }
+.section-note { margin: -0.5rem 0 0.75rem; color: #6c757d; font-size: .85rem; }
 
 .alerts-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+.alerts-list.horizontal {
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  /* 不设置 width，让内容自然扩展，外层容器负责滚动 */
+}
+.alerts-list.horizontal .scam-card { flex: 0 0 280px; scroll-snap-align: start; }
+
+/* 新增最外层滚动容器，固定宽度、避免撑大父级 */
+.alerts-scroll {
+  width: 60vw;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch; /* iOS 平滑滚动 */
+  scroll-snap-type: x mandatory; /* 滚动捕捉 */
+  padding-bottom: 0.5rem; /* 为滚动条留出空间 */
+  /* 自定义滚动条样式 */
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: rgba(142, 36, 170, 0.3) transparent;
+}
+
+.alerts-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.alerts-scroll::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.alerts-scroll::-webkit-scrollbar-thumb {
+  background: rgba(142, 36, 170, 0.3);
+  border-radius: 10px;
+}
+
+.alerts-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(142, 36, 170, 0.5);
 }
 
 .scam-card {
@@ -451,7 +618,9 @@ const protectionTips = ref([
 
 .scam-header {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   margin-bottom: 1rem;
 }
 
@@ -461,15 +630,16 @@ const protectionTips = ref([
 }
 
 .scam-icon {
-  font-size: 1.5rem;
-  margin-right: 0.75rem;
+  font-size: 2.8rem;
+  margin: 0 0 0.4rem 0;
 }
 
 .scam-title {
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: 1.05rem;
+  font-weight: 700;
   margin: 0;
   color: #333;
+  text-align: center;
 }
 
 /* Scam details section */
@@ -550,6 +720,17 @@ const protectionTips = ref([
 .stat-value.danger {
   color: #dc3545;
 }
+
+/* Modal */
+.modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.3); display: flex; align-items: center; justify-content: center; z-index: 1000; }
+.modal-content { width: min(560px, 92vw); background: #fff; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,.2); overflow: hidden; }
+.modal-header { display: flex; align-items: center; gap: .75rem; padding: 1rem; border-bottom: 1px solid #eee; }
+.modal-icon { font-size: 1.4rem; }
+.modal-title { margin: 0; font-size: 1.05rem; font-weight: 700; }
+.modal-close { margin-left: auto; border: none; background: transparent; font-size: 1.1rem; cursor: pointer; }
+.modal-body { padding: 1rem; }
+.modal-desc { margin: 0 0 .75rem; color: #444; }
+.modal-stats { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
 
 
 /* 加载状态样式 */
@@ -715,12 +896,7 @@ const protectionTips = ref([
 
 /* 响应式设计 */
 @media (max-width: 768px) {
-  .scam-alerts {
-    height: 500px;
-  }
-  
   .module-content {
-    max-height: calc(500px - 80px);
     padding: 1rem;
   }
 
@@ -778,12 +954,7 @@ const protectionTips = ref([
 
 /* 小屏幕设备优化 */
 @media (max-width: 480px) {
-  .scam-alerts {
-    height: 450px;
-  }
-  
   .module-content {
-    max-height: calc(450px - 70px);
     padding: 0.8rem;
   }
   

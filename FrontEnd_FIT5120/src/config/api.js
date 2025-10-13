@@ -8,7 +8,7 @@ import axios from 'axios'
 // - 'production' → npm run build 后部署的版本
 // =========================================================
 
-const baseURL='http://54.252.184.10:5566/api'
+const baseURL='https://ankanglife.social/api'
 // const baseURL =
 //   import.meta.env.MODE === 'development'
 //     ? 'http://localhost:5566/api'        // ✅ 本地 Spring Boot 后端
