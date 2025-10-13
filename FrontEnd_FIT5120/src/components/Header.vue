@@ -92,8 +92,7 @@
                     <router-link class="dropdown-item" :to="item.to">{{ $t(item.text) }}</router-link>
                   </li>
                 </ul>
-                <ul v-if="link.children === 'navigateYourLife' && isDesktop" class="dropdown-menu"
-                  data-bs-toggle="dropdown" aria-expanded="false">
+                <ul v-if="link.children === 'navigateYourLife' && isDesktop" class="dropdown-menu">
                   <li v-for="(item, idx) in navigateYourLife" :key="idx">
                     <router-link class="dropdown-item" :to="item.to">{{ $t(item.text) }}</router-link>
                   </li>
