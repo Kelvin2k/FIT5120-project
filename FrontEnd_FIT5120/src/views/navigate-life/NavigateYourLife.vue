@@ -1,28 +1,32 @@
 <template>
-  <div class="modern-sections">
+  <div>
     <BannerMeteor :title="$t('navigate_your_life.title')"
       :subtitle="$t('navigate_your_life.subtitle', 'Your comprehensive guide to daily life in Australia')"
       :badges="lifeBadges" :mainIcon="mainIcon" />
 
-    <div class="cards-wrapper mt-5">
-      <div class="row w-100 m-0">
-        <div v-for="(card, idx) in cards" :key="card.key"
-          class="col-lg-4 col-md-6 col-12 d-flex justify-content-center mb-4">
-          <div class="slide-card-with-image w-100" :data-aos="idx % 2 === 0 ? 'fade-down' : 'fade-up'"
-            :data-aos-delay="`${0 + idx * 100}`">
-            <div class="slide-image w-100 mb-3" style="max-height: 250px; height: 200px; min-height: 200px">
-              <div class="img-hover-wrapper" @click="goTo(card.key)">
-                <img :src="card.img" :alt="card.title" class="slide-img-top w-100 h-100" />
+    <div class="learning-slider-container justify-content-center container">
+      <div class="slider-content">
+        <div :class="['cards-wrapper', 'grid']">
+          <div class="row w-100 m-0">
+            <div v-for="(card, idx) in cards" :key="card.key"
+              class="col-lg-4 col-md-6 col-12 d-flex justify-content-center mb-4">
+              <div :class="['slide-card-with-image', 'w-100', 'grid']"
+                :data-aos="idx % 2 === 0 ? 'fade-down' : 'fade-up'" :data-aos-delay="`${0 + idx * 100}`">
+                <div class="slide-image w-100 mb-3" style="max-height: 250px; height: 200px; min-height: 200px">
+                  <div class="img-hover-wrapper" @click="goTo(card.key)">
+                    <img :src="card.img" :alt="card.title" class="slide-img-top w-100 h-100" />
+                  </div>
+                </div>
+                <div class="slide-card text-center">
+                  <h2 class="slide-title">{{ card.title }}</h2>
+                  <p class="slide-desc">{{ card.text }}</p>
+                </div>
+                <div class="d-flex justify-content-center mt-3">
+                  <button class="learn-more-btn" @click="goTo(card.key)">
+                    {{ $t('button_learnmore.label') }}
+                  </button>
+                </div>
               </div>
-            </div>
-            <div class="slide-card text-center">
-              <h2 class="slide-title">{{ card.title }}</h2>
-              <p class="slide-desc">{{ card.text }}</p>
-            </div>
-            <div class="d-flex justify-content-center mt-3">
-              <button class="learn-more-btn" @click="goTo(card.key)">
-                {{ $t('button_learnmore.label') }}
-              </button>
             </div>
           </div>
         </div>
@@ -35,7 +39,8 @@
 import { computed, onMounted, ref, h } from 'vue';
 import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
-import BannerMeteor from '@/components/BannerMeteor.vue'
+import BannerMeteor from '@/components/BannerMeteor.vue';
+import AOS from 'aos';
 
 const router = useRouter();
 const { t } = useI18n();
@@ -112,26 +117,36 @@ function goTo(key) {
 const loaded = ref(false);
 onMounted(() => {
   setTimeout(() => (loaded.value = true), 100);
+  AOS.init();
 });
 </script>
 
 <style scoped>
-.modern-sections {
-  width: 100%;
-  min-height: 100vh;
-  background: #ffffff;
-  padding: 0 0 40px 0;
-  font-family: 'Roboto', 'Arial', sans-serif;
+.learning-slider-container {
+  min-height: 80vh;
+  background: #74238b00;
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: 'Quicksand', 'Arial', sans-serif;
 }
 
 .cards-wrapper {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+}
+
+.slider-content {
+  width: 100%;
+  min-height: 250px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #222;
+  padding-bottom: 24px;
+  padding-top: 24px;
 }
 
 .slide-card-with-image {
@@ -148,6 +163,9 @@ onMounted(() => {
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
+}
+
+.slide-card-with-image.grid {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -170,7 +188,7 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .slide-title {
@@ -179,18 +197,25 @@ onMounted(() => {
   font-weight: 700;
   margin-bottom: 16px;
   letter-spacing: 0.5px;
-  text-align: center;
+  text-align: start;
 }
 
 .slide-desc {
   color: #222;
   font-size: 1.08rem;
   margin-bottom: 8px;
-  text-align: center;
+  text-align: start;
 }
 
-.slide-image {
-  position: relative;
+.slide-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  background: #fff;
+  border: none;
+  transition: transform 0.5s;
+  display: block;
 }
 
 .img-hover-wrapper {
@@ -255,10 +280,22 @@ onMounted(() => {
 }
 
 @media (max-width: 900px) {
+  .slider-content {
+    font-size: 1.1rem;
+    margin: 16px auto 0 auto;
+    padding-bottom: 8px;
+  }
+
   .slide-card-with-image {
     padding: 16px 10px;
     gap: 12px;
     margin: 0;
+  }
+
+  .slide-card-with-image.grid {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
   }
 
   .slide-card {
@@ -266,16 +303,37 @@ onMounted(() => {
     align-items: center;
   }
 
+  .slide-image img {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .slider-content {
+    font-size: 0.95rem;
+  }
+
+  .slide-card {
+    padding: 8px 4px;
+    font-size: 0.9rem;
+  }
+
   .slide-title {
     font-size: 1.1rem;
     margin-bottom: 8px;
-    text-align: center;
   }
 
   .slide-desc {
     font-size: 0.85rem;
     margin-bottom: 4px;
-    text-align: center;
+  }
+
+  .slide-image img {
+    width: 80px;
+    height: 80px;
+    border-radius: 7px;
   }
 }
 </style>

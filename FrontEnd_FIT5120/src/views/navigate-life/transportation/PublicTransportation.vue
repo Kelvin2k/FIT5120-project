@@ -1,31 +1,35 @@
 <template>
-  <div class="modern-sections">
+  <div>
     <BannerMeteor :title="$t('navigate_your_life.cards.publictransportation.title')"
       :subtitle="$t('navigate_your_life.cards.publictransportation.subtitle')" :badges="transportBadges"
       :main-icon="mainIcon" />
 
-    <div class="cards-wrapper mt-5">
-      <div class="row w-100 m-0">
-        <div v-for="(card, idx) in cards" :key="card.route"
-          class="col-lg-4 col-md-6 col-12 d-flex justify-content-center mb-4">
-          <div class="slide-card-with-image w-100" :data-aos="idx % 2 === 0 ? 'fade-down' : 'fade-up'"
-            :data-aos-delay="`${0 + idx * 100}`">
-            <div class="slide-image w-100 mb-3" style="max-height: 250px; height: 200px; min-height: 200px">
-              <div class="img-hover-wrapper" @click="goTo(card.route)">
-                <img :src="card.img" :alt="card.title()" class="slide-img-top w-100 h-100" />
-                <div class="portfolio__overlay">
-                  <div class="overlay-title">{{ card.title() }}</div>
+    <div class="learning-slider-container justify-content-center container">
+      <div class="slider-content">
+        <div :class="['cards-wrapper', 'grid']">
+          <div class="row w-100 m-0">
+            <div v-for="(card, idx) in cards" :key="card.route"
+              class="col-lg-4 col-md-6 col-12 d-flex justify-content-center mb-4">
+              <div :class="['slide-card-with-image', 'w-100', 'grid']"
+                :data-aos="idx % 2 === 0 ? 'fade-down' : 'fade-up'" :data-aos-delay="`${0 + idx * 100}`">
+                <div class="slide-image w-100 mb-3" style="max-height: 250px; height: 200px; min-height: 200px">
+                  <div class="img-hover-wrapper" @click="goTo(card.route)">
+                    <img :src="card.img" :alt="card.title()" class="slide-img-top w-100 h-100" />
+                    <div class="portfolio__overlay">
+                      <div class="overlay-title">{{ card.title() }}</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="slide-card text-center">
+                  <h2 class="slide-title">{{ card.title() }}</h2>
+                  <p class="slide-desc">{{ card.desc() }}</p>
+                </div>
+                <div class="d-flex justify-content-center mt-3">
+                  <button class="learn-more-btn" @click="goTo(card.route)">
+                    {{ $t('button_learnmore.label') }}
+                  </button>
                 </div>
               </div>
-            </div>
-            <div class="slide-card text-center">
-              <h2 class="slide-title">{{ card.title() }}</h2>
-              <p class="slide-desc">{{ card.desc() }}</p>
-            </div>
-            <div class="d-flex justify-content-center mt-3">
-              <button class="learn-more-btn" @click="goTo(card.route)">
-                {{ $t('button_learnmore.label') }}
-              </button>
             </div>
           </div>
         </div>
@@ -37,8 +41,9 @@
 <script setup>
 import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';
-import { h } from 'vue';
-import BannerMeteor from '@/components/BannerMeteor.vue'
+import { h, onMounted } from 'vue';
+import BannerMeteor from '@/components/BannerMeteor.vue';
+import AOS from 'aos';
 
 const { t, locale } = useI18n({ useScope: 'global' });
 const router = useRouter();
@@ -112,25 +117,39 @@ const cards = [
 function goTo(route) {
   router.push(route);
 }
+
+// Ensure AOS is initialized on mount
+onMounted(() => {
+  AOS.init();
+});
 </script>
 
 <style scoped>
-.modern-sections {
-  background: #ffffff;
-  width: 100%;
-  min-height: 100vh;
-  padding: 0 0 40px 0;
-  font-family: 'Roboto', 'Arial', sans-serif;
+.learning-slider-container {
+  min-height: 80vh;
+  background: #74238b00;
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: 'Quicksand', 'Arial', sans-serif;
 }
 
 .cards-wrapper {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+}
+
+.slider-content {
+  width: 100%;
+  min-height: 250px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #222;
+  padding-bottom: 24px;
+  padding-top: 24px;
 }
 
 .slide-card-with-image {
@@ -147,6 +166,9 @@ function goTo(route) {
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
+}
+
+.slide-card-with-image.grid {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -169,7 +191,7 @@ function goTo(route) {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .slide-title {
@@ -178,18 +200,25 @@ function goTo(route) {
   font-weight: 700;
   margin-bottom: 16px;
   letter-spacing: 0.5px;
-  text-align: center;
+  text-align: start;
 }
 
 .slide-desc {
   color: #222;
   font-size: 1.08rem;
   margin-bottom: 8px;
-  text-align: center;
+  text-align: start;
 }
 
-.slide-image {
-  position: relative;
+.slide-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  background: #fff;
+  border: none;
+  transition: transform 0.5s;
+  display: block;
 }
 
 .img-hover-wrapper {
@@ -282,10 +311,22 @@ function goTo(route) {
 }
 
 @media (max-width: 900px) {
+  .slider-content {
+    font-size: 1.1rem;
+    margin: 16px auto 0 auto;
+    padding-bottom: 8px;
+  }
+
   .slide-card-with-image {
     padding: 16px 10px;
     gap: 12px;
     margin: 0;
+  }
+
+  .slide-card-with-image.grid {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
   }
 
   .slide-card {
@@ -293,16 +334,37 @@ function goTo(route) {
     align-items: center;
   }
 
+  .slide-image img {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .slider-content {
+    font-size: 0.95rem;
+  }
+
+  .slide-card {
+    padding: 8px 4px;
+    font-size: 0.9rem;
+  }
+
   .slide-title {
     font-size: 1.1rem;
     margin-bottom: 8px;
-    text-align: center;
   }
 
   .slide-desc {
     font-size: 0.85rem;
     margin-bottom: 4px;
-    text-align: center;
+  }
+
+  .slide-image img {
+    width: 80px;
+    height: 80px;
+    border-radius: 7px;
   }
 }
 </style>
