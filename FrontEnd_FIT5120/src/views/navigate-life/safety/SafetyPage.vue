@@ -14,7 +14,8 @@
         <nav class="safety-float-nav" :class="{ 'is-sticky': isSticky }">
           <ul>
             <li :class="{ active: activeSection === 'hazard' }">
-              <button @click="scrollTo('hazard')">{{ t('safety.hazard_warnings', 'Weather & Hazard Warnings') }}</button>
+              <button @click="scrollTo('hazard')">{{ t('safety.hazard_warnings', 'Weather & Hazard Warnings')
+                }}</button>
             </li>
             <li :class="{ active: activeSection === 'crime' }">
               <button @click="scrollTo('crime')">{{ t('safety.crime_hotspots', 'Crime Hotspots') }}</button>
@@ -23,31 +24,32 @@
               <button @click="scrollTo('scam')">{{ t('safety.scam_alerts', 'Scam Alerts') }}</button>
             </li>
             <li :class="{ active: activeSection === 'tips' }">
-              <button @click="scrollTo('tips')">{{ t('safety.safety_tips', 'Safety Tips & Emergency Contacts') }}</button>
+              <button @click="scrollTo('tips')">{{ t('safety.safety_tips', 'Safety Tips & Emergency Contacts')
+                }}</button>
             </li>
           </ul>
         </nav>
 
         <div class="safety-grid">
-        <!-- 天气预警模块 -->
-        <section id="hazard" class="safety-module hazard-section" ref="hazardRef">
-          <HazardWarnings />
-        </section>
+          <!-- 天气预警模块 -->
+          <section id="hazard" class="safety-module hazard-section" ref="hazardRef">
+            <HazardWarnings />
+          </section>
 
-        <!-- 犯罪热点模块 -->
-        <section id="crime" class="safety-module crime-section" ref="crimeRef">
-          <CrimeHotspots />
-        </section>
+          <!-- 犯罪热点模块 -->
+          <section id="crime" class="safety-module crime-section" ref="crimeRef">
+            <CrimeHotspots />
+          </section>
 
-        <!-- 诈骗警报模块 -->
-        <section id="scam" class="safety-module scam-section" ref="scamRef">
-          <ScamAlerts />
-        </section>
+          <!-- 诈骗警报模块 -->
+          <section id="scam" class="safety-module scam-section" ref="scamRef">
+            <ScamAlerts />
+          </section>
 
-        <!-- 安全提示模块 -->
-        <section id="tips" class="safety-module tips-section" ref="tipsRef">
-          <SafetyTips />
-        </section>
+          <!-- 安全提示模块 -->
+          <section id="tips" class="safety-module tips-section" ref="tipsRef">
+            <SafetyTips />
+          </section>
         </div>
       </div>
 
@@ -62,7 +64,7 @@
       </div>
     </div>
   </div>
-  
+
 </template>
 
 <script setup>
@@ -148,8 +150,21 @@ onUnmounted(() => {
 
 .safety-content {
   width: 100%;
+  max-width: 1600px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 2rem 1rem;
+}
+
+@media (max-width: 768px) {
+  .safety-content {
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .safety-content {
+    padding: 1rem 0.75rem;
+  }
 }
 
 /* 两列布局：左侧为导航，右侧为内容 */
@@ -157,22 +172,46 @@ onUnmounted(() => {
   display: grid;
   grid-template-columns: 240px 1fr;
   align-items: start;
-  gap: 1rem;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
 }
+
+@media (max-width: 1200px) {
+  .safety-layout {
+    grid-template-columns: 200px 1fr;
+    gap: 1.5rem;
+  }
+}
+
 @media (max-width: 991px) {
   .safety-layout {
     grid-template-columns: 1fr;
+    gap: 0;
   }
 }
 
 .safety-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0; /* 取消模块间隙使其连贯 */
+  gap: 0;
   margin-bottom: 2rem;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  max-width: 100%;
+}
+
+@media (min-width: 992px) {
+  .safety-grid {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (min-width: 1400px) {
+  .safety-grid {
+    width: 85%;
+  }
 }
 
 /* 让四个模块连贯起来：去除卡片视觉 */
@@ -184,8 +223,8 @@ onUnmounted(() => {
   transition: none;
   width: 100%;
   border: none;
-  padding: 2rem 0; /* 给模块留出自然留白 */
-  scroll-margin-top: 80px; /* 便于锚点滚动后不被导航遮挡 */
+  padding: 2.5rem 0;
+  scroll-margin-top: 180px;
 }
 
 .safety-module:hover {
@@ -193,12 +232,42 @@ onUnmounted(() => {
   box-shadow: none;
 }
 
+@media (max-width: 991px) {
+  .safety-module {
+    scroll-margin-top: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .safety-module {
+    scroll-margin-top: 140px;
+  }
+}
+
+@media (max-width: 576px) {
+  .safety-module {
+    scroll-margin-top: 130px;
+  }
+}
+
 .emergency-section {
   text-align: center;
-  margin: 2rem 0;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 2rem auto;
+  width: 100%;
+  max-width: 600px;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .emergency-section {
+    width: 90%;
+  }
+}
+
+@media (min-width: 992px) {
+  .emergency-section {
+    width: 80%;
+  }
 }
 
 .emergency-btn {
@@ -233,60 +302,72 @@ onUnmounted(() => {
   font-style: italic;
 }
 
-/* 老人友好化设计 */
+/* 老人友好化设计 - Tablet */
 @media (max-width: 768px) {
   .safety-grid {
-    gap: 1rem;
-    width: 90%;
+    gap: 1.5rem;
+    width: 100%;
     padding: 0;
   }
 
-  .safety-header {
+  .safety-module {
     padding: 1.5rem 0;
-    margin-bottom: 1rem;
-  }
-
-  .safety-title {
-    font-size: 2rem;
-  }
-
-  .safety-subtitle {
-    font-size: 1.1rem;
-  }
-
-  .emergency-section {
-    width: 90%;
-    margin: 1.5rem auto;
+    scroll-margin-top: 150px;
   }
 
   .emergency-btn {
-    padding: 1.2rem 2rem;
+    padding: 1.3rem 2.5rem;
     font-size: 1.3rem;
+  }
+
+  .emergency-note {
+    font-size: 0.95rem;
   }
 }
 
-/* 小屏幕设备优化 */
-@media (max-width: 480px) {
+/* 小屏幕设备优化 - Mobile */
+@media (max-width: 576px) {
+  .safety-content {
+    padding: 0 0.75rem;
+  }
+
+  .safety-grid {
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .safety-module {
+    padding: 1rem 0;
+    scroll-margin-top: 130px;
+  }
+
+  .emergency-section {
+    padding: 0 0.5rem;
+  }
+
+  .emergency-btn {
+    padding: 1.1rem 2rem;
+    font-size: 1.2rem;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .emergency-note {
+    font-size: 0.9rem;
+    margin-top: 0.75rem;
+  }
+}
+
+/* 极小屏幕优化 */
+@media (max-width: 380px) {
   .safety-content {
     padding: 0 0.5rem;
   }
 
-  .safety-grid {
-    width: 95%;
-    gap: 0.8rem;
-  }
-
-  .emergency-section {
-    width: 95%;
-    margin: 1rem auto;
-  }
-
-  .safety-title {
-    font-size: 1.8rem;
-  }
-
-  .safety-subtitle {
-    font-size: 1rem;
+  .emergency-btn {
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    border-radius: 40px;
   }
 }
 
@@ -323,64 +404,117 @@ onUnmounted(() => {
 /* 悬浮导航样式 */
 .safety-float-nav {
   position: sticky;
-  top: 170px; /* 更早开始吸顶，避免被头部遮挡 */
+  top: 170px;
   z-index: 100;
   width: 100%;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(8px);
   border: 1px solid #eee;
   border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   margin-top: 70px;
+  transition: all 0.3s ease;
 }
+
 .safety-float-nav ul {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
   list-style: none;
   margin: 0;
-  padding: 0.6rem;
+  padding: 0.8rem;
 }
+
 .safety-float-nav li button {
   background: transparent;
   border: none;
-  padding: 0.55rem 0.8rem;
+  padding: 0.75rem 1rem;
   border-radius: 10px;
   cursor: pointer;
   font-weight: 600;
   color: #555;
   width: 100%;
   text-align: left;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
 }
+
+.safety-float-nav li button:hover {
+  background: rgba(142, 36, 170, 0.1);
+  color: #8e24aa;
+  transform: translateX(4px);
+}
+
 .safety-float-nav li.active button {
   background: #8e24aa;
   color: #fff;
+  box-shadow: 0 4px 12px rgba(142, 36, 170, 0.3);
 }
-.safety-float-nav.is-sticky { box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+
+.safety-float-nav.is-sticky {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
 
 /* 移动端回退为顶部横向条（导航在内容上方） */
 @media (max-width: 991px) {
   .safety-float-nav {
     position: sticky;
-    top: 0;
-    width: 100%;
+    top: 80px;
+    width: calc(100% + 2rem);
+    margin-left: -1rem;
+    margin-right: -1rem;
+    margin-top: 0;
     border-radius: 0;
     border: 0;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    border-bottom: 1px solid #eee;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.98);
   }
+
   .safety-float-nav ul {
     flex-direction: row;
     gap: 0.5rem;
     padding: 0.75rem 1rem;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
   }
+
+  .safety-float-nav ul::-webkit-scrollbar {
+    display: none;
+  }
+
   .safety-float-nav li button {
     width: auto;
     white-space: nowrap;
     border-radius: 999px;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
   }
+
+  .safety-float-nav li button:hover {
+    transform: none;
+  }
+
   .safety-content {
-    padding-left: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .safety-float-nav {
+    top: 70px;
+  }
+
+  .safety-float-nav ul {
+    padding: 0.6rem 0.75rem;
+    gap: 0.4rem;
+  }
+
+  .safety-float-nav li button {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
   }
 }
 
@@ -388,17 +522,21 @@ onUnmounted(() => {
 :deep(.module-header) {
   background: transparent !important;
   border-bottom: none !important;
-  padding: 0 0 0.5rem 0 !important;
+  padding: 0 0 1rem 0 !important;
 }
+
 :deep(.module-title) {
   text-align: left !important;
   color: #5a2a82 !important;
+  font-size: clamp(1.5rem, 4vw, 2rem) !important;
 }
+
 :deep(.module-content) {
   padding: 0 !important;
   background: transparent !important;
   box-shadow: none !important;
 }
+
 :deep(.current-weather),
 :deep(.tips-category),
 :deep(.tip-card),
@@ -407,14 +545,50 @@ onUnmounted(() => {
 :deep(.warning-item) {
   box-shadow: none !important;
 }
+
 :deep(.tips-category) {
   background: transparent !important;
   border: none !important;
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
+
 :deep(.crime-map-section .map-legend),
 :deep(.weather-stats .stat-item) {
   box-shadow: none !important;
+}
+
+/* Responsive adjustments for child components */
+@media (max-width: 768px) {
+  :deep(.module-header) {
+    padding: 0 0 0.75rem 0 !important;
+  }
+
+  :deep(.module-title) {
+    font-size: 1.5rem !important;
+  }
+
+  :deep(.tip-card),
+  :deep(.warning-item),
+  :deep(.resource-link) {
+    padding: 0.75rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  :deep(.module-header) {
+    padding: 0 0 0.5rem 0 !important;
+  }
+
+  :deep(.module-title) {
+    font-size: 1.3rem !important;
+  }
+
+  :deep(.tip-card),
+  :deep(.warning-item),
+  :deep(.resource-link) {
+    padding: 0.5rem !important;
+    font-size: 0.9rem !important;
+  }
 }
 </style>

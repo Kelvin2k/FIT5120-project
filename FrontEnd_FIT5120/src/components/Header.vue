@@ -1,7 +1,7 @@
 <template>
   <div class="header-w">
     <!-- Top info bar -->
-    <div class="top-info-bar d-block">
+    <div class="top-info-bar d-none">
       <div class="container-fluid">
         <div class="row align-items-center">
           <div class="col-md-8">
@@ -104,6 +104,21 @@
               <router-link class="nav-link" :to="link.to">
                 <span class="nav-text">{{ $t(link.text) }}</span>
               </router-link>
+            </li>
+            <!-- Language Selector -->
+            <li class="nav-item dropdown">
+              <div class="nav-link dropdown-hover">
+                <span>{{ $t('nav.language') }}: <strong>{{ $t(currentLangText) }}</strong></span>
+                <ul class="dropdown-menu">
+                  <li v-for="lang in languages" :key="lang.code">
+                    <a class="dropdown-item" href="#" @click.prevent="setLang(lang.code)"
+                      :class="{ active: locale === lang.code }">
+                      {{ $t(lang.text) }}
+                      <span v-if="locale === lang.code" class="check-mark-dropdown">&#10003;</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </li>
           </ul>
         </TransitionGroup>
@@ -517,7 +532,7 @@ function setLang(lang) {
   position: absolute;
   left: 0;
   top: 100%;
-  min-width: 220px;
+  min-width: 100%;
   z-index: 999;
   transform: translateY(-10px);
   transition: opacity 0.35s cubic-bezier(.4, 0, .2, 1), transform 0.35s cubic-bezier(.4, 0, .2, 1);
@@ -556,6 +571,16 @@ function setLang(lang) {
 .dropdown-item.router-link-active {
   background: linear-gradient(135deg, #6B46C1 0%, #8B5CF6 100%);
   color: white !important;
+}
+
+.dropdown-item.active {
+  background: linear-gradient(135deg, #6B46C1 0%, #8B5CF6 100%);
+  color: white !important;
+}
+
+.check-mark-dropdown {
+  margin-left: 8px;
+  font-weight: bold;
 }
 
 /* Animations */
