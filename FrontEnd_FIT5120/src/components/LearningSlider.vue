@@ -57,7 +57,7 @@ const props = defineProps({
 const originalCards = ref([])
 const translatedCards = ref([])
 const quizBtnText = ref('Take Quiz')
-const clickMoreText = ref('Click more to see')
+const clickMoreText = ref('Click to see more')
 
 function buildTranslationTexts(cards) {
   const texts = []
