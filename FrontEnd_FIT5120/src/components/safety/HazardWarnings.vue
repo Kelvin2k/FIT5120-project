@@ -141,13 +141,15 @@ const fetchWeatherData = async () => {
   try {
     console.log('🌤️ Fetching weather data from BOM (via Vite proxy)...')
 
-    // ✅ 关键修改：访问 /bom/fwo/ 而不是 /bom.gov.au/fwo/
-    const bomUrl =
-      import.meta.env.MODE === 'development'
-        ? '/bom/fwo/IDV60901/IDV60901.95936.json' // 本地用 Vite 代理
-        : 'https://corsproxy.io/?https://reg.bom.gov.au/fwo/IDV60901/IDV60901.95936.json' // 部署后直接访问 BOM
+// ✅ 关键修改：访问 /bom/fwo/ 而不是 /bom.gov.au/fwo/
+const bomUrl =
+  import.meta.env.MODE === 'development'
+    ? '/bom/fwo/IDV60901/IDV60901.95936.json' // ✅ 本地用 Vite 代理
+    : 'https://api.allorigins.win/raw?url=' + 
+      encodeURIComponent('https://reg.bom.gov.au/fwo/IDV60901/IDV60901.95936.json'); // ✅ 部署后使用稳定代理
 
-    const response = await axios.get(bomUrl, { timeout: 10000 })
+// ✅ 延长超时（由10秒改为20秒）
+    const response = await axios.get(bomUrl, { timeout: 20000 })
 
     const latest = response.data.observations.data[0]
     const header = response.data.observations.header[0]
