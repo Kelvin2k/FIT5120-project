@@ -157,7 +157,7 @@ const router = createRouter({
   ],
 })
 
-// Navigation guard to check authentication
+// Navigation guard to check for authentication
 router.beforeEach((to, from, next) => {
   if (to.meta.requiresAuth && !isAuthenticated()) {
     next('/passcode')
