@@ -24,7 +24,7 @@
           <div v-if="messages.length === 0" class="welcome-message">
             <div class="welcome-avatar">Hi!</div>
             <div class="welcome-text">
-              <p><strong>Hey there! I'm Emma, your friendly English conversation partner!</strong></p>
+              <p><strong>Hey there! I'm Jojo, your friendly English conversation partner!</strong></p>
               <p>I'm here to help you practice English in a natural, fun way. Just chat with me like you would with a
                 friend over coffee!</p>
               <p>Ask me anything, tell me about your day, or let's talk about topics you're interested in. Ready to
@@ -43,11 +43,11 @@
             <div v-else-if="!loading || msg.content" class="message-content assistant-message">
               <div class="message-avatar">E</div>
               <div class="message-bubble">
-                <div class="bot-name">Emma</div>
+                <div class="bot-name">Jojo</div>
                 <p>{{ msg.content }}</p>
-                <!-- Listen Button for Emma's messages -->
+                <!-- Listen Button for Jojo's messages -->
                 <button v-if="msg.content" @click="playAudio(msg.content)" :disabled="isPlayingAudio"
-                  class="listen-button" title="Listen to Emma's response">
+                  class="listen-button" title="Listen to Jojo's response">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="height: 14px; width: 14px">
                     <path
                       d="M3 10v4a1 1 0 0 0 1 1h2.22l3.13 3.13a1 1 0 0 0 1.65-.76V6.63a1 1 0 0 0-1.65-.76L6.22 9H4a1 1 0 0 0-1 1zM14 8.24a1 1 0 0 1 1.41 0 5 5 0 0 1 0 7.07 1 1 0 1 1-1.41-1.41 3 3 0 0 0 0-4.24 1 1 0 0 1 0-1.42z" />
@@ -60,7 +60,7 @@
 
           <div v-if="loading" class="loading-message">
             <div class="message-bubble loading-bubble">
-              <div class="bot-name">Emma</div>
+              <div class="bot-name">Jojo</div>
               <div class="typing-indicator">
                 <span></span>
                 <span></span>
@@ -187,7 +187,7 @@ const toggleVoiceInput = () => {
   }
 };
 
-// Text-to-Speech for Emma's responses
+// Text-to-Speech for Jojo's responses
 const playAudio = async (text) => {
   if (isPlayingAudio.value || !text) return;
 
@@ -217,8 +217,8 @@ const playAudio = async (text) => {
   }
 };
 
-// Emma - English conversation system prompt
-const systemPrompt = `You are Emma, a warm and encouraging English conversation partner. Your personality is friendly, patient, and genuinely interested in helping people practice English naturally. Don't use Icon or Emoji
+// Jojo - English conversation system prompt
+const systemPrompt = `You are Jojo, a warm and encouraging English conversation partner. Your personality is friendly, patient, and genuinely interested in helping people practice English naturally. Don't use Icon or Emoji
 
 CORE PERSONALITY:
 - Speak like a supportive friend, not a teacher
@@ -252,12 +252,12 @@ HANDLING ADVANCED TOPICS:
 
 EXAMPLES OF YOUR STYLE:
 User: "I like pizza"
-Emma: "Pizza is the best! What's your favorite topping? I always go for pepperoni myself."
+Jojo: "Pizza is the best! What's your favorite topping? I always go for pepperoni myself."
 
 User: "I study at university"
-Emma: "That's exciting! What are you studying? University can be pretty intense but fun too."
+Jojo: "That's exciting! What are you studying? University can be pretty intense but fun too."
 
-Remember: You're Emma, their English buddy - be warm, curious, and keep the conversation flowing naturally!`;
+Remember: You're Jojo, their English buddy - be warm, curious, and keep the conversation flowing naturally!`;
 
 const sendMessage = async () => {
   if (!userMessage.value.trim() || loading.value) return;
@@ -768,7 +768,7 @@ const sendMessage = async () => {
   box-shadow: none;
 }
 
-/* Listen Button for Emma's responses */
+/* Listen Button for Jojo's responses */
 .listen-button {
   margin-top: 8px;
   padding: 6px 12px;

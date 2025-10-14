@@ -27,7 +27,7 @@ export default {
     },
     banner: {
       practiceEnglish: {
-        title: 'Emma - Your English Buddy',
+        title: 'Jojo - Your English Buddy',
         subtitle: 'Practice English conversation in a friendly, relaxed way',
         features: ['Voice Chat', 'Real-time', 'AI Powered', 'Friendly'],
       },
@@ -484,7 +484,7 @@ export default {
     },
     banner: {
       practiceEnglish: {
-        title: 'Emma - 你的英语伙伴',
+        title: 'Jojo - 你的英语伙伴',
         subtitle: '以友好轻松的方式练习英语对话',
         features: ['语音聊天', '实时互动', 'AI助力', '友好氛围'],
       },
@@ -910,7 +910,7 @@ export default {
     },
     banner: {
       practiceEnglish: {
-        title: 'Emma - Bạn học tiếng Anh của bạn',
+        title: 'Jojo - Bạn học tiếng Anh của bạn',
         subtitle: 'Luyện tập hội thoại tiếng Anh một cách thân thiện và thoải mái',
         features: ['Trò chuyện bằng giọng nói', 'Thời gian thực', 'AI hỗ trợ', 'Thân thiện'],
       },
@@ -1366,7 +1366,7 @@ export default {
     },
     banner: {
       practiceEnglish: {
-        title: 'Emma - Teman Belajar Bahasa Inggris Anda',
+        title: 'Jojo - Teman Belajar Bahasa Inggris Anda',
         subtitle: 'Berlatih percakapan bahasa Inggris dengan cara yang ramah dan santai',
         features: ['Obrolan Suara', 'Real-time', 'Bertenaga AI', 'Ramah'],
       },

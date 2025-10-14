@@ -54,7 +54,7 @@
 import { h } from 'vue'
 
 const props = defineProps({
-  title: { type: String, default: 'Emma - Your English Buddy' },
+  title: { type: String, default: 'Jojo - Your English Buddy' },
   subtitle: { type: String, default: 'Practice English conversation in a friendly, relaxed way' },
   bubbleTexts: {
     type: Array,
