@@ -564,7 +564,7 @@ function closeModal() { showModal.value = false }
 
 /* 新增最外层滚动容器，固定宽度、避免撑大父级 */
 .alerts-scroll {
-  width: 60vw;
+  width: 90vw;
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch; /* iOS 平滑滚动 */
