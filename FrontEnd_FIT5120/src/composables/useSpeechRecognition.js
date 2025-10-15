@@ -31,13 +31,6 @@ export function useSpeechRecognition() {
     recognition.interimResults = false
     recognition.maxAlternatives = 1
 
-    console.log('Initialized Web Speech Recognition with settings:', {
-      language: recognition.lang,
-      continuous: recognition.continuous,
-      interimResults: recognition.interimResults,
-      maxAlternatives: recognition.maxAlternatives,
-    })
-
     return recognition
   }
 
@@ -54,18 +47,15 @@ export function useSpeechRecognition() {
       const rec = initWebSpeechAPI(language)
 
       rec.onstart = () => {
-        console.log('Speech recognition started')
       }
 
       rec.onresult = (event) => {
-        console.log('Speech recognition result:', event.results)
         const result = event.results[0][0]
         transcript.value = result.transcript
         recognitionResult.value = {
           text: result.transcript,
           confidence: result.confidence,
         }
-        console.log(`Recognized: "${result.transcript}" (confidence: ${result.confidence})`)
       }
 
       rec.onerror = (event) => {
@@ -75,12 +65,10 @@ export function useSpeechRecognition() {
       }
 
       rec.onend = () => {
-        console.log('Speech recognition ended')
         isRecording.value = false
       }
 
       rec.start()
-      console.log('Started Web Speech Recognition for language:', language)
     } catch (err) {
       console.error('Failed to start Web Speech Recognition:', err)
       error.value = err.message
@@ -114,7 +102,6 @@ export function useSpeechRecognition() {
     const ref = normalizeText(reference)
     const trans = normalizeText(transcribed)
 
-    console.log('calculateSimilarity normalized:', { ref, trans })
 
     if (ref === trans) return 100
 
@@ -145,7 +132,6 @@ export function useSpeechRecognition() {
     const maxLength = Math.max(ref.length, trans.length)
     const similarity = ((maxLength - distance) / maxLength) * 100
 
-    console.log('calculateSimilarity result:', similarity)
     return Math.round(similarity)
   }
 
@@ -181,7 +167,7 @@ export function useSpeechRecognition() {
       }
     }
 
-    console.log('analyzeWordDifferences result:', differences)
+    ('analyzeWordDifferences result:', differences)
     return differences
   }
 
@@ -193,15 +179,6 @@ export function useSpeechRecognition() {
     const finalScore = Math.round(similarity * confidence)
     const differences = analyzeWordDifferences(referenceText, transcribedText)
 
-    console.log('evaluatePronunciation debug:', {
-      referenceText,
-      transcribedText,
-      similarity,
-      finalScore,
-      differences,
-      confidence,
-    })
-
     let feedback = ''
     let level = ''
     let color = ''
@@ -209,7 +186,6 @@ export function useSpeechRecognition() {
     // Determine feedback level and color based on score and word analysis
     const incorrectDifferences = differences.filter((d) => d.type === 'incorrect')
 
-    console.log('incorrectDifferences:', incorrectDifferences)
 
     if (finalScore >= 85 && incorrectDifferences.length === 0) {
       // Excellent - Green

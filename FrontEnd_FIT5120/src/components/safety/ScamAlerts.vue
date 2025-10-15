@@ -15,7 +15,7 @@
           <p class="warning-text">
             {{ t('safety.scam_warning', 'Scammers often target elderly and new immigrants. Be vigilant!') }}
           </p>
-          
+
           <!-- Prevention tips in banner -->
           <div class="banner-prevention-tips">
             <h4 class="banner-tips-title">
@@ -40,21 +40,21 @@
             </h3>
             <p class="section-note">{{ t('safety.victoria_only', 'Note: Victoria only') }}</p>
           </div>
-          
+
           <!-- 类型筛选器 -->
           <div class="category-filter">
             <label for="category-select" class="filter-label">
               🔍 {{ t('safety.filter_by_type', 'Filter by Type') }}:
             </label>
-            <select 
+            <select
               id="category-select"
-              v-model="selectedCategory" 
+              v-model="selectedCategory"
               class="filter-select"
             >
               <option value="all">{{ t('safety.all_types', 'All Types') }}</option>
-              <option 
-                v-for="category in uniqueCategories" 
-                :key="category" 
+              <option
+                v-for="category in uniqueCategories"
+                :key="category"
                 :value="category"
               >
                 {{ category }}
@@ -217,17 +217,17 @@ const uniqueCategories = computed(() => {
 // Computed property: Format scam data with localization and icons
 const formattedScamData = computed(() => {
   let data = Array.isArray(scamData.value) ? scamData.value : []
-  
+
   // 根据选中的类型筛选
   if (selectedCategory.value !== 'all') {
     data = data.filter(scam => scam && scam.categoryLevel2 === selectedCategory.value)
   }
-  
+
   return data.map((scam, index) => {
     // Assign icons and priority based on scam type
     let icon = '⚠️'
     let priority = 'medium'
- 
+
     if (scam && scam.categoryLevel2) {
       const category = String(scam.categoryLevel2 || '').toLowerCase()
       if (category.includes('romance') || category.includes('dating') || category.includes('relationship')) {
@@ -258,9 +258,9 @@ const formattedScamData = computed(() => {
       // Format amount for display (remove extra spaces and ensure proper formatting)
       formattedAmount: scam && scam.amountLost ? String(scam.amountLost).trim() : null,
       // Format date for display
-      formattedDate: (scam && scam.startOfMonth) ? new Date(scam.startOfMonth).toLocaleDateString('en-AU', { 
-        year: 'numeric', 
-        month: 'short' 
+      formattedDate: (scam && scam.startOfMonth) ? new Date(scam.startOfMonth).toLocaleDateString('en-AU', {
+        year: 'numeric',
+        month: 'short'
       }) : null
     }
   })
@@ -278,15 +278,14 @@ const filteredScamData = computed(() => {
 const fetchScamReports = async (page = 1) => {
   loading.value = true
   error.value = null
- 
+
   try {
     const response = await scamReportService.getScamReports({
       page: 1,
       size: 100,
       state: 'Victoria'
     })
- 
-    console.log('[ScamAlerts] response:', response)
+
     const respOk = (response && (response.success === true || Array.isArray(response.data)))
     if (respOk) {
       scamData.value = Array.isArray(response.data) ? response.data : []
@@ -466,12 +465,12 @@ function closeModal() { showModal.value = false }
     flex-direction: column;
     align-items: stretch;
   }
-  
+
   .category-filter {
     width: 100%;
     justify-content: space-between;
   }
-  
+
   .filter-select {
     flex: 1;
     min-width: 0;
@@ -957,7 +956,7 @@ function closeModal() { showModal.value = false }
   .module-content {
     padding: 0.8rem;
   }
-  
+
   .module-header {
     padding: 1rem;
   }

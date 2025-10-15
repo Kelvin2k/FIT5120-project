@@ -139,13 +139,12 @@ const fetchWeatherData = async () => {
   error.value = false
 
   try {
-    console.log('🌤️ Fetching weather data from BOM (via Vite proxy)...')
 
 // ✅ 关键修改：访问 /bom/fwo/ 而不是 /bom.gov.au/fwo/
 const bomUrl =
   import.meta.env.MODE === 'development'
     ? '/bom/fwo/IDV60901/IDV60901.95936.json' // ✅ 本地用 Vite 代理
-    : 'https://api.allorigins.win/raw?url=' + 
+    : 'https://api.allorigins.win/raw?url=' +
       encodeURIComponent('https://reg.bom.gov.au/fwo/IDV60901/IDV60901.95936.json'); // ✅ 部署后使用稳定代理
 
 // ✅ 延长超时（由10秒改为20秒）
@@ -164,7 +163,6 @@ const bomUrl =
       rain_today: `${latest.rain_trace} mm`,
     }
 
-    console.log('✅ Weather data loaded:', weatherData.value)
   } catch (err) {
     console.error('❌ Weather API error:', err)
     error.value = true

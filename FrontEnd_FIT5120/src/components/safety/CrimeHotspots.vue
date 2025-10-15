@@ -14,7 +14,7 @@
           <h3 class="map-title">
             🗺️ {{ t('safety.crime_hotspots_map', 'Crime Hotspots Map') }}
           </h3>
-          
+
           <!-- 筛选器容器 -->
           <div class="filters-container">
 
@@ -23,9 +23,9 @@
               <label for="level-select" class="filter-label">
                 📊 {{ t('safety.filter_by_level', 'Crime Level') }}:
               </label>
-              <select 
+              <select
                 id="level-select"
-                v-model="selectedCrimeLevel" 
+                v-model="selectedCrimeLevel"
                 class="filter-select"
               >
                 <option value="all">{{ t('safety.all_levels', 'All Levels') }}</option>
@@ -284,7 +284,7 @@ const uniquePoliceRegions = computed(() => {
 // 计算全局归一化基准（使用所有原始数据）
 const globalNormalizationBase = computed(() => {
   const allProcessedData = []
-  
+
   rawCrimeData.value.forEach(item => {
     const coordinates = getLGACoordinates(item.lga)
     if (coordinates) {
@@ -293,11 +293,11 @@ const globalNormalizationBase = computed(() => {
       })
     }
   })
-  
+
   if (allProcessedData.length === 0) {
     return { max: 0, min: 0 }
   }
-  
+
   const offenceCounts = allProcessedData.map(area => area.offenceCount)
   return {
     max: Math.max(...offenceCounts),
@@ -308,12 +308,12 @@ const globalNormalizationBase = computed(() => {
 // Process API data to include coordinates using LGA mapping
 const crimeAreas = computed(() => {
   let data = rawCrimeData.value
-  
+
   // 根据选中的警区筛选
   if (selectedPoliceRegion.value !== 'all') {
     data = data.filter(item => item && item.policeRegion === selectedPoliceRegion.value)
   }
-  
+
   const processedData = []
 
   data.forEach(item => {
@@ -335,12 +335,12 @@ const crimeAreas = computed(() => {
   // 根据选中的犯罪等级筛选（使用全局归一化基准）
   if (selectedCrimeLevel.value !== 'all') {
     const { max: maxOffences, min: minOffences } = globalNormalizationBase.value
-    
+
     return processedData.filter(area => {
-      const normalizedIntensity = maxOffences > minOffences 
+      const normalizedIntensity = maxOffences > minOffences
         ? (area.offenceCount - minOffences) / (maxOffences - minOffences)
         : 0
-      
+
       const level = getCrimeLevelClass(normalizedIntensity)
       return level === selectedCrimeLevel.value
     })
@@ -364,12 +364,10 @@ const fetchCrimeData = async () => {
   error.value = null
 
   try {
-    console.log('Fetching crime statistics from API...')
     const response = await crimeStatisticsService.getCrimeStatisticsByLGA()
 
     if (response.success && response.data) {
       rawCrimeData.value = response.data
-      console.log(`Loaded ${response.data.length} crime statistics records`)
     } else {
       throw new Error(response.message || 'Failed to fetch crime statistics')
     }
@@ -383,7 +381,6 @@ const fetchCrimeData = async () => {
       { policeRegion: '1 North West Metro', lga: 'Melbourne', offenceCount: 35767 },
       { policeRegion: '1 North West Metro', lga: 'Yarra', offenceCount: 14134 }
     ]
-    console.log('Using fallback sample data')
   } finally {
     loading.value = false
   }
@@ -441,7 +438,6 @@ const loadCrimeData = (dataArray) => {
     }
   })
 
-  console.log(`Loaded ${rawCrimeData.value.length} LGA crime records`)
 }
 
 // Aggregate crime data by police region
@@ -603,7 +599,6 @@ const initializeMap = () => {
     // Create dense heatmap effect for all LGAs
     createHeatmapEffect(map)
 
-    console.log(`Crime heatmap initialized successfully with ${crimeAreas.value.length} Local Government Areas`)
   } catch (error) {
     console.error('Error initializing crime heatmap:', error)
   }
@@ -645,11 +640,10 @@ watch([selectedPoliceRegion, selectedCrimeLevel], () => {
       })
       map.heatmapLayers = []
     }
-    
+
     // 重新创建热力图
     createHeatmapEffect(map)
-    
-    console.log(`Map updated: ${crimeAreas.value.length} LGAs displayed`)
+
   }
 })
 
@@ -1077,23 +1071,23 @@ defineExpose({
     flex-direction: column;
     align-items: stretch;
   }
-  
+
   .filters-container {
     flex-direction: column;
     width: 100%;
   }
-  
+
   .region-filter,
   .level-filter {
     width: 100%;
     justify-content: space-between;
   }
-  
+
   .filter-select {
     flex: 1;
     min-width: 0;
   }
-  
+
   .filter-count {
     width: 100%;
     text-align: center;

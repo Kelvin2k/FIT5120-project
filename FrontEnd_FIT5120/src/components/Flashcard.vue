@@ -193,7 +193,6 @@ const handleTalk = async () => {
   pronunciationResult.value = null
 
   try {
-    console.log('Using Web Speech API for pronunciation assessment')
     await handleWebSpeechPronunciation()
   } catch (error) {
     console.error('Talk handler error:', error)
@@ -214,8 +213,6 @@ const handleWebSpeechPronunciation = async () => {
   isRecording.value = true
 
   try {
-    console.log('Starting Web Speech API pronunciation assessment...')
-    console.log('Target phrase:', props.phrase.english)
 
     // Reset previous results
     recognitionResult.value = null
@@ -244,12 +241,6 @@ const handleWebSpeechPronunciation = async () => {
 
     // Evaluate pronunciation
     if (recognitionResult.value && recognitionResult.value.text) {
-      console.log('Recognition successful:', {
-        transcribed: recognitionResult.value.text,
-        confidence: recognitionResult.value.confidence,
-        target: props.phrase.english
-      })
-
       const result = evaluatePronunciation(
         props.phrase.english,
         recognitionResult.value.text,
