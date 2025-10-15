@@ -336,9 +336,9 @@ const handleQuickAction = (action) => {
 }
 
 .module-content {
-  padding: 1.5rem;
+  padding: 0 1rem;
   flex-grow: 1;
-  overflow-y: auto;
+  overflow: visible;
 }
 
 /* Emergency contacts area */
@@ -376,6 +376,10 @@ const handleQuickAction = (action) => {
   color: white;
   font-weight: 600;
   font-size: 0.95rem;
+  /* mobile touch optimizations */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
 }
 
 .contact-btn.critical {
@@ -559,6 +563,10 @@ const handleQuickAction = (action) => {
   cursor: pointer;
   transition: all 0.3s ease;
   font-weight: 600;
+  /* mobile touch optimizations */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
 }
 
 .action-btn:hover {
@@ -634,6 +642,18 @@ const handleQuickAction = (action) => {
 
 /* Responsive design */
 @media (max-width: 768px) {
+  .module-header {
+    padding: 1.2rem 0;
+  }
+
+  .module-title {
+    font-size: 1.3rem;
+  }
+
+  .module-content {
+    padding: 0 0.75rem;
+  }
+
   .contacts-grid {
     grid-template-columns: 1fr;
   }
@@ -641,6 +661,7 @@ const handleQuickAction = (action) => {
   .contact-btn {
     justify-content: center;
     text-align: center;
+    min-height: 56px;
   }
 
   .actions-grid {
@@ -659,6 +680,36 @@ const handleQuickAction = (action) => {
   .reminder-icon {
     margin-right: 0;
     margin-bottom: 0.5rem;
+  }
+
+  .tips-category {
+    padding: 1rem;
+  }
+
+  .resource-link {
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .module-header {
+    padding: 1rem 0;
+  }
+
+  .module-title {
+    font-size: 1.2rem;
+  }
+
+  .module-content {
+    padding: 0 0.5rem;
+  }
+
+  .actions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-btn {
+    width: 100%;
   }
 }
 

@@ -177,6 +177,11 @@ onUnmounted(() => {
   margin: 0 auto;
 }
 
+/* 关键修复：允许网格子项在容器内收缩，避免溢出导致 100% 失效 */
+.safety-layout > * {
+  min-width: 0;
+}
+
 @media (max-width: 1200px) {
   .safety-layout {
     grid-template-columns: 200px 1fr;
@@ -198,6 +203,12 @@ onUnmounted(() => {
   margin-bottom: 2rem;
   width: 100%;
   max-width: 100%;
+  min-width: 0; /* 关键：作为 grid item 时可收缩 */
+}
+
+/* 确保 safety-grid 的直接子项也能收缩，避免内部内容撑破 */
+.safety-grid > * {
+  min-width: 0;
 }
 
 @media (min-width: 992px) {
@@ -225,6 +236,7 @@ onUnmounted(() => {
   border: none;
   padding: 2.5rem 0;
   scroll-margin-top: 180px;
+  min-width: 0; /* 关键：作为 grid/flex 子项可收缩 */
 }
 
 .safety-module:hover {
@@ -455,66 +467,92 @@ onUnmounted(() => {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
-/* 移动端回退为顶部横向条（导航在内容上方） */
+/* 移动端：右侧细竖条悬浮导航（四个小竖条，当前项高亮） */
 @media (max-width: 991px) {
   .safety-float-nav {
-    position: sticky;
-    top: 80px;
-    width: calc(100% + 2rem);
-    margin-left: -1rem;
-    margin-right: -1rem;
-    margin-top: 0;
-    border-radius: 0;
+    position: fixed;
+    top: 62%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 12px;
+    background: transparent;
     border: 0;
-    border-bottom: 1px solid #eee;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    background: rgba(255, 255, 255, 0.98);
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
   }
 
   .safety-float-nav ul {
-    flex-direction: row;
-    gap: 0.5rem;
-    padding: 0.75rem 1rem;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-
-  .safety-float-nav ul::-webkit-scrollbar {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
 
   .safety-float-nav li button {
-    width: auto;
-    white-space: nowrap;
+    display: block;
+    width: 12px;
+    height: 40px;
+    padding: 0;
     border-radius: 999px;
-    padding: 0.6rem 1.2rem;
-    font-size: 0.9rem;
+    background: rgba(0, 0, 0, 0.15);
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+    /* 隐藏文字，仅保留可点击区域 */
+    font-size: 0;
+    line-height: 0;
+    color: transparent;
+    overflow: hidden;
   }
 
   .safety-float-nav li button:hover {
-    transform: none;
+    background: rgba(0, 0, 0, 0.25);
+    transform: translateX(-1px);
   }
 
-  .safety-content {
-    padding-left: 1rem;
-    padding-right: 1rem;
+  .safety-float-nav li.active button {
+    background: #8e24aa;
+    box-shadow: 0 0 0 3px rgba(142, 36, 170, 0.15);
+  }
+
+  /* 更小屏幕：缩短竖条高度并靠边一些 */
+  @media (max-width: 576px) {
+    .safety-float-nav {
+      right: 8px;
+    }
+    .safety-float-nav li button {
+      height: 32px;
+      width: 10px;
+    }
   }
 }
 
 @media (max-width: 768px) {
+  /* 保持右侧竖条样式，不切到横排按钮 */
   .safety-float-nav {
-    top: 70px;
+    top: 62%;
+    right: 10px;
+    transform: translateY(-50%);
   }
 
   .safety-float-nav ul {
-    padding: 0.6rem 0.75rem;
-    gap: 0.4rem;
+    flex-direction: column;
+    padding: 0;
+    gap: 10px;
   }
 
   .safety-float-nav li button {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
+    width: 10px;
+    height: 36px;
+    padding: 0;
+    font-size: 0;
+    line-height: 0;
+    color: transparent;
   }
 }
 
