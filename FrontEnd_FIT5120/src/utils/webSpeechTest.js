@@ -63,5 +63,4 @@ export function testWebSpeechAPI() {
 // Global function for browser console
 if (typeof window !== 'undefined') {
   window.testWebSpeech = testWebSpeechAPI
-  console.log('🎤 Web Speech test function available: testWebSpeech()')
 }
