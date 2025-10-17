@@ -63,7 +63,7 @@ function buildTranslationTexts(cards) {
   const texts = []
   // Add button labels first so order is fixed
   texts.push('Take Quiz')
-  texts.push('Click more to see')
+  texts.push('Click to see more')
 
   for (const card of cards) {
     texts.push(card.title)
@@ -115,7 +115,7 @@ function setEnglishTexts() {
     translatedDesc: card.en,
   }))
   quizBtnText.value = 'Take Quiz'
-  clickMoreText.value = 'Click more to see'
+  clickMoreText.value = 'Click to see more'
 }
 
 async function loadOriginalCards() {
