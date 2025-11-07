@@ -1,10 +1,9 @@
 <template>
   <div id="app">
-    <Header v-if="$route.name !== 'passcode'" />
-    <router-view v-slot="{ Component, route }" class="background_content">
-      <component :is="Component" :class="route.name === 'passcode' ? '' : ''" />
+    <Header />
+    <router-view>
     </router-view>
-    <Footer v-if="$route.name !== 'passcode'" />
+    <Footer />
   </div>
 </template>
 

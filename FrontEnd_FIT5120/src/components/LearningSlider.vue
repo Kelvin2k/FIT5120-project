@@ -59,6 +59,9 @@ const translatedCards = ref([])
 const quizBtnText = ref('Take Quiz')
 const clickMoreText = ref('Click to see more')
 
+// Cache for translations by language
+const translationCache = ref({})
+
 function buildTranslationTexts(cards) {
   const texts = []
   // Add button labels first so order is fixed
@@ -93,6 +96,15 @@ async function translateAll() {
     return
   }
 
+  // Check if we have cached translations for this language
+  if (translationCache.value[props.lang]) {
+    const cached = translationCache.value[props.lang]
+    quizBtnText.value = cached.quizBtnText
+    clickMoreText.value = cached.clickMoreText
+    translatedCards.value = cached.translatedCards
+    return
+  }
+
   // Build array of texts to translate
   const texts = buildTranslationTexts(originalCards.value)
   try {
@@ -101,6 +113,13 @@ async function translateAll() {
     quizBtnText.value = translations[0]
     clickMoreText.value = translations[1]
     translatedCards.value = mapTranslationsToCards(originalCards.value, translations)
+
+    // Cache the results for this language
+    translationCache.value[props.lang] = {
+      quizBtnText: quizBtnText.value,
+      clickMoreText: clickMoreText.value,
+      translatedCards: translatedCards.value
+    }
   } catch {
     // If error, fallback to English
     setEnglishTexts()
@@ -116,6 +135,13 @@ function setEnglishTexts() {
   }))
   quizBtnText.value = 'Take Quiz'
   clickMoreText.value = 'Click to see more'
+
+  // Cache English version too
+  translationCache.value['en'] = {
+    quizBtnText: quizBtnText.value,
+    clickMoreText: clickMoreText.value,
+    translatedCards: translatedCards.value
+  }
 }
 
 async function loadOriginalCards() {
